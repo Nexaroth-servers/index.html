@@ -62,7 +62,7 @@ header{
         rgba(0,0,0,0.55),
         rgba(0,0,0,0.80)
     ),
-    url("./images/nexaroth-bg.png");
+  url("images/nexaroth-bg.png")
 
     background-size:cover;
     background-position:center;
