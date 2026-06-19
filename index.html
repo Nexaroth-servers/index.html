@@ -27,14 +27,13 @@ color:white;
 overflow-x:hidden;
 }
 
-/* FOND DALARAN / LICH KING */
+/* HERO */
 
 .hero{
-position:relative;
 height:100vh;
 
 background:
-linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.85)),
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.85)),
 url("https://image.noelshack.com/fichiers/2026/25/5/1781897484-images.jpg");
 
 background-size:cover;
@@ -54,32 +53,6 @@ from{background-size:100%;}
 to{background-size:115%;}
 }
 
-/* NEIGE */
-
-.snow{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-pointer-events:none;
-opacity:.18;
-z-index:1;
-background-image:
-radial-gradient(white 1px, transparent 1px);
-background-size:35px 35px;
-animation:snowMove 15s linear infinite;
-}
-
-@keyframes snowMove{
-from{
-transform:translateY(-100px);
-}
-to{
-transform:translateY(100vh);
-}
-}
-
 /* MENU */
 
 .navbar{
@@ -87,37 +60,26 @@ position:fixed;
 top:0;
 left:0;
 width:100%;
-
 display:flex;
 justify-content:space-between;
 align-items:center;
-
-padding:20px 50px;
-
-background:rgba(0,0,0,.65);
-backdrop-filter:blur(12px);
-
-border-bottom:1px solid rgba(0,191,255,.25);
-
+padding:20px 40px;
+background:rgba(0,0,0,.75);
+backdrop-filter:blur(10px);
 z-index:9999;
 }
 
 .logo{
 font-family:'Cinzel',serif;
-font-size:40px;
-font-weight:bold;
-
+font-size:38px;
 color:#9deeff;
-
-text-shadow:
-0 0 10px #00bfff,
-0 0 20px #00bfff,
-0 0 40px #00bfff;
+text-shadow:0 0 20px #00bfff;
 }
 
 nav{
 display:flex;
-gap:25px;
+gap:20px;
+flex-wrap:wrap;
 }
 
 nav a{
@@ -130,54 +92,43 @@ nav a:hover{
 color:#6fdcff;
 }
 
-/* HERO */
+/* HERO CONTENT */
 
-.hero-content{
-z-index:2;
-}
-
-.hero h1{
+.hero-content h1{
 font-family:'Cinzel',serif;
-font-size:110px;
-
-color:#d9f8ff;
+font-size:90px;
+color:#dffcff;
 
 text-shadow:
-0 0 15px #00bfff,
-0 0 35px #00bfff,
-0 0 60px #00bfff;
+0 0 10px #00bfff,
+0 0 25px #00bfff,
+0 0 50px #00bfff;
 }
 
-.hero p{
+.hero-content p{
 font-size:24px;
-margin-top:20px;
-margin-bottom:20px;
+margin:20px 0;
 }
 
 .btn{
 display:inline-block;
-
 padding:15px 35px;
 margin:10px;
-
 background:#0099ff;
 color:white;
-
 text-decoration:none;
-border-radius:10px;
-
+border-radius:8px;
 transition:.3s;
 }
 
 .btn:hover{
 transform:translateY(-3px);
-
 box-shadow:
-0 0 20px #00bfff,
-0 0 40px #00bfff;
+0 0 15px #00bfff,
+0 0 30px #00bfff;
 }
 
-/* SECTIONS */
+/* SECTION */
 
 section{
 padding:100px 20px;
@@ -196,23 +147,19 @@ margin-bottom:50px;
 color:#6fdcff;
 }
 
-/* CARDS */
-
-.card{
-background:rgba(16,24,32,.85);
-backdrop-filter:blur(10px);
-border:1px solid rgba(111,220,255,.15);
-
-padding:30px;
-border-radius:12px;
-}
-
 /* STATS */
 
 .stats{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:20px;
+}
+
+.card{
+background:#101820;
+padding:30px;
+border-radius:12px;
+text-align:center;
 }
 
 .number{
@@ -229,17 +176,6 @@ grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 gap:20px;
 }
 
-/* DOWNLOAD */
-
-.download-box{
-background:rgba(16,24,32,.85);
-backdrop-filter:blur(10px);
-
-padding:40px;
-border-radius:12px;
-text-align:center;
-}
-
 /* FOOTER */
 
 footer{
@@ -251,30 +187,34 @@ color:#999;
 
 .footer-logo{
 font-family:'Cinzel',serif;
-font-size:45px;
-margin-bottom:10px;
+font-size:42px;
 color:#9deeff;
+margin-bottom:10px;
 }
 
-/* RESPONSIVE */
+/* SNOW */
 
-@media(max-width:768px){
-
-.hero h1{
-font-size:60px;
+.snow{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+background-image:
+radial-gradient(white 1px, transparent 1px);
+background-size:40px 40px;
+opacity:.15;
+animation:snowMove 15s linear infinite;
 }
 
-.navbar{
-padding:15px;
-flex-direction:column;
-gap:15px;
+@keyframes snowMove{
+from{
+transform:translateY(-100px);
 }
-
-nav{
-flex-wrap:wrap;
-justify-content:center;
+to{
+transform:translateY(100vh);
 }
-
 }
 
 </style>
@@ -289,14 +229,31 @@ justify-content:center;
 <div class="logo">NEXAROTH</div>
 
 <nav>
-<a href="#accueil">Accueil</a>
-<a href="#telechargement">Téléchargement</a>
-<a href="#actualites">Actualités</a>
-<a href="#stats">Statistiques</a>
 
-<a href="https://discord.gg/zcH3JXHeuQ"
-target="_blank">
-Discord
+<a href="#accueil">Accueil</a>
+
+<a href="https://nexaroth.com/register" target="_blank">
+⚔ Inscription
+</a>
+
+<a href="#telechargement">
+📥 Téléchargement
+</a>
+
+<a href="https://nexaroth.com/shop" target="_blank">
+🛒 Boutique
+</a>
+
+<a href="https://nexaroth.com/vote" target="_blank">
+🏆 Vote
+</a>
+
+<a href="https://nexaroth.com/forum" target="_blank">
+💬 Forum
+</a>
+
+<a href="https://discord.gg/zcH3JXHeuQ" target="_blank">
+🎮 Discord
 </a>
 
 </nav>
@@ -311,16 +268,18 @@ Discord
 
 <p>
 World of Warcraft<br>
-Wrath of the Lich King 3.3.5a HD
+Wrath of the Lich King 3.3.5a
 </p>
+
+<a href="https://nexaroth.com/register" class="btn">
+⚔ Créer un compte
+</a>
 
 <a href="#telechargement" class="btn">
 📥 Télécharger
 </a>
 
-<a href="https://discord.gg/zcH3JXHeuQ"
-target="_blank"
-class="btn">
+<a href="https://discord.gg/zcH3JXHeuQ" class="btn">
 💬 Discord
 </a>
 
@@ -332,23 +291,33 @@ class="btn">
 
 <div class="container">
 
-<h2 class="title">Téléchargements</h2>
+<h2 class="title">Téléchargement</h2>
 
-<div class="download-box">
+<div class="card">
 
-<h3>Client Officiel Nexaroth</h3>
+<h3>Client World of Warcraft 3.3.5a HD</h3>
 
 <br>
 
-<a href="https://drive.google.com/file/d/1hE1X41DnWJ3wu1O_xzKaTCAZAi2SyDiR/view" target="_blank" class="btn">🇫🇷 Français</a>
+<a href="https://drive.google.com/file/d/1hE1X41DnWJ3wu1O_xzKaTCAZAi2SyDiR/view" class="btn" target="_blank">
+🇫🇷 Télécharger FR
+</a>
 
-<a href="https://drive.google.com/file/d/1zcvTIhu-rKSRrGkzRsAmTfJ-Ik48C5-S/view" target="_blank" class="btn">🇬🇧 English</a>
+<a href="https://drive.google.com/file/d/1zcvTIhu-rKSRrGkzRsAmTfJ-Ik48C5-S/view" class="btn" target="_blank">
+🇬🇧 Download EN
+</a>
 
-<a href="https://drive.google.com/file/d/1vfDM2mvsn4-Q5zD3x8VO_6BUzPpLHfxC/view" target="_blank" class="btn">🇪🇸 Español</a>
+<a href="https://drive.google.com/file/d/1vfDM2mvsn4-Q5zD3x8VO_6BUzPpLHfxC/view" class="btn" target="_blank">
+🇪🇸 Descargar ES
+</a>
 
-<a href="https://drive.google.com/file/d/1zfKUEOMti-pUVJnr8pfhEwTqLG6baanJ/view" target="_blank" class="btn">🇩🇪 Deutsch</a>
+<a href="https://drive.google.com/file/d/1zfKUEOMti-pUVJnr8pfhEwTqLG6baanJ/view" class="btn" target="_blank">
+🇩🇪 Download DE
+</a>
 
-<a href="https://drive.google.com/file/d/1ykz3I97ajwjAqkbZ4cDNrTtBdho6MBtj/view" target="_blank" class="btn">🇷🇺 Русский</a>
+<a href="https://drive.google.com/file/d/1ykz3I97ajwjAqkbZ4cDNrTtBdho6MBtj/view" class="btn" target="_blank">
+🇷🇺 Скачать RU
+</a>
 
 </div>
 
@@ -356,7 +325,7 @@ class="btn">
 
 </section>
 
-<section id="stats">
+<section>
 
 <div class="container">
 
@@ -365,17 +334,17 @@ class="btn">
 <div class="stats">
 
 <div class="card">
-<div class="number" data-target="2541">0</div>
+<div class="number">0</div>
 <p>Joueurs en ligne</p>
 </div>
 
 <div class="card">
-<div class="number" data-target="78921">0</div>
+<div class="number">0</div>
 <p>Comptes créés</p>
 </div>
 
 <div class="card">
-<div class="number" data-target="1250">0</div>
+<div class="number">0</div>
 <p>Guildes</p>
 </div>
 
@@ -390,7 +359,45 @@ class="btn">
 
 </section>
 
-<section id="actualites">
+<section>
+
+<div class="container">
+
+<h2 class="title">Accès Rapide</h2>
+
+<div class="stats">
+
+<div class="card">
+<h3>⚔ Inscription</h3>
+<br>
+<a href="https://nexaroth.com/register" class="btn">Créer un compte</a>
+</div>
+
+<div class="card">
+<h3>🏆 Vote</h3>
+<br>
+<a href="https://nexaroth.com/vote" class="btn">Voter</a>
+</div>
+
+<div class="card">
+<h3>🛒 Boutique</h3>
+<br>
+<a href="https://nexaroth.com/shop" class="btn">Boutique</a>
+</div>
+
+<div class="card">
+<h3>💬 Forum</h3>
+<br>
+<a href="https://nexaroth.com/forum" class="btn">Forum</a>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
 
 <div class="container">
 
@@ -410,7 +417,7 @@ class="btn">
 
 <div class="card">
 <h3>❄ ICC Disponible</h3>
-<p>Icecrown Citadel est désormais ouverte.</p>
+<p>Icecrown Citadel est ouverte.</p>
 </div>
 
 </div>
@@ -425,47 +432,11 @@ class="btn">
 NEXAROTH
 </div>
 
-<p>Wrath of the Lich King 3.3.5a HD</p>
+<p>Wrath of the Lich King 3.3.5a</p>
 
-<p>© 2026 Tous droits réservés à Nexaroth Servers</p>
+<p>© 2026 Nexaroth - Tous droits réservés</p>
 
 </footer>
-
-<script>
-
-const counters = document.querySelectorAll('.number[data-target]');
-
-counters.forEach(counter=>{
-
-const target = +counter.getAttribute('data-target');
-
-let count = 0;
-
-const update=()=>{
-
-const increment = target/80;
-
-count += increment;
-
-if(count < target){
-
-counter.innerText=Math.floor(count);
-
-requestAnimationFrame(update);
-
-}else{
-
-counter.innerText=target;
-
-}
-
-}
-
-update();
-
-});
-
-</script>
 
 </body>
 </html>
