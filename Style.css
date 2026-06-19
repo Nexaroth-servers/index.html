@@ -49,6 +49,19 @@ header{
 
     text-align:center;
 
+    background-image:url("images/nexaroth-bg.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
     background:
     linear-gradient(
         rgba(0,0,0,0.5),
@@ -81,18 +94,10 @@ background-position:center;
 background-repeat:no-repeat;
 }
 
-header h1{
-font-size:7rem;
-
 text-shadow:
 0 0 10px #00aaff,
 0 0 20px #00aaff,
 0 0 40px #00aaff;
-}
-
-header p{
-font-size:1.4rem;
-margin-top:20px;
 }
 
 .hero-btn{
