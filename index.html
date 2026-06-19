@@ -23,17 +23,18 @@ scroll-behavior:smooth;
 body{
 font-family:Arial,sans-serif;
 background:#050b12;
-color:white;
+color:#fff;
 overflow-x:hidden;
 }
 
-/* Fond animé */
+/* HERO */
 
 .hero{
 height:100vh;
+
 background:
-linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.85)),
-url("https://image.noelshack.com/fichiers/2026/25/5/1781893960-19-juin-2026-13-h-45-min-16-s.jpg");
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.85)),
+url("https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1920");
 
 background-size:cover;
 background-position:center;
@@ -52,33 +53,7 @@ from{background-size:100%;}
 to{background-size:115%;}
 }
 
-/* Neige */
-
-.snow{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-pointer-events:none;
-background-image:
-radial-gradient(white 1px, transparent 1px);
-background-size:40px 40px;
-opacity:.15;
-animation:snowMove 15s linear infinite;
-z-index:1;
-}
-
-@keyframes snowMove{
-from{
-transform:translateY(-100px);
-}
-to{
-transform:translateY(100vh);
-}
-}
-
-/* Menu */
+/* MENU */
 
 .navbar{
 position:fixed;
@@ -88,18 +63,27 @@ width:100%;
 display:flex;
 justify-content:space-between;
 align-items:center;
+
 padding:20px 50px;
-background:rgba(0,0,0,.75);
+
+background:rgba(0,0,0,.65);
 backdrop-filter:blur(12px);
-z-index:9999;
+
 border-bottom:1px solid rgba(0,191,255,.3);
+
+z-index:9999;
 }
 
 .logo{
 font-family:'Cinzel',serif;
-font-size:36px;
+font-size:38px;
+font-weight:bold;
+
 color:#9deeff;
-text-shadow:0 0 20px #00bfff;
+
+text-shadow:
+0 0 10px #00bfff,
+0 0 20px #00bfff;
 }
 
 nav{
@@ -108,26 +92,22 @@ gap:25px;
 }
 
 nav a{
-color:white;
 text-decoration:none;
+color:white;
 transition:.3s;
 }
 
 nav a:hover{
 color:#6fdcff;
-text-shadow:0 0 10px #00bfff;
 }
 
-/* Hero */
+/* HERO CONTENT */
 
-.hero-content{
-z-index:2;
-}
-
-.hero h1{
+.hero-content h1{
 font-family:'Cinzel',serif;
-font-size:110px;
-color:#bdefff;
+font-size:100px;
+
+color:#d9f8ff;
 
 text-shadow:
 0 0 10px #00bfff,
@@ -135,58 +115,66 @@ text-shadow:
 0 0 60px #00bfff;
 }
 
-.hero p{
-font-size:26px;
+.hero-content p{
+font-size:24px;
 margin:20px 0;
 }
 
 .btn{
 display:inline-block;
+
 padding:15px 35px;
 margin:10px;
+
 background:#0099ff;
 color:white;
+
 text-decoration:none;
 border-radius:8px;
+
 transition:.3s;
 }
 
 .btn:hover{
 transform:translateY(-3px);
-box-shadow:0 0 20px #00bfff;
+
+box-shadow:
+0 0 15px #00bfff,
+0 0 30px #00bfff;
 }
 
-/* Sections */
+/* SECTION */
 
 section{
 padding:100px 20px;
 }
 
 .container{
-max-width:1200px;
+max-width:1300px;
 margin:auto;
 }
 
 .title{
-font-size:42px;
 font-family:'Cinzel',serif;
+font-size:42px;
 text-align:center;
-margin-bottom:40px;
+margin-bottom:50px;
 color:#6fdcff;
 }
 
-.card{
-background:#101820;
-padding:30px;
-border-radius:12px;
-}
-
-/* Stats */
+/* STATS */
 
 .stats{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:20px;
+}
+
+.stat-card{
+background:#101820;
+padding:30px;
+border-radius:12px;
+text-align:center;
 }
 
 .number{
@@ -195,7 +183,7 @@ font-weight:bold;
 color:#00d5ff;
 }
 
-/* News */
+/* NEWS */
 
 .news{
 display:grid;
@@ -203,16 +191,25 @@ grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 gap:20px;
 }
 
-/* Téléchargement */
+.news-card{
+background:#101820;
+padding:25px;
+border-radius:12px;
+}
+
+/* DOWNLOAD */
 
 .download-box{
+background:#101820;
+padding:40px;
+border-radius:12px;
 text-align:center;
 }
 
-/* Footer */
+/* FOOTER */
 
 footer{
-background:#000;
+background:black;
 padding:40px;
 text-align:center;
 color:#999;
@@ -221,8 +218,38 @@ color:#999;
 .footer-logo{
 font-family:'Cinzel',serif;
 font-size:42px;
-color:#9deeff;
 margin-bottom:10px;
+color:#9deeff;
+}
+
+/* SNOW */
+
+.snow{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+pointer-events:none;
+
+background-image:
+radial-gradient(white 1px, transparent 1px);
+
+background-size:40px 40px;
+
+opacity:.15;
+
+animation:snowMove 15s linear infinite;
+}
+
+@keyframes snowMove{
+from{
+transform:translateY(-100px);
+}
+to{
+transform:translateY(100vh);
+}
 }
 
 </style>
@@ -253,14 +280,18 @@ margin-bottom:10px;
 <h1>NEXAROTH</h1>
 
 <p>
-Wrath of the Lich King 3.3.5a<br>
-Serveur PvE & PvP
+World of Warcraft<br>
+Wrath of the Lich King 3.3.5a
 </p>
 
-<a href="#" class="btn">Créer un compte</a>
-
 <a href="#telechargement" class="btn">
-Télécharger le Client
+Télécharger
+</a>
+
+<a href="https://discord.gg/zcH3JXHeuQ"
+target="_blank"
+class="btn">
+Discord
 </a>
 
 </div>
@@ -271,23 +302,43 @@ Télécharger le Client
 
 <div class="container">
 
-<h2 class="title">Téléchargements</h2>
+<h2 class="title">Téléchargement</h2>
 
-<div class="card download-box">
+<div class="download-box">
 
-<h3>Client World of Warcraft 3.3.5a HD</h3>
+<h3>Client Officiel Nexaroth</h3>
 
 <br>
 
-<a href="https://drive.google.com/file/d/1hE1X41DnWJ3wu1O_xzKaTCAZAi2SyDiR/view" target="_blank" class="btn">🇫🇷 Français</a>
+<a href="https://drive.google.com/file/d/1hE1X41DnWJ3wu1O_xzKaTCAZAi2SyDiR/view"
+target="_blank"
+class="btn">
+🇫🇷 Télécharger FR
+</a>
 
-<a href="https://drive.google.com/file/d/1zcvTIhu-rKSRrGkzRsAmTfJ-Ik48C5-S/view" target="_blank" class="btn">🇬🇧 English</a>
+<a href="https://drive.google.com/file/d/1zcvTIhu-rKSRrGkzRsAmTfJ-Ik48C5-S/view"
+target="_blank"
+class="btn">
+🇬🇧 Download EN
+</a>
 
-<a href="https://drive.google.com/file/d/1vfDM2mvsn4-Q5zD3x8VO_6BUzPpLHfxC/view" target="_blank" class="btn">🇪🇸 Español</a>
+<a href="https://drive.google.com/file/d/1vfDM2mvsn4-Q5zD3x8VO_6BUzPpLHfxC/view"
+target="_blank"
+class="btn">
+🇪🇸 Descargar ES
+</a>
 
-<a href="https://drive.google.com/file/d/1zfKUEOMti-pUVJnr8pfhEwTqLG6baanJ/view" target="_blank" class="btn">🇩🇪 Deutsch</a>
+<a href="https://drive.google.com/file/d/1zfKUEOMti-pUVJnr8pfhEwTqLG6baanJ/view"
+target="_blank"
+class="btn">
+🇩🇪 Download DE
+</a>
 
-<a href="https://drive.google.com/file/d/1ykz3I97ajwjAqkbZ4cDNrTtBdho6MBtj/view" target="_blank" class="btn">🇷🇺 Русский</a>
+<a href="https://drive.google.com/file/d/1ykz3I97ajwjAqkbZ4cDNrTtBdho6MBtj/view"
+target="_blank"
+class="btn">
+🇷🇺 Скачать RU
+</a>
 
 </div>
 
@@ -303,22 +354,22 @@ Télécharger le Client
 
 <div class="stats">
 
-<div class="card">
+<div class="stat-card">
 <div class="number">0</div>
 <p>Joueurs en ligne</p>
 </div>
 
-<div class="card">
+<div class="stat-card">
 <div class="number">0</div>
 <p>Comptes créés</p>
 </div>
 
-<div class="card">
+<div class="stat-card">
 <div class="number">0</div>
 <p>Guildes</p>
 </div>
 
-<div class="card">
+<div class="stat-card">
 <div class="number">99.9%</div>
 <p>Uptime</p>
 </div>
@@ -337,19 +388,19 @@ Télécharger le Client
 
 <div class="news">
 
-<div class="card">
+<div class="news-card">
 <h3>⚔ Ouverture du Royaume</h3>
 <p>Bienvenue sur Nexaroth.</p>
 </div>
 
-<div class="card">
+<div class="news-card">
 <h3>🏆 Saison PvP</h3>
 <p>Nouvelles récompenses exclusives.</p>
 </div>
 
-<div class="card">
+<div class="news-card">
 <h3>❄ ICC Disponible</h3>
-<p>Icecrown Citadel est ouverte.</p>
+<p>Icecrown Citadel est désormais ouverte.</p>
 </div>
 
 </div>
