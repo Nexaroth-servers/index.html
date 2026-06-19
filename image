@@ -1,0 +1,7 @@
+nexaroth-servers/
+│
+├── index.html
+├── style.css
+├── script.js
+└── images/
+    └── nexaroth-bg.png
