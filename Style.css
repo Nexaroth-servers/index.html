@@ -40,6 +40,26 @@ text-decoration:none;
 }
 
 header{
+    height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.8)
+    ),
+    url("images/nexaroth-bg.png");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
 height:100vh;
 
 display:flex;
