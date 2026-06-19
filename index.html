@@ -50,16 +50,32 @@ color:#9deeff;
 text-shadow:0 0 20px #00bfff;
 }
 .hero{
-    height:100vh;
+height:100vh;
 
-    background:
-    linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.85)),
-    url("https://image.noelshack.com/fichiers/2026/25/5/1781893960-19-juin-2026-13-h-45-min-16-s.jpg");
+background:
+linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.85)),
+url("https://image.noelshack.com/fichiers/2026/25/5/1781893960-19-juin-2026-13-h-45-min-16-s.jpg");
 
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
 
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+
+animation:zoomHero 15s ease-in-out infinite alternate;
+}
+
+@keyframes zoomHero{
+from{
+background-size:100%;
+}
+to{
+background-size:115%;
+}
+}
     display:flex;
     justify-content:center;
     align-items:center;
