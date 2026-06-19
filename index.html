@@ -1,66 +1,299 @@
+<!DOCTYPE html>
+<html lang="fr">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NEXAROTH - Wrath of the Lich King</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#050b12;
-    color:white;
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-header{
-    background:#08131f;
-    padding:20px;
-    text-align:center;
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Arial,sans-serif;
+color:white;
+overflow-x:hidden;
+
+background:
+linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.85)),
+url("https://image.noelshack.com/fichiers/2026/25/5/1781893960-19-juin-2026-13-h-45-min-16-s.jpg");
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+}
+
+/* MENU */
+
+.navbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:20px 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,.85);
+backdrop-filter:blur(10px);
+z-index:9999;
 }
 
 .logo{
-    font-family:'Cinzel',serif;
-    font-size:40px;
-    color:#6fdcff;
+font-family:'Cinzel',serif;
+font-size:38px;
+color:#7ce8ff;
+text-shadow:0 0 15px #00bfff;
 }
 
-.download-box{
-    max-width:900px;
-    margin:100px auto;
-    padding:40px;
-    background:#101820;
-    border-radius:12px;
-    text-align:center;
+nav{
+display:flex;
+gap:25px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+transition:.3s;
+}
+
+nav a:hover{
+color:#7ce8ff;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.hero h1{
+font-family:'Cinzel',serif;
+font-size:100px;
+color:#c8f4ff;
+text-shadow:
+0 0 10px #00bfff,
+0 0 25px #00bfff,
+0 0 50px #00bfff;
+}
+
+.hero p{
+font-size:24px;
+margin-top:15px;
 }
 
 .btn{
-    display:inline-block;
-    margin:10px;
-    padding:15px 40px;
-    background:#00bfff;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
+display:inline-block;
+padding:15px 35px;
+margin:10px;
+background:#0099ff;
+border-radius:8px;
+text-decoration:none;
+color:white;
+transition:.3s;
 }
 
 .btn:hover{
-    box-shadow:0 0 20px #00bfff;
+transform:translateY(-3px);
+box-shadow:0 0 20px #00bfff;
 }
+
+/* CONTAINER */
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:100px 20px;
+}
+
+.title{
+font-size:42px;
+font-family:'Cinzel',serif;
+color:#7ce8ff;
+text-align:center;
+margin-bottom:40px;
+}
+
+.card{
+background:rgba(10,20,30,.85);
+padding:30px;
+border-radius:12px;
+backdrop-filter:blur(5px);
+}
+
+/* STATS */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.number{
+font-size:42px;
+color:#00d5ff;
+font-weight:bold;
+}
+
+/* DOWNLOAD */
+
+.download-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+margin-top:20px;
+}
+
+/* FOOTER */
 
 footer{
-    text-align:center;
-    padding:30px;
-    background:black;
+background:black;
+padding:30px;
+text-align:center;
+color:#999;
+margin-top:50px;
 }
+
 </style>
-
-<script>
-function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-        pageLanguage: 'fr',
-        includedLanguages: 'en,fr,de,es,it,pt,ru,pl,tr,nl,sv,da,no,fi,cs,hu,ro,bg,el,uk,ja,ko,zh-CN,zh-TW,ar'
-    }, 'google_translate_element');
-}
-</script>
-
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
 </head>
+
+<body>
+
+<header class="navbar">
+
+<div class="logo">NEXAROTH</div>
+
+<nav>
+<a href="#accueil">Accueil</a>
+<a href="#telechargement">Téléchargement</a>
+<a href="#stats">Statistiques</a>
+
+<a href="https://discord.gg/zcH3JXHeuQ"
+target="_blank">
+Discord
+</a>
+</nav>
+
+</header>
+
+<section class="hero" id="accueil">
+
+<div>
+
+<h1>NEXAROTH</h1>
+
+<p>Wrath of the Lich King 3.3.5a</p>
+
+<a href="#telechargement" class="btn">
+Télécharger
+</a>
+
+<a href="https://discord.gg/zcH3JXHeuQ"
+target="_blank"
+class="btn">
+Discord
+</a>
+
+</div>
+
+</section>
+
+<section id="telechargement">
+
+<div class="container">
+
+<h2 class="title">Téléchargements</h2>
+
+<div class="card">
+
+<div class="download-grid">
+
+<a class="btn" href="https://drive.google.com/file/d/1hE1X41DnWJ3wu1O_xzKaTCAZAi2SyDiR/view" target="_blank">
+🇫🇷 Français
+</a>
+
+<a class="btn" href="https://drive.google.com/file/d/1zcvTIhu-rKSRrGkzRsAmTfJ-Ik48C5-S/view" target="_blank">
+🇬🇧 English
+</a>
+
+<a class="btn" href="https://drive.google.com/file/d/1vfDM2mvsn4-Q5zD3x8VO_6BUzPpLHfxC/view" target="_blank">
+🇪🇸 Español
+</a>
+
+<a class="btn" href="https://drive.google.com/file/d/1zfKUEOMti-pUVJnr8pfhEwTqLG6baanJ/view" target="_blank">
+🇩🇪 Deutsch
+</a>
+
+<a class="btn" href="https://drive.google.com/file/d/1ykz3I97ajwjAqkbZ4cDNrTtBdho6MBtj/view" target="_blank">
+🇷🇺 Русский
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="stats">
+
+<div class="container">
+
+<h2 class="title">Statistiques</h2>
+
+<div class="stats">
+
+<div class="card">
+<div class="number">0</div>
+<p>Joueurs en ligne</p>
+</div>
+
+<div class="card">
+<div class="number">0</div>
+<p>Comptes créés</p>
+</div>
+
+<div class="card">
+<div class="number">0</div>
+<p>Guildes</p>
+</div>
+
+<div class="card">
+<div class="number">99.9%</div>
+<p>Uptime</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<h2>NEXAROTH</h2>
+
+<p>Wrath of the Lich King 3.3.5a</p>
+
+<p>© 2026 Tous droits réservés</p>
+
+</footer>
+
+</body>
+</html>
