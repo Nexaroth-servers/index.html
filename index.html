@@ -1,215 +1,72 @@
 <!DOCTYPE html>
-<html lang="FR-EN">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>NEXAROTH - Wrath of the Lich King</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
-<style>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-html{
-scroll-behavior:smooth;
-}
-
-body{
-font-family:Arial,sans-serif;
-background:#050b12;
-color:white;
-overflow-x:hidden;
-}
-
-/* MENU */
-
-.navbar{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 60px;
-background:rgba(5,11,18,.85);
-backdrop-filter:blur(12px);
-z-index:9999;
-}
-
-.logo{
-font-family:'Cinzel',serif;
-font-size:34px;
-font-weight:bold;
-color:#9deeff;
-text-shadow:0 0 10px #00d5ff,0 0 30px #00d5ff;
-}
-
-nav{
-display:flex;
-gap:25px;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-transition:.3s;
-}
-
-nav a:hover{
-color:#8cefff;
-}
-
-/* HERO */
-
-.hero{
-height:100vh;
-background:
-linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.85)),
-url('hero-bg.png') center center / cover no-repeat;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-animation:zoomHero 20s ease-in-out infinite alternate;
-}
-
-@keyframes zoomHero{
-0%{background-size:100%;}
-100%{background-size:115%;}
-}
-
-.hero h1{
-font-family:'Cinzel',serif;
-font-size:100px;
-color:#8cefff;
-text-shadow:0 0 20px #00bfff;
-}
-
-.hero p{
-font-size:24px;
-margin-top:20px;
-}
-
-.btn{
-display:inline-block;
-padding:15px 35px;
-margin:10px;
-background:#00bfff;
-color:white;
-text-decoration:none;
-border-radius:8px;
-}
-
-.btn:hover{
-box-shadow:0 0 20px #00bfff;
-}
-
-.container{
-max-width:1300px;
-margin:auto;
-padding:100px 20px;
-}
-
-.title{
-font-size:42px;
-text-align:center;
-margin-bottom:40px;
-color:#6fdcff;
-font-family:'Cinzel',serif;
-}
-
-.card{
-background:#101820;
-padding:30px;
-border-radius:12px;
-margin-bottom:20px;
-}
-
-.stats{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-}
-
-.number{
-font-size:40px;
-font-weight:bold;
-color:#00d5ff;
-}
-
-footer{
-background:#000;
-padding:30px;
-text-align:center;
-color:#999;
-}
-
-</style>
 </head>
-
 <body>
 
-<header class="navbar">
-<div class="logo">NEXAROTH</div>
-<nav>
-    <a href="#accueil">Accueil</a>
-    <a href="#actualites">Actualités</a>
-    <a href="#telechargement">Téléchargement</a>
-    <a href="#vote">Vote</a>
-    <a href="#boutique">Boutique</a>
-    <a href="#classement">Classement</a>
+<div class="snow"></div>
 
-    <a href="https://discord.gg/zcH3JXHeuQ"
-       target="_blank"
-       rel="noopener noreferrer">
-       Discord
-    </a>
+<header class="navbar">
+
+<div class="logo">
+NEXAROTH
+</div>
+
+<nav>
+
+<a href="#accueil">Accueil</a>
+<a href="#actualites">Actualités</a>
+<a href="#telechargement">Téléchargement</a>
+<a href="#vote">Vote</a>
+<a href="#boutique">Boutique</a>
+<a href="#classement">Classement</a>
+
+<a href="https://discord.gg/zcH3JXHeuQ"
+target="_blank"
+class="discord-btn">
+
+<i class="fab fa-discord"></i>
+Discord
+
+</a>
+
 </nav>
+
 </header>
 
 <section class="hero" id="accueil">
 
-<div>
+<div class="hero-content">
 
 <h1>NEXAROTH</h1>
 
-<p>World of Warcraft - Wrath of the Lich King 3.3.5a Pack HD</p>
+<p>
+WORLD OF WARCRAFT
+<br>
+WRATH OF THE LICH KING 3.3.5A PACK HD
+</p>
 
-<a href="#" class="btn">Créer un compte</a>
+<div class="hero-buttons">
 
-<a href="https://drive.google.com/file/d/1hE1X41DnWJ3wu1O_xzKaTCAZAi2SyDiR/view"
-target="_blank"
-class="btn">
-📥 Télécharger Torrents
+<a href="#" class="btn">
+Créer un compte
 </a>
 
-</div>
-
-</section>
-
-<section id="telechargement">
-<div class="container">
-
-<h2 class="title">Téléchargement</h2>
-
-<div class="card" style="text-align:center;">
-
-<h3>Client World of Warcraft 3.3.5a Pack HD</h3>
-
-<p>Téléchargez le client officiel Nexaroth.</p>
-
-<br>
-
 <a href="https://drive.google.com/file/d/1hE1X41DnWJ3wu1O_xzKaTCAZAi2SyDiR/view"
 target="_blank"
-class="btn">
+class="btn btn-download">
 
 Télécharger le Client
 
@@ -218,14 +75,176 @@ Télécharger le Client
 </div>
 
 </div>
+
 </section>
 
-<!-- Ajoute ici tes sections Actualités, Vote, Boutique et Classement -->
+<section id="telechargement">
+
+<h2>Téléchargement</h2>
+
+<div class="download-box">
+
+<h3>Client World of Warcraft 3.3.5a HD</h3>
+
+<p>Téléchargez le client officiel Nexaroth.</p>
+
+<a href="https://drive.google.com/file/d/1hE1X41DnWJ3wu1O_xzKaTCAZAi2SyDiR/view"
+target="_blank"
+class="btn">
+
+Télécharger
+
+</a>
+
+</div>
+
+</section>
+
+<section id="stats">
+
+<h2>Statistiques</h2>
+
+<div class="stats-grid">
+
+<div class="card">
+<span id="players">2541</span>
+<p>Joueurs en ligne</p>
+</div>
+
+<div class="card">
+<span id="accounts">78921</span>
+<p>Comptes créés</p>
+</div>
+
+<div class="card">
+<span>1250</span>
+<p>Guildes</p>
+</div>
+
+<div class="card">
+<span>99.9%</span>
+<p>Uptime</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="actualites">
+
+<h2>Actualités</h2>
+
+<div class="news-grid">
+
+<div class="news-card">
+<h3>Ouverture du Royaume</h3>
+<p>Bienvenue sur Nexaroth.</p>
+</div>
+
+<div class="news-card">
+<h3>Saison PvP</h3>
+<p>Nouvelles récompenses.</p>
+</div>
+
+<div class="news-card">
+<h3>ICC Disponible</h3>
+<p>Icecrown Citadel ouverte.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="vote">
+
+<h2>Vote</h2>
+
+<div class="vote-box">
+
+<a href="#" class="vote-btn">TOPG</a>
+
+<a href="#" class="vote-btn">XTREMETOP100</a>
+
+<a href="#" class="vote-btn">ARENATOP100</a>
+
+</div>
+
+</section>
+
+<section id="boutique">
+
+<h2>Boutique</h2>
+
+<div class="shop-grid">
+
+<div class="shop-item">
+<h3>Monture Spectrale</h3>
+<p>100 Points</p>
+</div>
+
+<div class="shop-item">
+<h3>Changement de Race</h3>
+<p>250 Points</p>
+</div>
+
+<div class="shop-item">
+<h3>Monture Dragon</h3>
+<p>350 Points</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="classement">
+
+<h2>Top Joueurs</h2>
+
+<table>
+
+<tr>
+<th>Rang</th>
+<th>Personnage</th>
+<th>Classe</th>
+<th>GearScore</th>
+</tr>
+
+<tr>
+<td>#1</td>
+<td>Arthanos</td>
+<td>Paladin</td>
+<td>6980</td>
+</tr>
+
+<tr>
+<td>#2</td>
+<td>Frostmage</td>
+<td>Mage</td>
+<td>6920</td>
+</tr>
+
+<tr>
+<td>#3</td>
+<td>Shadowx</td>
+<td>Voleur</td>
+<td>6880</td>
+</tr>
+
+</table>
+
+</section>
 
 <footer>
-<p>NEXAROTH © 2026</p>
-<p>Wrath of the Lich King 3.3.5a Pack HD</p>
+
+<div class="footer-logo">
+NEXAROTH
+</div>
+
+<p>Wrath of the Lich King 3.3.5a</p>
+
 </footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>
