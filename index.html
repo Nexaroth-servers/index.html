@@ -3,232 +3,155 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nexaroth - Wrath of the Lich King</title>
+<title>Nexaroth - WotLK</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-    font-family:Arial, sans-serif;
-    background:#081018;
-    color:white;
-    overflow-x:hidden;
+font-family:Arial,sans-serif;
+background:#050b12;
+color:white;
 }
 
 header{
-    position:fixed;
-    width:100%;
-    top:0;
-    z-index:1000;
-    background:rgba(0,0,0,0.85);
-    backdrop-filter:blur(10px);
-}
-
-.navbar{
-    max-width:1400px;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px;
+position:fixed;
+width:100%;
+background:rgba(0,0,0,.8);
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000;
 }
 
 .logo{
-    font-family:'Cinzel', serif;
-    font-size:32px;
-    color:#6fdcff;
-    font-weight:bold;
+font-family:Cinzel;
+font-size:32px;
+color:#6fdcff;
+font-weight:bold;
 }
 
-.nav-links{
-    display:flex;
-    gap:25px;
-}
-
-.nav-links a{
-    text-decoration:none;
-    color:white;
-    transition:.3s;
-}
-
-.nav-links a:hover{
-    color:#6fdcff;
+nav a{
+color:white;
+margin-left:20px;
+text-decoration:none;
 }
 
 .hero{
-    height:100vh;
-    background:
-    linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),
-    url("https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2000") center/cover;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-}
-
-.hero-content{
-    max-width:900px;
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.8)),
+url("https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1920")
+center/cover;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
 }
 
 .hero h1{
-    font-family:'Cinzel', serif;
-    font-size:72px;
-    color:#8ee8ff;
+font-size:80px;
+font-family:Cinzel;
+color:#8cefff;
 }
 
 .hero p{
-    font-size:24px;
-    margin:20px 0;
-}
-
-.buttons{
-    margin-top:30px;
+font-size:22px;
+margin-top:15px;
 }
 
 .btn{
-    display:inline-block;
-    padding:15px 35px;
-    margin:10px;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:bold;
-    transition:.3s;
-}
-
-.btn-primary{
-    background:#00bfff;
-    color:white;
-}
-
-.btn-primary:hover{
-    transform:translateY(-3px);
-}
-
-.btn-secondary{
-    border:2px solid #00bfff;
-    color:#00bfff;
-}
-
-.btn-secondary:hover{
-    background:#00bfff;
-    color:white;
+display:inline-block;
+padding:15px 30px;
+margin:10px;
+background:#00bfff;
+color:white;
+text-decoration:none;
+border-radius:8px;
 }
 
 section{
-    padding:100px 20px;
+padding:80px 20px;
 }
 
 .container{
-    max-width:1300px;
-    margin:auto;
+max-width:1300px;
+margin:auto;
 }
 
-.section-title{
-    text-align:center;
-    font-size:42px;
-    margin-bottom:50px;
-    color:#8ee8ff;
-    font-family:'Cinzel', serif;
+.title{
+font-size:40px;
+text-align:center;
+margin-bottom:40px;
+color:#6fdcff;
 }
 
 .stats{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
 }
 
-.stat-card{
-    background:#101d2a;
-    padding:30px;
-    text-align:center;
-    border-radius:10px;
-    border:1px solid #1f3344;
+.card{
+background:#101820;
+padding:30px;
+border-radius:10px;
+text-align:center;
 }
 
-.stat-number{
-    font-size:36px;
-    color:#00bfff;
-    font-weight:bold;
+.number{
+font-size:40px;
+font-weight:bold;
+color:#00d5ff;
 }
 
-.features{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:25px;
+.shop{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 }
 
-.feature{
-    background:#101d2a;
-    padding:30px;
-    border-radius:10px;
+.item{
+background:#101820;
+border-radius:10px;
+overflow:hidden;
 }
 
-.feature h3{
-    color:#6fdcff;
-    margin-bottom:15px;
+.item img{
+width:100%;
+height:220px;
+object-fit:cover;
 }
 
-.news{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
-    gap:25px;
+.item-content{
+padding:20px;
 }
 
-.news-card{
-    background:#101d2a;
-    border-radius:10px;
-    overflow:hidden;
+.price{
+color:#ffd700;
+font-size:22px;
+margin:10px 0;
 }
 
-.news-card img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
+.vote-box{
+background:#0f1720;
+padding:40px;
+border-radius:12px;
+text-align:center;
 }
 
-.news-content{
-    padding:20px;
-}
-
-.download{
-    text-align:center;
-}
-
-.download h3{
-    margin-bottom:20px;
-}
-
-.footer{
-    background:black;
-    text-align:center;
-    padding:40px;
-    color:#999;
-}
-
-.online{
-    color:#00ff66;
-}
-
-@media(max-width:768px){
-
-.hero h1{
-    font-size:48px;
-}
-
-.hero p{
-    font-size:18px;
-}
-
-.nav-links{
-    display:none;
-}
-
+footer{
+background:black;
+padding:30px;
+text-align:center;
+color:#999;
 }
 </style>
 </head>
@@ -236,88 +159,52 @@ section{
 <body>
 
 <header>
-<div class="navbar">
 <div class="logo">NEXAROTH</div>
 
-<div class="nav-links">
-<a href="#">Accueil</a>
-<a href="#">Classement</a>
-<a href="#">Téléchargement</a>
-<a href="#">Boutique</a>
-<a href="#">Discord</a>
-</div>
-</div>
+<nav>
+<a href="#accueil">Accueil</a>
+<a href="#vote">Vote</a>
+<a href="#boutique">Boutique</a>
+<a href="#classement">Classement</a>
+<a href="#discord">Discord</a>
+</nav>
 </header>
 
-<section class="hero">
-<div class="hero-content">
+<section class="hero" id="accueil">
+<div>
 <h1>NEXAROTH</h1>
 <p>World of Warcraft - Wrath of the Lich King 3.3.5a</p>
 
-<div class="buttons">
-<a href="#" class="btn btn-primary">Jouer Maintenant</a>
-<a href="#" class="btn btn-secondary">Créer un Compte</a>
-</div>
+<a href="#" class="btn">Créer un compte</a>
+<a href="#" class="btn">Télécharger</a>
 </div>
 </section>
 
 <section>
 <div class="container">
 
-<h2 class="section-title">Statistiques du Royaume</h2>
+<h2 class="title">Statistiques</h2>
 
 <div class="stats">
 
-<div class="stat-card">
-<div class="stat-number online">ONLINE</div>
-<p>Statut</p>
+<div class="card">
+<div class="number">2541</div>
+<p>Joueurs en ligne</p>
 </div>
 
-<div class="stat-card">
-<div class="stat-number" id="players">1245</div>
-<p>Joueurs Connectés</p>
+<div class="card">
+<div class="number">78921</div>
+<p>Comptes créés</p>
 </div>
 
-<div class="stat-card">
-<div class="stat-number">48931</div>
-<p>Comptes Créés</p>
-</div>
-
-<div class="stat-card">
-<div class="stat-number">562</div>
+<div class="card">
+<div class="number">1250</div>
 <p>Guildes</p>
 </div>
 
-</div>
-
-</div>
-</section>
-
-<section>
-<div class="container">
-
-<h2 class="section-title">Pourquoi Nexaroth ?</h2>
-
-<div class="features">
-
-<div class="feature">
-<h3>⚔ PvE Complet</h3>
-<p>ICC, Ulduar, ToC et Naxxramas entièrement scriptés.</p>
-</div>
-
-<div class="feature">
-<h3>🏆 PvP Équilibré</h3>
-<p>Arènes, BG instantanés et saisons compétitives.</p>
-</div>
-
-<div class="feature">
-<h3>🛡 Anti-Cheat</h3>
-<p>Système avancé de protection contre les tricheurs.</p>
-</div>
-
-<div class="feature">
-<h3>🎁 Événements</h3>
-<p>Événements quotidiens avec récompenses exclusives.</p>
+<div class="card">
+<div class="number">99.9%</div>
+<p>Uptime</p>
 </div>
 
 </div>
@@ -325,76 +212,117 @@ section{
 </div>
 </section>
 
-<section>
+<section id="vote">
 <div class="container">
 
-<h2 class="section-title">Dernières Actualités</h2>
+<h2 class="title">Votez pour Nexaroth</h2>
 
-<div class="news">
+<div class="vote-box">
 
-<div class="news-card">
-<img src="https://images.unsplash.com/photo-1542751371-adc38448a05e" alt="">
-<div class="news-content">
-<h3>Ouverture Officielle</h3>
-<p>Le royaume Nexaroth ouvre ses portes aux héros d'Azeroth.</p>
-</div>
-</div>
-
-<div class="news-card">
-<img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8" alt="">
-<div class="news-content">
-<h3>Saison PvP</h3>
-<p>Nouvelle saison avec récompenses exclusives.</p>
-</div>
-</div>
-
-<div class="news-card">
-<img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6" alt="">
-<div class="news-content">
-<h3>Événement Roi-Liche</h3>
-<p>Combattez les forces du Fléau pour obtenir des récompenses rares.</p>
-</div>
-</div>
-
-</div>
-
-</div>
-</section>
-
-<section class="download">
-<div class="container">
-
-<h2 class="section-title">Rejoignez l'Aventure</h2>
-
-<h3>Installation en 3 étapes</h3>
-
-<p>1. Télécharger le client 3.3.5a</p>
-<p>2. Installer le launcher Nexaroth</p>
-<p>3. Créer votre compte</p>
+<p>Votez toutes les 12h et gagnez des points boutique.</p>
 
 <br>
 
-<a href="#" class="btn btn-primary">Télécharger</a>
+<a href="#" class="btn">TopG</a>
+<a href="#" class="btn">Xtremetop100</a>
+<a href="#" class="btn">ArenaTop100</a>
+
+</div>
 
 </div>
 </section>
 
-<footer class="footer">
-<p>© 2026 Nexaroth - Wrath of the Lich King</p>
-<p>Le destin d'Azeroth repose entre vos mains.</p>
+<section id="boutique">
+<div class="container">
+
+<h2 class="title">Boutique</h2>
+
+<div class="shop">
+
+<div class="item">
+<img src="https://picsum.photos/500/300?1">
+<div class="item-content">
+<h3>Monture Spectrale</h3>
+<div class="price">100 Points</div>
+<a href="#" class="btn">Acheter</a>
+</div>
+</div>
+
+<div class="item">
+<img src="https://picsum.photos/500/300?2">
+<div class="item-content">
+<h3>Changement de Race</h3>
+<div class="price">250 Points</div>
+<a href="#" class="btn">Acheter</a>
+</div>
+</div>
+
+<div class="item">
+<img src="https://picsum.photos/500/300?3">
+<div class="item-content">
+<h3>Monture Dragon</h3>
+<div class="price">350 Points</div>
+<a href="#" class="btn">Acheter</a>
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section id="classement">
+<div class="container">
+
+<h2 class="title">Top Joueurs</h2>
+
+<div class="card">
+
+<table width="100%">
+<tr>
+<th>Rang</th>
+<th>Personnage</th>
+<th>Classe</th>
+<th>GearScore</th>
+</tr>
+
+<tr>
+<td>#1</td>
+<td>Arthanos</td>
+<td>Paladin</td>
+<td>6980</td>
+</tr>
+
+<tr>
+<td>#2</td>
+<td>Frostmage</td>
+<td>Mage</td>
+<td>6920</td>
+</tr>
+
+<tr>
+<td>#3</td>
+<td>Shadowx</td>
+<td>Voleur</td>
+<td>6880</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+</section>
+
+<footer>
+<p>Nexaroth © 2026</p>
+<p>Discord • Boutique • Vote • Support</p>
 </footer>
 
 <script>
-
 setInterval(() => {
-let players = document.getElementById('players');
-let current = parseInt(players.innerText);
-
-let variation = Math.floor(Math.random()*20)-10;
-
-players.innerText = current + variation;
+const stats=document.querySelector(".number");
 },5000);
-
 </script>
 
 </body>
