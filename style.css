@@ -1,3 +1,53 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+}
+
+/* NAVIGATION */
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:#020617;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    z-index:1000;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#00aaff;
+}
+
+nav ul{
+    display:flex;
+    gap:20px;
+    list-style:none;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#00aaff;
+}
+
+/* HEADER */
+
 header{
     min-height:100vh;
 
@@ -8,8 +58,112 @@ header{
 
     text-align:center;
 
-    background:url("./images/nexaroth-bg.png");
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.80)
+    ),
+    url("./images/nexaroth-bg.png");
+
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
+}
+
+header h1{
+    font-size:6rem;
+
+    text-shadow:
+    0 0 10px #00aaff,
+    0 0 20px #00aaff,
+    0 0 40px #00aaff;
+}
+
+header p{
+    margin-top:20px;
+    font-size:1.5rem;
+}
+
+.hero-btn{
+    margin-top:30px;
+    padding:15px 40px;
+    background:#00aaff;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.hero-btn:hover{
+    box-shadow:0 0 25px #00aaff;
+}
+
+/* SECTIONS */
+
+section{
+    padding:100px 30px;
+}
+
+h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+/* CARTES */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#1e293b;
+    padding:20px;
+    border-radius:12px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+/* BOUTONS */
+
+button{
+    padding:12px 30px;
+    border:none;
+    border-radius:10px;
+    background:#00aaff;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    box-shadow:0 0 20px #00aaff;
+}
+
+/* FORMULAIRE */
+
+form{
+    max-width:500px;
+    margin:auto;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    border-radius:8px;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:40px;
+    background:#020617;
 }
