@@ -6,26 +6,257 @@
 
 <title>NEXAROTH - Wrath of the Lich King</title>
 
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#050b12;
+color:white;
+overflow-x:hidden;
+}
+
+/* MENU */
+
+.navbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 50px;
+background:rgba(0,0,0,.85);
+backdrop-filter:blur(12px);
+z-index:9999;
+}
+
+.logo{
+font-family:'Cinzel',serif;
+font-size:36px;
+color:#9deeff;
+text-shadow:0 0 20px #00bfff;
+}
+
+nav{
+display:flex;
+gap:25px;
+align-items:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+transition:.3s;
+}
+
+nav a:hover{
+color:#6fdcff;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.85)),
+url('hero-bg.png') center center / cover no-repeat;
+
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+
+animation:zoomHero 15s ease-in-out infinite alternate;
+}
+
+@keyframes zoomHero{
+from{background-size:100%;}
+to{background-size:115%;}
+}
+
+.hero h1{
+font-family:'Cinzel',serif;
+font-size:110px;
+color:#bdefff;
+text-shadow:
+0 0 10px #00bfff,
+0 0 30px #00bfff,
+0 0 60px #00bfff;
+}
+
+.hero p{
+font-size:26px;
+margin:20px 0;
+}
+
+.btn{
+display:inline-block;
+padding:15px 35px;
+margin:10px;
+background:#0099ff;
+color:white;
+text-decoration:none;
+border-radius:8px;
+transition:.3s;
+}
+
+.btn:hover{
+box-shadow:0 0 20px #00bfff;
+transform:translateY(-3px);
+}
+
+section{
+padding:100px 20px;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+}
+
+.title{
+text-align:center;
+font-size:42px;
+font-family:'Cinzel',serif;
+color:#6fdcff;
+margin-bottom:40px;
+}
+
+.card{
+background:#101820;
+padding:30px;
+border-radius:12px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.number{
+font-size:42px;
+font-weight:bold;
+color:#00d5ff;
+}
+
+/* NEWS */
+
+.news{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
+}
+
+/* VOTE */
+
+.vote-box{
+background:#101820;
+padding:40px;
+border-radius:12px;
+text-align:center;
+}
+
+/* SHOP */
+
+.shop{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.item{
+background:#101820;
+padding:25px;
+border-radius:12px;
+text-align:center;
+}
+
+.price{
+color:gold;
+font-size:24px;
+margin-top:10px;
+}
+
+/* TABLE */
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th,td{
+padding:15px;
+border:1px solid #1d2a38;
+text-align:center;
+}
+
+/* FOOTER */
+
+footer{
+background:black;
+padding:40px;
+text-align:center;
+color:#999;
+}
+
+.footer-logo{
+font-family:'Cinzel',serif;
+font-size:48px;
+color:#9deeff;
+margin-bottom:10px;
+}
+
+/* SNOW */
+
+.snow{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+background-image:
+radial-gradient(white 1px, transparent 1px);
+background-size:40px 40px;
+opacity:.15;
+animation:snowMove 15s linear infinite;
+}
+
+@keyframes snowMove{
+from{
+transform:translateY(-100px);
+}
+to{
+transform:translateY(100vh);
+}
+}
+
+</style>
 </head>
+
 <body>
 
 <div class="snow"></div>
 
 <header class="navbar">
 
-<div class="logo">
-NEXAROTH
-</div>
+<div class="logo">NEXAROTH</div>
 
 <nav>
-
 <a href="#accueil">Accueil</a>
 <a href="#actualites">Actualités</a>
 <a href="#telechargement">Téléchargement</a>
@@ -34,12 +265,8 @@ NEXAROTH
 <a href="#classement">Classement</a>
 
 <a href="https://discord.gg/zcH3JXHeuQ"
-target="_blank"
-class="discord-btn">
-
-<i class="fab fa-discord"></i>
+target="_blank">
 Discord
-
 </a>
 
 </nav>
@@ -48,17 +275,14 @@ Discord
 
 <section class="hero" id="accueil">
 
-<div class="hero-content">
+<div>
 
 <h1>NEXAROTH</h1>
 
 <p>
-WORLD OF WARCRAFT
-<br>
-WRATH OF THE LICH KING 3.3.5A PACK HD
+World of Warcraft<br>
+Wrath of the Lich King 3.3.5a Pack HD
 </p>
-
-<div class="hero-buttons">
 
 <a href="#" class="btn">
 Créer un compte
@@ -66,7 +290,7 @@ Créer un compte
 
 <a href="https://drive.google.com/file/d/1hE1X41DnWJ3wu1O_xzKaTCAZAi2SyDiR/view"
 target="_blank"
-class="btn btn-download">
+class="btn">
 
 Télécharger le Client
 
@@ -74,19 +298,21 @@ Télécharger le Client
 
 </div>
 
-</div>
-
 </section>
 
 <section id="telechargement">
 
-<h2>Téléchargement</h2>
+<div class="container">
 
-<div class="download-box">
+<h2 class="title">Téléchargement</h2>
+
+<div class="card" style="text-align:center;">
 
 <h3>Client World of Warcraft 3.3.5a HD</h3>
 
 <p>Téléchargez le client officiel Nexaroth.</p>
+
+<br>
 
 <a href="https://drive.google.com/file/d/1hE1X41DnWJ3wu1O_xzKaTCAZAi2SyDiR/view"
 target="_blank"
@@ -98,32 +324,38 @@ Télécharger
 
 </div>
 
+</div>
+
 </section>
 
-<section id="stats">
+<section>
 
-<h2>Statistiques</h2>
+<div class="container">
 
-<div class="stats-grid">
+<h2 class="title">Statistiques</h2>
+
+<div class="stats">
 
 <div class="card">
-<span id="players">2541</span>
+<div class="number">2541</div>
 <p>Joueurs en ligne</p>
 </div>
 
 <div class="card">
-<span id="accounts">78921</span>
+<div class="number">78921</div>
 <p>Comptes créés</p>
 </div>
 
 <div class="card">
-<span>1250</span>
+<div class="number">1250</div>
 <p>Guildes</p>
 </div>
 
 <div class="card">
-<span>99.9%</span>
+<div class="number">99.9%</div>
 <p>Uptime</p>
+</div>
+
 </div>
 
 </div>
@@ -132,23 +364,27 @@ Télécharger
 
 <section id="actualites">
 
-<h2>Actualités</h2>
+<div class="container">
 
-<div class="news-grid">
+<h2 class="title">Actualités</h2>
 
-<div class="news-card">
+<div class="news">
+
+<div class="card">
 <h3>Ouverture du Royaume</h3>
 <p>Bienvenue sur Nexaroth.</p>
 </div>
 
-<div class="news-card">
+<div class="card">
 <h3>Saison PvP</h3>
-<p>Nouvelles récompenses.</p>
+<p>Nouvelles récompenses exclusives.</p>
 </div>
 
-<div class="news-card">
+<div class="card">
 <h3>ICC Disponible</h3>
-<p>Icecrown Citadel ouverte.</p>
+<p>Icecrown Citadel est ouverte.</p>
+</div>
+
 </div>
 
 </div>
@@ -157,15 +393,21 @@ Télécharger
 
 <section id="vote">
 
-<h2>Vote</h2>
+<div class="container">
+
+<h2 class="title">Vote</h2>
 
 <div class="vote-box">
 
-<a href="#" class="vote-btn">TOPG</a>
+<p>Votez toutes les 12h pour gagner des points boutique.</p>
 
-<a href="#" class="vote-btn">XTREMETOP100</a>
+<br>
 
-<a href="#" class="vote-btn">ARENATOP100</a>
+<a href="#" class="btn">TOPG</a>
+<a href="#" class="btn">XTREMETOP100</a>
+<a href="#" class="btn">ARENATOP100</a>
+
+</div>
 
 </div>
 
@@ -173,23 +415,27 @@ Télécharger
 
 <section id="boutique">
 
-<h2>Boutique</h2>
+<div class="container">
 
-<div class="shop-grid">
+<h2 class="title">Boutique</h2>
 
-<div class="shop-item">
+<div class="shop">
+
+<div class="item">
 <h3>Monture Spectrale</h3>
-<p>100 Points</p>
+<div class="price">100 Points</div>
 </div>
 
-<div class="shop-item">
+<div class="item">
 <h3>Changement de Race</h3>
-<p>250 Points</p>
+<div class="price">250 Points</div>
 </div>
 
-<div class="shop-item">
+<div class="item">
 <h3>Monture Dragon</h3>
-<p>350 Points</p>
+<div class="price">350 Points</div>
+</div>
+
 </div>
 
 </div>
@@ -198,7 +444,11 @@ Télécharger
 
 <section id="classement">
 
-<h2>Top Joueurs</h2>
+<div class="container">
+
+<h2 class="title">Top Joueurs</h2>
+
+<div class="card">
 
 <table>
 
@@ -232,6 +482,10 @@ Télécharger
 
 </table>
 
+</div>
+
+</div>
+
 </section>
 
 <footer>
@@ -240,11 +494,11 @@ Télécharger
 NEXAROTH
 </div>
 
-<p>Wrath of the Lich King 3.3.5a</p>
+<p>Wrath of the Lich King 3.3.5a Pack HD</p>
+
+<p>© 2026 Tous droits réservés</p>
 
 </footer>
-
-<script src="script.js"></script>
 
 </body>
 </html>
