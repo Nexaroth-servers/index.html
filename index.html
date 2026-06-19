@@ -1,197 +1,401 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexaroth Servers</title>
-   <link rel="stylesheet" href="style.css">>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexaroth - Wrath of the Lich King</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#081018;
+    color:white;
+    overflow-x:hidden;
+}
+
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+    background:rgba(0,0,0,0.85);
+    backdrop-filter:blur(10px);
+}
+
+.navbar{
+    max-width:1400px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px;
+}
+
+.logo{
+    font-family:'Cinzel', serif;
+    font-size:32px;
+    color:#6fdcff;
+    font-weight:bold;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:white;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#6fdcff;
+}
+
+.hero{
+    height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),
+    url("https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2000") center/cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+.hero h1{
+    font-family:'Cinzel', serif;
+    font-size:72px;
+    color:#8ee8ff;
+}
+
+.hero p{
+    font-size:24px;
+    margin:20px 0;
+}
+
+.buttons{
+    margin-top:30px;
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 35px;
+    margin:10px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:#00bfff;
+    color:white;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+}
+
+.btn-secondary{
+    border:2px solid #00bfff;
+    color:#00bfff;
+}
+
+.btn-secondary:hover{
+    background:#00bfff;
+    color:white;
+}
+
+section{
+    padding:100px 20px;
+}
+
+.container{
+    max-width:1300px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    font-size:42px;
+    margin-bottom:50px;
+    color:#8ee8ff;
+    font-family:'Cinzel', serif;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.stat-card{
+    background:#101d2a;
+    padding:30px;
+    text-align:center;
+    border-radius:10px;
+    border:1px solid #1f3344;
+}
+
+.stat-number{
+    font-size:36px;
+    color:#00bfff;
+    font-weight:bold;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.feature{
+    background:#101d2a;
+    padding:30px;
+    border-radius:10px;
+}
+
+.feature h3{
+    color:#6fdcff;
+    margin-bottom:15px;
+}
+
+.news{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:25px;
+}
+
+.news-card{
+    background:#101d2a;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.news-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.news-content{
+    padding:20px;
+}
+
+.download{
+    text-align:center;
+}
+
+.download h3{
+    margin-bottom:20px;
+}
+
+.footer{
+    background:black;
+    text-align:center;
+    padding:40px;
+    color:#999;
+}
+
+.online{
+    color:#00ff66;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:48px;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+.nav-links{
+    display:none;
+}
+
+}
+</style>
 </head>
 
 <body>
 
-<nav>
-    <div class="logo">Nexaroth Servers</div>
-
-    <ul>
-        <li><a href="#actualites">Actualités</a></li>
-        <li><a href="#royaumes">Royaumes</a></li>
-        <li><a href="#classements">Classements</a></li>
-        <li><a href="#evenements">Événements</a></li>
-        <li><a href="#boutique">Boutique</a></li>
-        <li><a href="#vote">Vote</a></li>
-        <li><a href="#discord">Discord</a></li>
-        <li><a href="#profils">Profils</a></li>
-    </ul>
-</nav>
-
 <header>
-    <h1>NEXAROTH SERVERS</h1>
+<div class="navbar">
+<div class="logo">NEXAROTH</div>
 
-    <p>
-        Forgez votre royaume.<br>
-        Conquérez le monde.<br>
-        Écrivez votre légende.
-    </p>
-
-    <a href="#royaumes" class="hero-btn">
-        Entrer dans le Royaume
-    </a>
+<div class="nav-links">
+<a href="#">Accueil</a>
+<a href="#">Classement</a>
+<a href="#">Téléchargement</a>
+<a href="#">Boutique</a>
+<a href="#">Discord</a>
+</div>
+</div>
 </header>
 
-<section id="actualites">
-    <h2>📰 Actualités</h2>
+<section class="hero">
+<div class="hero-content">
+<h1>NEXAROTH</h1>
+<p>World of Warcraft - Wrath of the Lich King 3.3.5a</p>
 
-    <div class="card">
-        <h3>Mise à jour 2.0</h3>
-        <p>Nouveaux royaumes, quêtes et événements.</p>
-    </div>
+<div class="buttons">
+<a href="#" class="btn btn-primary">Jouer Maintenant</a>
+<a href="#" class="btn btn-secondary">Créer un Compte</a>
+</div>
+</div>
 </section>
 
-<section id="royaumes">
-    <h2>👑 Royaumes</h2>
+<section>
+<div class="container">
 
-    <div class="grid">
-        <div class="card">
-            <h3>Solaris</h3>
-            <p>Le royaume de la lumière.</p>
-        </div>
+<h2 class="section-title">Statistiques du Royaume</h2>
 
-        <div class="card">
-            <h3>Noctis</h3>
-            <p>Le royaume des ombres.</p>
-        </div>
+<div class="stats">
 
-        <div class="card">
-            <h3>Valoria</h3>
-            <p>Le royaume des conquérants.</p>
-        </div>
-    </div>
+<div class="stat-card">
+<div class="stat-number online">ONLINE</div>
+<p>Statut</p>
+</div>
+
+<div class="stat-card">
+<div class="stat-number" id="players">1245</div>
+<p>Joueurs Connectés</p>
+</div>
+
+<div class="stat-card">
+<div class="stat-number">48931</div>
+<p>Comptes Créés</p>
+</div>
+
+<div class="stat-card">
+<div class="stat-number">562</div>
+<p>Guildes</p>
+</div>
+
+</div>
+
+</div>
 </section>
 
-<section id="classements">
-    <h2>🏆 Classement des Joueurs</h2>
+<section>
+<div class="container">
 
-    <ol>
-        <li>DragonMaster</li>
-        <li>NexaKing</li>
-        <li>ShadowKnight</li>
-        <li>ValoriaLord</li>
-        <li>SolarisHero</li>
-    </ol>
+<h2 class="section-title">Pourquoi Nexaroth ?</h2>
 
-    <h2>👑 Classement des Royaumes</h2>
+<div class="features">
 
-    <ol>
-        <li>Valoria</li>
-        <li>Solaris</li>
-        <li>Noctis</li>
-    </ol>
+<div class="feature">
+<h3>⚔ PvE Complet</h3>
+<p>ICC, Ulduar, ToC et Naxxramas entièrement scriptés.</p>
+</div>
+
+<div class="feature">
+<h3>🏆 PvP Équilibré</h3>
+<p>Arènes, BG instantanés et saisons compétitives.</p>
+</div>
+
+<div class="feature">
+<h3>🛡 Anti-Cheat</h3>
+<p>Système avancé de protection contre les tricheurs.</p>
+</div>
+
+<div class="feature">
+<h3>🎁 Événements</h3>
+<p>Événements quotidiens avec récompenses exclusives.</p>
+</div>
+
+</div>
+
+</div>
 </section>
 
-<section id="evenements">
-    <h2>📅 Événements</h2>
+<section>
+<div class="container">
 
-    <div class="card">
-        <h3>Tournoi PvP</h3>
-        <p>Chaque samedi à 20h.</p>
-    </div>
+<h2 class="section-title">Dernières Actualités</h2>
+
+<div class="news">
+
+<div class="news-card">
+<img src="https://images.unsplash.com/photo-1542751371-adc38448a05e" alt="">
+<div class="news-content">
+<h3>Ouverture Officielle</h3>
+<p>Le royaume Nexaroth ouvre ses portes aux héros d'Azeroth.</p>
+</div>
+</div>
+
+<div class="news-card">
+<img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8" alt="">
+<div class="news-content">
+<h3>Saison PvP</h3>
+<p>Nouvelle saison avec récompenses exclusives.</p>
+</div>
+</div>
+
+<div class="news-card">
+<img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6" alt="">
+<div class="news-content">
+<h3>Événement Roi-Liche</h3>
+<p>Combattez les forces du Fléau pour obtenir des récompenses rares.</p>
+</div>
+</div>
+
+</div>
+
+</div>
 </section>
 
-<section id="vote">
-    <h2>🎁 Récompenses de Vote</h2>
+<section class="download">
+<div class="container">
 
-    <div class="grid">
-        <div class="card">
-            <h3>1 Vote</h3>
-            <p>500 pièces d'or</p>
-        </div>
+<h2 class="section-title">Rejoignez l'Aventure</h2>
 
-        <div class="card">
-            <h3>10 Votes</h3>
-            <p>Coffre rare</p>
-        </div>
+<h3>Installation en 3 étapes</h3>
 
-        <div class="card">
-            <h3>30 Votes</h3>
-            <p>Titre exclusif</p>
-        </div>
-    </div>
+<p>1. Télécharger le client 3.3.5a</p>
+<p>2. Installer le launcher Nexaroth</p>
+<p>3. Créer votre compte</p>
 
-    <button onclick="vote()">Voter</button>
+<br>
+
+<a href="#" class="btn btn-primary">Télécharger</a>
+
+</div>
 </section>
 
-<section id="guerres">
-    <h2>⚔️ Guerres de Royaumes</h2>
-
-    <div class="card">
-        Solaris VS Noctis
-    </div>
-</section>
-
-<section id="boutique">
-    <h2>🛒 Boutique Premium</h2>
-
-    <div class="grid">
-        <div class="card">
-            <h3>VIP</h3>
-            <p>5 €</p>
-        </div>
-
-        <div class="card">
-            <h3>VIP+</h3>
-            <p>10 €</p>
-        </div>
-
-        <div class="card">
-            <h3>Légendaire</h3>
-            <p>20 €</p>
-        </div>
-    </div>
-</section>
-
-<section id="profils">
-    <h2>🌟 Profils Joueurs</h2>
-
-    <div class="grid">
-        <div class="card">
-            <h3>DragonMaster</h3>
-            <p>Niveau 85</p>
-        </div>
-
-        <div class="card">
-            <h3>NexaKing</h3>
-            <p>Niveau 79</p>
-        </div>
-    </div>
-</section>
-
-<section id="discord">
-    <h2>💬 Discord</h2>
-
-    <a href="https://discord.gg/zcH3JXHeuQ" target="_blank">
-        Rejoindre le Discord
-    </a>
-</section>
-
-<section id="inscription">
-    <h2>📝 Inscription</h2>
-
-    <form>
-        <input type="text" placeholder="Pseudo" required>
-        <input type="email" placeholder="Email" required>
-        <input type="password" placeholder="Mot de passe" required>
-
-        <button type="submit">
-            Créer un compte
-        </button>
-    </form>
-</section>
-
-<footer>
-    © 2026 Nexaroth Servers
+<footer class="footer">
+<p>© 2026 Nexaroth - Wrath of the Lich King</p>
+<p>Le destin d'Azeroth repose entre vos mains.</p>
 </footer>
 
-<script src="script.js"></script>
+<script>
+
+setInterval(() => {
+let players = document.getElementById('players');
+let current = parseInt(players.innerText);
+
+let variation = Math.floor(Math.random()*20)-10;
+
+players.innerText = current + variation;
+},5000);
+
+</script>
 
 </body>
 </html>
