@@ -1,168 +1,128 @@
-body{
-    background:#0f172a;
-    color:white;
-    margin:0;
+/* section statut du serveur */
+.server-status {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(13, 27, 42, 0.4);
+    border: 1px solid rgba(76, 181, 255, 0.1);
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    text-align: center;
 }
 
-body{
-    background:#0f172a;
-    color:white;
+.status-item {
+    flex: 1;
+    min-width: 200px;
 }
 
-/* NAVIGATION */
-
-nav{
-    position:fixed;
-    top:0;
-    width:100%;
-    background:#020617;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 40px;
-    z-index:1000;
+.status-label {
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #718096;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
 }
 
-.logo{
-    font-size:28px;
-    font-weight:bold;
-    color:#00aaff;
+.status-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
 }
 
-nav ul{
-    display:flex;
-    gap:20px;
-    list-style:none;
+.status-online {
+    color: #48bb78;
+    text-shadow: 0 0 10px rgba(72, 187, 120, 0.4);
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    transition:0.3s;
+/* section actualités */
+.news-section {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
 }
 
-nav a:hover{
-    color:#00aaff;
+.section-title {
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+    margin-bottom: 30px;
+    border-left: 4px solid #4cb5ff;
+    padding-left: 15px;
 }
 
-/* HEADER */
-
-header{
-    min-height:100vh;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-
-    background:
-    linear-gradient(
-        rgba(0,0,0,0.55),
-        rgba(0,0,0,0.80)
-    ),
-  url("images/nexaroth-bg.png")
-
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
 }
 
-header h1{
-    font-size:6rem;
-
-    text-shadow:
-    0 0 10px #00aaff,
-    0 0 20px #00aaff,
-    0 0 40px #00aaff;
+.news-card {
+    background: rgba(13, 27, 42, 0.6);
+    border: 1px solid rgba(26, 50, 74, 0.6);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
 }
 
-header p{
-    margin-top:20px;
-    font-size:1.5rem;
+.news-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(76, 181, 255, 0.4);
 }
 
-.hero-btn{
-    margin-top:30px;
-    padding:15px 40px;
-    background:#00aaff;
-    color:white;
-    text-decoration:none;
-    border-radius:10px;
-    font-weight:bold;
-    transition:0.3s;
+.news-content {
+    padding: 20px;
 }
 
-.hero-btn:hover{
-    box-shadow:0 0 25px #00aaff;
+.news-date {
+    font-size: 12px;
+    color: #4cb5ff;
+    margin-bottom: 8px;
 }
 
-/* SECTIONS */
-
-section{
-    padding:100px 30px;
+.news-title {
+    font-size: 18px;
+    color: #fff;
+    margin: 0 0 10px 0;
 }
 
-h2{
-    text-align:center;
-    margin-bottom:30px;
+/* section téléchargements */
+.download-section {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, rgba(26, 50, 74, 0.3) 0%, rgba(13, 27, 42, 0.5) 100%);
+    border: 1px solid rgba(76, 181, 255, 0.2);
+    border-radius: 6px;
+    text-align: center;
 }
 
-/* CARTES */
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
+.download-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+    text-align: left;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.card{
-    background:#1e293b;
-    padding:20px;
-    border-radius:12px;
-    transition:0.3s;
+.step {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(2, 6, 17, 0.5);
+    padding: 15px;
+    border-radius: 4px;
+    border-left: 3px solid #f6ad55;
 }
 
-.card:hover{
-    transform:translateY(-5px);
-}
-
-/* BOUTONS */
-
-button{
-    padding:12px 30px;
-    border:none;
-    border-radius:10px;
-    background:#00aaff;
-    color:white;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-button:hover{
-    box-shadow:0 0 20px #00aaff;
-}
-
-/* FORMULAIRE */
-
-form{
-    max-width:500px;
-    margin:auto;
-}
-
-input{
-    width:100%;
-    padding:12px;
-    margin:10px 0;
-    border:none;
-    border-radius:8px;
-}
-
-/* FOOTER */
-
-footer{
-    text-align:center;
-    padding:40px;
-    background:#020617;
+.step-number {
+    font-size: 20px;
+    font-weight: bold;
+    color: #f6ad55;
 }
