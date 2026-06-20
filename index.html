@@ -1,249 +1,359 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexaroth - WoW Private Server</title>
-    <style>
-        /* Styles généraux */
-        body {
-            background-color: #020611;
-            color: #e0e6ed;
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: linear-gradient(to bottom, rgba(2, 6, 17, 0) 0%, rgba(2, 6, 17, 0.4) 30%, rgba(2, 6, 17, 0.85) 60%, #020611 100%), 
-                              url('https://ibb.co');
-            background-size: 100% auto;
-            background-position: top center;
-            background-repeat: no-repeat;
-            background-attachment: scroll;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        @media (max-width: 1024px) {
-            body {
-                background-size: cover;
-                background-attachment: fixed;
-            }
-        }
+<title>NEXAROTH - Wrath of the Lich King</title>
 
-        a {
-            text-decoration: none;
-            color: #4cb5ff;
-            transition: all 0.3s ease;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
 
-        a:hover {
-            color: #fff;
-            text-shadow: 0 0 10px rgba(76, 181, 255, 0.6);
-        }
+<style>
 
-        /* Barre de navigation */
-        header {
-            background: rgba(2, 6, 17, 0.75);
-            border-bottom: 1px solid rgba(26, 50, 74, 0.4);
-            display: flex;
-            justify-content: space-around;
-            padding: 15px;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(5px);
-            flex-wrap: wrap;
-            gap: 15px;
-        }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-        header nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+body{
+font-family:'Cinzel',serif;
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.85)),
+url('https://images.blz-contentstack.com/v3/assets/blt3452e3b114fab0cd/blt6e56dfdbba93926a/5db9cf6fca90e10d0a93c6c8/wotlk-classic-bg.jpg');
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+color:white;
+}
 
-        header nav a {
-            margin: 5px 12px;
-            text-transform: uppercase;
-            font-size: 13px;
-            letter-spacing: 1px;
-            transition: color 0.3s;
-            cursor: pointer;
-        }
+header{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(0,0,0,.8);
+backdrop-filter:blur(10px);
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid rgba(248,183,0,.3);
+z-index:1000;
+}
 
-        header nav a:hover {
-            color: #4cb5ff;
-        }
+.logo{
+font-size:30px;
+font-weight:700;
+color:#f8b700;
+text-shadow:0 0 15px #f8b700;
+}
 
-        /* Widget Joueurs en ligne */
-        .server-status {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            background: rgba(5, 15, 28, 0.8);
-            padding: 6px 12px;
-            border-radius: 20px;
-            border: 1px solid rgba(76, 181, 255, 0.3);
-        }
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-size:14px;
+text-transform:uppercase;
+transition:.3s;
+}
 
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background-color: #2ec4b6;
-            border-radius: 50%;
-            box-shadow: 0 0 8px #2ec4b6;
-            animation: pulse 2s infinite;
-        }
+nav a:hover{
+color:#f8b700;
+}
 
-        @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 196, 182, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(46, 196, 182, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 196, 182, 0); }
-        }
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
 
-        /* Sélection de langue */
-        .lang-select {
-            background: rgba(7, 18, 33, 0.9);
-            border: 1px solid rgba(28, 61, 90, 0.6);
-            color: #4cb5ff;
-            padding: 6px 12px;
-            font-size: 13px;
-            border-radius: 4px;
-            cursor: pointer;
-            outline: none;
-        }
+.hero h1{
+font-size:90px;
+color:#f8b700;
+text-shadow:
+0 0 20px rgba(248,183,0,.8),
+0 0 50px rgba(248,183,0,.4);
+}
 
-        /* Conteneur principal */
-        .main-container {
-            max-width: 1000px;
-            margin: 60px auto;
-            padding: 0 20px;
-        }
+.hero p{
+font-size:24px;
+margin-top:15px;
+max-width:700px;
+}
 
-        /* Configuration des Panneaux de l'interface */
-        .grid-hero {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 30px;
-            margin-bottom: 40px;
-        }
+.btn{
+display:inline-block;
+margin-top:35px;
+padding:16px 40px;
+background:linear-gradient(#d6a633,#7c5208);
+border:1px solid #f8b700;
+border-radius:5px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+transition:.3s;
+}
 
-        .grid-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 40px;
-        }
+.btn:hover{
+transform:translateY(-3px);
+box-shadow:0 0 25px rgba(248,183,0,.6);
+}
 
-        @media (max-width: 850px) {
-            .grid-hero, .grid-content { grid-template-columns: 1fr; }
-        }
+.status{
+display:flex;
+justify-content:center;
+margin-top:30px;
+gap:20px;
+flex-wrap:wrap;
+}
 
-        .panel {
-            background: rgba(7, 18, 33, 0.6);
-            border: 1px solid rgba(26, 50, 74, 0.4);
-            border-radius: 8px;
-            padding: 30px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-        }
+.card{
+background:rgba(0,0,0,.65);
+padding:15px 25px;
+border:1px solid rgba(248,183,0,.25);
+border-radius:8px;
+}
 
-        .panel h2 {
-            font-family: 'Georgia', serif;
-            color: #f8b700;
-            text-shadow: 0 0 15px rgba(248, 183, 0, 0.3);
-            margin-top: 0;
-            margin-bottom: 25px;
-            text-align: center;
-        }
+.online{
+color:#00ff88;
+font-weight:bold;
+}
 
-        /* Container Téléchargements avec 5 Liens Google Drive */
-        .download-container {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+section{
+padding:100px 10%;
+}
 
-        .wow-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px;
-            font-size: 13px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 4px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-            cursor: pointer;
-            text-align: center;
-        }
+.section-title{
+text-align:center;
+font-size:40px;
+margin-bottom:50px;
+color:#f8b700;
+}
 
-        /* Variations des couleurs des boutons */
-        .dl-1 { background: linear-gradient(135deg, #11538c 0%, #062445 100%); border: 1px solid #4cb5ff; color: #fff; }
-        .dl-1:hover { background: linear-gradient(135deg, #1d6cb2 0%, #0d3866 100%); box-shadow: 0 0 15px rgba(76, 181, 255, 0.5); }
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
 
-        .dl-2, .dl-3, .dl-4, .dl-5 { background: linear-gradient(135deg, #b78a28 0%, #684a0c 100%); border: 1px solid #f8b700; color: #fff; }
-        .dl-2:hover, .dl-3:hover, .dl-4:hover, .dl-5:hover { background: linear-gradient(135deg, #d4a73b 0%, #855f14 100%); box-shadow: 0 0 15px rgba(248, 183, 0, 0.5); }
+.feature{
+background:rgba(0,0,0,.7);
+padding:30px;
+border-radius:10px;
+border:1px solid rgba(248,183,0,.2);
+transition:.4s;
+}
 
-        /* Formulaires d'authentification */
-        .auth-tabs { display: flex; border-bottom: 1px solid rgba(26, 50, 74, 0.5); margin-bottom: 20px; }
-        .auth-tab { flex: 1; padding: 10px; text-align: center; cursor: pointer; color: #8fa3b7; text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px; }
-        .auth-tab.active { color: #f8b700; border-bottom: 2px solid #f8b700; font-weight: bold; }
-        
-        .auth-form { display: none; flex-direction: column; gap: 15px; }
-        .auth-form.active { display: flex; }
-        
-        .form-group { display: flex; flex-direction: column; gap: 5px; }
-        .form-group label { font-size: 11px; text-transform: uppercase; color: #8fa3b7; }
-        .form-group input { background: rgba(2, 6, 17, 0.8); border: 1px solid rgba(28, 61, 90, 0.8); padding: 10px; color: #fff; border-radius: 4px; outline: none; }
-        .form-group input:focus { border-color: #4cb5ff; }
-        
-        .btn-submit-form { background: linear-gradient(135deg, #a72828 0%, #5a0c0c 100%); border: 1px solid #ff4c4c; color: #fff; width: 100%; margin-top: 5px; cursor: pointer; }
-        .btn-submit-form:hover { background: linear-gradient(135deg, #c43333 0%, #751414 100%); box-shadow: 0 0 15px rgba(255, 76, 76, 0.4); }
+.feature:hover{
+transform:translateY(-8px);
+box-shadow:0 0 25px rgba(248,183,0,.2);
+}
 
-        /* Actualités / Forum */
-        .item-list { display: flex; flex-direction: column; gap: 15px; }
-        .item-card { background: rgba(7, 18, 33, 0.4); border: 1px solid rgba(26, 50, 74, 0.3); border-radius: 6px; padding: 15px; }
-        .item-meta { font-size: 11px; color: #4cb5ff; text-transform: uppercase; margin-bottom: 5px; }
-        .item-card h3 { margin: 0 0 5px 0; font-size: 16px; color: #fff; }
-        .item-card p { margin: 0; font-size: 13px; color: #a0aec0; line-height: 1.4; }
+.feature h3{
+color:#f8b700;
+margin-bottom:15px;
+}
 
-        /* Structure Modale */
-        .modal {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(2, 6, 17, 0.9); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(8px);
-        }
-        .modal-content {
-            background: #071221; border: 1px solid #1c3d5a; box-shadow: 0 0 30px rgba(0,0,0,0.8);
-            width: 90%; max-width: 700px; border-radius: 8px; padding: 25px; position: relative;
-        }
-        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 24px; color: #8fa3b7; cursor: pointer; }
-        .close-modal:hover { color: #fff; }
+.downloads{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
 
-        .wow-table { width: 100%; border-collapse: collapse; margin-top: 15px; text-align: left; }
-        .wow-table th { background: rgba(26, 50, 74, 0.5); color: #f8b700; padding: 10px; font-size: 12px; text-transform: uppercase; }
-        .wow-table td { padding: 10px; border-bottom: 1px solid rgba(26, 50, 74, 0.3); font-size: 14px; }
+.download-btn{
+display:block;
+text-align:center;
+padding:18px;
+background:linear-gradient(#1c6ab8,#0b2a4d);
+border:1px solid #4cb5ff;
+border-radius:8px;
+color:white;
+text-decoration:none;
+transition:.3s;
+}
 
-        /* Pied de page */
-        footer { background: #01040a; border-top: 1px solid rgba(26, 50, 74, 0.4); padding: 40px 20px; text-align: center; font-size: 12px; color: #627284; }
-        .footer-links { margin-bottom: 15px; }
-        .footer-links a { margin: 0 10px; color: #8fa3b7; }
-        .footer-links a:hover { color: #4cb5ff; }
-        .legal-notice { max-width: 800px; margin: 0 auto; font-size: 11px; }
-    </style>
+.download-btn:hover{
+box-shadow:0 0 20px rgba(76,181,255,.6);
+}
+
+footer{
+background:#000;
+padding:40px;
+text-align:center;
+border-top:1px solid rgba(248,183,0,.2);
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:55px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+header{
+flex-direction:column;
+gap:15px;
+}
+
+nav{
+text-align:center;
+}
+
+nav a{
+display:inline-block;
+margin:5px;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
-    <header>
-        <div class="logo"><a href="#">NEXAROTH</a></div>
-        <nav>
-            <a href="#" id="nav-home" data-i18n="nav_home">Accueil</a>
-            <a href="#" id="nav-join" data-i18n="nav_join">Rejoindre</a>
-            <a id="open-armory" data-i18n="nav_armory">Armurerie</a>
-            <a id="open-ladders" data-i18n="nav_ladders">Classements</a>
-            <a href="https://legacy-wow.com" target="_blank" id="nav-addons" data-i18n="nav_addons">Addons</a>
-            <a href="https://forumactif.com" target="_blank" id="nav-forum" data-i18n="nav_forum">Forum</a>
-            <a href="https://discord.gg" target="_blank" id="nav-disc" data-i18n="nav_disc">Discord</a>
-            <a href="https://wowhead.com" target="_blank" id="nav-wowhead" data-i18n="nav_wowhead">WowHead WTLK</a>
+<header>
+
+<div class="logo">
+NEXAROTH
+</div>
+
+<nav>
+<a href="#">Accueil</a>
+<a href="#about">À Propos</a>
+<a href="#downloads">Téléchargement</a>
+<a href="#">Classements</a>
+<a href="#">Armurerie</a>
+<a href="#">Forum</a>
+<a href="#">Discord</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>NEXAROTH</h1>
+
+<p>
+Serveur World of Warcraft Wrath of the Lich King 3.3.5a.
+Rejoignez une aventure épique avec progression équilibrée,
+événements réguliers et communauté active.
+</p>
+
+<a href="#downloads" class="btn">
+JOUER MAINTENANT
+</a>
+
+<div class="status">
+
+<div class="card">
+Royaume :
+<span class="online">EN LIGNE</span>
+</div>
+
+<div class="card">
+Joueurs :
+<span id="players" class="online">247</span>
+</div>
+
+<div class="card">
+Version :
+3.3.5a
+</div>
+
+</div>
+
+</section>
+
+<section id="about">
+
+<h2 class="section-title">
+Pourquoi Nexaroth ?
+</h2>
+
+<div class="features">
+
+<div class="feature">
+<h3>⚔ Expérience x5</h3>
+<p>Progression rapide tout en conservant l'expérience authentique WotLK.</p>
+</div>
+
+<div class="feature">
+<h3>🏆 PvE & PvP</h3>
+<p>Raids, donjons héroïques, arènes et champs de bataille actifs.</p>
+</div>
+
+<div class="feature">
+<h3>🌍 Communauté Active</h3>
+<p>Joueurs francophones et internationaux réunis sur un royaume stable.</p>
+</div>
+
+<div class="feature">
+<h3>🎉 Événements</h3>
+<p>Événements hebdomadaires avec récompenses exclusives.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="downloads">
+
+<h2 class="section-title">
+Téléchargements
+</h2>
+
+<div class="downloads">
+
+<a href="#" class="download-btn">
+Télécharger le Client WoW
+</a>
+
+<a href="#" class="download-btn">
+Launcher Nexaroth
+</a>
+
+<a href="#" class="download-btn">
+Patch HD
+</a>
+
+<a href="#" class="download-btn">
+Addons Recommandés
+</a>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>© 2026 NEXAROTH - Wrath of the Lich King 3.3.5a</p>
+
+<p>
+World of Warcraft est une marque déposée de Blizzard Entertainment.
+Ce projet n'est pas affilié à Blizzard Entertainment.
+</p>
+
+</footer>
+
+<script>
+
+setInterval(function(){
+
+let online=document.getElementById("players");
+
+online.innerText=
+Math.floor(Math.random()*80)+220;
+
+},5000);
+
+</script>
+
+</body>
+</html>
