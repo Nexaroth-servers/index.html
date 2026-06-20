@@ -1,269 +1,115 @@
+<?php
+// Exemple de données (À remplacer par une connexion à votre base de données)
+$personnages = [
+    ['id' => 1, 'nom' => 'Arthas', 'classe' => 'Paladin'],
+    ['id' => 2, 'nom' => 'Thrall', 'classe' => 'Chaman']
+];
+
+$categories = [
+    'montures_volantes' => 'Montures Volantes',
+    'montures_terrestres' => 'Montures Terrestres',
+    'transmos' => 'Transmissions (Transmos)',
+    'sacs' => 'Sacs',
+    'compos_metiers' => 'Composants de Métier',
+    'services' => 'Services (Titres & Guilde)'
+];
+
+$items = [
+    // Montures
+    ['id' => 101, 'nom' => 'Proto-dragon perdu dans le temps', 'categorie' => 'montures_volantes', 'prix_vote' => 50, 'prix_don' => 5],
+    ['id' => 102, 'nom' => 'Tigre de Zul'Gurub', 'categorie' => 'montures_terrestres', 'prix_vote' => 40, 'prix_don' => 4],
+    // Transmos et Sacs
+    ['id' => 103, 'nom' => 'Spallières de l'avatar', 'categorie' => 'transmos', 'prix_vote' => 20, 'prix_don' => 2],
+    ['id' => 104, 'nom' => 'Sac en tisse-givre sans fond', 'categorie' => 'sacs', 'prix_vote' => 15, 'prix_don' => 1],
+    // Composants
+    ['id' => 105, 'nom' => 'Barre de Titanacier x20', 'categorie' => 'compos_metiers', 'prix_vote' => 10, 'prix_don' => 1],
+    ['id' => 106, 'nom' => 'Étoffe de lune enchantée x20', 'categorie' => 'compos_metiers', 'prix_vote' => 10, 'prix_don' => 1],
+    // Services
+    ['id' => 201, 'nom' => 'Titre : Le Tueur de Rois', 'categorie' => 'services', 'prix_vote' => 100, 'prix_don' => 10, 'type' => 'titre'],
+    ['id' => 202, 'nom' => 'Changement de nom de Guilde', 'categorie' => 'services', 'prix_vote' => 150, 'prix_don' => 15, 'type' => 'guilde']
+];
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boutique - Nexaroth</title>
+    <title>Boutique du Serveur</title>
     <style>
-        /* Styles Généraux */
-        body {
-            background-color: #020611;
-            color: #e0e6ed;
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: linear-gradient(to bottom, rgba(2, 6, 17, 0.5) 0%, rgba(2, 6, 17, 0.9) 70%, #020611 100%), url('https://blzmd.com');
-            background-size: cover;
-            background-position: center top;
-            background-attachment: fixed;
-        }
-        a { text-decoration: none; color: inherit; }
-        
-        /* Barre de Navigation */
-        header {
-            background: rgba(2, 6, 17, 0.75);
-            border-bottom: 1px solid rgba(26, 50, 74, 0.4);
-            display: flex;
-            justify-content: space-around;
-            padding: 15px;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(5px);
-        }
-        header nav a {
-            margin: 0 15px;
-            text-transform: uppercase;
-            font-size: 13px;
-            letter-spacing: 1px;
-            transition: color 0.3s;
-        }
-        header nav a:hover { color: #4cb5ff; }
-
-        .container {
-            max-width: 1100px;
-            margin: 50px auto;
-            padding: 0 20px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #a3d8f4;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 38px;
-            font-family: 'Georgia', serif;
-            text-shadow: 0 0 20px rgba(163,216,244,0.4);
-            margin-bottom: 5px;
-        }
-        .subtitle { text-align: center; color: #7ab0d5; font-size: 16px; margin-bottom: 40px; }
-
-        /* Menu des Catégories (Onglets) */
-        .shop-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-        .tab-btn {
-            background: rgba(7, 18, 33, 0.6);
-            border: 1px solid rgba(28, 61, 90, 0.6);
-            color: #8fa3b5;
-            padding: 12px 25px;
-            cursor: pointer;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 13px;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-        }
-        .tab-btn:hover, .tab-btn.active {
-            color: #4cb5ff;
-            border-color: #4cb5ff;
-            background: rgba(9, 23, 41, 0.8);
-            box-shadow: 0 0 10px rgba(76, 181, 255, 0.3);
-        }
-
-        /* Contenu de la Boutique */
-        .shop-content {
-            display: none;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 20px;
-        }
-        .shop-content.active {
-            display: grid;
-        }
-
-        /* Cartes d'objets (Boîtes Bleues Translucides) */
-        .item-card {
-            background: rgba(7, 18, 33, 0.4);
-            border: 1px solid rgba(28, 61, 90, 0.4);
-            border-radius: 4px;
-            padding: 20px;
-            text-align: center;
-            backdrop-filter: blur(4px);
-            transition: all 0.3s;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .item-card:hover {
-            border-color: #4cb5ff;
-            transform: translateY(-3px);
-            background: rgba(9, 23, 41, 0.7);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-        }
-        .item-icon {
-            width: 64px;
-            height: 64px;
-            background-color: #122436;
-            margin: 0 auto 15px;
-            border: 2px solid #2e5f8a;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-        }
-        .item-card h3 { margin: 0 0 8px 0; font-size: 18px; color: #fff; }
-        .item-card p { margin: 0 0 20px 0; color: #8fa3b5; font-size: 13px; line-height: 1.4; }
-        
-        .price-tag {
-            font-size: 18px;
-            color: #4cb5ff;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        /* Bouton PayPal */
-        .btn-paypal {
-            background: linear-gradient(180deg, #0070ba, #003087);
-            border: 1px solid #0070ba;
-            color: #fff;
-            padding: 10px 20px;
-            display: inline-block;
-            font-size: 12px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        .btn-paypal:hover {
-            box-shadow: 0 0 15px rgba(0, 112, 186, 0.6);
-            border-color: #00a6ff;
-        }
-
-        footer {
-            background: #010308;
-            padding: 40px 20px;
-            text-align: center;
-            border-top: 1px solid #122436;
-            font-size: 12px;
-            color: #566f85;
-            margin-top: 80px;
-        }
+        body { font-family: Arial, sans-serif; background: #1a1a1a; color: #fff; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .panel { background: #2a2a2a; padding: 15px; margin-bottom: 20px; border-radius: 5px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: #333; padding: 15px; border-radius: 5px; border: 1px solid #444; }
+        .btn { padding: 8px 12px; border: none; border-radius: 3px; cursor: pointer; font-weight: bold; }
+        .btn-vote { background: #28a745; color: white; }
+        .btn-don { background: #007bff; color: white; }
+        select, input[type="text"] { padding: 8px; background: #444; color: #fff; border: 1px solid #555; border-radius: 3px; }
     </style>
 </head>
 <body>
 
-    <!-- Barre de Navigation Identique -->
-    <header>
-        <div class="logo" style="font-weight: bold; color: #a3d8f4; letter-spacing: 2px; font-size: 18px;">NEXAROTH</div>
-        <nav>
-            <a href="index.html">Accueil</a>
-            <a href="index.html#creation-compte">Inscription</a>
-            <a href="download.html" target="_blank">Téléchargement</a>
-            <a href="boutique.html">Boutique</a>
-            <a href="/vote" target="_blank">Vote</a>
-            <a href="addons.html" target="_blank">Addons</a>
-            <a href="https://forumactif.com" target="_blank">Forum</a>
-            <a href="https://discord.gg" target="_blank">Discord</a>
-        </nav>
-    </header>
+<div class="container">
+    <h1>Boutique Récompenses</h1>
 
-    <div class="container">
-        <h1>Boutique Récompenses</h1>
-        <div class="subtitle">Soutenez le serveur et obtenez des avantages exclusifs en jeu</div>
+    <!-- ÉTAPE 1 : Sélection du personnage -->
+    <div class="panel">
+        <h3>1. Choisissez votre personnage</h3>
+        <select name="personnage_selectionne" id="persoSelect">
+            <?php foreach ($personnages as $perso): ?>
+                <option value="<?= $perso['id'] ?>"><?= $perso['nom'] ?> (<?= $perso['classe'] ?>)</option>
+            <?php endphp ?>
+        </select>
+    </div>
 
-        <!-- Menu de sélection des catégories -->
-        <div class="shop-tabs">
-            <button class="tab-btn active" onclick="switchCategory('montures')">Montures</button>
-            <button class="tab-btn" onclick="switchCategory('transmos')">Transmos</button>
-            <button class="tab-btn" onclick="switchCategory('sacs')">Sacs</button>
-            <button class="tab-btn" onclick="switchCategory('composants')">Composants Métiers</button>
+    <!-- ÉTAPE 2 : Affichage des items par catégorie -->
+    <?php foreach ($categories as $cle_cat => $nom_cat): ?>
+        <h2><?= $nom_cat ?></h2>
+        <div class="grid">
+            <?php foreach ($items as $item): ?>
+                <?php if ($item['categorie'] === $cle_cat): ?>
+                    <div class="card">
+                        <h4><?= htmlspecialchars($item['nom']) ?></h4>
+                        
+                        <!-- Option spécifique pour le changement de guilde -->
+                        <?php if (isset($item['type']) && $item['type'] === 'guilde'): ?>
+                            <p><input type="text" placeholder="Nouveau nom de guilde" id="guilde_name_<?= $item['id'] ?>"></p>
+                        <?php endif; ?>
+
+                        <p>Prix Vote : <strong><?= $item['prix_vote'] ?> PV</strong></p>
+                        <p>Prix Donation : <strong><?= $item['prix_don'] ?> PD</strong></p>
+                        
+                        <button class="btn btn-vote" onclick="acheter(<?= $item['id'] ?>, 'vote')">Acheter (Points Vote)</button>
+                        <button class="btn btn-don" onclick="acheter(<?= $item['id'] ?>, 'donation')">Acheter (Points Don)</button>
+                    </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
         </div>
+    <?php endforeach; ?>
+</div>
 
-        <!-- CATEGORIE : MONTURES -->
-        <div id="montures" class="shop-content active">
-            <div class="item-card">
-                <div>
-                    <div class="item-icon">🐉</div>
-                    <h3>Invicible</h3>
-                    <p>La célèbre monture volante du Roi Liche. Vitesse maximale au sol et en vol.</p>
-                </div>
-                <div>
-                    <div class="price-tag">15.00 EUR</div>
-                    <a href="https://paypal.me/nexarothservers" target="_blank" class="btn-paypal">Acheter via PayPal</a>
-                </div>
-            </div>
-            <div class="item-card">
-                <div>
-                    <div class="item-icon">💀</div>
-                    <h3>Proto-dragon pestiféré</h3>
-                    <p>Une monture volante rare récompensant autrefois les plus grands exploits de raid.</p>
-                </div>
-                <div>
-                    <div class="price-tag">12.00 EUR</div>
-                    <a href="https://paypal.me/nexarothservers" target="_blank" class="btn-paypal">Acheter via PayPal</a>
-                </div>
-            </div>
-        </div>
+<script>
+function acheter(itemId, methodePaiement) {
+    const persoId = document.getElementById('persoSelect').value;
+    let extensionParam = '';
 
-        <!-- CATEGORIE : TRANSMOS -->
-        <div id="transmos" class="shop-content">
-            <div class="item-card">
-                <div>
-                    <div class="item-icon">⚔️</div>
-                    <h3>Deuille-givre (Visuel)</h3>
-                    <p>Appliquez l'apparence légendaire de Frostmourne sur vos armes à deux mains.</p>
-                </div>
-                <div>
-                    <div class="price-tag">10.00 EUR</div>
-                    <a href="https://paypal.me/nexarothservers" target="_blank" class="btn-paypal">Acheter via PayPal</a>
-                </div>
-            </div>
-            <div class="item-card">
-                <div>
-                    <div class="item-icon">🛡️</div>
-                    <h3>Set Transmo T10 Héroïque</h3>
-                    <p>Obtenez l'apparence complète du set d'armure Tier 10 de votre classe en version 277.</p>
-                </div>
-                <div>
-                    <div class="price-tag">8.00 EUR</div>
-                    <a href="https://paypal.me/nexarothservers" target="_blank" class="btn-paypal">Acheter via PayPal</a>
-                </div>
-            </div>
-        </div>
+    // Gestion du changement de nom de guilde
+    const guildeInput = document.getElementById('guilde_name_' + itemId);
+    if (guildeInput) {
+        if (!guildeInput.value.trim()) {
+            alert('Veuillez entrer le nouveau nom de la guilde.');
+            return;
+        }
+        extensionParam = '&nom_guilde=' + encodeURIComponent(guildeInput.value);
+    }
 
-        <!-- CATEGORIE : SACS -->
-        <div id="sacs" class="shop-content">
-            <div class="item-card">
-                <div>
-                    <div class="item-icon">🎒</div>
-                    <h3>Sac en tisse-givre glacial</h3>
-                    <p>Un grand sac de rangement de 22 emplacements pour stocker tout votre butin WotLK.</p>
-                </div>
-                <div>
-                    <div class="price-tag">3.00 EUR</div>
-                    <a href="https://paypal.me/nexarothservers" target="_blank" class="btn-paypal">Acheter via PayPal</a>
-                </div>
-            </div>
-            <div class="item-card">
-                <div>
-                    <div class="item-icon">💼</div>
-                    <h3>Sac de Glace sans fond</h3>
+    // Simulation de la requête d'achat
+    alert('Requête envoyée !\nPersonnage ID: ' + persoId + '\nItem ID: ' + itemId + '\nPaiement: ' + methodePaiement + extensionParam);
+    
+    // Vers votre script de traitement : 
+    // window.location.href = 'traiter_achat.php?item=' + itemId + '&perso=' + persoId + '&type=' + methodePaiement + extensionParam;
+}
+</script>
+
+</body>
+</html>
