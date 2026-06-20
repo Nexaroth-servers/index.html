@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nexaroth - WoW Private Server</title>
     <style>
@@ -12,6 +12,7 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
+            /* Image de fond officielle du Roi Liche (WotLK) */
             background-image: linear-gradient(to bottom, rgba(5, 11, 20, 0.4), rgba(5, 11, 20, 0.95)), url('https://blzmd.com');
             background-size: cover;
             background-position: top center;
@@ -125,7 +126,7 @@
         .form-group input:focus { border-color: #4cb5ff; outline: none; }
         .btn-submit { width: 100%; margin: 10px 0 0 0; padding: 14px; background: linear-gradient(180deg, #23527c, #0f2b47); }
 
-        /* Double Colonne */
+        /* Grilles et Mises en page */
         .download-layout {
             display: flex;
             max-width: 1100px;
@@ -135,7 +136,6 @@
         }
         .download-column { flex: 1; }
 
-        /* Conteneur de Grille Standard */
         .grid {
             display: flex;
             justify-content: center;
@@ -145,7 +145,6 @@
             padding: 0 20px;
         }
 
-        /* Cartes de contenu */
         .card {
             background: rgba(10, 25, 47, 0.75);
             border: 1px solid #1c3d5a;
@@ -159,7 +158,6 @@
         .card h3 { margin: 0 0 10px 0; font-size: 18px; color: #fff; }
         .card p { margin: 0 0 15px 0; font-size: 13px; color: #8fa3b5; }
 
-        /* Pied de page */
         footer {
             background: #03070d;
             padding: 50px 20px;
@@ -193,7 +191,6 @@
         <p>WORLD OF WARCRAFT — WRATH OF THE LICH KING 3.3.5a</p>
         <div class="btn-group">
             <a href="#inscription" class="btn">Créer un compte</a>
-            <!-- target="_blank" force l'ouverture dans un nouvel onglet -->
             <a href="download.html" target="_blank" class="btn">Télécharger le jeu</a>
             <a href="#vote" class="btn">Voter et Gagner</a>
             <a href="#boutique" class="btn">Boutique</a>
@@ -262,3 +259,5 @@
     <!-- Section Accès Rapide -->
     <h2 class="section-title">Accès Rapide</h2>
     <div class="grid">
+        <div class="card" id="vote">
+            <h3>Vote</h3>
