@@ -20,7 +20,8 @@ nav a{color:#fff;text-decoration:none;margin:0 8px}
 .blue{background:linear-gradient(#1d6cb2,#082a4d);color:#fff}
 .container{max-width:1400px;margin:auto;padding:60px 20px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
-.card{background:var(--card);padding:25px;border-radius:10px;border:1px solid rgba(76,181,255,.2)}
+.card{background:var(--card);padding:25px;border-radius:10px;border:1px solid rgba(76,181,255,.2);transition:.3s}
+.card:hover{transform:translateY(-5px);box-shadow:0 0 25px rgba(76,181,255,.20)}
 .card h3{color:var(--gold);margin-bottom:15px}
 .download a,.vote a{display:block;background:#0b1d31;color:#fff;text-decoration:none;padding:12px;margin:8px 0;border-radius:6px}
 table{width:100%;border-collapse:collapse}
@@ -37,8 +38,6 @@ button{padding:12px 20px;background:var(--blue);border:0;color:#fff;border-radiu
 <a href="#home">Accueil</a>
 <a href="#register">Inscription</a>
 <a href="#downloads">Téléchargements</a>
-<a href="https://nexaroth.forumactif.com/" target="_blank">Forum</a>
-<a href="https://discord.gg/zcH3JXHeuQ" target="_blank">Discord</a>
 </nav>
 </header>
 
@@ -47,76 +46,20 @@ button{padding:12px 20px;background:var(--blue);border:0;color:#fff;border-radiu
 <h1>NEXAROTH</h1>
 <h2>Wrath of the Lich King 3.3.5a</h2>
 <p>Expérience x5 • PvE • PvP • Royaume Stable</p>
-<a class="btn gold" href="#downloads">Télécharger</a>
-<a class="btn blue" href="https://discord.gg/zcH3JXHeuQ">Discord</a>
 </div>
 </section>
 
 <div class="container">
 <div class="grid">
-
-<div class="card">
-<h3>📊 Statistiques</h3>
-<p>Joueurs en ligne: <span id="online">245</span></p>
-<p>Version: 3.3.5a</p>
-<p>Uptime: 99.98%</p>
-</div>
-
-<div class="card" id="register">
-<h3>📝 Création de compte</h3>
-<input placeholder="Nom de compte">
-<input placeholder="Email">
-<input type="password" placeholder="Mot de passe">
-<button>Créer un compte</button>
-</div>
-
-<div class="card">
-<h3>🌐 Realmlist</h3>
-<input id="realm" value="set realmlist nexaroth.com" readonly>
-<button onclick="copyRealm()">Copier</button>
-</div>
-
-<div class="card download" id="downloads">
-<h3>📥 Téléchargements</h3>
-<a href="https://drive.google.com/file/d/1X2L9rqWviivzeDEEltLyjR8l77ujKtxJ/view?usp=drive_link">📥 Client Complet (FR)</a>
-<a href="https://drive.google.com/file/d/1X2L9rqWviivzeDEEltLyjR8l77ujKtxJ/view?usp=drive_link">📥 Client Complet (EN)</a>
-<a href="https://drive.google.com/file/d/1X2L9rqWviivzeDEEltLyjR8l77ujKtxJ/view?usp=drive_link">📥 Client Complet (RU)</a>
-<a href="https://drive.google.com/file/d/1cWElIZu6jWEOkVh23BNoya5nh60w-rYU/view?usp=drive_link">📥 Client Complet (ES)</a>
-<a href="https://legacy-wow.com/wotlk-addons/nk">📥 Addons</a>
-<a href="https://www.wowhead.com/wotlk">📥 Wowhead WotLK</a>
-</div>
-
-<div class="card">
-<h3>🏆 Classement PvP</h3>
-<table>
-<tr><th>Joueur</th><th>Cote</th></tr>
-<tr><td>Arthorius</td><td>2800</td></tr>
-<tr><td>Frostmage</td><td>2710</td></tr>
-<tr><td>Shadowx</td><td>2685</td></tr>
-</table>
-</div>
-
-<div class="card vote">
-<h3>⭐ Vote</h3>
-<a href="#">Voter pour Nexaroth</a>
-</div>
-
+<div class="card"><h3>📊 Statistiques</h3><p>Joueurs en ligne: <span id="online">245</span></p></div>
+<div class="card"><h3>🌐 Realmlist</h3><input id="realm" value="set realmlist nexaroth.com" readonly></div>
+<div class="card download" id="downloads"><h3>📥 Téléchargements</h3><a href="#">Client FR</a></div>
+<div class="card"><h3>📰 Actualités</h3><p>ICC disponible.</p></div>
+<div class="card"><h3>🏆 Classement PvP</h3><table><tr><th>Joueur</th><th>Cote</th></tr><tr><td>Arthorius</td><td>2800</td></tr></table></div>
+<div class="card"><h3>📧 Support</h3><p>nexarothservers@atomicmail.io</p></div>
 </div>
 </div>
 
-<footer>
-<p>© 2026 NEXAROTH - Wrath of the Lich King</p>
-<p>Forum : https://nexaroth.forumactif.com/</p>
-</footer>
-
-<script>
-function copyRealm(){
-navigator.clipboard.writeText(document.getElementById('realm').value);
-alert('Realmlist copié');
-}
-setInterval(()=>{
-document.getElementById('online').textContent=Math.floor(Math.random()*80)+220;
-},5000);
-</script>
+<footer><p>© 2026 NEXAROTH</p></footer>
 </body>
 </html>
