@@ -1,195 +1,122 @@
 <!DOCTYPE html>
-
 <html lang="fr">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>NEXAROTH Blizzard Edition 2026</title>
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>NEXAROTH Premium 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
-
 <style>
-
 :root{--gold:#f8b700;--blue:#4cb5ff;--bg:#020611;--card:#071221}
-
 *{margin:0;padding:0;box-sizing:border-box}
-
 body{font-family:Cinzel,serif;background:var(--bg);color:#fff}
-
-header{position:fixed;top:0;width:100%;background:rgba(0,0,0,.9);padding:15px;z-index:999}
-
-nav{display:flex;justify-content:center;gap:18px;flex-wrap:wrap}
-
-nav a{color:#fff;text-decoration:none}
-
-.hero{height:100vh;background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.9)),url('lichking.jpg') center/cover;display:flex;justify-content:center;align-items:center;text-align:center}
-
-.hero h1{font-size:110px;text-shadow:0 0 25px #4cb5ff}
-
-.hero h2{color:#4cb5ff}
-
-.container{max-width:1400px;margin:auto;padding:50px 20px}
-
+header{position:fixed;top:0;width:100%;background:rgba(0,0,0,.9);padding:15px 30px;display:flex;justify-content:space-between;align-items:center;z-index:999}
+.logo{font-size:34px;color:var(--gold)}
+nav a{color:#fff;text-decoration:none;margin:0 8px}
+.hero{height:100vh;background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.85)),url('lichking.jpg') center/cover;display:flex;align-items:center;justify-content:center;text-align:center}
+.hero h1{font-size:90px;color:#dbe7ff}
+.hero h2{color:var(--blue)}
+.btn{display:inline-block;padding:14px 30px;margin:8px;border-radius:6px;text-decoration:none}
+.gold{background:linear-gradient(#d4a73b,#7a5107);color:#fff}
+.blue{background:linear-gradient(#1d6cb2,#082a4d);color:#fff}
+.container{max-width:1400px;margin:auto;padding:60px 20px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
-
-.card{background:var(--card);padding:25px;border-radius:12px;border:1px solid rgba(76,181,255,.2)}
-
+.card{background:var(--card);padding:25px;border-radius:10px;border:1px solid rgba(76,181,255,.2)}
 .card h3{color:var(--gold);margin-bottom:15px}
-
-.btn{display:inline-block;padding:12px 25px;background:#4cb5ff;color:#fff;text-decoration:none;border-radius:6px}
-
-.list a{display:block;background:#0b1d31;color:#fff;padding:12px;margin:8px 0;text-decoration:none;border-radius:6px}
-
-input{width:100%;padding:12px;margin:5px 0;background:#000;color:#fff;border:1px solid #234}
-
+.download a,.vote a{display:block;background:#0b1d31;color:#fff;text-decoration:none;padding:12px;margin:8px 0;border-radius:6px}
 table{width:100%;border-collapse:collapse}
-
-th,td{padding:10px;border-bottom:1px solid #223}
-
-footer{text-align:center;padding:40px;background:#01040a}
-
+th,td{padding:10px;border-bottom:1px solid #233}
+footer{text-align:center;padding:40px;background:#01040a;margin-top:40px}
+input{width:100%;padding:12px;background:#000;border:1px solid #234;color:#fff;margin:5px 0}
+button{padding:12px 20px;background:var(--blue);border:0;color:#fff;border-radius:5px}
 </style>
-
 </head>
-
 <body>
-
 <header>
-
+<div class="logo">NEXAROTH</div>
 <nav>
-
 <a href="#home">Accueil</a>
-
 <a href="#register">Inscription</a>
-
 <a href="#downloads">Téléchargements</a>
-
-<a href="#armory">Armurerie</a>
-
-<a href="#vote">Vote</a>
-
 <a href="https://nexaroth.forumactif.com/" target="_blank">Forum</a>
-
 <a href="https://discord.gg/zcH3JXHeuQ" target="_blank">Discord</a>
-
 </nav>
-
 </header>
 
-
-
 <section class="hero" id="home">
-
 <div>
-
 <h1>NEXAROTH</h1>
-
 <h2>Wrath of the Lich King 3.3.5a</h2>
-
-<p>Battle.net Style 2026</p>
-
+<p>Expérience x5 • PvE • PvP • Royaume Stable</p>
+<a class="btn gold" href="#downloads">Télécharger</a>
+<a class="btn blue" href="https://discord.gg/zcH3JXHeuQ">Discord</a>
 </div>
-
 </section>
 
-
-
 <div class="container">
-
 <div class="grid">
 
+<div class="card">
+<h3>📊 Statistiques</h3>
+<p>Joueurs en ligne: <span id="online">245</span></p>
+<p>Version: 3.3.5a</p>
+<p>Uptime: 99.98%</p>
+</div>
 
+<div class="card" id="register">
+<h3>📝 Création de compte</h3>
+<input placeholder="Nom de compte">
+<input placeholder="Email">
+<input type="password" placeholder="Mot de passe">
+<button>Créer un compte</button>
+</div>
 
-<div class="card"><h3>📊 Statistiques</h3><p>Joueurs: <span id="online">250</span></p><p>Uptime:99.98%</p></div>
+<div class="card">
+<h3>🌐 Realmlist</h3>
+<input id="realm" value="set realmlist nexaroth.com" readonly>
+<button onclick="copyRealm()">Copier</button>
+</div>
 
-
-
-<div class="card"><h3>⏳ Compte à rebours</h3><div id="countdown">Ouverture imminente</div></div>
-
-
-
-<div class="card" id="register"><h3>📝 Inscription</h3><input placeholder="Compte"><input placeholder="Email"><input type="password" placeholder="Mot de passe"><a class="btn">Créer un compte</a></div>
-
-
-
-<div class="card"><h3>🌐 Realmlist</h3><input id="realm" value="set realmlist nexaroth.com" readonly><a class="btn" onclick="copyRealm()" href="#">Copier</a></div>
-
-
-
-<div class="card list" id="downloads">
-
+<div class="card download" id="downloads">
 <h3>📥 Téléchargements</h3>
-
-<a href="https://drive.google.com/file/d/1X2L9rqWviivzeDEEltLyjR8l77ujKtxJ/view?usp=drive_link">Client FR</a>
-
-<a href="https://drive.google.com/file/d/1X2L9rqWviivzeDEEltLyjR8l77ujKtxJ/view?usp=drive_link">Client EN</a>
-
-<a href="https://drive.google.com/file/d/1X2L9rqWviivzeDEEltLyjR8l77ujKtxJ/view?usp=drive_link">Client RU</a>
-
-<a href="https://drive.google.com/file/d/1cWElIZu6jWEOkVh23BNoya5nh60w-rYU/view?usp=drive_link">Client ES</a>
-
-<a href="https://legacy-wow.com/wotlk-addons/nk">Addons</a>
-
-<a href="https://www.wowhead.com/wotlk">WowHead</a>
-
+<a href="https://drive.google.com/file/d/1X2L9rqWviivzeDEEltLyjR8l77ujKtxJ/view?usp=drive_link">📥 Client Complet (FR)</a>
+<a href="https://drive.google.com/file/d/1X2L9rqWviivzeDEEltLyjR8l77ujKtxJ/view?usp=drive_link">📥 Client Complet (EN)</a>
+<a href="https://drive.google.com/file/d/1X2L9rqWviivzeDEEltLyjR8l77ujKtxJ/view?usp=drive_link">📥 Client Complet (RU)</a>
+<a href="https://drive.google.com/file/d/1cWElIZu6jWEOkVh23BNoya5nh60w-rYU/view?usp=drive_link">📥 Client Complet (ES)</a>
+<a href="https://legacy-wow.com/wotlk-addons/nk">📥 Addons</a>
+<a href="https://www.wowhead.com/wotlk">📥 Wowhead WotLK</a>
 </div>
 
+<div class="card">
+<h3>🏆 Classement PvP</h3>
+<table>
+<tr><th>Joueur</th><th>Cote</th></tr>
+<tr><td>Arthorius</td><td>2800</td></tr>
+<tr><td>Frostmage</td><td>2710</td></tr>
+<tr><td>Shadowx</td><td>2685</td></tr>
+</table>
+</div>
 
-
-<div class="card" id="armory"><h3>⚔️ Armurerie</h3><input placeholder="Nom du personnage"><a class="btn">Rechercher</a></div>
-
-
-
-<div class="card"><h3>🏆 Classement PvP</h3><table><tr><th>Joueur</th><th>Cote</th></tr><tr><td>Arthorius</td><td>2800</td></tr><tr><td>Shadowx</td><td>2740</td></tr></table></div>
-
-
-
-<div class="card" id="vote"><h3>⭐ Vote</h3><a class="btn" href="#">Voter pour Nexaroth</a></div>
-
-
-
-<div class="card"><h3>🛒 Boutique</h3><p>Montures, compagnons et services.</p></div>
-
-
-
-<div class="card"><h3>📰 Actualités</h3><p>ICC disponible.</p><p>Saison PvP ouverte.</p></div>
-
-
-
+<div class="card vote">
+<h3>⭐ Vote</h3>
+<a href="#">Voter pour Nexaroth</a>
 </div>
 
 </div>
-
-
+</div>
 
 <footer>
-
-<p>© 2026 NEXAROTH Blizzard Edition</p>
-
-<p>Discord: discord.gg/zcH3JXHeuQ</p>
-
+<p>© 2026 NEXAROTH - Wrath of the Lich King</p>
+<p>Forum : https://nexaroth.forumactif.com/</p>
 </footer>
 
-
-
 <script>
-
-function copyRealm(){navigator.clipboard.writeText(document.getElementById('realm').value);alert('Realmlist copié');}
-
-setInterval(()=>{document.getElementById('online').innerText=Math.floor(Math.random()*120)+200;},5000);
-
+function copyRealm(){
+navigator.clipboard.writeText(document.getElementById('realm').value);
+alert('Realmlist copié');
+}
+setInterval(()=>{
+document.getElementById('online').textContent=Math.floor(Math.random()*80)+220;
+},5000);
 </script>
-
 </body>
-
-</html>"""
-
-path="/mnt/data/NEXAROTH-Blizzard-Edition-2026.html"
-
-Path(path).write_text(html,encoding="utf-8")
-
-print(path)
+</html>
