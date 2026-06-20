@@ -12,9 +12,8 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            /* Utilisation de l'image exacte envoyée configurée en plein écran */
             background-image: 
-                linear-gradient(to bottom, rgba(2, 6, 17, 0.1) 0%, rgba(2, 6, 17, 0.4) 30%, rgba(2, 6, 17, 0.85) 75%, #020611 100%), 
+                linear-gradient(to bottom, rgba(2, 6, 17, 0) 0%, rgba(2, 6, 17, 0.4) 30%, rgba(2, 6, 17, 0.85) 60%, #020611 100%), 
                 url('https://blzmd.com');
             background-size: 100% auto;
             background-position: top center;
@@ -183,50 +182,40 @@
         .rank-num { color: #4cb5ff; font-weight: bold; }
         .rating { color: #a3d8f4; font-weight: bold; text-align: right; }
 
-        /* Module de Chat Intégré (Nouveauté) */
-        .chat-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 320px;
-            background: rgba(7, 18, 33, 0.95);
-            border: 1px solid rgba(76, 181, 255, 0.4);
-            border-radius: 6px 6px 0 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            z-index: 2000;
-            font-size: 13px;
-        }
-        .chat-header {
-            background: linear-gradient(180deg, #1b3a57, #0d2033);
-            padding: 12px;
-            font-weight: bold;
-            color: #a3d8f4;
-            border-bottom: 1px solid rgba(76, 181, 255, 0.3);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            border-radius: 5px 5px 0 0;
-        }
-        .chat-body {
-            height: 250px;
-            padding: 10px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            background: rgba(2, 6, 17, 0.9);
-        }
-        .chat-msg { padding: 8px 12px; border-radius: 4px; max-width: 80%; line-height: 1.4; }
-        .chat-msg.server { background: rgba(27, 58, 87, 0.5); align-self: flex-start; color: #4cb5ff; border: 1px solid rgba(76,181,255,0.2); }
-        .chat-msg.player { background: rgba(35, 82, 124, 0.4); align-self: flex-end; color: #fff; border: 1px solid rgba(255,255,255,0.1); }
-        .chat-msg span { display: block; font-size: 10px; color: #566f85; margin-bottom: 3px; font-weight: bold; }
-        .chat-footer {
-            display: flex;
-            border-top: 1px solid rgba(28, 61, 90, 0.6);
-            background: #071221;
-        }
-        .chat-footer input {
-            flex: 1; padding: 12px; background: transparent; border: none; color: #fff; outline: none;
-        }
-        .chat-footer button {
+        footer { background: #010308; padding: 50px 20px; text-align: center; border-top: 1px solid #122436; font-size: 12px; color: #566f85; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo" style="font-weight: bold; color: #a3d8f4; letter-spacing: 2px; font-size: 18px;">NEXAROTH</div>
+        <nav>
+            <a href="#" id="nav-home">Accueil</a>
+            <a href="#creation-compte" id="nav-reg">Inscription</a>
+            <a href="download.html" target="_blank" id="nav-dl">Téléchargement</a>
+            <a href="boutique.html" target="_blank" id="nav-shop">Boutique</a>
+            <a href="https://paypal.me" target="_blank" id="nav-vote">Vote</a>
+            <a href="https://legacy-wow.com" target="_blank" id="nav-addons">Addons</a>
+            <a href="https://forumactif.com" target="_blank" id="nav-forum">Forum</a>
+            <a href="https://discord.gg" target="_blank" id="nav-disc">Discord</a>
+            <a href="https://wowhead.com" target="_blank" id="nav-wowhead">WowHead WTLK</a>
+        </nav>
+        
+        <div>
+            <!-- Menu sélecteur de langue -->
+            <select class="lang-select" onchange="translatePage(this.value)">
+                <option value="fr">FR 🇫🇷</option>
+                <option value="en">EN 🇺🇸</option>
+                <option value="es">ES 🇪🇸</option>
+                <option value="ru">RU 🇷🇺</option>
+            </select>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1 id="txt-hero-title">NEXAROTH</h1>
+        <p id="txt-hero-desc">WORLD OF WARCRAFT — WRATH OF THE LICH KING 3.3.5a</p>
+        <div class="btn-group">
+            <a href="#creation-compte" class="btn" id="btn-hero-reg">Créer un compte</a>
+            <a href="download.html" target="_blank" class="btn" id="btn-hero-dl">Télécharger le jeu</a>
+            <a href="https://paypal.me" target="_blank" class="btn" id="btn-hero-vote">Voter et Gagner</a>
