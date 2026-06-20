@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutique - Nexaroth</title>
+    <style>
+        /* Styles Généraux */
+        body {
+            background-color: #020611;
+            color: #e0e6ed;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(to bottom, rgba(2, 6, 17, 0.5) 0%, rgba(2, 6, 17, 0.9) 70%, #020611 100%), url('https://blzmd.com');
+            background-size: cover;
+            background-position: center top;
+            background-attachment: fixed;
+        }
+        a { text-decoration: none; color: inherit; }
+        
+        /* Barre de Navigation */
+        header {
+            background: rgba(2, 6, 17, 0.75);
+            border-bottom: 1px solid rgba(26, 50, 74, 0.4);
+            display: flex;
+            justify-content: space-around;
+            padding: 15px;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        header nav a {
+            margin: 0 15px;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+        header nav a:hover { color: #4cb5ff; }
+
+        .container {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #a3d8f4;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 38px;
+            font-family: 'Georgia', serif;
+            text-shadow: 0 0 20px rgba(163,216,244,0.4);
+            margin-bottom: 5px;
+        }
+        .subtitle { text-align: center; color: #7ab0d5; font-size: 16px; margin-bottom: 40px; }
+
+        /* Menu des Catégories (Onglets) */
+        .shop-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .tab-btn {
+            background: rgba(7, 18, 33, 0.6);
+            border: 1px solid rgba(28, 61, 90, 0.6);
+            color: #8fa3b5;
+            padding: 12px 25px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        .tab-btn:hover, .tab-btn.active {
+            color: #4cb5ff;
+            border-color: #4cb5ff;
+            background: rgba(9, 23, 41, 0.8);
+            box-shadow: 0 0 10px rgba(76, 181, 255, 0.3);
+        }
+
+        /* Contenu de la Boutique */
+        .shop-content {
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+        .shop-content.active {
+            display: grid;
+        }
+
+        /* Cartes d'objets (Boîtes Bleues Translucides) */
+        .item-card {
+            background: rgba(7, 18, 33, 0.4);
+            border: 1px solid rgba(28, 61, 90, 0.4);
+            border-radius: 4px;
+            padding: 20px;
+            text-align: center;
+            backdrop-filter: blur(4px);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .item-card:hover {
+            border-color: #4cb5ff;
+            transform: translateY(-3px);
+            background: rgba(9, 23, 41, 0.7);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+        .item-icon {
+            width: 64px;
+            height: 64px;
+            background-color: #122436;
+            margin: 0 auto 15px;
+            border: 2px solid #2e5f8a;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        .item-card h3 { margin: 0 0 8px 0; font-size: 18px; color: #fff; }
+        .item-card p { margin: 0 0 20px 0; color: #8fa3b5; font-size: 13px; line-height: 1.4; }
+        
+        .price-tag {
+            font-size: 18px;
+            color: #4cb5ff;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* Bouton PayPal */
+        .btn-paypal {
+            background: linear-gradient(180deg, #0070ba, #003087);
+            border: 1px solid #0070ba;
+            color: #fff;
+            padding: 10px 20px;
+            display: inline-block;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .btn-paypal:hover {
+            box-shadow: 0 0 15px rgba(0, 112, 186, 0.6);
+            border-color: #00a6ff;
+        }
+
+        footer {
+            background: #010308;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #122436;
+            font-size: 12px;
+            color: #566f85;
+            margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre de Navigation Identique -->
+    <header>
+        <div class="logo" style="font-weight: bold; color: #a3d8f4; letter-spacing: 2px; font-size: 18px;">NEXAROTH</div>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="index.html#creation-compte">Inscription</a>
+            <a href="download.html" target="_blank">Téléchargement</a>
+            <a href="boutique.html">Boutique</a>
+            <a href="/vote" target="_blank">Vote</a>
+            <a href="addons.html" target="_blank">Addons</a>
+            <a href="https://forumactif.com" target="_blank">Forum</a>
+            <a href="https://discord.gg" target="_blank">Discord</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Boutique Récompenses</h1>
+        <div class="subtitle">Soutenez le serveur et obtenez des avantages exclusifs en jeu</div>
+
+        <!-- Menu de sélection des catégories -->
+        <div class="shop-tabs">
+            <button class="tab-btn active" onclick="switchCategory('montures')">Montures</button>
+            <button class="tab-btn" onclick="switchCategory('transmos')">Transmos</button>
+            <button class="tab-btn" onclick="switchCategory('sacs')">Sacs</button>
+            <button class="tab-btn" onclick="switchCategory('composants')">Composants Métiers</button>
+        </div>
+
+        <!-- CATEGORIE : MONTURES -->
+        <div id="montures" class="shop-content active">
+            <div class="item-card">
+                <div>
+                    <div class="item-icon">🐉</div>
+                    <h3>Invicible</h3>
+                    <p>La célèbre monture volante du Roi Liche. Vitesse maximale au sol et en vol.</p>
+                </div>
+                <div>
+                    <div class="price-tag">15.00 EUR</div>
+                    <a href="https://paypal.me/nexarothservers" target="_blank" class="btn-paypal">Acheter via PayPal</a>
+                </div>
+            </div>
+            <div class="item-card">
+                <div>
+                    <div class="item-icon">💀</div>
+                    <h3>Proto-dragon pestiféré</h3>
+                    <p>Une monture volante rare récompensant autrefois les plus grands exploits de raid.</p>
+                </div>
+                <div>
+                    <div class="price-tag">12.00 EUR</div>
+                    <a href="https://paypal.me/nexarothservers" target="_blank" class="btn-paypal">Acheter via PayPal</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORIE : TRANSMOS -->
+        <div id="transmos" class="shop-content">
+            <div class="item-card">
+                <div>
+                    <div class="item-icon">⚔️</div>
+                    <h3>Deuille-givre (Visuel)</h3>
+                    <p>Appliquez l'apparence légendaire de Frostmourne sur vos armes à deux mains.</p>
+                </div>
+                <div>
+                    <div class="price-tag">10.00 EUR</div>
+                    <a href="https://paypal.me/nexarothservers" target="_blank" class="btn-paypal">Acheter via PayPal</a>
+                </div>
+            </div>
+            <div class="item-card">
+                <div>
+                    <div class="item-icon">🛡️</div>
+                    <h3>Set Transmo T10 Héroïque</h3>
+                    <p>Obtenez l'apparence complète du set d'armure Tier 10 de votre classe en version 277.</p>
+                </div>
+                <div>
+                    <div class="price-tag">8.00 EUR</div>
+                    <a href="https://paypal.me/nexarothservers" target="_blank" class="btn-paypal">Acheter via PayPal</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORIE : SACS -->
+        <div id="sacs" class="shop-content">
+            <div class="item-card">
+                <div>
+                    <div class="item-icon">🎒</div>
+                    <h3>Sac en tisse-givre glacial</h3>
+                    <p>Un grand sac de rangement de 22 emplacements pour stocker tout votre butin WotLK.</p>
+                </div>
+                <div>
+                    <div class="price-tag">3.00 EUR</div>
+                    <a href="https://paypal.me/nexarothservers" target="_blank" class="btn-paypal">Acheter via PayPal</a>
+                </div>
+            </div>
+            <div class="item-card">
+                <div>
+                    <div class="item-icon">💼</div>
+                    <h3>Sac de Glace sans fond</h3>
