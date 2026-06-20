@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -28,7 +29,7 @@ top:0;
 left:0;
 width:100%;
 height:80px;
-background:rgba(0,0,0,.75);
+background:rgba(0,0,0,.85);
 backdrop-filter:blur(10px);
 display:flex;
 justify-content:space-between;
@@ -76,7 +77,6 @@ max-width:700px;
 
 .hero h1{
 font-size:100px;
-line-height:1;
 color:#dbe7ff;
 text-shadow:
 0 0 20px rgba(255,255,255,.5),
@@ -86,8 +86,7 @@ text-shadow:
 .hero h2{
 font-size:32px;
 color:#4cb5ff;
-margin-top:10px;
-margin-bottom:20px;
+margin:15px 0;
 }
 
 .hero p{
@@ -97,12 +96,11 @@ margin-bottom:30px;
 
 .btn{
 display:inline-block;
-padding:16px 35px;
+padding:15px 35px;
 border-radius:5px;
 font-weight:bold;
 text-decoration:none;
-margin-right:15px;
-margin-top:10px;
+margin-right:10px;
 }
 
 .btn-download{
@@ -119,9 +117,9 @@ color:white;
 
 .stats{
 margin-top:-60px;
-position:relative;
-z-index:20;
 padding:0 5%;
+position:relative;
+z-index:10;
 }
 
 .stats-grid{
@@ -132,22 +130,22 @@ gap:20px;
 
 .stat-box{
 background:rgba(5,15,28,.95);
-border:1px solid rgba(76,181,255,.25);
 padding:25px;
 text-align:center;
 border-radius:8px;
+border:1px solid rgba(76,181,255,.25);
 }
 
 .stat-box h3{
 font-size:14px;
-color:#8fa3b7;
 margin-bottom:10px;
+color:#8fa3b7;
 }
 
 .stat-box span{
 font-size:28px;
-font-weight:bold;
 color:#2ec4b6;
+font-weight:bold;
 }
 
 section{
@@ -163,24 +161,24 @@ color:#f8b700;
 
 .grid{
 display:grid;
-grid-template-columns:1fr 1fr 1fr;
+grid-template-columns:repeat(3,1fr);
 gap:25px;
 }
 
 .card{
-background:rgba(7,18,33,.85);
-border:1px solid rgba(76,181,255,.15);
-border-radius:10px;
+background:#071221;
 padding:25px;
+border-radius:10px;
+border:1px solid rgba(76,181,255,.15);
 }
 
 .card h3{
-margin-bottom:15px;
+margin-bottom:20px;
 color:#f8b700;
 }
 
 .news-item{
-padding:15px 0;
+padding:12px 0;
 border-bottom:1px solid rgba(255,255,255,.08);
 }
 
@@ -193,51 +191,51 @@ display:block;
 padding:15px;
 margin-bottom:10px;
 background:#0b1d31;
-border:1px solid rgba(76,181,255,.25);
 border-radius:5px;
-color:white;
 text-decoration:none;
+color:white;
+border:1px solid rgba(76,181,255,.2);
 }
 
 .download-list a:hover{
 border-color:#4cb5ff;
 }
 
-.armory{
-text-align:center;
+.features{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:25px;
 }
 
-.armory img{
-width:100%;
-border-radius:8px;
-margin-bottom:20px;
-}
-
-.armory-btn{
-display:inline-block;
-padding:15px 30px;
-background:#103354;
-border:1px solid #4cb5ff;
-color:white;
-text-decoration:none;
-border-radius:5px;
+.feature{
+background:#071221;
+padding:25px;
+border-radius:10px;
+border:1px solid rgba(76,181,255,.15);
 }
 
 footer{
 background:#01040a;
 padding:40px;
 text-align:center;
-margin-top:50px;
 border-top:1px solid rgba(255,255,255,.08);
+}
+
+footer p{
+margin:10px 0;
 }
 
 @media(max-width:1000px){
 
 .stats-grid{
-grid-template-columns:repeat(2,1fr);
+grid-template-columns:1fr 1fr;
 }
 
 .grid{
+grid-template-columns:1fr;
+}
+
+.features{
 grid-template-columns:1fr;
 }
 
@@ -249,19 +247,18 @@ font-size:60px;
 
 </style>
 </head>
+
 <body>
 
 <header>
 
-<div class="logo">
-NEXAROTH
-</div>
+<div class="logo">NEXAROTH</div>
 
 <nav>
 <a href="#">Accueil</a>
-<a href="#">Rejoindre</a>
-<a href="#">Armurerie</a>
-<a href="#">Classements</a>
+<a href="#downloads">Téléchargements</a>
+<a href="#armory">Armurerie</a>
+<a href="#support">Support</a>
 <a href="#">Forum</a>
 <a href="#">Discord</a>
 </nav>
@@ -274,19 +271,19 @@ NEXAROTH
 
 <h1>NEXAROTH</h1>
 
-<h2>WRATH OF THE LICH KING</h2>
+<h2>WRATH OF THE LICH KING 3.3.5a</h2>
 
 <p>
-Revivez la légende du Roi-Liche sur un serveur stable,
-équilibré et entièrement dédié à l'expérience WotLK 3.3.5a.
+Revivez la légende du Roi-Liche sur un royaume stable,
+équilibré et entièrement dédié à l'expérience Wrath of the Lich King.
 </p>
 
-<a href="#" class="btn btn-download">
-Télécharger le Client
+<a href="#downloads" class="btn btn-download">
+Télécharger
 </a>
 
 <a href="#" class="btn btn-discord">
-Rejoindre Discord
+Discord
 </a>
 
 </div>
@@ -309,7 +306,7 @@ Rejoindre Discord
 
 <div class="stat-box">
 <h3>Royaume</h3>
-<span>Online</span>
+<span>ONLINE</span>
 </div>
 
 <div class="stat-box">
@@ -328,9 +325,7 @@ Rejoindre Discord
 
 <section>
 
-<h2 class="section-title">
-Portail Nexaroth
-</h2>
+<h2 class="section-title">Portail Nexaroth</h2>
 
 <div class="grid">
 
@@ -338,17 +333,9 @@ Portail Nexaroth
 
 <h3>Actualités</h3>
 
-<div class="news-item">
-ICC disponible !
-</div>
-
-<div class="news-item">
-Nouvelle saison Arène.
-</div>
-
-<div class="news-item">
-Événement XP x2 ce week-end.
-</div>
+<div class="news-item">ICC disponible</div>
+<div class="news-item">Nouvelle saison Arène</div>
+<div class="news-item">Événement XP x2</div>
 
 </div>
 
@@ -356,35 +343,28 @@ Nouvelle saison Arène.
 
 <h3>Pourquoi Nexaroth ?</h3>
 
-<p>✓ Expérience x5</p>
-<br>
-
-<p>✓ Raids WotLK complets</p>
-<br>
-
-<p>✓ PvP actif</p>
-<br>
-
-<p>✓ Anti-cheat avancé</p>
-<br>
-
+<p>✓ Expérience x5</p><br>
+<p>✓ PvE & PvP actifs</p><br>
+<p>✓ Anti-cheat avancé</p><br>
 <p>✓ Équipe active</p>
 
 </div>
 
-<div class="card">
+<div class="card" id="downloads">
 
 <h3>Téléchargements</h3>
 
 <div class="download-list">
 
-<a href="#">Client Complet</a>
+<a target="_blank" href="https://drive.google.com/file/d/1X2L9rqWviivzeDEEltLyjR8l77ujKtxJ/view?usp=drive_link">📥 Client Complet WoW</a>
 
-<a href="#">Launcher Nexaroth</a>
+<a target="_blank" href="https://drive.google.com/file/d/1cWElIZu6jWEOkVh23BNoya5nh60w-rYU/view?usp=drive_link">📥 Launcher Nexaroth</a>
 
-<a href="#">Patch HD</a>
+<a target="_blank" href="https://drive.google.com/file/d/1u0HUTawTIid7yCqzMEL2xAVnOnpqz0Yc/view?usp=drive_link">📥 Patch HD</a>
 
-<a href="#">Addons Recommandés</a>
+<a target="_blank" href="https://drive.google.com/file/d/1BdYZkdcTs0rw_VJ6c0TM_IKC6jeobayg/view?usp=drive_link">📥 Addons Recommandés</a>
+
+<a target="_blank" href="https://drive.google.com/file/d/1LccQqeF_anLCjSQ6cBY_Gqow-J_8Tl7B/view?usp=drive_link">📥 Pack Graphique</a>
 
 </div>
 
@@ -394,52 +374,37 @@ Nouvelle saison Arène.
 
 </section>
 
-<section>
+<section id="support">
 
-<div class="grid">
+<h2 class="section-title">Support Nexaroth</h2>
 
-<div class="card">
-<h3>Liens Rapides</h3>
+<div class="features">
 
-<p>Créer un compte</p>
+<div class="feature">
+
+<h3>📧 Support par Courriel</h3>
+
+<p>nexarothservers@atomicmail.io</p>
+
 <br>
 
-<p>Règlement</p>
-<br>
-
-<p>Vote serveur</p>
-<br>
-
-<p>Support</p>
-
-</div>
-
-<div class="card armory">
-
-<h3>Armurerie</h3>
-
-<img src="lichking.jpg">
-
-<a href="#" class="armory-btn">
-Accéder à l'Armurerie
+<a href="mailto:nexarothservers@atomicmail.io" class="btn btn-download">
+Contacter le Support
 </a>
 
 </div>
 
-<div class="card">
+<div class="feature">
 
-<h3>Classements</h3>
+<h3>🎫 Ticket Support</h3>
 
-<p>#1 Arène 2v2 - 2640</p>
+<p>Ouvrez un ticket pour obtenir une assistance rapide.</p>
+
 <br>
 
-<p>#1 Arène 3v3 - 2817</p>
-<br>
-
-<p>#1 Guilde Horde - Exodus</p>
-<br>
-
-<p>#1 Guilde Alliance - Nexus</p>
+<a href="#" class="btn btn-discord">
+Créer un Ticket
+</a>
 
 </div>
 
@@ -450,6 +415,13 @@ Accéder à l'Armurerie
 <footer>
 
 <p>© 2026 NEXAROTH - Wrath of the Lich King 3.3.5a</p>
+
+<p>
+📧 Support :
+<a href="mailto:nexarothservers@atomicmail.io">
+nexarothservers@atomicmail.io
+</a>
+</p>
 
 <p>
 World of Warcraft est une marque déposée de Blizzard Entertainment.
@@ -471,3 +443,4 @@ Math.floor(Math.random() * 80) + 220;
 
 </body>
 </html>
+```
