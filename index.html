@@ -5,16 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nexaroth - WoW Private Server</title>
     <style>
-        /* Styles Généraux et Arrière-plan Frost/Lich King */
+        /* Styles Généraux et Arrière-plan Officiel */
         body {
-            background-color: #030914;
+            background-color: #02050b;
             color: #e0e6ed;
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            /* LIEN DIRECT D'IMAGE LIÉ À VOTRE ENVOI IMGBB */
             background-image: 
-                linear-gradient(to bottom, rgba(3, 9, 20, 0) 0%, rgba(3, 9, 20, 0.4) 30%, rgba(3, 9, 20, 0.85) 60%, #030914 100%), 
+                linear-gradient(to bottom, rgba(2, 5, 11, 0.1) 0%, rgba(2, 5, 11, 0.5) 40%, rgba(2, 5, 11, 0.95) 85%, #02050b 100%), 
                 url('https://i.ibb.co/99Ck2N2n/a7b0ef50-4c4d-4b82-9c0b-6d460c064922.png');
             background-size: 100% auto;
             background-position: top center;
@@ -29,8 +28,8 @@
         
         /* Barre de Navigation Supérieure */
         header {
-            background: rgba(2, 6, 17, 0.85);
-            border-bottom: 1px solid rgba(76, 181, 255, 0.2);
+            background: rgba(2, 5, 11, 0.85);
+            border-bottom: 1px solid rgba(76, 181, 255, 0.15);
             display: flex;
             justify-content: space-around;
             padding: 15px;
@@ -43,7 +42,7 @@
         header nav a {
             margin: 0 12px;
             text-transform: uppercase;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: bold;
             letter-spacing: 1px;
             color: #a3d8f4;
@@ -51,145 +50,163 @@
         header nav a:hover { color: #4cb5ff; }
 
         .lang-select {
-            background: #071221;
+            background: #060e1a;
             border: 1px solid #1c3d5a;
             color: #4cb5ff;
             padding: 5px 10px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: bold;
             cursor: pointer;
             outline: none;
         }
 
-        /* En-tête Principal (Hero) */
-        .hero {
-            text-align: center;
-            padding: 160px 20px 100px;
+        /* Section Hero (Logo à gauche, Box caractéristiques à droite) */
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
         }
-        .hero h1 {
-            font-size: 90px;
+        .hero-left {
+            flex: 1.2;
+            text-align: left;
+        }
+        .hero-left h1 {
+            font-size: 82px;
             color: #fff;
             font-family: 'Georgia', serif;
-            letter-spacing: 6px;
-            margin: 0;
-            text-shadow: 0 0 30px rgba(76, 181, 255, 0.6), 3px 3px 0px #000;
+            letter-spacing: 4px;
+            margin: 0 0 10px 0;
+            text-shadow: 0 0 30px rgba(76, 181, 255, 0.5), 3px 3px 0px #000;
         }
-        .hero p { font-size: 18px; color: #7ab0d5; margin-top: 15px; font-weight: bold; text-transform: uppercase; letter-spacing: 3px; }
-
-        /* Conteneurs de Grilles Globales */
-        .grid-container {
-            max-width: 1200px;
-            margin: 0 auto 60px;
-            padding: 0 20px;
+        .hero-left p { font-size: 15px; color: #7ab0d5; margin: 0 0 30px 0; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
+        
+        .hero-right {
+            flex: 0.8;
         }
 
-        .section-title {
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 30px;
-            color: #a3d8f4;
-            font-size: 20px;
-            text-shadow: 0 2px 4px #000;
+        /* Alignement des boutons asymétriques du modèle */
+        .hero-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            max-width: 440px;
         }
 
-        /* Cartes Bleu Givré Translucides */
+        /* Style des Panneaux Bleu Givré Translucides */
         .panel {
-            background: rgba(6, 15, 30, 0.5);
-            border: 1px solid rgba(76, 181, 255, 0.25);
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            background: rgba(4, 11, 23, 0.65);
+            border: 1px solid rgba(76, 181, 255, 0.2);
+            padding: 22px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
             backdrop-filter: blur(6px);
-            text-align: center;
-            transition: all 0.3s ease;
         }
-        .panel:hover {
-            border-color: #4cb5ff;
-            background: rgba(10, 25, 47, 0.7);
-            box-shadow: 0 15px 35px rgba(76, 181, 255, 0.2);
+        .panel-title {
+            font-size: 13px;
+            text-transform: uppercase;
+            color: #a3d8f4;
+            margin-top: 0;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            border-bottom: 1px solid rgba(76, 181, 255, 0.15);
+            padding-bottom: 8px;
+            text-align: left;
         }
 
-        /* Boutons de Style Givre Armure */
+        /* Encadré Caractéristiques (Rejoignez l'aventure) */
+        .features-box {
+            text-align: left;
+        }
+        .features-list { list-style: none; padding: 0; margin: 0; font-size: 13px; color: #8fa3b5; }
+        .features-list li { margin-bottom: 10px; display: flex; align-items: center; }
+        .features-list li::before { content: "✓"; color: #4cb5ff; font-weight: bold; margin-right: 10px; }
+
+        /* Boutons d'Action Communauté WoW */
         .btn-wow {
             background: linear-gradient(to bottom, #1b3a57, #0d2033);
             border: 1px solid #386b99;
             color: #fff;
-            padding: 10px 22px;
-            font-size: 12px;
+            padding: 11px 18px;
+            font-size: 11px;
             font-weight: bold;
             text-transform: uppercase;
             cursor: pointer;
             box-shadow: 0 2px 5px rgba(0,0,0,0.5);
             display: inline-block;
+            text-align: center;
+            letter-spacing: 1px;
         }
         .btn-wow:hover {
             border-color: #4cb5ff;
             box-shadow: 0 0 12px rgba(76, 181, 255, 0.5);
         }
 
-        /* Section Téléchargement Multilingue avec Drapeaux */
-        .download-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-        }
-        .flag-icon {
-            width: 50px;
-            height: 33px;
-            margin: 0 auto 15px;
-            border-radius: 2px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Section Structure Double Colonne (Actualités / Classements) */
-        .columns-layout {
+        /* Rubrique Statistiques Chiffrées */
+        .stats-strip {
+            background: rgba(3, 8, 17, 0.5);
+            border-top: 1px solid rgba(76, 181, 255, 0.15);
+            border-bottom: 1px solid rgba(76, 181, 255, 0.15);
             display: flex;
-            gap: 30px;
+            justify-content: center;
+            padding: 20px 0;
+            margin-bottom: 60px;
+            backdrop-filter: blur(4px);
         }
+        .stat-item { text-align: center; margin: 0 45px; }
+        .stat-value { font-size: 28px; color: #4cb5ff; font-weight: bold; text-shadow: 0 0 10px rgba(76,181,255,0.4); }
+        .stat-lbl { font-size: 10px; color: #8fa3b5; text-transform: uppercase; margin-top: 4px; letter-spacing: 1px; }
+
+        /* Grilles Globales */
+        .grid-container { max-width: 1200px; margin: 0 auto 60px; padding: 0 20px; }
+        .section-header { text-align: center; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 35px; color: #a3d8f4; font-size: 16px; }
+
+        /* Grille Clients de Téléchargement */
+        .download-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
+        .flag-icon { width: 45px; height: 30px; margin: 0 auto 15px; box-shadow: 0 0 8px rgba(0,0,0,0.5); background-size: cover; background-position: center; }
+
+        /* Alignement Basse Double Colonne */
+        .columns-layout { display: flex; gap: 30px; }
         .column-main { flex: 2; display: flex; flex-direction: column; gap: 20px; }
         .column-side { flex: 1; }
 
-        .news-item { text-align: left; }
-        .news-img-placeholder {
-            width: 100%; height: 180px; background-size: cover; background-position: center; border: 1px solid rgba(76, 181, 255, 0.2); margin-bottom: 15px;
-        }
+        .news-card { text-align: left; }
+        .news-img { width: 100%; height: 160px; background-size: cover; background-position: center; border: 1px solid rgba(76, 181, 255, 0.15); margin-bottom: 15px; }
 
-        /* Styles de Tableaux de Classement */
+        /* Tableaux de Classements */
         table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; }
-        th { color: #7ab0d5; padding: 10px; font-size: 11px; border-bottom: 1px solid rgba(76, 181, 255, 0.2); text-transform: uppercase; }
-        td { padding: 10px; border-bottom: 1px solid rgba(76, 181, 255, 0.1); }
+        th { color: #7ab0d5; padding: 10px; font-size: 11px; border-bottom: 1px solid rgba(76, 181, 255, 0.15); text-transform: uppercase; }
+        td { padding: 10px; border-bottom: 1px solid rgba(76, 181, 255, 0.08); }
         .rank-num { color: #4cb5ff; font-weight: bold; }
 
-        /* Pied de page */
+        /* Grille d'Accès Rapide Inférieure */
+        .quick-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .quick-card { text-align: center; padding: 25px 20px; }
+        .quick-card h3 { margin: 0 0 8px 0; font-size: 15px; color: #fff; text-transform: uppercase; }
+        .quick-card p { margin: 0 0 15px 0; font-size: 12px; color: #8fa3b5; }
+
         footer {
-            background: #02050b;
+            background: #010307;
             padding: 40px 20px;
             text-align: center;
-            border-top: 1px solid rgba(76, 181, 255, 0.15);
+            border-top: 1px solid rgba(76, 181, 255, 0.1);
             font-size: 12px;
             color: #566f85;
         }
-        .footer-support {
-            margin-top: 12px;
-            font-weight: bold;
-            color: #a3d8f4;
-        }
-        .footer-support a {
-            color: #4cb5ff;
-        }
+        .footer-support { margin-top: 12px; font-weight: bold; color: #a3d8f4; }
     </style>
 </head>
 <body>
 
     <!-- Barre de Navigation Supérieure -->
     <header>
-        <div class="logo" style="font-weight: bold; color: #4cb5ff; letter-spacing: 2px; font-size: 18px;">NEXAROTH</div>
+        <div class="logo" style="font-weight: bold; color: #4cb5ff; letter-spacing: 2px;">NEXAROTH</div>
         <nav>
             <a href="#" id="nav-home">Accueil</a>
-            <a href="#inscription-section" id="nav-reg">Inscription</a>
-            <a href="download.html" target="_blank" id="nav-dl">Téléchargement</a>
+            <a href="#quick-section" id="nav-reg">Inscription</a>
+            <a href="#dl-section" id="nav-dl">Téléchargement</a>
             <a href="boutique.html" target="_blank" id="nav-shop">Boutique</a>
             <a href="https://paypal.me" target="_blank" id="nav-vote">Votez Ici</a>
             <a href="https://legacy-wow.com" target="_blank" id="nav-addons">Addons</a>
@@ -207,40 +224,16 @@
         </div>
     </header>
 
-    <!-- Zone Centrale Principale -->
-    <section class="hero">
-        <h1 id="txt-hero-title">NEXAROTH</h1>
-        <p id="txt-hero-desc">WORLD OF WARCRAFT — WRATH OF THE LICH KING 3.3.5a</p>
-        <div class="btn-group" style="margin-top:30px;">
-            <a href="#inscription-section" class="btn-wow" id="btn-hero-reg">Créer un compte</a>
-            <a href="download.html" target="_blank" class="btn-wow" id="btn-hero-dl">Télécharger</a>
-            <a href="boutique.html" target="_blank" class="btn-wow" id="btn-hero-shop">Boutique</a>
-            <a href="https://paypal.me" target="_blank" class="btn-wow" id="btn-hero-vote">Votez Ici</a>
+    <!-- Section Supérieure (Hero) Réorganisée selon l'image -->
+    <section class="hero-container">
+        <div class="hero-left">
+            <h1 id="txt-hero-title">NEXAROTH</h1>
+            <p id="txt-hero-desc">WORLD OF WARCRAFT — WRATH OF THE LICH KING 3.3.5a</p>
+            <div class="hero-buttons">
+                <a href="#quick-section" class="btn-wow" id="btn-hero-reg">Créer un compte</a>
+                <a href="#dl-section" class="btn-wow" id="btn-hero-dl">Télécharger</a>
+                <a href="https://discord.gg" target="_blank" class="btn-wow">Discord</a>
+                <a href="https://forumactif.com" target="_blank" class="btn-wow">Forum</a>
+            </div>
         </div>
-    </section>
-
-    <!-- Grille de Téléchargement du Client -->
-    <section class="grid-container" id="dl-section">
-        <h2 class="section-title" id="title-dl">Téléchargement du client</h2>
-        <div class="download-grid">
-            <div class="panel">
-                <div class="flag-icon" style="background-image: url('https://wikimedia.org');"></div>
-                <h3>Français</h3>
-                <a href="download.html" target="_blank" class="btn-wow">Télécharger</a>
-            </div>
-            <div class="panel">
-                <div class="flag-icon" style="background-image: url('https://wikimedia.org');"></div>
-                <h3>English</h3>
-                <a href="download.html" target="_blank" class="btn-wow">Download</a>
-            </div>
-            <div class="panel">
-                <div class="flag-icon" style="background-image: url('https://wikimedia.org');"></div>
-                <h3>Español</h3>
-                <a href="download.html" target="_blank" class="btn-wow">Descargar</a>
-            </div>
-            <div class="panel">
-                <div class="flag-icon" style="background-image: url('https://wikimedia.org');"></div>
-                <h3>Deutsch</h3>
-                <a href="download.html" target="_blank" class="btn-wow">Download</a>
-            </div>
-            <div class="panel">
+        
