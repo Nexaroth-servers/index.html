@@ -69,9 +69,33 @@ nav a:hover{
 @keyframes fall{to{transform:translateY(110vh)}}
 </style>
 </head>
-<body>
-<body>
+ <script>
 
+const music = document.getElementById("bgMusic");
+
+function toggleMusic(){
+
+    if(music.paused){
+        music.volume = 0.15;
+        music.play();
+    }else{
+        music.pause();
+    }
+
+}
+
+document.addEventListener("click", function(){
+
+    if(music.paused){
+        music.volume = 0.15;
+        music.play();
+    }
+
+},{once:true});
+
+</script>
+<body>
+ 
 <video class="bg" autoplay muted loop playsinline>
     <source src="background.mp4" type="video/mp4">
 </video>
@@ -83,8 +107,21 @@ nav a:hover{
 <div class="overlay"></div>
 
 <header class="navbar">
-    ...
+
+    <div class="logo">NEXAROTH</div>
+
+    <nav>
+        <a href="#accueil">Accueil</a>
+        <a href="https://nexaroth.com/register" target="_blank">⚔ Inscription</a>
+        <a href="#downloads">📥 Téléchargement</a>
+        <a href="https://nexaroth.com/shop" target="_blank">🛒 Boutique</a>
+        <a href="https://nexaroth.com/vote" target="_blank">🏆 Vote</a>
+        <a href="https://nexaroth.forumactif.com/" target="_blank">💬 Forum</a>
+        <a href="https://discord.gg/zcH3JXHeuQ" target="_blank">🎮 Discord</a>
+    </nav>
+
 </header>
+
 <video class="bg" autoplay muted loop playsinline>
     <source src="background.mp4" type="video/mp4">
 </video>
@@ -134,10 +171,8 @@ nav a:hover{
     </nav>
 
 </header>
-<section class="hero">
-<div>
-<h1>NEXAROTH</h1>
-<section class="hero">
+
+<section class="hero" id="accueil">
 
 <div>
 
@@ -148,8 +183,6 @@ nav a:hover{
 <p>
 XP x5 • Réputation x5 • Drop x5 • Métiers x5
 </p>
-
-<!-- BOUTONS -->
 
 <a class="btn gold" href="#downloads">
 📥 Télécharger
@@ -204,10 +237,7 @@ target="_blank">
 
 </div>
 
-</div>
-
 </section>
-<div class="grid">
 
 <div class="card">
 <h3>📊 Statistiques</h3>
