@@ -1,234 +1,528 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexaroth - Wrath of the Lich King</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background: #050b12;
-            color: white;
-            overflow-x: hidden;
-        }
-        /* Menu de navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 40px;
-            background: rgba(5, 11, 18, 0.85);
-            backdrop-filter: blur(10px);
-            z-index: 9999;
-        }
-        .logo {
-            font-family: 'Cinzel', serif;
-            font-size: 32px;
-            color: #9deeff;
-            text-shadow: 0 0 20px #00bfff;
-            text-transform: uppercase;
-        }
-        nav {
-            display: flex;
-            gap: 30px;
-        }
-        nav a {
-            color: #dffcff;
-            text-decoration: none;
-            font-size: 16px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: .3s;
-        }
-        nav a:hover {
-            color: #6fdcff;
-            text-shadow: 0 0 10px #00bfff;
-        }
-        /* Section Hero avec conteneur d'animation fluide */
-        .hero-container {
-            position: relative;
-            height: 100vh;
-            width: 100%;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(5, 11, 18, 0.45), rgba(5, 11, 18, 0.9)), url("https://image.noelshack.com/fichiers/2026/25/5/1781897484-images.jpg");
-            background-size: cover;
-            background-position: center;
-            z-index: 1;
-            animation: zoomhero 20s ease-in-out infinite alternate;
-        }
-        @keyframes zoomhero {
-            from { transform: scale(1); }
-            to { transform: scale(1.1); }
-        }
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            padding: 20px;
-        }
-        .hero-content h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 80px;
-            color: #dffcff;
-            text-shadow: 0 0 15px #00bfff, 0 0 40px #00bfff;
-            line-height: 1.1;
-        }
-        .hero-content p {
-            font-size: 22px;
-            margin: 25px 0;
-            color: #b4c2d3;
-        }
-        /* Boutons */
-        .btn {
-            display: inline-block;
-            padding: 15px 35px;
-            margin: 10px;
-            background: #0077cc;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 4px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: .3s ease;
-        }
-        .btn:hover {
-            transform: translateY(-3px);
-            background: #0099ff;
-            box-shadow: 0 0 20px #00bfff;
-        }
-        .btn-secondary {
-            background: transparent;
-            border: 2px solid #0077cc;
-        }
-        .btn-secondary:hover {
-            background: rgba(0, 119, 204, 0.2);
-        }
-        /* Sections de contenu */
-        section {
-            padding: 100px 20px;
-            position: relative;
-        }
-        .container {
-            max-width: 1200px;
-            margin: auto;
-        }
-        .title {
-            font-family: 'Cinzel', serif;
-            font-size: 42px;
-            text-align: center;
-            margin-bottom: 50px;
-            color: #dffcff;
-            text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(0, 191, 255, 0.1);
-            padding: 30px;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
-        .card:hover {
-            border-color: #00bfff;
-            background: rgba(255, 255, 255, 0.05);
-            transform: translateY(-5px);
-        }
-        .card h3 {
-            font-family: 'Cinzel', serif;
-            font-size: 22px;
-            color: #6fdcff;
-            margin-bottom: 15px;
-        }
-        /* Mobile responsive */
-        @media (max-width: 768px) {
-            .navbar { padding: 20px; flex-direction: column; gap: 15px; }
-            .hero-content h1 { font-size: 45px; }
-            .hero-content p { font-size: 18px; }
-            .title { font-size: 32px; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexaroth - Wrath of the Lich King 3.3.5a</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Montserrat,sans-serif;
+background:#020910;
+color:#fff;
+background-image:url('background.jpg');
+background-size:cover;
+background-position:top center;
+background-attachment:fixed;
+}
+
+.container{
+width:95%;
+max-width:1400px;
+margin:auto;
+}
+
+header{
+height:80px;
+background:rgba(0,0,0,.7);
+border-bottom:1px solid rgba(0,180,255,.2);
+backdrop-filter:blur(6px);
+}
+
+.nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+height:80px;
+}
+
+.logo{
+font-family:Cinzel,serif;
+font-size:48px;
+font-weight:700;
+color:#7fd5ff;
+text-shadow:0 0 15px #00bfff;
+}
+
+.logo small{
+display:block;
+font-size:14px;
+letter-spacing:2px;
+}
+
+.menu{
+display:flex;
+gap:30px;
+}
+
+.menu a{
+text-decoration:none;
+color:#fff;
+font-size:14px;
+text-transform:uppercase;
+transition:.3s;
+}
+
+.menu a:hover{
+color:#00bfff;
+}
+
+.hero{
+display:grid;
+grid-template-columns:1fr 350px;
+gap:50px;
+padding:80px 0;
+align-items:center;
+}
+
+.title{
+font-family:Cinzel,serif;
+font-size:120px;
+line-height:1;
+text-shadow:0 0 20px rgba(0,191,255,.5);
+}
+
+.subtitle{
+font-size:24px;
+margin-top:15px;
+color:#8ed6ff;
+}
+
+.version{
+font-size:42px;
+margin-bottom:40px;
+}
+
+.buttons{
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+}
+
+.btn{
+padding:18px 40px;
+border:1px solid #00bfff;
+background:rgba(0,60,120,.4);
+color:white;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+.btn:hover{
+box-shadow:0 0 20px #00bfff;
+}
+
+.panel{
+background:rgba(0,0,0,.55);
+border:1px solid rgba(255,255,255,.2);
+padding:40px;
+}
+
+.panel h3{
+font-family:Cinzel;
+margin-bottom:30px;
+text-align:center;
+}
+
+.panel ul{
+list-style:none;
+}
+
+.panel li{
+margin-bottom:15px;
+}
+
+.panel li::before{
+content:"✓ ";
+color:#00bfff;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+margin-bottom:70px;
+}
+
+.stat{
+background:rgba(0,0,0,.55);
+padding:30px;
+text-align:center;
+border:1px solid rgba(0,191,255,.15);
+}
+
+.stat h2{
+font-size:48px;
+color:#79d7ff;
+}
+
+.section-title{
+font-family:Cinzel;
+font-size:42px;
+text-align:center;
+margin:70px 0 40px;
+}
+
+.downloads{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:20px;
+}
+
+.card{
+background:rgba(0,0,0,.5);
+border:1px solid rgba(255,255,255,.15);
+padding:30px;
+text-align:center;
+}
+
+.card img{
+width:70px;
+margin-bottom:20px;
+}
+
+.card h4{
+margin-bottom:15px;
+}
+
+.download-btn{
+display:inline-block;
+padding:10px 20px;
+border:1px solid #00bfff;
+color:#fff;
+text-decoration:none;
+}
+
+.quick{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:20px;
+}
+
+.quick-card{
+background:rgba(0,0,0,.55);
+padding:40px 20px;
+text-align:center;
+border:1px solid rgba(255,255,255,.15);
+}
+
+.quick-card h3{
+margin-top:20px;
+font-family:Cinzel;
+}
+
+.bottom{
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:30px;
+margin-top:60px;
+}
+
+.news-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.news{
+background:rgba(0,0,0,.5);
+border:1px solid rgba(255,255,255,.1);
+}
+
+.news img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.news-content{
+padding:20px;
+}
+
+.ladder{
+background:rgba(0,0,0,.55);
+padding:20px;
+border:1px solid rgba(255,255,255,.15);
+}
+
+.ladder table{
+width:100%;
+border-collapse:collapse;
+}
+
+.ladder td{
+padding:12px;
+border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+footer{
+margin-top:80px;
+background:rgba(0,0,0,.75);
+padding:50px 0;
+border-top:1px solid rgba(255,255,255,.1);
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+}
+
+.footer-title{
+font-family:Cinzel;
+margin-bottom:20px;
+}
+
+@media(max-width:1000px){
+
+.hero{
+grid-template-columns:1fr;
+}
+
+.downloads,
+.quick,
+.news-grid,
+.stats,
+.footer-grid{
+grid-template-columns:1fr 1fr;
+}
+
+.bottom{
+grid-template-columns:1fr;
+}
+
+.title{
+font-size:70px;
+}
+}
+
+@media(max-width:700px){
+
+.downloads,
+.quick,
+.news-grid,
+.stats,
+.footer-grid{
+grid-template-columns:1fr;
+}
+
+.menu{
+display:none;
+}
+
+.title{
+font-size:50px;
+}
+}
+
+</style>
 </head>
+
 <body>
 
-    <!-- Barre de navigation -->
-    <header class="navbar">
-        <div class="logo">Nexaroth</div>
-        <nav>
-            <a href="#accueil">Accueil</a>
-            <a href="#features">Fonctionnalités</a>
-            <a href="#rejoindre">Rejoindre</a>
-        </nav>
-    </header>
+<header>
+<div class="container nav">
 
-    <!-- Section Principale (Hero) -->
-    <div class="hero-container" id="accueil">
-        <div class="hero-bg"></div>
-        <div class="hero-content">
-            <h1>WRAth OF THE LICH KING</h1>
-            <p>Découvrez une expérience de jeu mythique sur le royaume de Nexaroth.</p>
-            <a href="#rejoindre" class="btn">Rejoindre l'aventure</a>
-            <a href="#features" class="btn btn-secondary">En savoir plus</a>
-        </div>
-    </div>
+<div class="logo">
+NEXAROTH
+<small>WRATH OF THE LICH KING</small>
+</div>
 
-    <!-- Section Fonctionnalités -->
-    <section id="features">
-        <div class="container">
-            <h2 class="title">Pourquoi choisir Nexaroth ?</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Royaume Blizzlike</h3>
-                    <p>Une fidélité absolue à l'extension originale avec un script de haute qualité pour les donjons et raids.</p>
-                </div>
-                <div class="card">
-                    <h3>Communauté Active</h3>
-                    <p>Rejoignez des centaines de joueurs passionnés, participez à des événements uniques et progressez ensemble.</p>
-                </div>
-                <div class="card">
-                    <h3>Économie Stable</h3>
-                    <p>Un hôtel des ventes surveillé et une économie équilibrée pour garantir un plaisir de jeu à long terme.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<nav class="menu">
+<a href="#">Accueil</a>
+<a href="#">Inscription</a>
+<a href="#">Téléchargement</a>
+<a href="#">Boutique</a>
+<a href="#">Vote</a>
+<a href="#">Forum</a>
+<a href="#">Discord</a>
+</nav>
 
-    <!-- Section Appel à l'action -->
-    <section id="rejoindre" style="background: rgba(0, 0, 0, 0.3); text-align: center;">
-        <div class="container">
-            <h2 class="title">Prêt à affronter le Roi Liche ?</h2>
-            <p style="font-size: 18px; margin-bottom: 30px; color: #b4c2d3;">Créez votre compte dès aujourd'hui et téléchargez notre lanceur personnalisé.</p>
-            <a href="#" class="btn">Créer un compte</a>
-        </div>
-    </section>
+</div>
+</header>
+
+<div class="container">
+
+<section class="hero">
+
+<div>
+
+<h1 class="title">NEXAROTH</h1>
+
+<div class="subtitle">
+WORLD OF WARCRAFT
+</div>
+
+<div class="version">
+WRATH OF THE LICH KING 3.3.5a
+</div>
+
+<div class="buttons">
+<a href="#" class="btn">CRÉER UN COMPTE</a>
+<a href="#" class="btn">TÉLÉCHARGER</a>
+<a href="#" class="btn">DISCORD</a>
+<a href="#" class="btn">FORUM</a>
+</div>
+
+</div>
+
+<div class="panel">
+
+<h3>REJOIGNEZ L'AVENTURE</h3>
+
+<ul>
+<li>PvE & PvP équilibrés</li>
+<li>Serveur stable 24/7</li>
+<li>Communauté active</li>
+<li>Événements réguliers</li>
+</ul>
+
+</div>
+
+</section>
+
+<div class="stats">
+
+<div class="stat">
+<h2>152</h2>
+Joueurs en ligne
+</div>
+
+<div class="stat">
+<h2>28,547</h2>
+Comptes créés
+</div>
+
+<div class="stat">
+<h2>1,247</h2>
+Guildes
+</div>
+
+<div class="stat">
+<h2>99.9%</h2>
+Uptime
+</div>
+
+</div>
+
+<h2 class="section-title">TÉLÉCHARGEMENT DU CLIENT</h2>
+
+<div class="downloads">
+
+<div class="card"><h4>FRANÇAIS</h4><a class="download-btn">Télécharger</a></div>
+<div class="card"><h4>ENGLISH</h4><a class="download-btn">Download</a></div>
+<div class="card"><h4>ESPAÑOL</h4><a class="download-btn">Descargar</a></div>
+<div class="card"><h4>DEUTSCH</h4><a class="download-btn">Download</a></div>
+<div class="card"><h4>РУССКИЙ</h4><a class="download-btn">Скачать</a></div>
+
+</div>
+
+<h2 class="section-title">ACCÈS RAPIDE</h2>
+
+<div class="quick">
+
+<div class="quick-card"><h3>Inscription</h3></div>
+<div class="quick-card"><h3>Vote</h3></div>
+<div class="quick-card"><h3>Boutique</h3></div>
+<div class="quick-card"><h3>Forum</h3></div>
+<div class="quick-card"><h3>Radmin VPN</h3></div>
+
+</div>
+
+<div class="bottom">
+
+<div>
+
+<h2 class="section-title">ACTUALITÉS</h2>
+
+<div class="news-grid">
+
+<div class="news">
+<div class="news-content">
+<h3>Ouverture du Royaume</h3>
+</div>
+</div>
+
+<div class="news">
+<div class="news-content">
+<h3>Saison PvP 8</h3>
+</div>
+</div>
+
+<div class="news">
+<div class="news-content">
+<h3>Icecrown Citadel</h3>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div>
+
+<h2 class="section-title">CLASSEMENTS</h2>
+
+<div class="ladder">
+
+<table>
+<tr><td>1</td><td>Zerathor</td><td>2450</td></tr>
+<tr><td>2</td><td>Valdoran</td><td>2410</td></tr>
+<tr><td>3</td><td>Shadowcry</td><td>2375</td></tr>
+<tr><td>4</td><td>Aelys</td><td>2340</td></tr>
+<tr><td>5</td><td>Darkanor</td><td>2305</td></tr>
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+
+<div class="container footer-grid">
+
+<div>
+<div class="logo">NEXAROTH</div>
+</div>
+
+<div>
+<div class="footer-title">REJOIGNEZ-NOUS</div>
+Discord<br>
+Facebook<br>
+YouTube
+</div>
+
+<div>
+<div class="footer-title">INFORMATIONS</div>
+Règlement<br>
+Conditions<br>
+Confidentialité
+</div>
+
+<div>
+<div class="footer-title">SUPPORT</div>
+FAQ<br>
+Support<br>
+Contact
+</div>
+
+</div>
+
+</footer>
 
 </body>
 </html>
