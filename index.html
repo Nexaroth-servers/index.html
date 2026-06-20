@@ -205,7 +205,8 @@
         </nav>
         
         <div>
-            <select class="lang-select" onchange="translatePage(this.value)">
+            <!-- Liste déroulante des langues -->
+            <select class="lang-select" id="langSelector" onchange="translatePage(this.value, true)">
                 <option value="fr">FR 🇫🇷</option>
                 <option value="en">EN 🇺🇸</option>
                 <option value="es">ES 🇪🇸</option>
@@ -219,4 +220,3 @@
         <p id="txt-hero-desc">WORLD OF WARCRAFT — WRATH OF THE LICH KING 3.3.5a</p>
         <div class="btn-group">
             <a href="#creation-compte" class="btn" id="btn-hero-reg">Créer un compte</a>
-            <a href="download.html" target="_blank" class="btn" id="btn-hero-dl">Télécharger le jeu</a>
