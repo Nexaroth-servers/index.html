@@ -1,33 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nexaroth - WoW Private Server</title>
     <style>
-        /* Styles Généraux */
+        /* Styles généraux */
         body {
             background-color: #020611;
             color: #e0e6ed;
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            /* MISE À JOUR DE VOTRE FOND D'ÉCRAN REÇU */
-            background-image: 
-                linear-gradient(to bottom, rgba(2, 6, 17, 0) 0%, rgba(2, 6, 17, 0.4) 30%, rgba(2, 6, 17, 0.85) 60%, #020611 100%), 
-                url('https://i.ibb.co/HpgpNhDF/n3-MQ8zf-T.jpg');
+            background-image: linear-gradient(to bottom, rgba(2, 6, 17, 0) 0%, rgba(2, 6, 17, 0.4) 30%, rgba(2, 6, 17, 0.85) 60%, #020611 100%), 
+                              url('https://ibb.co');
             background-size: 100% auto;
             background-position: top center;
             background-repeat: no-repeat;
             background-attachment: scroll;
         }
+
         @media (max-width: 1024px) {
-            body { background-size: cover; background-attachment: fixed; }
+            body {
+                background-size: cover;
+                background-attachment: fixed;
+            }
         }
-        a { text-decoration: none; color: #4cb5ff; transition: all 0.3s ease; }
-        a:hover { color: #fff; text-shadow: 0 0 10px rgba(76, 181, 255, 0.6); }
-        
-        /* Barre de Navigation */
+
+        a {
+            text-decoration: none;
+            color: #4cb5ff;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(76, 181, 255, 0.6);
+        }
+
+        /* Barre de navigation */
         header {
             background: rgba(2, 6, 17, 0.75);
             border-bottom: 1px solid rgba(26, 50, 74, 0.4);
@@ -39,185 +50,203 @@
             top: 0;
             z-index: 1000;
             backdrop-filter: blur(5px);
+            flex-wrap: wrap;
+            gap: 15px;
         }
+
+        header nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
         header nav a {
-            margin: 0 15px;
+            margin: 5px 12px;
             text-transform: uppercase;
             font-size: 13px;
             letter-spacing: 1px;
             transition: color 0.3s;
+            cursor: pointer;
         }
-        header nav a:hover { color: #4cb5ff; }
 
-        /* Bouton Sélection de Langue */
+        header nav a:hover {
+            color: #4cb5ff;
+        }
+
+        /* Widget Joueurs en ligne */
+        .server-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: rgba(5, 15, 28, 0.8);
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(76, 181, 255, 0.3);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #2ec4b6;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #2ec4b6;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 196, 182, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(46, 196, 182, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 196, 182, 0); }
+        }
+
+        /* Sélection de langue */
         .lang-select {
-            background: rgba(7, 18, 33, 0.6);
+            background: rgba(7, 18, 33, 0.9);
             border: 1px solid rgba(28, 61, 90, 0.6);
             color: #4cb5ff;
             padding: 6px 12px;
-            font-size: 12px;
-            font-weight: bold;
+            font-size: 13px;
+            border-radius: 4px;
             cursor: pointer;
-            text-transform: uppercase;
             outline: none;
         }
-        .lang-select option {
-            background: #020611;
-            color: #e0e6ed;
-        }
 
-        /* Section Hero */
-        .hero {
-            text-align: center;
-            padding: 180px 20px 140px;
-        }
-        .hero h1 {
-            font-size: 76px;
-            color: #a3d8f4;
-            text-shadow: 0 0 30px rgba(163, 216, 244, 0.8), 2px 2px 12px rgba(0,0,0,0.9);
-            margin: 0;
-            letter-spacing: 8px;
-            font-family: 'Georgia', serif;
-        }
-        .hero p { font-size: 20px; color: #7ab0d5; margin-top: 15px; font-weight: bold; text-shadow: 2px 2px 5px rgba(0,0,0,0.9); }
-        
-        /* Boutons */
-        .btn-group { margin-top: 35px; }
-        .btn {
-            background: linear-gradient(180deg, rgba(27, 58, 87, 0.8), rgba(13, 32, 51, 0.8));
-            border: 1px solid #386b99;
-            color: #fff;
-            padding: 12px 25px;
-            margin: 6px;
-            display: inline-block;
-            cursor: pointer;
-            text-transform: uppercase;
-            font-size: 12px;
-            font-weight: bold;
-            transition: all 0.3s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        }
-        .btn:hover {
-            border-color: #4cb5ff;
-            box-shadow: 0 0 15px rgba(76, 181, 255, 0.6);
-            transform: translateY(-2px);
-        }
-
-        /* Statistiques */
-        .stats-container {
-            display: flex;
-            justify-content: center;
-            background: rgba(5, 13, 24, 0.4);
-            border-top: 1px solid rgba(26, 50, 74, 0.3);
-            border-bottom: 1px solid rgba(26, 50, 74, 0.3);
-            padding: 30px 0;
-            backdrop-filter: blur(8px);
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.6);
-        }
-        .stat-box { text-align: center; margin: 0 50px; }
-        .stat-number { font-size: 32px; color: #4cb5ff; font-weight: bold; text-shadow: 0 0 15px rgba(76,181,255,0.5); }
-        .stat-label { font-size: 11px; color: #8fa3b5; text-transform: uppercase; margin-top: 5px; letter-spacing: 1px; }
-
-        .section-title {
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin: 80px 0 40px;
-            color: #a3d8f4;
-            font-size: 24px;
-        }
-
-        .grid {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            max-width: 1100px;
-            margin: 0 auto 80px;
+        /* Conteneur principal */
+        .main-container {
+            max-width: 1000px;
+            margin: 60px auto;
             padding: 0 20px;
-            flex-wrap: wrap;
         }
 
-        .card {
-            background: rgba(7, 18, 33, 0.4);
-            border: 1px solid rgba(28, 61, 90, 0.4);
-            padding: 25px;
-            text-align: center;
-            flex: 1;
-            min-width: 200px;
-            backdrop-filter: blur(4px);
-            transition: all 0.3s;
+        /* Configuration des Panneaux de l'interface */
+        .grid-hero {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 30px;
+            margin-bottom: 40px;
         }
-        .card:hover { border-color: #4cb5ff; transform: translateY(-3px); background: rgba(9, 23, 41, 0.7); }
-        .card h3 { margin: 0 0 10px 0; font-size: 18px; color: #fff; }
-        .card p { margin: 0 0 15px 0; font-size: 13px; color: #8fa3b5; }
 
-        .register-box {
-            max-width: 400px;
-            margin: 0 auto 80px;
-            background: rgba(7, 18, 33, 0.5);
-            border: 1px solid rgba(28, 61, 90, 0.4);
+        .grid-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 850px) {
+            .grid-hero, .grid-content { grid-template-columns: 1fr; }
+        }
+
+        .panel {
+            background: rgba(7, 18, 33, 0.6);
+            border: 1px solid rgba(26, 50, 74, 0.4);
+            border-radius: 8px;
             padding: 30px;
-            backdrop-filter: blur(4px);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
         }
-        .form-group { margin-bottom: 20px; text-align: left; }
-        .form-group label { display: block; margin-bottom: 8px; font-size: 12px; color: #7ab0d5; text-transform: uppercase; }
-        .form-group input { width: 100%; padding: 12px; background: rgba(2, 6, 17, 0.8); border: 1px solid rgba(28, 61, 90, 0.6); color: #fff; box-sizing: border-box; }
 
-        /* Mises en page basses */
-        .bottom-layout { display: flex; max-width: 1100px; margin: 0 auto 80px; gap: 30px; padding: 0 20px; }
-        .news-section { flex: 2; }
-        .sidebar-section { flex: 1; }
-        .news-list { display: flex; flex-direction: column; gap: 20px; }
-        .news-card { background: rgba(7, 18, 33, 0.4); border: 1px solid rgba(28, 61, 90, 0.4); border-radius: 4px; overflow: hidden; display: flex; backdrop-filter: blur(4px); }
-        .news-image { width: 180px; min-height: 140px; background-size: cover; background-position: center; position: relative; }
-        .news-badge { position: absolute; top: 10px; left: 10px; background: rgba(7, 18, 33, 0.85); border: 1px solid #386b99; color: #4cb5ff; padding: 3px 8px; font-size: 10px; text-transform: uppercase; font-weight: bold; }
-        .news-content { padding: 15px 20px; text-align: left; flex: 1; }
-        .news-content h4 { margin: 0 0 8px 0; color: #fff; font-size: 18px; }
-        .news-content p { margin: 0 0 12px 0; color: #8fa3b5; font-size: 13px; line-height: 1.4; }
-        .news-date { font-size: 11px; color: #566f85; text-transform: uppercase; }
+        .panel h2 {
+            font-family: 'Georgia', serif;
+            color: #f8b700;
+            text-shadow: 0 0 15px rgba(248, 183, 0, 0.3);
+            margin-top: 0;
+            margin-bottom: 25px;
+            text-align: center;
+        }
 
-        .ranking-box { background: rgba(7, 18, 33, 0.4); border: 1px solid rgba(28, 61, 90, 0.4); border-radius: 4px; padding: 20px; backdrop-filter: blur(4px); }
-        .ranking-tabs { display: flex; border-bottom: 1px solid rgba(28, 61, 90, 0.5); margin-bottom: 15px; }
-        .tab-btn { flex: 1; padding: 10px; background: none; border: none; color: #8fa3b5; font-weight: bold; font-size: 12px; text-transform: uppercase; }
-        .tab-btn.active { color: #4cb5ff; border-bottom: 2px solid #4cb5ff; }
-        table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; }
-        th { color: #7ab0d5; padding: 10px; font-size: 11px; border-bottom: 1px solid rgba(28, 61, 90, 0.3); text-transform: uppercase; }
-        td { padding: 10px; border-bottom: 1px solid rgba(28, 61, 90, 0.2); }
-        .rank-num { color: #4cb5ff; font-weight: bold; }
-        .rating { color: #a3d8f4; font-weight: bold; text-align: right; }
+        /* Container Téléchargements avec 5 Liens Google Drive */
+        .download-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
 
-        footer { background: #010308; padding: 50px 20px; text-align: center; border-top: 1px solid #122436; font-size: 12px; color: #566f85; }
-        .footer-support { margin-top: 12px; font-weight: bold; color: #a3d8f4; }
+        .wow-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+            text-align: center;
+        }
+
+        /* Variations des couleurs des boutons */
+        .dl-1 { background: linear-gradient(135deg, #11538c 0%, #062445 100%); border: 1px solid #4cb5ff; color: #fff; }
+        .dl-1:hover { background: linear-gradient(135deg, #1d6cb2 0%, #0d3866 100%); box-shadow: 0 0 15px rgba(76, 181, 255, 0.5); }
+
+        .dl-2, .dl-3, .dl-4, .dl-5 { background: linear-gradient(135deg, #b78a28 0%, #684a0c 100%); border: 1px solid #f8b700; color: #fff; }
+        .dl-2:hover, .dl-3:hover, .dl-4:hover, .dl-5:hover { background: linear-gradient(135deg, #d4a73b 0%, #855f14 100%); box-shadow: 0 0 15px rgba(248, 183, 0, 0.5); }
+
+        /* Formulaires d'authentification */
+        .auth-tabs { display: flex; border-bottom: 1px solid rgba(26, 50, 74, 0.5); margin-bottom: 20px; }
+        .auth-tab { flex: 1; padding: 10px; text-align: center; cursor: pointer; color: #8fa3b7; text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px; }
+        .auth-tab.active { color: #f8b700; border-bottom: 2px solid #f8b700; font-weight: bold; }
+        
+        .auth-form { display: none; flex-direction: column; gap: 15px; }
+        .auth-form.active { display: flex; }
+        
+        .form-group { display: flex; flex-direction: column; gap: 5px; }
+        .form-group label { font-size: 11px; text-transform: uppercase; color: #8fa3b7; }
+        .form-group input { background: rgba(2, 6, 17, 0.8); border: 1px solid rgba(28, 61, 90, 0.8); padding: 10px; color: #fff; border-radius: 4px; outline: none; }
+        .form-group input:focus { border-color: #4cb5ff; }
+        
+        .btn-submit-form { background: linear-gradient(135deg, #a72828 0%, #5a0c0c 100%); border: 1px solid #ff4c4c; color: #fff; width: 100%; margin-top: 5px; }
+        .btn-submit-form:hover { background: linear-gradient(135deg, #c43333 0%, #751414 100%); box-shadow: 0 0 15px rgba(255, 76, 76, 0.4); }
+
+        /* Actualités / Forum */
+        .item-list { display: flex; flex-direction: column; gap: 15px; }
+        .item-card { background: rgba(7, 18, 33, 0.4); border: 1px solid rgba(26, 50, 74, 0.3); border-radius: 6px; padding: 15px; }
+        .item-meta { font-size: 11px; color: #4cb5ff; text-transform: uppercase; margin-bottom: 5px; }
+        .item-card h3 { margin: 0 0 5px 0; font-size: 16px; color: #fff; }
+        .item-card p { margin: 0; font-size: 13px; color: #a0aec0; line-height: 1.4; }
+
+        /* Structure Modale */
+        .modal {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(2, 6, 17, 0.9); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(8px);
+        }
+        .modal-content {
+            background: #071221; border: 1px solid #1c3d5a; box-shadow: 0 0 30px rgba(0,0,0,0.8);
+            width: 90%; max-width: 700px; border-radius: 8px; padding: 25px; position: relative;
+        }
+        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 24px; color: #8fa3b7; cursor: pointer; }
+        .close-modal:hover { color: #fff; }
+        
+        /* Tableaux WoW */
+        .wow-table { width: 100%; border-collapse: collapse; margin-top: 15px; text-align: left; }
+        .wow-table th { background: rgba(26, 50, 74, 0.5); color: #f8b700; padding: 10px; font-size: 12px; text-transform: uppercase; }
+        .wow-table td { padding: 10px; border-bottom: 1px solid rgba(26, 50, 74, 0.3); font-size: 14px; }
+
+        /* Pied de page */
+        footer {
+            background: #01040a; border-top: 1px solid rgba(26, 50, 74, 0.4);
+            padding: 40px 20px; text-align: center; font-size: 12px; color: #627284; line-height: 1.6;
+        }
+        footer .footer-links { margin-bottom: 15px; }
+        footer .footer-links a { margin: 0 10px; color: #8fa3b7; }
+        footer .footer-links a:hover { color: #4cb5ff; }
+        footer .legal-notice { max-width: 800px; margin: 0 auto; font-size: 11px; }
     </style>
 </head>
 <body>
 
-    <!-- Barre de Navigation Supérieure -->
     <header>
-        <div class="logo" style="font-weight: bold; color: #a3d8f4; letter-spacing: 2px; font-size: 18px;">NEXAROTH</div>
+        <div class="logo"><a href="#">NEXAROTH</a></div>
         <nav>
-            <a href="#" id="nav-home">Accueil</a>
-            <a href="#creation-compte" id="nav-reg">Inscription</a>
-            <a href="download.html" target="_blank" id="nav-dl">Téléchargement</a>
-            <a href="boutique.html" target="_blank" id="nav-shop">Boutique</a>
-            <a href="https://paypal.me" target="_blank" id="nav-vote">Votez Ici</a>
-            <a href="https://legacy-wow.com" target="_blank" id="nav-addons">Addons</a>
-            <a href="https://forumactif.com" target="_blank" id="nav-forum">Forum</a>
-            <a href="https://discord.gg" target="_blank" id="nav-disc">Discord</a>
-            <a href="https://wowhead.com" target="_blank" id="nav-wowhead">WowHead WTLK</a>
-        </nav>
-        <div>
-            <select class="lang-select" id="languageSelector" onchange="translatePage(this.value)">
-                <option value="fr">FR 🇫🇷</option>
-                <option value="en">EN 🇺🇸</option>
-                <option value="es">ES 🇪🇸</option>
-                <option value="ru">RU 🇷🇺</option>
-            </select>
-        </div>
-    </header>
-
-    <!-- Zone Hero centrale -->
-    <section class="hero">
-        <h1 id="txt-hero-title">NEXAROTH</h1>
-        <p id="txt-hero-desc">WORLD OF WARCRAFT — WRATH OF THE LICH KING 3.3.5a</p>
-        <div class="btn-group">
+            <a href="#" id="nav-home" data-i18n="nav_home">Accueil</a>
+            <a href="#" id="nav-join" data-i18n="nav_join">Rejoindre</a>
+            <a id="open-armory" data-i18n="nav_armory">Armurerie</a>
+            <a id="open-ladders" data-i18n="nav_ladders">Classements</a>
+            <a href="https://legacy-wow.com" target="_blank" id="nav-addons" data-i18n="nav_addons">Addons</a>
+            <a href="https://forumactif.com" target="_blank" id="nav-forum" data-i18n="nav_forum">Forum</a>
+            <a href="https://discord.gg" target="_blank" id="nav-disc" data-i18n="nav_disc">Discord</a>
