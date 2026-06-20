@@ -12,9 +12,10 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
+            /* LIEN DIRECT D'IMAGE LIÉ À VOTRE NOUVEL ENVOI IMGBB */
             background-image: 
                 linear-gradient(to bottom, rgba(2, 5, 11, 0.1) 0%, rgba(2, 5, 11, 0.5) 40%, rgba(2, 5, 11, 0.95) 85%, #02050b 100%), 
-                url('https://i.ibb.co/99Ck2N2n/a7b0ef50-4c4d-4b82-9c0b-6d460c064922.png');
+                url('https://ibb.co');
             background-size: 100% auto;
             background-position: top center;
             background-repeat: no-repeat;
@@ -168,31 +169,24 @@
         .flag-icon { width: 45px; height: 30px; margin: 0 auto 15px; box-shadow: 0 0 8px rgba(0,0,0,0.5); background-size: cover; background-position: center; }
 
         /* Alignement Basse Double Colonne */
-        .columns-layout { display: flex; gap: 30px; margin-top: 40px; }
-        .column-main { flex: 2; }
-        .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; }
+        .columns-layout { display: flex; gap: 30px; }
+        .column-main { flex: 2; display: flex; flex-direction: column; gap: 20px; }
         .column-side { flex: 1; }
 
-        .news-card { text-align: left; padding: 15px; }
-        .news-img { width: 100%; height: 130px; background-size: cover; background-position: center; border: 1px solid rgba(76, 181, 255, 0.15); margin-bottom: 12px; }
-        .news-badge { display: inline-block; font-size: 9px; padding: 2px 6px; background: rgba(76, 181, 255, 0.15); color: #4cb5ff; font-weight: bold; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 1px; }
+        .news-card { text-align: left; }
+        .news-img { width: 100%; height: 160px; background-size: cover; background-position: center; border: 1px solid rgba(76, 181, 255, 0.15); margin-bottom: 15px; }
 
         /* Tableaux de Classements */
-        .ranking-box { padding: 15px; }
-        .ranking-tabs { display: flex; gap: 10px; margin-bottom: 15px; border-bottom: 1px solid rgba(76, 181, 255, 0.15); padding-bottom: 8px; }
-        .tab-link { color: #8fa3b5; font-size: 11px; font-weight: bold; text-transform: uppercase; cursor: pointer; }
-        .tab-link.active { color: #4cb5ff; }
         table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; }
-        th { color: #7ab0d5; padding: 8px; font-size: 11px; border-bottom: 1px solid rgba(76, 181, 255, 0.15); text-transform: uppercase; }
-        td { padding: 8px; border-bottom: 1px solid rgba(76, 181, 255, 0.08); }
+        th { color: #7ab0d5; padding: 10px; font-size: 11px; border-bottom: 1px solid rgba(76, 181, 255, 0.15); text-transform: uppercase; }
+        td { padding: 10px; border-bottom: 1px solid rgba(76, 181, 255, 0.08); }
         .rank-num { color: #4cb5ff; font-weight: bold; }
 
         /* Grille d'Accès Rapide Inférieure */
         .quick-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
         .quick-card { text-align: center; padding: 25px 20px; }
-        .quick-card h3 { margin: 0 0 8px 0; font-size: 14px; color: #fff; text-transform: uppercase; letter-spacing: 1px; }
+        .quick-card h3 { margin: 0 0 8px 0; font-size: 15px; color: #fff; text-transform: uppercase; }
         .quick-card p { margin: 0 0 15px 0; font-size: 12px; color: #8fa3b5; }
-        .quick-icon { font-size: 24px; margin-bottom: 10px; display: block; }
 
         footer {
             background: #010307;
@@ -229,3 +223,16 @@
                 <option value="ru">RU 🇷🇺</option>
             </select>
         </div>
+    </header>
+
+    <!-- Section Supérieure (Hero) -->
+    <section class="hero-container">
+        <div class="hero-left">
+            <h1 id="txt-hero-title">NEXAROTH</h1>
+            <p id="txt-hero-desc">WORLD OF WARCRAFT — WRATH OF THE LICH KING 3.3.5a</p>
+            <div class="hero-buttons">
+                <a href="#quick-section" class="btn-wow" id="btn-hero-reg">Créer un compte</a>
+                <a href="#dl-section" class="btn-wow" id="btn-hero-dl">Télécharger</a>
+                <a href="https://discord.gg" target="_blank" class="btn-wow">Discord</a>
+                <a href="https://forumactif.com" target="_blank" class="btn-wow">Forum</a>
+            </div>
