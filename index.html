@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nexaroth - WoW Private Server</title>
     <style>
-        /* Styles Généraux inspirés du thème feu/magma */
+        /* Styles Généraux et Arrière-plan Frost/Lich King */
         body {
-            background-color: #0c0603;
-            color: #d1c4b9;
+            background-color: #030914;
+            color: #e0e6ed;
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background-image: 
-                linear-gradient(to bottom, rgba(12, 6, 3, 0.1) 0%, rgba(12, 6, 3, 0.6) 30%, rgba(12, 6, 3, 0.95) 80%, #0c0603 100%), 
+                linear-gradient(to bottom, rgba(3, 9, 20, 0.1) 0%, rgba(3, 9, 20, 0.6) 40%, rgba(3, 9, 20, 0.95) 85%, #030914 100%), 
                 url('https://blzmd.com');
             background-size: 100% auto;
             background-position: top center;
@@ -23,13 +23,13 @@
         @media (max-width: 1024px) {
             body { background-size: cover; background-attachment: fixed; }
         }
-        a { text-decoration: none; color: #f3a352; transition: color 0.3s; }
-        a:hover { color: #ff6600; }
+        a { text-decoration: none; color: #4cb5ff; transition: all 0.3s ease; }
+        a:hover { color: #fff; text-shadow: 0 0 10px rgba(76, 181, 255, 0.6); }
         
-        /* Barre de Navigation Supérieure Texturée */
+        /* Barre de Navigation Supérieure */
         header {
-            background: linear-gradient(to bottom, #1a0d07, #0c0603);
-            border-bottom: 2px solid #3d1f0e;
+            background: rgba(2, 6, 17, 0.85);
+            border-bottom: 1px solid rgba(76, 181, 255, 0.2);
             display: flex;
             justify-content: space-around;
             padding: 15px;
@@ -37,7 +37,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
         }
         header nav a {
             margin: 0 12px;
@@ -45,156 +45,138 @@
             font-size: 12px;
             font-weight: bold;
             letter-spacing: 1px;
-            color: #bfa38a;
-            transition: all 0.3s;
+            color: #a3d8f4;
         }
-        header nav a:hover { color: #ff6600; text-shadow: 0 0 8px rgba(255, 102, 0, 0.6); }
+        header nav a:hover { color: #4cb5ff; }
 
-        /* Sélecteur de Langue */
         .lang-select {
-            background: #1a0d07;
-            border: 1px solid #5c3116;
-            color: #f3a352;
-            padding: 6px 10px;
+            background: #071221;
+            border: 1px solid #1c3d5a;
+            color: #4cb5ff;
+            padding: 5px 10px;
             font-size: 12px;
             font-weight: bold;
             cursor: pointer;
-            text-transform: uppercase;
             outline: none;
         }
 
-        /* Conteneur Principal (Logo et Titre) */
+        /* En-tête Principal (Hero) */
         .hero {
             text-align: center;
-            padding: 140px 20px 60px;
+            padding: 160px 20px 100px;
         }
         .hero h1 {
-            font-size: 84px;
-            color: #f3a352;
+            font-size: 90px;
+            color: #fff;
             font-family: 'Georgia', serif;
-            letter-spacing: 4px;
+            letter-spacing: 6px;
             margin: 0;
-            text-shadow: 0 0 20px rgba(243, 163, 82, 0.4), 3px 3px 0px #000;
+            text-shadow: 0 0 30px rgba(76, 181, 255, 0.6), 3px 3px 0px #000;
         }
-        .hero p { font-size: 16px; color: #8a7667; margin-top: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
+        .hero p { font-size: 18px; color: #7ab0d5; margin-top: 15px; font-weight: bold; text-transform: uppercase; letter-spacing: 3px; }
 
-        /* Structure en deux colonnes identique à l'image */
-        .main-layout {
-            display: flex;
+        /* Conteneurs de Grilles Globales */
+        .grid-container {
             max-width: 1200px;
             margin: 0 auto 60px;
-            gap: 25px;
             padding: 0 20px;
         }
-        .left-column { flex: 2; display: flex; flex-direction: column; gap: 25px; }
-        .right-column { flex: 1; display: flex; flex-direction: column; gap: 25px; }
 
-        /* Blocs et Panneaux Sombres de l'Interface */
-        .panel {
-            background: rgba(15, 8, 5, 0.85);
-            border: 1px solid #2e180d;
-            border-top: 3px solid #5c3116;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-            backdrop-filter: blur(4px);
-        }
-        .panel-title {
-            font-size: 14px;
+        .section-title {
+            text-align: center;
             text-transform: uppercase;
-            color: #f3a352;
-            margin-top: 0;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-            border-bottom: 1px solid #2e180d;
-            padding-bottom: 8px;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            color: #a3d8f4;
+            font-size: 20px;
+            text-shadow: 0 2px 4px #000;
         }
 
-        /* Image d'illustration de l'actualité principale */
-        .news-featured-image {
-            width: 100%;
-            height: 280px;
-            background-color: #1a0d07;
-            background-image: url('https://blzmd.com');
-            background-size: cover;
-            background-position: center;
-            border: 1px solid #3d1f0e;
-            margin-bottom: 20px;
+        /* Cartes Bleu Givré Translucides */
+        .panel {
+            background: rgba(6, 15, 30, 0.5);
+            border: 1px solid rgba(76, 181, 255, 0.25);
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            backdrop-filter: blur(6px);
+            text-align: center;
+            transition: all 0.3s ease;
         }
-        .news-text { font-size: 13px; line-height: 1.6; color: #a39284; text-align: justify; }
+        .panel:hover {
+            border-color: #4cb5ff;
+            background: rgba(10, 25, 47, 0.7);
+            box-shadow: 0 15px 35px rgba(76, 181, 255, 0.2);
+        }
 
-        /* Formulaire de connexion à droite */
-        .login-btn-group {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 15px;
-            font-size: 11px;
-        }
-        .form-input {
-            width: 100%;
-            padding: 10px;
-            background: #0c0603;
-            border: 1px solid #3d1f0e;
-            color: #fff;
-            margin-bottom: 12px;
-            box-sizing: border-box;
-        }
-        .form-input:focus { border-color: #ff6600; outline: none; }
-
-        /* Boutons de style WoW (Même design que l'image) */
+        /* Boutons de Style Givre Armure */
         .btn-wow {
-            background: linear-gradient(to bottom, #4a210b, #240f04);
-            border: 1px solid #5c3116;
-            color: #f3a352;
-            padding: 10px 20px;
-            font-size: 11px;
+            background: linear-gradient(to bottom, #1b3a57, #0d2033);
+            border: 1px solid #386b99;
+            color: #fff;
+            padding: 10px 22px;
+            font-size: 12px;
             font-weight: bold;
             text-transform: uppercase;
             cursor: pointer;
-            transition: all 0.2s;
             box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            display: inline-block;
         }
         .btn-wow:hover {
-            border-color: #ff6600;
-            color: #fff;
-            box-shadow: 0 0 10px rgba(255, 102, 0, 0.4);
+            border-color: #4cb5ff;
+            box-shadow: 0 0 12px rgba(76, 181, 255, 0.5);
         }
 
-        /* Bannière de Donation / Vote */
-        .donation-banner {
-            background: linear-gradient(90deg, #1f110a, #36190c);
-            border: 1px solid #5c3116;
-            padding: 15px;
-            text-align: center;
-            font-size: 13px;
-            font-weight: bold;
-            color: #fff;
-        }
-
-        /* Statut du Royaume et Barres de Population */
-        .realm-status-item { margin-bottom: 15px; }
-        .realm-name { display: flex; justify-content: space-between; font-size: 12px; font-weight: bold; margin-bottom: 6px; }
-        .status-online { color: #4caf50; }
-        .progress-bar-bg { width: 100%; height: 12px; background: #0c0603; border: 1px solid #2e180d; border-radius: 2px; overflow: hidden; }
-        .progress-bar-fill { height: 100%; width: 38%; background: linear-gradient(90deg, #b7410e, #ff6600); }
-
-        /* Zone d'accès rapide en bas */
-        .bottom-grid {
+        /* Section Téléchargement Multilingue avec Drapeaux */
+        .download-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
-            max-width: 1200px;
-            margin: 0 auto 60px;
-            padding: 0 20px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+        .flag-icon {
+            width: 50px;
+            height: 33px;
+            margin: 0 auto 15px;
+            border-radius: 2px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            background-size: cover;
+            background-position: center;
         }
 
+        /* Section Structure Double Colonne (Actualités / Classements) */
+        .columns-layout {
+            display: flex;
+            gap: 30px;
+        }
+        .column-main { flex: 2; display: flex; flex-direction: column; gap: 20px; }
+        .column-side { flex: 1; }
+
+        .news-item { text-align: left; }
+        .news-img-placeholder {
+            width: 100%; height: 180px; background-size: cover; background-position: center; border: 1px solid rgba(76, 181, 255, 0.2); margin-bottom: 15px;
+        }
+
+        /* Styles de Tableaux de Classement */
+        table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; }
+        th { color: #7ab0d5; padding: 10px; font-size: 11px; border-bottom: 1px solid rgba(76, 181, 255, 0.2); text-transform: uppercase; }
+        td { padding: 10px; border-bottom: 1px solid rgba(76, 181, 255, 0.1); }
+        .rank-num { color: #4cb5ff; font-weight: bold; }
+
+        /* Pied de page thématique */
         footer {
-            background: #060301;
+            background: #02050b;
             padding: 40px 20px;
             text-align: center;
-            border-top: 1px solid #1a0d07;
+            border-top: 1px solid rgba(76, 181, 255, 0.15);
             font-size: 12px;
-            color: #5c4e43;
+            color: #566f85;
+        }
+        .footer-support {
+            margin-top: 12px;
+            font-weight: bold;
+            color: #a3d8f4;
+        }
+        .footer-support a {
+            color: #4cb5ff;
         }
     </style>
 </head>
@@ -202,19 +184,19 @@
 
     <!-- Barre de Navigation Supérieure -->
     <header>
-        <div class="logo" style="font-weight: bold; color: #f3a352; letter-spacing: 2px;">NEXAROTH</div>
+        <div class="logo" style="font-weight: bold; color: #4cb5ff; letter-spacing: 2px; font-size: 18px;">NEXAROTH</div>
         <nav>
             <a href="#" id="nav-home">Accueil</a>
-            <a href="#creation-compte" id="nav-reg">Inscription</a>
+            <a href="#inscription-section" id="nav-reg">Inscription</a>
             <a href="download.html" target="_blank" id="nav-dl">Téléchargement</a>
             <a href="boutique.html" target="_blank" id="nav-shop">Boutique</a>
+            <a href="https://paypal.me" target="_blank" id="nav-vote">Votez Ici</a>
             <a href="https://legacy-wow.com" target="_blank" id="nav-addons">Addons</a>
             <a href="https://forumactif.com" target="_blank" id="nav-forum">Forum</a>
             <a href="https://discord.gg" target="_blank" id="nav-disc">Discord</a>
             <a href="https://wowhead.com" target="_blank" id="nav-wowhead">WowHead WTLK</a>
         </nav>
         <div>
-            <!-- Bouton Sélection de Langue Déroulant -->
             <select class="lang-select" id="languageSelector" onchange="translatePage(this.value)">
                 <option value="fr">FR 🇫🇷</option>
                 <option value="en">EN 🇺🇸</option>
@@ -224,30 +206,40 @@
         </div>
     </header>
 
-    <!-- Zone centrale Titre principal -->
+    <!-- Zone Centrale Principale -->
     <section class="hero">
         <h1 id="txt-hero-title">NEXAROTH</h1>
         <p id="txt-hero-desc">WORLD OF WARCRAFT — WRATH OF THE LICH KING 3.3.5a</p>
+        <div class="btn-group" style="margin-top:30px;">
+            <a href="#inscription-section" class="btn-wow" id="btn-hero-reg">Créer un compte</a>
+            <a href="download.html" target="_blank" class="btn-wow" id="btn-hero-dl">Télécharger</a>
+            <a href="boutique.html" target="_blank" class="btn-wow" id="btn-hero-shop">Boutique</a>
+            <a href="https://paypal.me" target="_blank" class="btn-wow" id="btn-hero-vote">Votez Ici</a>
+        </div>
     </section>
 
-    <!-- Layout principal 2 colonnes identique au modèle -->
-    <div class="main-layout">
-        
-        <!-- Colonne de Gauche : Actualités de taille WoW -->
-        <main class="left-column">
-            <article class="panel">
-                <h2 class="panel-title" id="title-news">Actualités Récentes</h2>
-                <div class="news-featured-image"></div>
-                <h3 style="color: #fff; margin: 0 0 10px 0;" id="news-card-title">Ouverture du Royaume</h3>
-                <p class="news-text" id="news-card-desc">
-                    Bienvenue sur Nexaroth, le royaume progressif 3.3.5a où commence votre nouvelle légende. Rejoignez dès maintenant une communauté grandissante et préparez-vous à affronter les périls du Norfendre. Notre équipe s'assure d'une stabilité maximale et d'un confort de jeu optimal pour l'ensemble des joueurs.
-                </p>
-                <div style="font-size: 11px; color: #5c4e43; margin-top: 15px;">PUBLIÉ LE 12 JUIN 2026</div>
-            </article>
-        </main>
-
-        <!-- Colonne de Droite : Connexion et Modules annexes -->
-        <aside class="right-column">
-            <!-- Boîte de Connexion de Compte rapide -->
-            <div class="panel" id="creation-compte">
-                <h2 class="panel-title" id="join-title">Espace Connexion / Inscription</h2>
+    <!-- Grille de Téléchargement du Client -->
+    <section class="grid-container" id="dl-section">
+        <h2 class="section-title" id="nav-dl">Téléchargement du client</h2>
+        <div class="download-grid">
+            <div class="panel">
+                <div class="flag-icon" style="background-image: url('https://wikimedia.org');"></div>
+                <h3>Français</h3>
+                <a href="download.html" target="_blank" class="btn-wow">Télécharger</a>
+            </div>
+            <div class="panel">
+                <div class="flag-icon" style="background-image: url('https://wikimedia.org');"></div>
+                <h3>English</h3>
+                <a href="download.html" target="_blank" class="btn-wow">Download</a>
+            </div>
+            <div class="panel">
+                <div class="flag-icon" style="background-image: url('https://wikimedia.org');"></div>
+                <h3>Español</h3>
+                <a href="download.html" target="_blank" class="btn-wow">Descargar</a>
+            </div>
+            <div class="panel">
+                <div class="flag-icon" style="background-image: url('https://wikimedia.org');"></div>
+                <h3>Deutsch</h3>
+                <a href="download.html" target="_blank" class="btn-wow">Download</a>
+            </div>
+            <div class="panel">
