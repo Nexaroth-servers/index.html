@@ -169,3 +169,39 @@ flex-wrap:wrap;
 50%{transform:scale(1.1);}
 100%{transform:scale(1);}
 }
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXAROTH</title>
+
+<style>
+
+/* Tes styles existants */
+body{
+    margin:0;
+    padding:0;
+}
+
+/* Autres styles... */
+
+
+/* ===== États du Royaume ===== */
+
+.realm-status{
+    max-width:600px;
+    margin:20px auto;
+    padding:20px;
+    background:rgba(0,0,0,0.6);
+    border:1px solid #00ccff;
+    border-radius:10px;
+    text-align:center;
+    color:white;
+}
+
+.realm-status p{
+    margin:10px 0;
+    font-size:18px;
+}
+
+</style>
+</head>
