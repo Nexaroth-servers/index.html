@@ -1,457 +1,337 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>NEXAROTH - Wrath of the Lich King</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-font-family:Arial,sans-serif;
-background:#050b12;
-color:white;
-overflow-x:hidden;
-}
-
-/* HERO */
-
-.hero{
-height:100vh;
-
-background:
-linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.85)),
-url("https://image.noelshack.com/fichiers/2026/25/5/1781897484-images.jpg");
-
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
-
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-
-animation:zoomHero 20s ease-in-out infinite alternate;
-}
-
-@keyframes zoomHero{
-from{background-size:100%;}
-to{background-size:115%;}
-}
-
-/* MENU */
-
-.navbar{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 40px;
-background:rgba(0,0,0,.75);
-backdrop-filter:blur(10px);
-z-index:9999;
-}
-
-.logo{
-font-family:'Cinzel',serif;
-font-size:38px;
-color:#9deeff;
-text-shadow:0 0 20px #00bfff;
-}
-
-nav{
-display:flex;
-gap:20px;
-flex-wrap:wrap;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-transition:.3s;
-}
-
-nav a:hover{
-color:#6fdcff;
-}
-
-/* HERO CONTENT */
-
-.hero-content h1{
-font-family:'Cinzel',serif;
-font-size:90px;
-color:#dffcff;
-
-text-shadow:
-0 0 10px #00bfff,
-0 0 25px #00bfff,
-0 0 50px #00bfff;
-}
-
-.hero-content p{
-font-size:24px;
-margin:20px 0;
-}
-
-.btn{
-display:inline-block;
-padding:15px 35px;
-margin:10px;
-background:#0099ff;
-color:white;
-text-decoration:none;
-border-radius:8px;
-transition:.3s;
-}
-
-.btn:hover{
-transform:translateY(-3px);
-box-shadow:
-0 0 15px #00bfff,
-0 0 30px #00bfff;
-}
-
-/* SECTION */
-
-section{
-padding:100px 20px;
-}
-
-.container{
-max-width:1300px;
-margin:auto;
-}
-
-.title{
-font-family:'Cinzel',serif;
-font-size:42px;
-text-align:center;
-margin-bottom:50px;
-color:#6fdcff;
-}
-
-/* STATS */
-
-.stats{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-}
-
-.card{
-background:#101820;
-padding:30px;
-border-radius:12px;
-text-align:center;
-}
-
-.number{
-font-size:42px;
-font-weight:bold;
-color:#00d5ff;
-}
-
-/* NEWS */
-
-.news{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:20px;
-}
-
-/* FOOTER */
-
-footer{
-background:black;
-padding:40px;
-text-align:center;
-color:#999;
-}
-
-.footer-logo{
-font-family:'Cinzel',serif;
-font-size:42px;
-color:#9deeff;
-margin-bottom:10px;
-}
-
-/* SNOW */
-
-.snow{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-pointer-events:none;
-background-image:
-radial-gradient(white 1px, transparent 1px);
-background-size:40px 40px;
-opacity:.15;
-animation:snowMove 15s linear infinite;
-}
-
-@keyframes snowMove{
-from{
-transform:translateY(-100px);
-}
-to{
-transform:translateY(100vh);
-}
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="snow"></div>
-
-<header class="navbar">
-
-<div class="logo">NEXAROTH</div>
-
-<nav>
-
-<a href="#accueil">Accueil</a>
-
-<a href="https://nexaroth.com/register" target="_blank">
-⚔ Inscription
-</a>
-
-<a href="#telechargement">
-📥 Téléchargement
-</a>
-
-<a href="https://nexaroth.com/shop" target="_blank">
-🛒 Boutique
-</a>
-
-<a href="https://nexaroth.com/vote" target="_blank">
-🏆 Vote
-</a>
-
-<a href="https://nexaroth.forumactif.com/" target="_blank">
-💬 Forum
-</a>
-
-<a href="https://discord.gg/zcH3JXHeuQ" target="_blank">
-🎮 Discord
-</a>
-
-</nav>
-
-</header>
-
-<section class="hero" id="accueil">
-
-<div class="hero-content">
-
-<h1>NEXAROTH</h1>
-
-<p>
-World of Warcraft<br>
-Wrath of the Lich King 3.3.5a
-</p>
-
-<a href="https://nexaroth.com/register" class="btn">
-⚔ Créer un compte
-</a>
-
-<a href="#telechargement" class="btn">
-📥 Télécharger
-</a>
-<a href="https://nexaroth.forumactif.com/" class="btn" target="_blank">
-💬 Forum
-</a>
-
-<a href="https://discord.gg/zcH3JXHeuQ" class="btn" target="_blank">
-🎮 Discord
-</a>
-</a>
-<a href="https://discord.gg/zcH3JXHeuQ" class="btn">
-💬 Discord
-</a>
-
-</div>
-
-</section>
-
-<section id="telechargement">
-
-<div class="container">
-
-<h2 class="title">Téléchargement</h2>
-
-<div class="card">
-
-<h3>Client World of Warcraft 3.3.5a HD</h3>
-
-<br>
-
-<a href="https://drive.google.com/file/d/1hE1X41DnWJ3wu1O_xzKaTCAZAi2SyDiR/view" class="btn" target="_blank">
-🇫🇷 Télécharger FR
-</a>
-
-<a href="https://drive.google.com/file/d/1zcvTIhu-rKSRrGkzRsAmTfJ-Ik48C5-S/view" class="btn" target="_blank">
-🇬🇧 Download EN
-</a>
-
-<a href="https://drive.google.com/file/d/1vfDM2mvsn4-Q5zD3x8VO_6BUzPpLHfxC/view" class="btn" target="_blank">
-🇪🇸 Descargar ES
-</a>
-
-<a href="https://drive.google.com/file/d/1zfKUEOMti-pUVJnr8pfhEwTqLG6baanJ/view" class="btn" target="_blank">
-🇩🇪 Download DE
-</a>
-
-<a href="https://drive.google.com/file/d/1ykz3I97ajwjAqkbZ4cDNrTtBdho6MBtj/view" class="btn" target="_blank">
-🇷🇺 Скачать RU
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<div class="container">
-
-<h2 class="title">Statistiques</h2>
-
-<div class="stats">
-
-<div class="card">
-<div class="number">0</div>
-<p>Joueurs en ligne</p>
-</div>
-
-<div class="card">
-<div class="number">0</div>
-<p>Comptes créés</p>
-</div>
-
-<div class="card">
-<div class="number">0</div>
-<p>Guildes</p>
-</div>
-
-<div class="card">
-<div class="number">99.9%</div>
-<p>Uptime</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<div class="container">
-
-<h2 class="title">Accès Rapide</h2>
-
-<div class="stats">
-
-<div class="card">
-<h3>⚔ Inscription</h3>
-<br>
-<a href="https://nexaroth.com/register" class="btn">Créer un compte</a>
-</div>
-
-<div class="card">
-<h3>🏆 Vote</h3>
-<br>
-<a href="https://nexaroth.com/vote" class="btn">Voter</a>
-</div>
-
-<div class="card">
-<h3>🛒 Boutique</h3>
-<br>
-<a href="https://nexaroth.com/shop" class="btn">Boutique</a>
-</div>
-
-<div class="card">
-<h3>💬 Forum</h3>
-<br>
-<a href="https://nexaroth.forumactif.com/" target="_blank">
-💬 Forum
-</a>
-</div>
-
-<div class="card">
-<h3>🌐 Radmin VPN</h3>
-<br>
-<a href="https://www.radmin-vpn.com/" class="btn" target="_blank">Accéder à Radmin VPN</a>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<div class="container">
-
-<h2 class="title">Actualités</h2>
-
-<div class="news">
-
-<div class="card">
-<h3>⚔ Ouverture du Royaume</h3>
-<p>Bienvenue sur Nexaroth.</p>
-</div>
-
-<div class="card">
-<h3>🏆 Saison PvP</h3>
-<p>Nouvelles récompenses exclusives.</p>
-</div>
-
-<div class="card">
-<h3>❄ ICC Disponible</h3>
-<p>Icecrown Citadel est ouverte.</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<footer>
-
-<div class="footer-logo">
-NEXAROTH
-</div>
-
-<p>Wrath of the Lich King 3.3.5a</p>
-
-<p>© 2026 Nexaroth - Tous droits réservés</p>
-
-</footer>
-
-</body>
-</html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexaroth - Wrath of the Lich King 3.3.5a</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        /* Réinitialisation globale */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #02070f url('https://noelshack.com') no-repeat top center;
+            background-size: contain;
+            color: #cdd6e2;
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        /* Conteneur principal */
+        .wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Barre de navigation supérieure */
+        .top-nav {
+            background: rgba(2, 7, 15, 0.85);
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid rgba(0, 187, 255, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .top-nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .nav-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 20px;
+            color: #79d2ff;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .nav-links a:hover {
+            color: #00bfff;
+            text-shadow: 0 0 8px rgba(0, 191, 255, 0.6);
+        }
+
+        /* Section Hero */
+        .hero {
+            padding: 100px 0 60px 0;
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 40px;
+            align-items: center;
+        }
+        .hero-left {
+            text-align: left;
+        }
+        .main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 72px;
+            color: #ffffff;
+            letter-spacing: 4px;
+            text-shadow: 0 0 20px rgba(0, 187, 255, 0.4);
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+        .sub-title {
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #8fa4be;
+            margin-bottom: 40px;
+        }
+        .hero-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 200px);
+            gap: 15px;
+        }
+        .btn {
+            background: rgba(10, 25, 47, 0.6);
+            border: 1px solid rgba(0, 187, 255, 0.3);
+            padding: 14px 20px;
+            border-radius: 4px;
+            font-size: 13px;
+            text-transform: uppercase;
+            font-weight: 600;
+            text-align: center;
+            letter-spacing: 1px;
+            box-shadow: inset 0 0 10px rgba(0, 187, 255, 0.05);
+        }
+        .btn:hover {
+            border-color: #00bfff;
+            box-shadow: 0 0 15px rgba(0, 191, 255, 0.3), inset 0 0 15px rgba(0, 191, 255, 0.1);
+            transform: translateY(-2px);
+            color: #ffffff;
+        }
+
+        /* Encadré d'inscription à droite */
+        .side-panel {
+            background: rgba(3, 13, 27, 0.8);
+            border: 1px solid rgba(0, 187, 255, 0.2);
+            border-radius: 6px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .side-panel h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 16px;
+            color: #ffffff;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+        .side-panel-logo {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 25px auto;
+            background: radial-gradient(circle, rgba(0, 191, 255, 0.2) 0%, transparent 70%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .side-panel-logo img {
+            width: 35px;
+            filter: drop-shadow(0 0 8px #00bfff);
+        }
+        .features-list {
+            list-style: none;
+            text-align: left;
+            font-size: 12px;
+            color: #8fa4be;
+            padding: 0 10px;
+        }
+        .features-list li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .features-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #00bfff;
+        }
+
+        /* Section Statistiques globales */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            background: rgba(3, 13, 27, 0.6);
+            border: 1px solid rgba(0, 187, 255, 0.15);
+            padding: 25px;
+            border-radius: 6px;
+            margin-bottom: 60px;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 28px;
+            font-weight: 600;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
+        }
+        .stat-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #647b9c;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        /* Titres de Section */
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 18px;
+            text-align: center;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 35px;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #00bfff, transparent);
+            margin: 8px auto 0 auto;
+        }
+
+        /* Section Téléchargement Client */
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin-bottom: 60px;
+        }
+        .lang-card {
+            background: rgba(3, 13, 27, 0.5);
+            border: 1px solid rgba(0, 187, 255, 0.1);
+            border-radius: 4px;
+            padding: 20px 10px;
+            text-align: center;
+        }
+        .lang-card:hover {
+            border-color: rgba(0, 191, 255, 0.4);
+            background: rgba(3, 13, 27, 0.8);
+        }
+        .lang-name {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #8fa4be;
+            margin-bottom: 15px;
+        }
+        .btn-sm {
+            display: block;
+            padding: 8px 0;
+            font-size: 10px;
+            border-radius: 3px;
+        }
+
+        /* Section Accès Rapide */
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin-bottom: 60px;
+        }
+        .quick-card {
+            background: rgba(3, 13, 27, 0.5);
+            border: 1px solid rgba(0, 187, 255, 0.1);
+            border-radius: 4px;
+            padding: 30px 15px;
+            text-align: center;
+            display: block;
+        }
+        .quick-card:hover {
+            border-color: #00bfff;
+            box-shadow: inset 0 0 15px rgba(0, 191, 255, 0.1);
+            transform: translateY(-3px);
+        }
+        .quick-icon {
+            font-size: 24px;
+            color: #00bfff;
+            margin-bottom: 15px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .quick-card h4 {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #ffffff;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        .quick-card p {
+            font-size: 11px;
+            color: #647b9c;
+        }
+
+        /* Section Actualités & Classements */
+        .bottom-layout {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        .news-column h2, .ladder-column h2 {
+            text-align: left;
+        }
+        .news-column h2::after, .ladder-column h2::after {
+            margin: 8px 0 0 0;
+            background: linear-gradient(90deg, #00bfff, transparent);
+        }
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        .news-card {
+            background: rgba(3, 13, 27, 0.5);
+            border: 1px solid rgba(0, 187, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .news-img {
+            width: 100%;
+            height: 110px;
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid rgba(0, 187, 255, 0.1);
+        }
+        .news-content {
+            padding: 15px;
+        }
+        .news-tag {
+            font-size: 9px;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        .tag-new { color: #ff9900; }
+        .tag-event { color: #a335ee; }
