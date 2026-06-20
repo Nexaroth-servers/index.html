@@ -1,305 +1,381 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-<title>NEXAROTH Ultimate Blizzard Edition 2026</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-:root{
---gold:#f8b700;
---blue:#4cb5ff;
---bg:#020611;
---card:rgba(7,18,33,.88);
-}
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-font-family:'Cinzel',serif;
-background:#020611;
-color:white;
-}
-
-video.bg{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-object-fit:cover;
-z-index:-2;
-}
-
-.overlay{
-position:fixed;
-inset:0;
-background:linear-gradient(rgba(0,0,0,.45),rgba(2,6,17,.95));
-z-index:-1;
-}
-
-header{
-position:fixed;
-top:0;
-width:100%;
-padding:15px 25px;
-background:rgba(0,0,0,.8);
-display:flex;
-justify-content:space-between;
-align-items:center;
-z-index:999;
-}
-
-.logo{
-font-size:32px;
-color:var(--gold);
-font-weight:bold;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-margin-left:15px;
-}
-
-.hero{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-}
-
-.hero h1{
-font-size:90px;
-color:var(--gold);
-}
-
-.hero h2{
-margin:15px 0;
-}
-
-.container{
-max-width:1400px;
-margin:auto;
-padding:40px 20px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:20px;
-}
-
-.card{
-background:var(--card);
-padding:25px;
-border-radius:12px;
-border:1px solid rgba(76,181,255,.2);
-}
-
-.card h3{
-color:var(--gold);
-margin-bottom:15px;
-}
-
-.btn{
-display:inline-block;
-padding:12px 20px;
-background:var(--blue);
-color:white;
-text-decoration:none;
-border-radius:8px;
-}
-
-input,
-button{
-width:100%;
-padding:12px;
-margin-top:10px;
-border:none;
-border-radius:8px;
-}
-
-button{
-background:var(--blue);
-color:white;
-cursor:pointer;
-}
-
-.download a{
-display:block;
-padding:10px;
-margin-top:10px;
-background:#0b1d31;
-color:white;
-text-decoration:none;
-border-radius:6px;
-}
-
-footer{
-text-align:center;
-padding:40px;
-background:black;
-margin-top:50px;
-}
-
-</style>
-</head>
-
-<body>
-
-<video class="bg" autoplay muted loop playsinline>
-<source src="background.mp4" type="video/mp4">
-</video>
-
-<div class="overlay"></div>
-
-<header>
-<div class="logo">NEXAROTH</div>
-
-<nav>
-<a href="#register">Inscription</a>
-<a href="#downloads">Téléchargements</a>
-<a href="#shop">Boutique</a>
-<a href="#discord">Discord</a>
-<a href="#support">Support</a>
-</nav>
-</header>
-
-<section class="hero">
-<div>
-<h1>NEXAROTH</h1>
-<h2>Wrath of the Lich King 3.3.5a</h2>
-<p>XP x5 • Réputation x5 • Drop x5 • Métiers x5</p>
-</div>
-</section>
-
-<div class="container">
-
-<div class="grid">
-
-<div class="card" id="register">
-<h3>📝 Inscription</h3>
-
-<input type="text" placeholder="Nom de compte">
-<input type="email" placeholder="Adresse Email">
-<input type="password" placeholder="Mot de passe">
-
-<button>Créer un compte</button>
-</div>
-
-<div class="card">
-<h3>🌐 Realmlist</h3>
-<p>set realmlist nexaroth.com</p>
-</div>
-
-<div class="card" id="downloads">
-<h3>📥 Téléchargements</h3>
-
-<a href="#">Client FR</a>
-<a href="#">Client EN</a>
-<a href="#">Client RU</a>
-<a href="#">Client ES</a>
-</div>
-
-<div class="card" id="discord">
-<h3>🎮 Discord</h3>
-
-<a class="btn" href="https://discord.gg/zcH3JXHeuQ" target="_blank">
-Rejoindre Discord
-</a>
-</div>
-
-<div class="card" id="support">
-<h3>📧 Support</h3>
-
-<p>nexarothservers@atomicmail.io</p>
-</div>
-
-</div>
-
-</div>
-
-<!-- BOUTIQUE -->
-
-<div class="container" id="shop">
-
-<div class="card">
-
-<h3>🛒 Boutique Nexaroth</h3>
-
-<div class="grid">
-
-<div class="card">
-<h3>🐉 Invincible</h3>
-<p>Monture légendaire du Roi-Liche.</p>
-<button onclick="buyItem('Invincible')">
-Acheter - 50 PB
-</button>
-</div>
-
-<div class="card">
-<h3>🔄 Changement de Faction</h3>
-<p>Alliance ↔ Horde</p>
-<button onclick="buyItem('Faction Change')">
-Acheter - 25 PB
-</button>
-</div>
-
-<div class="card">
-<h3>💼 Sac Tisse-givre x4</h3>
-<p>Lot de 4 sacs de 20 places.</p>
-<button onclick="buyItem('Sac Tisse-givre x4')">
-Acheter - 20 PV
-</button>
-</div>
-
-<div class="card">
-<h3>🐾 Mini Ragnaros</h3>
-<p>Mascotte exclusive.</p>
-<button onclick="buyItem('Mini Ragnaros')">
-Acheter - 10 PB
-</button>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<footer>
-
-<p>© 2026 NEXAROTH Ultimate Blizzard Edition</p>
-
-<p>
-Ce site n'est pas affilié à Blizzard Entertainment.
-</p>
-
-</footer>
-
-<script>
-
-function buyItem(itemName){
-
-alert(
-"Achat initié pour : " +
-itemName +
-"\n\nConnectez votre API SOAP ou CMS pour l'envoi automatique."
-);
-
-}
-
-</script>
-
-</body>
-</html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXAROTH - Wrath of the Lich King</title>
+    <!-- Correction du lien Google Fonts pour charger correctement la police Cinzel -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #020611;
+            --bg-card: #071221;
+            --primary: #4cb5ff;
+            --primary-hover: rgba(76, 181, 255, .08);
+            --accent: #f8b700;
+            --accent-glow: rgba(248, 183, 0, .7);
+            --border: rgba(76, 181, 255, .15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg-dark);
+            font-family: 'Cinzel', serif;
+            color: #fff;
+            overflow-x: hidden;
+            top: 0 !important;
+        }
+
+        /* Masquage de l'interface Google Translate native */
+        .skiptranslate, .goog-te-banner-frame {
+            display: none !important;
+        }
+        
+        body {
+            top: 0px !important;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: rgba(0, 0, 0, .85);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            z-index: 999;
+            border-bottom: 1px solid rgba(248, 183, 0, .25);
+        }
+
+        .logo {
+            font-size: 38px;
+            font-weight: 700;
+            color: var(--accent);
+            text-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 13px;
+            text-transform: uppercase;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all .3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+            background: var(--primary-hover);
+        }
+
+        .translate-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        .translate-select {
+            background: rgba(5, 15, 28, 0.95);
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 8px 12px;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 13px;
+            border-radius: 4px;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .translate-select:hover {
+            border-color: var(--primary);
+            background: var(--primary-hover);
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, .25), rgba(0, 0, 0, .85)), url('lichking.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-size: 100px;
+            color: #dbe7ff;
+            text-shadow: 0 0 20px rgba(255, 255, 255, .5), 0 0 40px rgba(76, 181, 255, .4);
+        }
+
+        .hero h2 {
+            font-size: 32px;
+            color: var(--primary);
+            margin: 15px 0;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            margin-right: 10px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-download {
+            background: linear-gradient(#d4a73b, #7a5107);
+            border: 1px solid var(--accent);
+            color: white;
+        }
+
+        .btn-download:hover {
+            box-shadow: 0 0 15px rgba(248, 183, 0, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-discord {
+            background: linear-gradient(#1d6cb2, #082a4d);
+            border: 1px solid var(--primary);
+            color: white;
+        }
+
+        .btn-discord:hover {
+            box-shadow: 0 0 15px rgba(76, 181, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .vote-box {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(248,183,0,0.05) 0%, transparent 100%);
+            border: 1px solid rgba(248,183,0,0.2);
+            border-radius: 6px;
+            box-shadow: 0 0 10px rgba(248, 183, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .vote-box:hover {
+            border-color: rgba(248,183,0,0.6);
+            box-shadow: 0 0 20px rgba(248, 183, 0, 0.15);
+        }
+
+        .btn-vote {
+            display: inline-block;
+            width: 100%;
+            padding: 12px;
+            background-color: var(--accent);
+            color: #000;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+        }
+
+        .btn-vote:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(248, 183, 0, 0.4);
+        }
+
+        .btn-vote::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 30%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(25deg);
+            transition: none;
+        }
+
+        .btn-vote:hover::after {
+            left: 120%;
+            transition: all 0.6s ease-in-out;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: #8fa3b7;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            background-color: #020611;
+            border: 1px solid rgba(76, 181, 255, .2);
+            border-radius: 4px;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 5px rgba(76, 181, 255, 0.3);
+        }
+
+        .stats {
+            margin-top: -60px;
+            padding: 0 5%;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .stat-box {
+            background: rgba(5, 15, 28, .95);
+            padding: 25px;
+            text-align: center;
+            border-radius: 8px;
+            border: 1px solid rgba(76, 181, 255, .25);
+        }
+
+        .stat-box h3 {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #8fa3b7;
+        }
+
+        .stat-box span {
+            font-size: 28px;
+            color: #2ec4b6;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 80px 8%;
+            scroll-margin-top: 80px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 50px;
+            color: var(--accent);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .card h3 {
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .news-item {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .news-item:last-child {
+            border: none;
+        }
+
+        .download-list a, .download-list button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: #0b1d31;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            border: 1px solid rgba(76, 181, 255, .2);
+            text-align: left;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .download-list a:hover {
+            border-color: var(--primary);
+            background: rgba(76, 181, 255, .05);
+        }
+
+        .download-list button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .feature {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        footer {
+            background: #01040a;
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        @media(max-width:1200px){
+            header { height: auto; padding: 15px 20px; flex-direction: column; gap: 15px; }
