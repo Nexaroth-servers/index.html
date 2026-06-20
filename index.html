@@ -96,7 +96,6 @@
         .stat-number { font-size: 32px; color: #4cb5ff; font-weight: bold; text-shadow: 0 0 15px rgba(76,181,255,0.5); }
         .stat-label { font-size: 11px; color: #8fa3b5; text-transform: uppercase; margin-top: 5px; letter-spacing: 1px; }
 
-        /* Titres de Section */
         .section-title {
             text-align: center;
             text-transform: uppercase;
@@ -107,16 +106,6 @@
             text-shadow: 0 2px 5px rgba(0,0,0,0.9);
         }
 
-        /* Dispositions en Grille */
-        .download-layout {
-            display: flex;
-            max-width: 1100px;
-            margin: 0 auto 40px;
-            gap: 20px;
-            padding: 0 20px;
-        }
-        .download-column { flex: 1; }
-
         .grid {
             display: flex;
             justify-content: center;
@@ -126,7 +115,6 @@
             padding: 0 20px;
         }
 
-        /* Boîtes Bleues Translucides (Opacité 0.4) */
         .card {
             background: rgba(7, 18, 33, 0.4);
             border: 1px solid rgba(28, 61, 90, 0.4);
@@ -143,75 +131,47 @@
             background: rgba(9, 23, 41, 0.7);
             box-shadow: 0 10px 20px rgba(0,0,0,0.6);
         }
-        .card h3 { margin: 0 0 10px 0; font-size: 18px; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+        .card h3 { margin: 0 0 10px 0; font-size: 18px; color: #fff; }
         .card p { margin: 0 0 15px 0; font-size: 13px; color: #8fa3b5; }
 
-        /* Section Actualités Spécifique */
-        .news-container {
+        /* Zone Basse Layout */
+        .bottom-layout {
+            display: flex;
             max-width: 1100px;
             margin: 0 auto 80px;
+            gap: 30px;
             padding: 0 20px;
         }
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
+        .news-section { flex: 2; }
+        .sidebar-section { flex: 1; }
+
+        .news-list { display: flex; flex-direction: column; gap: 20px; }
         .news-card {
             background: rgba(7, 18, 33, 0.4);
             border: 1px solid rgba(28, 61, 90, 0.4);
             border-radius: 4px;
             overflow: hidden;
             display: flex;
-            flex-direction: column;
             backdrop-filter: blur(4px);
             transition: transform 0.3s, border-color 0.3s;
         }
-        .news-card:hover {
-            transform: translateY(-3px);
-            border-color: #4cb5ff;
-            background: rgba(9, 23, 41, 0.6);
-        }
-        .news-image {
-            height: 160px;
-            background-color: #122436;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-        .news-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: rgba(7, 18, 33, 0.85);
-            border: 1px solid #386b99;
-            color: #4cb5ff;
-            padding: 4px 10px;
-            font-size: 11px;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-        .news-content {
-            padding: 20px;
-            text-align: left;
-        }
-        .news-content h4 {
-            margin: 0 0 10px 0;
-            color: #fff;
-            font-size: 18px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-        }
-        .news-content p {
-            margin: 0 0 15px 0;
-            color: #8fa3b5;
-            font-size: 13px;
-            line-height: 1.5;
-        }
-        .news-date {
-            font-size: 11px;
-            color: #566f85;
-            text-transform: uppercase;
-        }
+        .news-card:hover { transform: translateY(-2px); border-color: #4cb5ff; background: rgba(9, 23, 41, 0.6); }
+        .news-image { width: 180px; min-height: 140px; background-color: #122436; background-size: cover; background-position: center; position: relative; }
+        .news-badge { position: absolute; top: 10px; left: 10px; background: rgba(7, 18, 33, 0.85); border: 1px solid #386b99; color: #4cb5ff; padding: 3px 8px; font-size: 10px; text-transform: uppercase; font-weight: bold; }
+        .news-content { padding: 15px 20px; text-align: left; flex: 1; }
+        .news-content h4 { margin: 0 0 8px 0; color: #fff; font-size: 18px; }
+        .news-content p { margin: 0 0 12px 0; color: #8fa3b5; font-size: 13px; line-height: 1.4; }
+        .news-date { font-size: 11px; color: #566f85; text-transform: uppercase; }
+
+        .ranking-box { background: rgba(7, 18, 33, 0.4); border: 1px solid rgba(28, 61, 90, 0.4); border-radius: 4px; padding: 20px; backdrop-filter: blur(4px); }
+        .ranking-tabs { display: flex; border-bottom: 1px solid rgba(28, 61, 90, 0.5); margin-bottom: 15px; }
+        .tab-btn { flex: 1; padding: 10px; background: none; border: none; color: #8fa3b5; font-weight: bold; font-size: 12px; text-transform: uppercase; cursor: pointer; }
+        .tab-btn.active { color: #4cb5ff; border-bottom: 2px solid #4cb5ff; }
+        table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; }
+        th { color: #7ab0d5; padding: 10px; font-size: 11px; text-transform: uppercase; border-bottom: 1px solid rgba(28, 61, 90, 0.3); }
+        td { padding: 10px; border-bottom: 1px solid rgba(28, 61, 90, 0.2); }
+        .rank-num { color: #4cb5ff; font-weight: bold; }
+        .rating { color: #a3d8f4; font-weight: bold; text-align: right; }
 
         footer {
             background: #010308;
@@ -230,13 +190,12 @@
         <div class="logo" style="font-weight: bold; color: #a3d8f4; letter-spacing: 2px; font-size: 18px;">NEXAROTH</div>
         <nav>
             <a href="#">Accueil</a>
-            <a href="https://votre-lien-inscription.com" target="_blank">Inscription</a>
+            <a href="#" target="_blank">Inscription</a>
             <a href="download.html" target="_blank">Téléchargement</a>
-            <a href="https://votre-lien-boutique.com" target="_blank">Boutique</a>
-            <a href="https://votre-lien-vote.com" target="_blank">Vote</a>
-            <a href="#addons">Addons</a>
-            <a href="#actualites">Actualités</a>
-            <a href="https://forumactif.com" target="_blank">Forum</a>
+            <a href="#" target="_blank">Boutique</a>
+            <a href="#" target="_blank">Vote</a>
+            <a href="addons.html" target="_blank">Addons</a>
+            <a href="https://nexaroth.forumactif.com/" target="_blank">Forum</a>
             <a href="https://discord.gg" target="_blank">Discord</a>
         </nav>
     </header>
@@ -246,11 +205,11 @@
         <h1>NEXAROTH</h1>
         <p>WORLD OF WARCRAFT — WRATH OF THE LICH KING 3.3.5a</p>
         <div class="btn-group">
-            <a href="https://votre-lien-inscription.com" target="_blank" class="btn">Créer un compte</a>
+            <a href="#" target="_blank" class="btn">Créer un compte</a>
             <a href="download.html" target="_blank" class="btn">Télécharger le jeu</a>
-            <a href="https://votre-lien-vote.com" target="_blank" class="btn">Voter et Gagner</a>
-            <a href="https://votre-lien-boutique.com" target="_blank" class="btn">Boutique</a>
-            <a href="https://forumactif.com" target="_blank" class="btn">Forum</a>
+            <a href="#" target="_blank" class="btn">Voter et Gagner</a>
+            <a href="#" target="_blank" class="btn">Boutique</a>
+            <a href="https://nexaroth.forumactif.com/" target="_blank" class="btn">Forum</a>
             <a href="https://discord.gg" target="_blank" class="btn">Discord</a>
         </div>
     </section>
@@ -275,7 +234,9 @@
         </div>
     </section>
 
-    <!-- Section Addons -->
-    <section id="addons" class="download-layout">
-        <div class="download-column" style="margin: 0 auto; max-width: 600px;">
-            <h2 class="section-title">Addons Recommandés</h2>
+    <!-- Zone Basse Actualités et Classements -->
+    <div class="bottom-layout">
+        <section class="news-section">
+            <h2 class="section-title" style="text-align: left; margin-top: 0;">Actualités</h2>
+            <div class="news-list">
+                <div class="news-card">
