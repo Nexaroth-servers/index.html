@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEXAROTH - Wrath of the Lich King</title>
+    <!-- Correction du lien Google Fonts pour charger correctement la police Cinzel -->
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
         :root {
@@ -30,9 +31,11 @@
             top: 0 !important;
         }
 
+        /* Masquage de l'interface Google Translate native */
         .skiptranslate, .goog-te-banner-frame {
             display: none !important;
         }
+        
         body {
             top: 0px !important;
         }
@@ -376,8 +379,3 @@
 
         @media(max-width:1200px){
             header { height: auto; padding: 15px 20px; flex-direction: column; gap: 15px; }
-            section { padding-top: 140px; }
-        }
-
-        @media(max-width:1000px){
-            .stats-grid { grid-template-columns: 1fr 1fr; }
