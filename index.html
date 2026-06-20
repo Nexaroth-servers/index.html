@@ -1,410 +1,197 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>NEXAROTH Ultimate Blizzard Edition 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
---gold:#f8b700;--blue:#4cb5ff;--bg:#020611;--card:rgba(7,18,33,.85)
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:Cinzel,serif;background:#020611;color:#fff;overflow-x:hidden}
-video.bg{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-.overlay{position:fixed;inset:0;background:linear-gradient(rgba(0,0,0,.45),rgba(2,6,17,.92));z-index:-1}
-header{position:fixed;top:0;width:100%;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);padding:15px 30px;display:flex;justify-content:space-between;z-index:1000}
-.logo{font-size:34px;color:var(--gold);text-shadow:0 0 15px #f8b700}
-nav a{color:#fff;text-decoration:none;margin:0 10px}
-.hero{height:100vh;display:flex;align-items:center;justify-content:center;text-align:center}
-.hero h1{font-size:100px;text-shadow:0 0 25px #4cb5ff}
-.hero h2{color:#4cb5ff}
-.btn{display:inline-block;padding:14px 28px;border-radius:8px;text-decoration:none;color:#fff;margin:8px}
-.gold{background:linear-gradient(#d4a73b,#7a5107)}
-.blue{background:linear-gradient(#1d6cb2,#082a4d)}
-.container{max-width:1400px;margin:auto;padding:60px 20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
-.card{background:var(--card);padding:25px;border-radius:14px;border:1px solid rgba(76,181,255,.2);backdrop-filter:blur(5px);transition:.3s}
-.card:hover{transform:translateY(-6px);box-shadow:0 0 25px rgba(76,181,255,.25)}
-.card h3{color:var(--gold);margin-bottom:15px}
-input,button{width:100%;padding:12px;margin-top:8px}
-button{background:#4cb5ff;border:0;color:#fff;border-radius:6px}
-.download a,.vote a{display:block;background:#0b1d31;color:#fff;text-decoration:none;padding:12px;margin:8px 0;border-radius:6px}
-table{width:100%;border-collapse:collapse}
-th,td{padding:10px;border-bottom:1px solid #233}
-footer{text-align:center;padding:40px;background:rgba(0,0,0,.7)}
-.snow{position:fixed;top:-10px;color:white;animation:fall linear infinite}
- .navbar{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 40px;
-    background:rgba(0,0,0,.80);
-    backdrop-filter:blur(10px);
-    z-index:9999;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>NEXAROTH Ultimate Blizzard Edition 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --gold:#f8b700;--blue:#4cb5ff;--bg:#020611;--card:rgba(7,18,33,.85);--primary-glow: #00d2ff;
+        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{font-family:Cinzel,serif;background:#020611;color:#fff;overflow-x:hidden}
+        video.bg{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+        .overlay{position:fixed;inset:0;background:linear-gradient(rgba(0,0,0,.45),rgba(2,6,17,.92));z-index:-1}
+        
+        .navbar{
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:20px 40px;
+            background:rgba(0,0,0,.80);
+            backdrop-filter:blur(10px);
+            z-index:9999;
+        }
+        .logo{font-size:34px;color:var(--gold);text-shadow:0 0 15px #f8b700}
+        nav{display:flex;gap:20px;flex-wrap:wrap;}
+        nav a{color:white;text-decoration:none;font-weight:bold;transition:.3s;}
+        nav a:hover{color:#6fdcff;text-shadow:0 0 10px #00bfff;}
 
-nav{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-    transition:.3s;
-}
-
-nav a:hover{
-    color:#6fdcff;
-    text-shadow:0 0 10px #00bfff;
-}
-@keyframes fall{to{transform:translateY(110vh)}}
-</style>
+        .hero{height:100vh;display:flex;align-items:center;justify-content:center;text-align:center}
+        .hero h1{font-size:100px;text-shadow:0 0 25px #4cb5ff}
+        .hero h2{color:#4cb5ff; margin-bottom: 10px;}
+        .btn{display:inline-block;padding:14px 28px;border-radius:8px;text-decoration:none;color:#fff;margin:8px;font-weight:bold;cursor:pointer;border:none;}
+        .gold{background:linear-gradient(#d4a73b,#7a5107)}
+        .blue{background:linear-gradient(#1d6cb2,#082a4d)}
+        
+        .container{max-width:1400px;margin:auto;padding:40px 20px}
+        .section-title{color:var(--gold);text-shadow:0 0 10px rgba(248,183,0,0.3);margin:40px 0 20px 0;text-transform:uppercase;border-bottom:1px solid rgba(248,183,0,0.2);padding-bottom:10px;}
+        
+        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+        .card{background:var(--card);padding:25px;border-radius:14px;border:1px solid rgba(76,181,255,.2);backdrop-filter:blur(5px);transition:.3s;display:flex;flex-direction:column;justify-content:space-between;}
+        .card:hover{transform:translateY(-6px);box-shadow:0 0 25px rgba(76,181,255,.25)}
+        .card h3{color:var(--gold);margin-bottom:15px}
+        
+        input,button{width:100%;padding:12px;margin-top:8px}
+        button{background:#4cb5ff;border:0;color:#fff;border-radius:6px;cursor:pointer;font-weight:bold;}
+        .download a,.vote a{display:block;background:#0b1d31;color:#fff;text-decoration:none;padding:12px;margin:8px 0;border-radius:6px;text-align:center;}
+        table{width:100%;border-collapse:collapse}
+        th,td{padding:10px;border-bottom:1px solid #223344;text-align:left;}
+        footer{text-align:center;padding:40px;background:rgba(0,0,0,.7);margin-top:60px;font-size:14px;color:#aaa;}
+        
+        /* Styles Boutique */
+        .product-img {font-size: 40px; text-align: center; margin-bottom: 15px;}
+        .product-desc {color: #b0c4de; font-size: 14px; line-height: 1.5; margin-bottom: 15px;}
+        .product-footer {margin-top: auto;}
+        
+        .discord-banner {text-align: center; background: rgba(88, 101, 242, 0.15); border-color: #5865F2; padding: 40px; margin-bottom: 40px; border-radius: 14px;}
+        .discord-icon {font-size: 50px; margin-bottom: 10px;}
+    </style>
 </head>
- <script>
-
-const music = document.getElementById("bgMusic");
-
-function toggleMusic(){
-
-    if(music.paused){
-        music.volume = 0.15;
-        music.play();
-    }else{
-        music.pause();
-    }
-
-}
-
-document.addEventListener("click", function(){
-
-    if(music.paused){
-        music.volume = 0.15;
-        music.play();
-    }
-
-},{once:true});
-
-</script>
 <body>
  
-<video class="bg" autoplay muted loop playsinline>
-    <source src="background.mp4" type="video/mp4">
-</video>
-
-<audio id="bgMusic" loop>
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<div class="overlay"></div>
-
-<header class="navbar">
-
-    <div class="logo">NEXAROTH</div>
-
-    <nav>
-        <a href="#accueil">Accueil</a>
-        <a href="https://nexaroth.com/register" target="_blank">⚔ Inscription</a>
-        <a href="#downloads">📥 Téléchargement</a>
-        <a href="https://nexaroth.com/shop" target="_blank">🛒 Boutique</a>
-        <a href="https://nexaroth.com/vote" target="_blank">🏆 Vote</a>
-        <a href="https://nexaroth.forumactif.com/" target="_blank">💬 Forum</a>
-        <a href="https://discord.gg/zcH3JXHeuQ" target="_blank">🎮 Discord</a>
-    </nav>
-
-</header>
-
-<video class="bg" autoplay muted loop playsinline>
-    <source src="background.mp4" type="video/mp4">
-</video>
-
-<audio id="bgMusic" loop>
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<div class="overlay"></div>
-
-<header class="navbar">
-    ...
-</header>
-<video class="bg" autoplay muted loop playsinline>
-<source src="background.mp4" type="video/mp4">
-</video>
-<div class="overlay"></div>
-
-<header class="navbar">
-
-    <div class="logo">NEXAROTH</div>
-<nav>
-
-    <a href="#accueil">Accueil</a>
-
-    <a href="https://nexaroth.com/register" target="_blank">
-        ⚔ Inscription
-    </a>
-
-    <a href="https://nexaroth.com/shop" target="_blank">
-        🛒 Boutique
-    </a>
-
-    <a href="https://nexaroth.com/vote" target="_blank">
-        🏆 Vote
-    </a>
-
-    <a href="https://nexaroth.forumactif.com/" target="_blank">
-        💬 Forum
-    </a>
-
-    <a href="https://discord.gg/zcH3JXHeuQ" target="_blank">
-        🎮 Discord
-    </a>
-
-    <a href="https://www.wowhead.com/wotlk" target="_blank">
-        📖 Wowhead
-    </a>
-
-    <a href="https://legacy-wow.com/wotlk-addons/" target="_blank">
-        🔧 Addons
-    </a>
-
-    <a href="#royaume">
-        🌐 États du Royaume
-    </a>
-
-    <a href="https://www.radmin-vpn.com/" target="_blank">
-        🔒radmin-vpn
-    </a>
-
-    </nav>
-
-</header>
-
-<section class="hero" id="accueil">
-
-<div>
-
-<h1>NEXAROTH</h1>
-
-<h2>Wrath of the Lich King 3.3.5a</h2>
-
-<p>
-XP x5 • Réputation x5 • Drop x5 • Métiers x5
-</p>
-
-<a class="btn gold" href="#downloads">
-📥 Télécharger
-</a>
-
-<a class="btn blue"
-href="https://discord.gg/zcH3JXHeuQ"
-target="_blank">
-🎮 Discord
-</a>
-
-<a class="btn blue"
-onclick="toggleMusic()">
-🎵 Musique ON/OFF
-</a>
-
-</div>
-
-</section>
-
-<div class="container">
- <section class="container">
-
-<div class="card discord-banner">
-
-<div class="discord-icon">
-🎮
-</div>
-
-<h2>REJOIGNEZ LA COMMUNAUTÉ NEXAROTH</h2>
-
-<p>
-Des centaines de joueurs vous attendent.
-Participez aux événements exclusifs,
-trouvez votre guilde, échangez avec l'équipe
-et recevez les dernières nouvelles du royaume.
-</p>
-
-<div class="discord-buttons">
-
-<a href="https://discord.gg/zcH3JXHeuQ"
-class="btn blue"
-target="_blank">
-🎮 Rejoindre Discord
-</a>
-
-<a href="https://nexaroth.forumactif.com/"
-class="btn gold"
-target="_blank">
-💬 Accéder au Forum
-</a>
-
-</div>
-
-</section>
-
-<div class="card">
-<h3>📊 Statistiques</h3>
-<p>Joueurs en ligne : <span id="online">350</span></p>
-<p>Uptime : 99.99%</p>
-</div>
-
-<div class="card">
-<h3>🌐 Realmlist</h3>
-<input id="realm" value="set realmlist nexaroth.com" readonly>
-<button onclick="copyRealm()">Copier le Realmlist</button>
-</div>
-
-<div class="card download" id="downloads">
-
-<h3>📥 Téléchargements</h3>
-
-<p>
-Téléchargez le client World of Warcraft 3.3.5a
-dans votre langue.
-</p>
-
-<a href="https://drive.google.com/file/d/1X2L9rqWviivzeDEEltLyjR8l77ujKtxJ/view?usp=drive_link"
-class="btn gold"
-target="_blank">
-🇫🇷 Télécharger FR
-</a>
-
-<a href="https://drive.google.com/file/d/1LccQqeF_anLCjSQ6cBY_Gqow-J_8Tl7B/view?usp=drive_link"
-class="btn blue"
-target="_blank">
-🇬🇧 Download EN
-</a>
-
-<a href="https://drive.google.com/file/d/1cWElIZu6jWEOkVh23BNoya5nh60w-rYU/view?usp=drive_link"
-class="btn blue"
-target="_blank">
-🇪🇸 Descargar ES
-</a>
-
-<a href="https://drive.google.com/file/d/1BdYZkdcTs0rw_VJ6c0TM_IKC6jeobayg/view?usp=drive_link"
-class="btn blue"
-target="_blank">
-🇷🇺 Скачать RU
-</a>
-
-</div>
-
-<div class="card">
-<h3>⚔️ Armurerie</h3>
-<input placeholder="Nom du personnage">
-<button>Rechercher</button>
-</div>
-
-<div class="card">
-<h3>🏆 Classement PvP</h3>
-<table>
-<tr><th>Joueur</th><th>Cote</th></tr>
-<tr><td>Arthorius</td><td>2800</td></tr>
-<tr><td>Frostmage</td><td>2710</td></tr>
-<tr><td>Shadowx</td><td>2685</td></tr>
-</table>
-</div>
-
-<div class="card">
-<h3>📰 Actualités</h3>
-<p>ICC ouverte.</p>
-<p>Nouvelle saison d'arène.</p>
-<p>Événement XP x5 actif.</p>
-</div>
-
-<div class="card vote" id="vote">
-<h3>⭐ Vote</h3>
-<a href="#">Voter pour Nexaroth</a>
-</div>
-
-<div class="card">
-<h3>🛒 Boutique</h3>
-<p>Montures, services, compagnons.</p>
-</div>
-
-<div class="card" id="support">
-<h3>📧 Support</h3>
-<p>nexarothservers@atomicmail.io</p>
-
-<a class="btn gold"
-href="mailto:nexarothservers@atomicmail.io">
-Contacter
-</a>
-</div>
-
-<!-- BANNIÈRE DISCORD PREMIUM -->
-
-<section class="container">
-
-<div class="card discord-banner">
-
-<div class="discord-icon">
-🎮
-</div>
-
-<h2>REJOIGNEZ LA COMMUNAUTÉ NEXAROTH</h2>
-
-<p>
-Des centaines de joueurs vous attendent.
-Participez aux événements exclusifs,
-trouvez votre guilde et recevez les dernières nouvelles.
-</p>
-
-<div class="discord-buttons">
-
-<a href="https://discord.gg/zcH3JXHeuQ"
-class="btn blue"
-target="_blank">
-🎮 Rejoindre Discord
-</a>
-
-<a href="https://nexaroth.forumactif.com/"
-class="btn gold"
-target="_blank">
-💬 Accéder au Forum
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<footer>
-<p>© 2026 NEXAROTH Ultimate Blizzard Edition</p>
-</footer>
-
-<script>
-function copyRealm(){
-navigator.clipboard.writeText(document.getElementById('realm').value);
-alert('Realmlist copié');
-}
-setInterval(()=>{
-document.getElementById('online').textContent=Math.floor(Math.random()*150)+300;
-},5000);
-
-for(let i=0;i<40;i++){
-let s=document.createElement('div');
-s.className='snow';
-s.innerHTML='❄';
-s.style.left=Math.random()*100+'vw';
-s.style.animationDuration=(5+Math.random()*10)+'s';
-s.style.opacity=Math.random();
-document.body.appendChild(s);
-}
-</script>
-
-</body>
-</html>
+    <!-- Arrière-plan et Musique -->
+    <video class="bg" autoplay muted loop playsinline>
+        <source src="background.mp4" type="video/mp4">
+    </video>
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+    <div class="overlay"></div>
+
+    <!-- Barre de Navigation Unifiée -->
+    <header class="navbar">
+        <div class="logo">NEXAROTH</div>
+        <nav>
+            <a href="#accueil">Accueil</a>
+            <a href="https://nexaroth.com/register" target="_blank">⚔ Inscription</a>
+            <a href="#boutique">🛒 Boutique</a>
+            <a href="#downloads">📥 Téléchargement</a>
+            <a href="https://nexaroth.com/vote" target="_blank">🏆 Vote</a>
+            <a href="https://discord.gg/zcH3JXHeuQ" target="_blank">🎮 Discord</a>
+            <a href="https://www.wowhead.com/wotlk" target="_blank">📖 Wowhead</a>
+            <a href="https://legacy-wow.com/wotlk-addons/" target="_blank">🔧 Addons</a>
+            <a href="#features">🌐 État</a>
+        </nav>
+    </header>
+
+    <!-- Zone Hero (Accueil) -->
+    <section class="hero" id="accueil">
+        <div>
+            <h1>NEXAROTH</h1>
+            <h2>Wrath of the Lich King 3.3.5a</h2>
+            <p>XP x5 • Réputation x5 • Drop x5 • Métiers x5</p>
+            <a class="btn gold" href="#downloads">📥 Télécharger</a>
+            <a class="btn blue" href="https://discord.gg/zcH3JXHeuQ" target="_blank">🎮 Discord</a>
+            <a class="btn blue" onclick="toggleMusic()">🎵 Musique ON/OFF</a>
+        </div>
+    </section>
+
+    <!-- Contenu Principal -->
+    <div class="container">
+
+        <!-- Bannière Discord -->
+        <div class="card discord-banner">
+            <div class="discord-icon">🎮</div>
+            <h3>REJOIGNEZ LA COMMUNAUTÉ NEXAROTH</h3>
+            <p>Des centaines de joueurs vous attendent. Participez aux événements exclusifs, trouvez votre guilde, échangez avec l'équipe et recevez les dernières nouvelles du royaume.</p>
+            <div style="margin-top: 20px;">
+                <a href="https://discord.gg/zcH3JXHeuQ" class="btn blue" target="_blank">🎮 Rejoindre Discord</a>
+            </div>
+        </div>
+
+        <!-- SECTION BOUTIQUE (Placée en haut pour un accès rapide) -->
+        <h2 class="section-title" id="boutique">🛒 Boutique Nexaroth</h2>
+        <div class="grid" style="margin-bottom: 60px;">
+            
+            <div class="card">
+                <div class="product-img">🐎</div>
+                <h3>Montures Terrestres</h3>
+                <p class="product-desc">Parcourez Azeroth avec style. Achetez des montures de sol rares et légendaires pour votre personnage.</p>
+                <div class="product-footer">
+                    <button onclick="openCategory('terrestres')">Ouvrir la catégorie</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="product-img">🐉</div>
+                <h3>Montures Volantes</h3>
+                <p class="product-desc">Dominez les cieux du Norfendre. Retrouvez les drakes et montures volantes les plus prestigieuses.</p>
+                <div class="product-footer">
+                    <button onclick="openCategory('volantes')">Ouvrir la catégorie</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="product-img">🔄</div>
+                <h3>Services</h3>
+                <p class="product-desc">Changement de faction, de race, de nom ou transfert de personnage instantané.</p>
+                <div class="product-footer">
+                    <button onclick="openCategory('services')">Ouvrir la catégorie</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="product-img">🐾</div>
+                <h3>Compagnons</h3>
+                <p class="product-desc">Adoptez des mascottes uniques et rares pour vous accompagner dans vos aventures.</p>
+                <div class="product-footer">
+                    <button onclick="openCategory('compagnons')">Ouvrir la catégorie</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="product-img">🛡️</div>
+                <h3>Transmogrifications</h3>
+                <p class="product-desc">Modifiez l'apparence de vos armes et armures avec des ensembles d'équipements exclusifs.</p>
+                <div class="product-footer">
+                    <button onclick="openCategory('transmo')">Ouvrir la catégorie</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="product-img">🛠️</div>
+                <h3>Gérer les Métiers</h3>
+                <p class="product-desc">Montez vos métiers (Forge, Alchimie, etc.) instantanément au niveau maximum 450.</p>
+                <div class="product-footer">
+                    <button onclick="openCategory('metiers')">Ouvrir la catégorie</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION FONCTIONNALITÉS ET INFOS -->
+        <h2 class="section-title" id="features">🌐 Informations du Royaume</h2>
+        <div class="grid">
+
+            <div class="card">
+                <h3>📊 Statistiques</h3>
+                <p>Joueurs en ligne : <span id="online" style="color:var(--gold); font-weight:bold;">0</span></p>
+                <p>Uptime : 99.99%</p>
+            </div>
+
+            <div class="card">
+                <h3>🌐 Realmlist</h3>
+                <input id="realm" value="set realmlist nexaroth.com" readonly style="background: rgba(0,0,0,0.5); color: #fff; border: 1px solid #334455; text-align: center;">
+                <button onclick="copyRealm()">Copier le Realmlist</button>
+            </div>
+
+            <div class="card download" id="downloads">
+                <h3>📥 Téléchargements</h3>
+                <p>Téléchargez le client World of Warcraft 3.3.5a dans votre langue.</p>
+                <a href="https://drive.google.com/file/d/1X2L9rqWviivzeDEEltLyjR8l77ujKtxJ/view?usp=drive_link" class="btn gold" target="_blank">🇫🇷 Télécharger FR</a>
