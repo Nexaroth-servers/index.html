@@ -1,65 +1,4 @@
 /* section statut du serveur */
-.discord-banner{
-text-align:center;
-padding:60px 40px;
-background:
-linear-gradient(
-135deg,
-rgba(12,32,58,.95),
-rgba(0,0,0,.85)
-);
-border:1px solid rgba(76,181,255,.4);
-box-shadow:
-0 0 30px rgba(76,181,255,.2),
-inset 0 0 50px rgba(76,181,255,.05);
-}
-
-.discord-icon{
-font-size:70px;
-margin-bottom:20px;
-animation:pulseDiscord 2s infinite;
-}
-
-.discord-banner h2{
-font-size:38px;
-color:#4cb5ff;
-margin-bottom:20px;
-text-shadow:
-0 0 10px #4cb5ff,
-0 0 20px #4cb5ff;
-}
-
-.discord-banner p{
-max-width:800px;
-margin:auto;
-font-size:18px;
-line-height:1.8;
-color:#dbeeff;
-}
-
-.discord-buttons{
-margin-top:30px;
-display:flex;
-justify-content:center;
-gap:15px;
-flex-wrap:wrap;
-}
-
-@keyframes pulseDiscord{
-
-0%{
-transform:scale(1);
-}
-
-50%{
-transform:scale(1.1);
-}
-
-100%{
-transform:scale(1);
-}
-
-}
 .server-status {
     max-width: 1200px;
     margin: 40px auto;
@@ -187,4 +126,46 @@ transform:scale(1);
     font-size: 20px;
     font-weight: bold;
     color: #f6ad55;
+}
+.discord-banner{
+text-align:center;
+padding:60px 40px;
+background:linear-gradient(
+135deg,
+rgba(12,32,58,.95),
+rgba(0,0,0,.85)
+);
+border:1px solid rgba(76,181,255,.4);
+box-shadow:
+0 0 30px rgba(76,181,255,.2),
+inset 0 0 50px rgba(76,181,255,.05);
+}
+
+.discord-icon{
+font-size:70px;
+margin-bottom:20px;
+animation:pulseDiscord 2s infinite;
+}
+
+.discord-banner h2{
+font-size:38px;
+color:#4cb5ff;
+margin-bottom:20px;
+text-shadow:
+0 0 10px #4cb5ff,
+0 0 20px #4cb5ff;
+}
+
+.discord-buttons{
+margin-top:30px;
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+@keyframes pulseDiscord{
+0%{transform:scale(1);}
+50%{transform:scale(1.1);}
+100%{transform:scale(1);}
 }
