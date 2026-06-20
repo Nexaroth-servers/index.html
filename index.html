@@ -12,6 +12,7 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
+            /* Fond d'écran officiel du Roi Liche */
             background-image: 
                 linear-gradient(to bottom, rgba(2, 6, 17, 0) 0%, rgba(2, 6, 17, 0.4) 30%, rgba(2, 6, 17, 0.85) 60%, #020611 100%), 
                 url('https://blzmd.com');
@@ -132,6 +133,7 @@
             max-width: 1100px;
             margin: 0 auto 80px;
             padding: 0 20px;
+            flex-wrap: wrap;
         }
 
         .card {
@@ -140,6 +142,7 @@
             padding: 25px;
             text-align: center;
             flex: 1;
+            min-width: 200px;
             backdrop-filter: blur(4px);
             transition: all 0.3s;
         }
@@ -194,15 +197,14 @@
             <a href="#creation-compte" id="nav-reg">Inscription</a>
             <a href="download.html" target="_blank" id="nav-dl">Téléchargement</a>
             <a href="boutique.html" target="_blank" id="nav-shop">Boutique</a>
-            <a href="https://paypal.me" target="_blank" id="nav-vote">Vote</a>
             <a href="https://legacy-wow.com" target="_blank" id="nav-addons">Addons</a>
-            <a href="https://forumactif.com" target="_blank" id="nav-forum">Forum</a>
-            <a href="https://discord.gg" target="_blank" id="nav-disc">Discord</a>
+            <a href="https://nexaroth.forumactif.com/" target="_blank" id="nav-forum">Forum</a>
+            <a href="https://discord.gg/zcH3JXHeuQ" target="_blank" id="nav-disc">Discord</a>
             <a href="https://wowhead.com" target="_blank" id="nav-wowhead">WowHead WTLK</a>
         </nav>
         
         <div>
-            <!-- Menu sélecteur de langue -->
+            <!-- Lié à Google Traduction par défaut et aux traductions locales -->
             <select class="lang-select" onchange="translatePage(this.value)">
                 <option value="fr">FR 🇫🇷</option>
                 <option value="en">EN 🇺🇸</option>
@@ -218,4 +220,3 @@
         <div class="btn-group">
             <a href="#creation-compte" class="btn" id="btn-hero-reg">Créer un compte</a>
             <a href="download.html" target="_blank" class="btn" id="btn-hero-dl">Télécharger le jeu</a>
-            <a href="https://paypal.me" target="_blank" class="btn" id="btn-hero-vote">Voter et Gagner</a>
