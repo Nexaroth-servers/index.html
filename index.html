@@ -114,6 +114,7 @@
             text-align: center;
             letter-spacing: 1px;
             box-shadow: inset 0 0 10px rgba(0, 187, 255, 0.05);
+            display: inline-block;
         }
         .btn:hover {
             border-color: #00bfff;
@@ -146,10 +147,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-        .side-panel-logo img {
-            width: 35px;
-            filter: drop-shadow(0 0 8px #00bfff);
         }
         .features-list {
             list-style: none;
@@ -298,10 +295,10 @@
             gap: 40px;
             margin-bottom: 60px;
         }
-        .news-column h2, .ladder-column h2 {
+        .news-column .section-title, .ladder-column .section-title {
             text-align: left;
         }
-        .news-column h2::after, .ladder-column h2::after {
+        .news-column .section-title::after, .ladder-column .section-title::after {
             margin: 8px 0 0 0;
             background: linear-gradient(90deg, #00bfff, transparent);
         }
