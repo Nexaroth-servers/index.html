@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nexaroth - WoW Private Server</title>
     <style>
-        /* Styles Généraux et Arrière-plan Officiel */
+        /* Styles Généraux */
         body {
-            background-color: #02050b;
+            background-color: #020611;
             color: #e0e6ed;
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            /* LIEN DIRECT D'IMAGE LIÉ À VOTRE NOUVEL ENVOI IMGBB */
+            /* INTEGRATION DE VOTRE IMAGE DE FOND DIRECTE IMGBB */
             background-image: 
-                linear-gradient(to bottom, rgba(2, 5, 11, 0.1) 0%, rgba(2, 5, 11, 0.5) 40%, rgba(2, 5, 11, 0.95) 85%, #02050b 100%), 
+                linear-gradient(to bottom, rgba(2, 6, 17, 0) 0%, rgba(2, 6, 17, 0.4) 30%, rgba(2, 6, 17, 0.85) 60%, #020611 100%), 
                 url('https://ibb.co');
             background-size: 100% auto;
             background-position: top center;
@@ -27,10 +27,10 @@
         a { text-decoration: none; color: #4cb5ff; transition: all 0.3s ease; }
         a:hover { color: #fff; text-shadow: 0 0 10px rgba(76, 181, 255, 0.6); }
         
-        /* Barre de Navigation Supérieure */
+        /* Barre de Navigation */
         header {
-            background: rgba(2, 5, 11, 0.85);
-            border-bottom: 1px solid rgba(76, 181, 255, 0.15);
+            background: rgba(2, 6, 17, 0.75);
+            border-bottom: 1px solid rgba(26, 50, 74, 0.4);
             display: flex;
             justify-content: space-around;
             padding: 15px;
@@ -41,173 +41,163 @@
             backdrop-filter: blur(5px);
         }
         header nav a {
-            margin: 0 12px;
+            margin: 0 15px;
             text-transform: uppercase;
-            font-size: 11px;
-            font-weight: bold;
+            font-size: 13px;
             letter-spacing: 1px;
-            color: #a3d8f4;
+            transition: color 0.3s;
         }
         header nav a:hover { color: #4cb5ff; }
 
+        /* Bouton Sélection de Langue */
         .lang-select {
-            background: #060e1a;
-            border: 1px solid #1c3d5a;
+            background: rgba(7, 18, 33, 0.6);
+            border: 1px solid rgba(28, 61, 90, 0.6);
             color: #4cb5ff;
-            padding: 5px 10px;
-            font-size: 11px;
+            padding: 6px 12px;
+            font-size: 12px;
             font-weight: bold;
             cursor: pointer;
+            text-transform: uppercase;
             outline: none;
         }
-
-        /* Section Hero (Logo à gauche, Box caractéristiques à droite) */
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 120px 20px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 40px;
-        }
-        .hero-left {
-            flex: 1.2;
-            text-align: left;
-        }
-        .hero-left h1 {
-            font-size: 82px;
-            color: #fff;
-            font-family: 'Georgia', serif;
-            letter-spacing: 4px;
-            margin: 0 0 10px 0;
-            text-shadow: 0 0 30px rgba(76, 181, 255, 0.5), 3px 3px 0px #000;
-        }
-        .hero-left p { font-size: 15px; color: #7ab0d5; margin: 0 0 30px 0; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
-        
-        .hero-right {
-            flex: 0.8;
+        .lang-select option {
+            background: #020611;
+            color: #e0e6ed;
         }
 
-        /* Alignement des boutons asymétriques du modèle */
-        .hero-buttons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            max-width: 440px;
+        /* Section Hero */
+        .hero {
+            text-align: center;
+            padding: 180px 20px 140px;
         }
-
-        /* Style des Panneaux Bleu Givré Translucides */
-        .panel {
-            background: rgba(4, 11, 23, 0.65);
-            border: 1px solid rgba(76, 181, 255, 0.2);
-            padding: 22px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-            backdrop-filter: blur(6px);
-        }
-        .panel-title {
-            font-size: 13px;
-            text-transform: uppercase;
+        .hero h1 {
+            font-size: 76px;
             color: #a3d8f4;
-            margin-top: 0;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-            border-bottom: 1px solid rgba(76, 181, 255, 0.15);
-            padding-bottom: 8px;
-            text-align: left;
+            text-shadow: 0 0 30px rgba(163, 216, 244, 0.8), 2px 2px 12px rgba(0,0,0,0.9);
+            margin: 0;
+            letter-spacing: 8px;
+            font-family: 'Georgia', serif;
         }
-
-        /* Encadré Caractéristiques (Rejoignez l'aventure) */
-        .features-box {
-            text-align: left;
-        }
-        .features-list { list-style: none; padding: 0; margin: 0; font-size: 13px; color: #8fa3b5; }
-        .features-list li { margin-bottom: 10px; display: flex; align-items: center; }
-        .features-list li::before { content: "✓"; color: #4cb5ff; font-weight: bold; margin-right: 10px; }
-
-        /* Boutons d'Action Communauté WoW */
-        .btn-wow {
-            background: linear-gradient(to bottom, #1b3a57, #0d2033);
+        .hero p { font-size: 20px; color: #7ab0d5; margin-top: 15px; font-weight: bold; text-shadow: 2px 2px 5px rgba(0,0,0,0.9); }
+        
+        /* Boutons */
+        .btn-group { margin-top: 35px; }
+        .btn {
+            background: linear-gradient(180deg, rgba(27, 58, 87, 0.8), rgba(13, 32, 51, 0.8));
             border: 1px solid #386b99;
             color: #fff;
-            padding: 11px 18px;
-            font-size: 11px;
-            font-weight: bold;
-            text-transform: uppercase;
-            cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            padding: 12px 25px;
+            margin: 6px;
             display: inline-block;
-            text-align: center;
-            letter-spacing: 1px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
-        .btn-wow:hover {
+        .btn:hover {
             border-color: #4cb5ff;
-            box-shadow: 0 0 12px rgba(76, 181, 255, 0.5);
+            box-shadow: 0 0 15px rgba(76, 181, 255, 0.6);
+            transform: translateY(-2px);
         }
 
-        /* Rubrique Statistiques Chiffrées */
-        .stats-strip {
-            background: rgba(3, 8, 17, 0.5);
-            border-top: 1px solid rgba(76, 181, 255, 0.15);
-            border-bottom: 1px solid rgba(76, 181, 255, 0.15);
+        /* Statistiques */
+        .stats-container {
             display: flex;
             justify-content: center;
-            padding: 20px 0;
-            margin-bottom: 60px;
+            background: rgba(5, 13, 24, 0.4);
+            border-top: 1px solid rgba(26, 50, 74, 0.3);
+            border-bottom: 1px solid rgba(26, 50, 74, 0.3);
+            padding: 30px 0;
+            backdrop-filter: blur(8px);
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.6);
+        }
+        .stat-box { text-align: center; margin: 0 50px; }
+        .stat-number { font-size: 32px; color: #4cb5ff; font-weight: bold; text-shadow: 0 0 15px rgba(76,181,255,0.5); }
+        .stat-label { font-size: 11px; color: #8fa3b5; text-transform: uppercase; margin-top: 5px; letter-spacing: 1px; }
+
+        .section-title {
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 80px 0 40px;
+            color: #a3d8f4;
+            font-size: 24px;
+        }
+
+        .grid {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            max-width: 1100px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: rgba(7, 18, 33, 0.4);
+            border: 1px solid rgba(28, 61, 90, 0.4);
+            padding: 25px;
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+            backdrop-filter: blur(4px);
+            transition: all 0.3s;
+        }
+        .card:hover { border-color: #4cb5ff; transform: translateY(-3px); background: rgba(9, 23, 41, 0.7); }
+        .card h3 { margin: 0 0 10px 0; font-size: 18px; color: #fff; }
+        .card p { margin: 0 0 15px 0; font-size: 13px; color: #8fa3b5; }
+
+        .register-box {
+            max-width: 400px;
+            margin: 0 auto 80px;
+            background: rgba(7, 18, 33, 0.5);
+            border: 1px solid rgba(28, 61, 90, 0.4);
+            padding: 30px;
             backdrop-filter: blur(4px);
         }
-        .stat-item { text-align: center; margin: 0 45px; }
-        .stat-value { font-size: 28px; color: #4cb5ff; font-weight: bold; text-shadow: 0 0 10px rgba(76,181,255,0.4); }
-        .stat-lbl { font-size: 10px; color: #8fa3b5; text-transform: uppercase; margin-top: 4px; letter-spacing: 1px; }
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 8px; font-size: 12px; color: #7ab0d5; text-transform: uppercase; }
+        .form-group input { width: 100%; padding: 12px; background: rgba(2, 6, 17, 0.8); border: 1px solid rgba(28, 61, 90, 0.6); color: #fff; box-sizing: border-box; }
 
-        /* Grilles Globales */
-        .grid-container { max-width: 1200px; margin: 0 auto 60px; padding: 0 20px; }
-        .section-header { text-align: center; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 35px; color: #a3d8f4; font-size: 16px; }
+        /* Mises en page basses */
+        .bottom-layout { display: flex; max-width: 1100px; margin: 0 auto 80px; gap: 30px; padding: 0 20px; }
+        .news-section { flex: 2; }
+        .sidebar-section { flex: 1; }
+        .news-list { display: flex; flex-direction: column; gap: 20px; }
+        .news-card { background: rgba(7, 18, 33, 0.4); border: 1px solid rgba(28, 61, 90, 0.4); border-radius: 4px; overflow: hidden; display: flex; backdrop-filter: blur(4px); }
+        .news-image { width: 180px; min-height: 140px; background-size: cover; background-position: center; position: relative; }
+        .news-badge { position: absolute; top: 10px; left: 10px; background: rgba(7, 18, 33, 0.85); border: 1px solid #386b99; color: #4cb5ff; padding: 3px 8px; font-size: 10px; text-transform: uppercase; font-weight: bold; }
+        .news-content { padding: 15px 20px; text-align: left; flex: 1; }
+        .news-content h4 { margin: 0 0 8px 0; color: #fff; font-size: 18px; }
+        .news-content p { margin: 0 0 12px 0; color: #8fa3b5; font-size: 13px; line-height: 1.4; }
+        .news-date { font-size: 11px; color: #566f85; text-transform: uppercase; }
 
-        /* Grille Clients de Téléchargement */
-        .download-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
-        .flag-icon { width: 45px; height: 30px; margin: 0 auto 15px; box-shadow: 0 0 8px rgba(0,0,0,0.5); background-size: cover; background-position: center; }
-
-        /* Alignement Basse Double Colonne */
-        .columns-layout { display: flex; gap: 30px; }
-        .column-main { flex: 2; display: flex; flex-direction: column; gap: 20px; }
-        .column-side { flex: 1; }
-
-        .news-card { text-align: left; }
-        .news-img { width: 100%; height: 160px; background-size: cover; background-position: center; border: 1px solid rgba(76, 181, 255, 0.15); margin-bottom: 15px; }
-
-        /* Tableaux de Classements */
+        .ranking-box { background: rgba(7, 18, 33, 0.4); border: 1px solid rgba(28, 61, 90, 0.4); border-radius: 4px; padding: 20px; backdrop-filter: blur(4px); }
+        .ranking-tabs { display: flex; border-bottom: 1px solid rgba(28, 61, 90, 0.5); margin-bottom: 15px; }
+        .tab-btn { flex: 1; padding: 10px; background: none; border: none; color: #8fa3b5; font-weight: bold; font-size: 12px; text-transform: uppercase; }
+        .tab-btn.active { color: #4cb5ff; border-bottom: 2px solid #4cb5ff; }
         table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; }
-        th { color: #7ab0d5; padding: 10px; font-size: 11px; border-bottom: 1px solid rgba(76, 181, 255, 0.15); text-transform: uppercase; }
-        td { padding: 10px; border-bottom: 1px solid rgba(76, 181, 255, 0.08); }
+        th { color: #7ab0d5; padding: 10px; font-size: 11px; border-bottom: 1px solid rgba(28, 61, 90, 0.3); text-transform: uppercase; }
+        td { padding: 10px; border-bottom: 1px solid rgba(28, 61, 90, 0.2); }
         .rank-num { color: #4cb5ff; font-weight: bold; }
+        .rating { color: #a3d8f4; font-weight: bold; text-align: right; }
 
-        /* Grille d'Accès Rapide Inférieure */
-        .quick-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-        .quick-card { text-align: center; padding: 25px 20px; }
-        .quick-card h3 { margin: 0 0 8px 0; font-size: 15px; color: #fff; text-transform: uppercase; }
-        .quick-card p { margin: 0 0 15px 0; font-size: 12px; color: #8fa3b5; }
-
-        footer {
-            background: #010307;
-            padding: 40px 20px;
-            text-align: center;
-            border-top: 1px solid rgba(76, 181, 255, 0.1);
-            font-size: 12px;
-            color: #566f85;
-        }
+        footer { background: #010308; padding: 50px 20px; text-align: center; border-top: 1px solid #122436; font-size: 12px; color: #566f85; }
         .footer-support { margin-top: 12px; font-weight: bold; color: #a3d8f4; }
     </style>
 </head>
 <body>
 
-    <!-- Barre de Navigation Supérieure -->
     <header>
-        <div class="logo" style="font-weight: bold; color: #4cb5ff; letter-spacing: 2px;">NEXAROTH</div>
+        <div class="logo" style="font-weight: bold; color: #a3d8f4; letter-spacing: 2px; font-size: 18px;">NEXAROTH</div>
         <nav>
             <a href="#" id="nav-home">Accueil</a>
-            <a href="#quick-section" id="nav-reg">Inscription</a>
-            <a href="#dl-section" id="nav-dl">Téléchargement</a>
+            <a href="#creation-compte" id="nav-reg">Inscription</a>
+            <a href="download.html" target="_blank" id="nav-dl">Téléchargement</a>
             <a href="boutique.html" target="_blank" id="nav-shop">Boutique</a>
             <a href="https://paypal.me" target="_blank" id="nav-vote">Votez Ici</a>
             <a href="https://legacy-wow.com" target="_blank" id="nav-addons">Addons</a>
@@ -225,14 +215,8 @@
         </div>
     </header>
 
-    <!-- Section Supérieure (Hero) -->
-    <section class="hero-container">
-        <div class="hero-left">
-            <h1 id="txt-hero-title">NEXAROTH</h1>
-            <p id="txt-hero-desc">WORLD OF WARCRAFT — WRATH OF THE LICH KING 3.3.5a</p>
-            <div class="hero-buttons">
-                <a href="#quick-section" class="btn-wow" id="btn-hero-reg">Créer un compte</a>
-                <a href="#dl-section" class="btn-wow" id="btn-hero-dl">Télécharger</a>
-                <a href="https://discord.gg" target="_blank" class="btn-wow">Discord</a>
-                <a href="https://forumactif.com" target="_blank" class="btn-wow">Forum</a>
-            </div>
+    <section class="hero">
+        <h1 id="txt-hero-title">NEXAROTH</h1>
+        <p id="txt-hero-desc">WORLD OF WARCRAFT — WRATH OF THE LICH KING 3.3.5a</p>
+        <div class="btn-group">
+            <a href="#creation-compte" class="btn" id="btn-hero-reg">Créer un compte</a>
