@@ -35,6 +35,37 @@ table{width:100%;border-collapse:collapse}
 th,td{padding:10px;border-bottom:1px solid #233}
 footer{text-align:center;padding:40px;background:rgba(0,0,0,.7)}
 .snow{position:fixed;top:-10px;color:white;animation:fall linear infinite}
+ .navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 40px;
+    background:rgba(0,0,0,.80);
+    backdrop-filter:blur(10px);
+    z-index:9999;
+}
+
+nav{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#6fdcff;
+    text-shadow:0 0 10px #00bfff;
+}
 @keyframes fall{to{transform:translateY(110vh)}}
 </style>
 </head>
@@ -45,16 +76,37 @@ footer{text-align:center;padding:40px;background:rgba(0,0,0,.7)}
 </video>
 <div class="overlay"></div>
 
-<header>
-<div class="logo">NEXAROTH</div>
-<nav>
-<a href="#downloads">Téléchargements</a>
-<a href="#vote">Vote</a>
-<a href="#support">Support</a>
-<a href="https://discord.gg/zcH3JXHeuQ" target="_blank">Discord</a>
-</nav>
-</header>
+<header class="navbar">
 
+    <div class="logo">NEXAROTH</div>
+
+    <nav>
+
+        <a href="#accueil">Accueil</a>
+
+        <a href="https://nexaroth.com/register" target="_blank">
+            ⚔ Inscription
+        </a>
+
+        <a href="#telechargement">
+            📥 Téléchargement
+        </a>
+
+        <a href="https://nexaroth.com/shop" target="_blank">
+            🛒 Boutique
+        </a>
+        <a href="https://nexaroth.com/vote" target="_blank">
+          🏆 Vote
+        </a>
+        <a href="https://nexaroth.forumactif.com/" target="_blank">
+            💬 Forum
+        </a>
+        <a href="https://discord.gg/zcH3JXHeuQ" target="_blank">
+            🎮 Discord
+        </a>
+    </nav>
+
+</header>
 <section class="hero">
 <div>
 <h1>NEXAROTH</h1>
@@ -82,10 +134,10 @@ footer{text-align:center;padding:40px;background:rgba(0,0,0,.7)}
 
 <div class="card download" id="downloads">
 <h3>📥 Téléchargements</h3>
-<a href="#">Client FR</a>
-<a href="#">Client EN</a>
-<a href="#">Client RU</a>
-<a href="#">Client ES</a>
+<a href="https://drive.google.com/file/d/1hE1X41DnWJ3wu1O_xzKaTCAZAi2SyDiR/view" class="btn" target="_blank"> 🇫🇷 Télécharger FR </a>
+<a href="https://drive.google.com/file/d/1zcvTIhu-rKSRrGkzRsAmTfJ-Ik48C5-S/view" class="btn" target="_blank"> 🇬🇧 Download EN </a>
+<a href="https://drive.google.com/file/d/1vfDM2mvsn4-Q5zD3x8VO_6BUzPpLHfxC/view" class="btn" target="_blank"> 🇪🇸 Descargar ES </a> 
+<a href="https://drive.google.com/file/d/1ykz3I97ajwjAqkbZ4cDNrTtBdho6MBtj/view" class="btn" target="_blank"> 🇷🇺 Скачать RU </a>
 </div>
 
 <div class="card">
