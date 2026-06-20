@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head><!DOCTYPE html>
-<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +12,6 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            /* Fond d'écran identique à la photo avec la citadelle glacée en haut */
             background-image: 
                 linear-gradient(to bottom, rgba(2, 6, 17, 0) 0%, rgba(2, 6, 17, 0.4) 30%, rgba(2, 6, 17, 0.85) 60%, #020611 100%), 
                 url('https://blzmd.com');
@@ -110,7 +107,7 @@
             text-shadow: 0 2px 5px rgba(0,0,0,0.9);
         }
 
-        /* Mises en page */
+        /* Dispositions en Grille */
         .download-layout {
             display: flex;
             max-width: 1100px;
@@ -129,7 +126,7 @@
             padding: 0 20px;
         }
 
-        /* Boîtes Bleues Sombre Translucides de la Photo (Opacity 0.4) */
+        /* Boîtes Bleues Translucides (Opacité 0.4) */
         .card {
             background: rgba(7, 18, 33, 0.4);
             border: 1px solid rgba(28, 61, 90, 0.4);
@@ -148,6 +145,73 @@
         }
         .card h3 { margin: 0 0 10px 0; font-size: 18px; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
         .card p { margin: 0 0 15px 0; font-size: 13px; color: #8fa3b5; }
+
+        /* Section Actualités Spécifique */
+        .news-container {
+            max-width: 1100px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .news-card {
+            background: rgba(7, 18, 33, 0.4);
+            border: 1px solid rgba(28, 61, 90, 0.4);
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(4px);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .news-card:hover {
+            transform: translateY(-3px);
+            border-color: #4cb5ff;
+            background: rgba(9, 23, 41, 0.6);
+        }
+        .news-image {
+            height: 160px;
+            background-color: #122436;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .news-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(7, 18, 33, 0.85);
+            border: 1px solid #386b99;
+            color: #4cb5ff;
+            padding: 4px 10px;
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .news-content {
+            padding: 20px;
+            text-align: left;
+        }
+        .news-content h4 {
+            margin: 0 0 10px 0;
+            color: #fff;
+            font-size: 18px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        .news-content p {
+            margin: 0 0 15px 0;
+            color: #8fa3b5;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .news-date {
+            font-size: 11px;
+            color: #566f85;
+            text-transform: uppercase;
+        }
 
         footer {
             background: #010308;
@@ -171,6 +235,7 @@
             <a href="https://votre-lien-boutique.com" target="_blank">Boutique</a>
             <a href="https://votre-lien-vote.com" target="_blank">Vote</a>
             <a href="#addons">Addons</a>
+            <a href="#actualites">Actualités</a>
             <a href="https://forumactif.com" target="_blank">Forum</a>
             <a href="https://discord.gg" target="_blank">Discord</a>
         </nav>
@@ -214,308 +279,3 @@
     <section id="addons" class="download-layout">
         <div class="download-column" style="margin: 0 auto; max-width: 600px;">
             <h2 class="section-title">Addons Recommandés</h2>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-                <div class="card"><h3>ElvUI</h3><p>Interface complète</p><a href="https://votre-lien-addon-elvui.com" target="_blank" class="btn">DL</a></div>
-                <div class="card"><h3>DBM</h3><p>Alertes de Raids</p><a href="https://votre-lien-addon-dbm.com" target="_blank" class="btn">DL</a></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Accès Rapide -->
-    <h2 class="section-title">Accès Rapide</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>Inscription</h3>
-            <p>Rejoignez l'aventure dès maintenant</p>
-            <a href="https://votre-lien-inscription.com" target="_blank" class="btn">S'inscrire</a>
-        </div>
-        <div class="card">
-            <h3>Vote</h3>
-            <p>Soutenez le serveur et gagnez des points</p>
-            <a href="https://votre-lien-vote.com" target="_blank" class="btn">Voter</a>
-        </div>
-        <div class="card">
-            <h3>Boutique</h3>
-            <p>Objets cosmétiques et exclusifs</p>
-            <a href="https://votre-lien-boutique.com" target="_blank" class="btn">Boutique</a>
-        </div>
-        <div class="card">
-            <h3>Forum</h3>
-            <p>Rejoignez la discussion communautaire</p>
-            <a href="https://forumactif.com" target="_blank" class="btn">Accéder</a>
-        </div>
-        <div class="card">
-            <h3>Radmin VPN</h3>
-            <p>Connectez-vous à notre réseau sécurisé</p>
-            <a href="https://radmin-vpn.com" target="_blank" class="btn">Télécharger</a>
-        </div>
-    </div>
-
-    <!-- Pied de page -->
-    <footer>
-        <p>© 2026 Nexaroth - Tous droits réservés.</p>
-    </footer>
-
-</body>
-</html>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexaroth - WoW Private Server</title>
-    <style>
-        /* Styles Généraux */
-        body {
-            background-color: #050b14;
-            color: #e0e6ed;
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            /* Image de fond officielle du Roi Liche (WotLK) */
-            background-image: linear-gradient(to bottom, rgba(5, 11, 20, 0.4), rgba(5, 11, 20, 0.95)), url('https://blzmd.com');
-            background-size: cover;
-            background-position: top center;
-            background-attachment: fixed;
-        }
-        a { text-decoration: none; color: inherit; }
-        
-        /* Barre de Navigation */
-        header {
-            background: rgba(0, 0, 0, 0.85);
-            border-bottom: 1px solid #1a324a;
-            display: flex;
-            justify-content: space-around;
-            padding: 15px;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        header nav a {
-            margin: 0 15px;
-            text-transform: uppercase;
-            font-size: 13px;
-            letter-spacing: 1px;
-            transition: color 0.3s;
-        }
-        header nav a:hover { color: #4cb5ff; }
-
-        /* Section Principale (Hero) */
-        .hero {
-            text-align: center;
-            padding: 120px 20px 80px;
-        }
-        .hero h1 {
-            font-size: 72px;
-            color: #a3d8f4;
-            text-shadow: 0 0 30px rgba(163, 216, 244, 0.8);
-            margin: 0;
-            letter-spacing: 6px;
-            font-family: 'Georgia', serif;
-        }
-        .hero p { font-size: 20px; color: #7ab0d5; margin-top: 15px; font-weight: bold; text-shadow: 1px 1px 3px black; }
-        
-        /* Boutons d'action */
-        .btn-group { margin-top: 30px; }
-        .btn {
-            background: linear-gradient(180deg, #1b3a57, #0d2033);
-            border: 1px solid #386b99;
-            color: #fff;
-            padding: 12px 25px;
-            margin: 5px;
-            display: inline-block;
-            cursor: pointer;
-            text-transform: uppercase;
-            font-size: 12px;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-        .btn:hover {
-            border-color: #4cb5ff;
-            box-shadow: 0 0 15px rgba(76, 181, 255, 0.6);
-            transform: translateY(-2px);
-        }
-
-        /* Statistiques */
-        .stats-container {
-            display: flex;
-            justify-content: center;
-            background: rgba(4, 12, 22, 0.9);
-            border-top: 1px solid #1a324a;
-            border-bottom: 1px solid #1a324a;
-            padding: 25px 0;
-            backdrop-filter: blur(5px);
-        }
-        .stat-box { text-align: center; margin: 0 40px; }
-        .stat-number { font-size: 28px; color: #4cb5ff; font-weight: bold; text-shadow: 0 0 10px rgba(76,181,255,0.4); }
-        .stat-label { font-size: 11px; color: #8fa3b5; text-transform: uppercase; margin-top: 5px; }
-
-        /* Titres de Section */
-        .section-title {
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 60px 0 30px;
-            color: #a3d8f4;
-            font-size: 24px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-        }
-
-        /* Formulaire d'inscription */
-        .register-container {
-            max-width: 450px;
-            margin: 40px auto;
-            background: rgba(10, 25, 47, 0.85);
-            border: 1px solid #1c3d5a;
-            padding: 30px;
-            border-radius: 4px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-        }
-        .form-group { margin-bottom: 20px; text-align: left; }
-        .form-group label { display: block; margin-bottom: 8px; font-size: 13px; color: #7ab0d5; text-transform: uppercase; }
-        .form-group input {
-            width: 100%;
-            padding: 12px;
-            background: #050b14;
-            border: 1px solid #1c3d5a;
-            color: #fff;
-            box-sizing: border-box;
-            transition: border-color 0.3s;
-        }
-        .form-group input:focus { border-color: #4cb5ff; outline: none; }
-        .btn-submit { width: 100%; margin: 10px 0 0 0; padding: 14px; background: linear-gradient(180deg, #23527c, #0f2b47); }
-
-        /* Grilles et Mises en page */
-        .download-layout {
-            display: flex;
-            max-width: 1100px;
-            margin: 0 auto 40px;
-            gap: 20px;
-            padding: 0 20px;
-        }
-        .download-column { flex: 1; }
-
-        .grid {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            max-width: 1100px;
-            margin: 0 auto 60px;
-            padding: 0 20px;
-        }
-
-        .card {
-            background: rgba(10, 25, 47, 0.75);
-            border: 1px solid #1c3d5a;
-            padding: 25px;
-            text-align: center;
-            flex: 1;
-            backdrop-filter: blur(3px);
-            transition: all 0.3s;
-        }
-        .card:hover { border-color: #4cb5ff; transform: translateY(-3px); }
-        .card h3 { margin: 0 0 10px 0; font-size: 18px; color: #fff; }
-        .card p { margin: 0 0 15px 0; font-size: 13px; color: #8fa3b5; }
-
-        footer {
-            background: #03070d;
-            padding: 50px 20px;
-            text-align: center;
-            border-top: 1px solid #1a324a;
-            font-size: 12px;
-            color: #566f85;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Barre de Navigation -->
-    <header>
-        <div class="logo" style="font-weight: bold; color: #a3d8f4; letter-spacing: 2px; font-size: 18px;">NEXAROTH</div>
-        <nav>
-            <a href="#">Accueil</a>
-            <a href="#inscription">Inscription</a>
-            <a href="download.html" target="_blank">Téléchargement</a>
-            <a href="#boutique">Boutique</a>
-            <a href="#vote">Vote</a>
-            <a href="#addons">Addons</a>
-            <a href="https://forumactif.com" target="_blank">Forum</a>
-            <a href="https://discord.gg" target="_blank">Discord</a>
-        </nav>
-    </header>
-
-    <!-- Section Principale -->
-    <section class="hero">
-        <h1>NEXAROTH</h1>
-        <p>WORLD OF WARCRAFT — WRATH OF THE LICH KING 3.3.5a</p>
-        <div class="btn-group">
-            <a href="#inscription" class="btn">Créer un compte</a>
-            <a href="download.html" target="_blank" class="btn">Télécharger le jeu</a>
-            <a href="#vote" class="btn">Voter et Gagner</a>
-            <a href="#boutique" class="btn">Boutique</a>
-            <a href="https://forumactif.com" target="_blank" class="btn">Forum</a>
-            <a href="https://discord.gg" target="_blank" class="btn">Discord</a>
-        </div>
-    </section>
-
-    <!-- Barre des Statistiques -->
-    <section class="stats-container">
-        <div class="stat-box">
-            <div class="stat-number">152</div>
-            <div class="stat-label">Joueurs en ligne</div>
-        </div>
-        <div class="stat-box">
-            <div class="stat-number">28,547</div>
-            <div class="stat-label">Comptes créés</div>
-        </div>
-        <div class="stat-box">
-            <div class="stat-number">1,247</div>
-            <div class="stat-label">Guildes</div>
-        </div>
-        <div class="stat-box">
-            <div class="stat-number">99.9%</div>
-            <div class="stat-label">Uptime</div>
-        </div>
-    </section>
-
-    <!-- Section Inscription Formulaire -->
-    <section id="inscription">
-        <h2 class="section-title">Créer un compte de jeu</h2>
-        <div class="register-container">
-            <form action="register.php" method="POST">
-                <div class="form-group">
-                    <label for="username">Nom de compte (Login)</label>
-                    <input type="text" id="username" name="username" required placeholder="Ex: Arthas45">
-                </div>
-                <div class="form-group">
-                    <label for="email">Adresse Email</label>
-                    <input type="email" id="email" name="email" required placeholder="Ex: nom@domaine.com">
-                </div>
-                <div class="form-group">
-                    <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password" required placeholder="••••••••">
-                </div>
-                <div class="form-group">
-                    <label for="password_confirm">Confirmer le mot de passe</label>
-                    <input type="password" id="password_confirm" name="password_confirm" required placeholder="••••••••">
-                </div>
-                <button type="submit" class="btn btn-submit">S'inscrire sur Nexaroth</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Section Addons -->
-    <section id="addons" class="download-layout">
-        <div class="download-column" style="margin: 0 auto; max-width: 600px;">
-            <h2 class="section-title">Addons Recommandés</h2>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                <div class="card"><h3>ElvUI</h3><p>Interface complète</p><a href="#" target="_blank" class="btn">DL</a></div>
-                <div class="card"><h3>DBM</h3><p>Alertes de Raids</p><a href="#" target="_blank" class="btn">DL</a></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Accès Rapide -->
-    <h2 class="section-title">Accès Rapide</h2>
-    <div class="grid">
-        <div class="card" id="vote">
-            <h3>Vote</h3>
