@@ -2,196 +2,264 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>NEXAROTH Ultimate Blizzard Edition 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutique WoW WotLK - Royaume Privé</title>
     <style>
-        :root{
-            --gold:#f8b700;--blue:#4cb5ff;--bg:#020611;--card:rgba(7,18,33,.85);--primary-glow: #00d2ff;
+        /* Variables de couleurs de style "Firestorm / WotLK" */
+        :root {
+            --bg-dark: #0b0c10;
+            --bg-card: #1f2833;
+            --primary-glow: #00d2ff;
+            --text-main: #c5a880;
+            --text-light: #ffffff;
+            --btn-color: #e51b24;
+            --btn-hover: #b31017;
         }
-        *{margin:0;padding:0;box-sizing:border-box}
-        html{scroll-behavior:smooth}
-        body{font-family:Cinzel,serif;background:#020611;color:#fff;overflow-x:hidden}
-        video.bg{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-        .overlay{position:fixed;inset:0;background:linear-gradient(rgba(0,0,0,.45),rgba(2,6,17,.92));z-index:-1}
-        
-        .navbar{
-            position:fixed;
-            top:0;
-            left:0;
-            width:100%;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            padding:20px 40px;
-            background:rgba(0,0,0,.80);
-            backdrop-filter:blur(10px);
-            z-index:9999;
-        }
-        .logo{font-size:34px;color:var(--gold);text-shadow:0 0 15px #f8b700}
-        nav{display:flex;gap:20px;flex-wrap:wrap;}
-        nav a{color:white;text-decoration:none;font-weight:bold;transition:.3s;}
-        nav a:hover{color:#6fdcff;text-shadow:0 0 10px #00bfff;}
 
-        .hero{height:100vh;display:flex;align-items:center;justify-content:center;text-align:center}
-        .hero h1{font-size:100px;text-shadow:0 0 25px #4cb5ff}
-        .hero h2{color:#4cb5ff; margin-bottom: 10px;}
-        .btn{display:inline-block;padding:14px 28px;border-radius:8px;text-decoration:none;color:#fff;margin:8px;font-weight:bold;cursor:pointer;border:none;}
-        .gold{background:linear-gradient(#d4a73b,#7a5107)}
-        .blue{background:linear-gradient(#1d6cb2,#082a4d)}
-        
-        .container{max-width:1400px;margin:auto;padding:40px 20px}
-        .section-title{color:var(--gold);text-shadow:0 0 10px rgba(248,183,0,0.3);margin:40px 0 20px 0;text-transform:uppercase;border-bottom:1px solid rgba(248,183,0,0.2);padding-bottom:10px;}
-        
-        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
-        .card{background:var(--card);padding:25px;border-radius:14px;border:1px solid rgba(76,181,255,.2);backdrop-filter:blur(5px);transition:.3s;display:flex;flex-direction:column;justify-content:space-between;}
-        .card:hover{transform:translateY(-6px);box-shadow:0 0 25px rgba(76,181,255,.25)}
-        .card h3{color:var(--gold);margin-bottom:15px}
-        
-        input,button{width:100%;padding:12px;margin-top:8px}
-        button{background:#4cb5ff;border:0;color:#fff;border-radius:6px;cursor:pointer;font-weight:bold;}
-        .download a,.vote a{display:block;background:#0b1d31;color:#fff;text-decoration:none;padding:12px;margin:8px 0;border-radius:6px;text-align:center;}
-        table{width:100%;border-collapse:collapse}
-        th,td{padding:10px;border-bottom:1px solid #223344;text-align:left;}
-        footer{text-align:center;padding:40px;background:rgba(0,0,0,.7);margin-top:60px;font-size:14px;color:#aaa;}
-        
-        /* Styles Boutique */
-        .product-img {font-size: 40px; text-align: center; margin-bottom: 15px;}
-        .product-desc {color: #b0c4de; font-size: 14px; line-height: 1.5; margin-bottom: 15px;}
-        .product-footer {margin-top: auto;}
-        
-        .discord-banner {text-align: center; background: rgba(88, 101, 242, 0.15); border-color: #5865F2; padding: 40px; margin-bottom: 40px; border-radius: 14px;}
-        .discord-icon {font-size: 50px; margin-bottom: 10px;}
+        /* Styles Généraux */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: rgba(11, 12, 16, 0.95);
+            border-bottom: 2px solid var(--text-main);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 24px;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .user-balance {
+            background-color: var(--bg-card);
+            padding: 8px 15px;
+            border-radius: 5px;
+            border: 1px solid var(--primary-glow);
+            font-size: 14px;
+        }
+
+        .points-shop { color: #ffd700; font-weight: bold; }
+        .points-vote { color: #00ffcc; font-weight: bold; }
+
+        /* Conteneur Principal */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            color: var(--text-main);
+            border-bottom: 1px solid rgba(197, 168, 128, 0.3);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        /* Grille des Produits */
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        /* Carte Produit */
+        .product-card {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.2);
+            border-color: var(--primary-glow);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 160px;
+            background-color: #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            border-bottom: 2px solid rgba(197, 168, 128, 0.2);
+        }
+
+        .product-info {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-title {
+            font-size: 18px;
+            margin: 0 0 10px 0;
+            color: var(--text-light);
+        }
+
+        .product-desc {
+            font-size: 13px;
+            color: #a9b3c1;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .product-price {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* Bouton Acheter */
+        .btn-buy {
+            background-color: var(--btn-color);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s ease;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+
+        .btn-buy:hover {
+            background-color: var(--btn-hover);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+            font-size: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 60px;
+        }
     </style>
 </head>
 <body>
- 
-    <!-- Arrière-plan et Musique -->
-    <video class="bg" autoplay muted loop playsinline>
-        <source src="background.mp4" type="video/mp4">
-    </video>
-    <audio id="bgMusic" loop>
-        <source src="music.mp3" type="audio/mpeg">
-    </audio>
-    <div class="overlay"></div>
 
-    <!-- Barre de Navigation Unifiée -->
-    <header class="navbar">
-        <div class="logo">NEXAROTH</div>
-        <nav>
-            <a href="#accueil">Accueil</a>
-            <a href="https://nexaroth.com/register" target="_blank">⚔ Inscription</a>
-            <a href="#boutique">🛒 Boutique</a>
-            <a href="#downloads">📥 Téléchargement</a>
-            <a href="https://nexaroth.com/vote" target="_blank">🏆 Vote</a>
-            <a href="https://discord.gg/zcH3JXHeuQ" target="_blank">🎮 Discord</a>
-            <a href="https://www.wowhead.com/wotlk" target="_blank">📖 Wowhead</a>
-            <a href="https://legacy-wow.com/wotlk-addons/" target="_blank">🔧 Addons</a>
-            <a href="#features">🌐 État</a>
-        </nav>
+    <!-- Barre de navigation / En-tête -->
+    <header>
+        <div class="logo">WotLK Shop</div>
+        <div class="user-balance">
+            Mon Solde : 
+            <span class="points-shop">150 PB</span> | 
+            <span class="points-vote">45 PV</span>
+        </div>
     </header>
 
-    <!-- Zone Hero (Accueil) -->
-    <section class="hero" id="accueil">
-        <div>
-            <h1>NEXAROTH</h1>
-            <h2>Wrath of the Lich King 3.3.5a</h2>
-            <p>XP x5 • Réputation x5 • Drop x5 • Métiers x5</p>
-            <a class="btn gold" href="#downloads">📥 Télécharger</a>
-            <a class="btn blue" href="https://discord.gg/zcH3JXHeuQ" target="_blank">🎮 Discord</a>
-            <a class="btn blue" onclick="toggleMusic()">🎵 Musique ON/OFF</a>
-        </div>
-    </section>
-
-    <!-- Contenu Principal -->
+    <!-- Corps de la boutique -->
     <div class="container">
-
-        <!-- Bannière Discord -->
-        <div class="card discord-banner">
-            <div class="discord-icon">🎮</div>
-            <h3>REJOIGNEZ LA COMMUNAUTÉ NEXAROTH</h3>
-            <p>Des centaines de joueurs vous attendent. Participez aux événements exclusifs, trouvez votre guilde, échangez avec l'équipe et recevez les dernières nouvelles du royaume.</p>
-            <div style="margin-top: 20px;">
-                <a href="https://discord.gg/zcH3JXHeuQ" class="btn blue" target="_blank">🎮 Rejoindre Discord</a>
-            </div>
-        </div>
-
-        <!-- SECTION BOUTIQUE 
-        <h2 class="section-title" id="boutique">🛒 Boutique Nexaroth</h2>
-        <div class="grid" style="margin-bottom: 60px;">
+        <h2>Articles Vedettes</h2>
+        
+        <div class="shop-grid">
             
-            <div class="card">
-                <div class="product-img">🐎</div>
-                <h3>Montures Terrestres</h3>
-                <p class="product-desc">Parcourez Azeroth avec style. Achetez des montures de sol rares et légendaires pour votre personnage.</p>
-                <div class="product-footer">
-                    <button onclick="openCategory('terrestres')">Ouvrir la catégorie</button>
-                </div>
-            </div>
-
-            <div class="card">
+            <!-- Article 1: Monture -->
+            <div class="product-card">
                 <div class="product-img">🐉</div>
-                <h3>Montures Volantes</h3>
-                <p class="product-desc">Dominez les cieux du Norfendre. Retrouvez les drakes et montures volantes les plus prestigieuses.</p>
-                <div class="product-footer">
-                    <button onclick="openCategory('volantes')">Ouvrir la catégorie</button>
+                <div class="product-info">
+                    <div>
+                        <h3 class="product-title">Invincible</h3>
+                        <p class="product-desc">La monture légendaire du Roi Liche lui-même. Utilisable au niveau 20.</p>
+                    </div>
+                    <div class="product-footer">
+                        <span class="product-price points-shop">50 PB</span>
+                        <button class="btn-buy" onclick="buyItem('Invincible')">Acheter</button>
+                    </div>
                 </div>
             </div>
 
-            <div class="card">
+            <!-- Article 2: Service -->
+            <div class="product-card">
                 <div class="product-img">🔄</div>
-                <h3>Services</h3>
-                <p class="product-desc">Changement de faction, de race, de nom ou transfert de personnage instantané.</p>
-                <div class="product-footer">
-                    <button onclick="openCategory('services')">Ouvrir la catégorie</button>
+                <div class="product-info">
+                    <div>
+                        <h3 class="product-title">Changement de Faction</h3>
+                        <p class="product-desc">Passez instantanément de la Horde à l'Alliance (ou inversement) sur le personnage de votre choix.</p>
+                    </div>
+                    <div class="product-footer">
+                        <span class="product-price points-shop">25 PB</span>
+                        <button class="btn-buy" onclick="buyItem('Changement de Faction')">Acheter</button>
+                    </div>
                 </div>
             </div>
 
-            <div class="card">
+            <!-- Article 3: Objet de Vote -->
+            <div class="product-card">
+                <div class="product-img">💼</div>
+                <div class="product-info">
+                    <div>
+                        <h3 class="product-title">Sac en tisse-givre (x4)</h3>
+                        <p class="product-desc">Un lot de 4 sacs de 20 emplacements pour démarrer sereinement votre aventure.</p>
+                    </div>
+                    <div class="product-footer">
+                        <span class="product-price points-vote">20 PV</span>
+                        <button class="btn-buy" onclick="buyItem('4x Sacs en tisse-givre')">Acheter</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Article 4: Compagnon -->
+            <div class="product-card">
                 <div class="product-img">🐾</div>
-                <h3>Compagnons</h3>
-                <p class="product-desc">Adoptez des mascottes uniques et rares pour vous accompagner dans vos aventures.</p>
-                <div class="product-footer">
-                    <button onclick="openCategory('compagnons')">Ouvrir la catégorie</button>
+                <div class="product-info">
+                    <div>
+                        <h3 class="product-title">Mini Ragnaros</h3>
+                        <p class="product-desc">Une mascotte exclusive qui vous suivra partout et pourra même servir de feu de cuisine.</p>
+                    </div>
+                    <div class="product-footer">
+                        <span class="product-price points-shop">10 PB</span>
+                        <button class="btn-buy" onclick="buyItem('Mini Ragnaros')">Acheter</button>
+                    </div>
                 </div>
             </div>
 
-            <div class="card">
-                <div class="product-img">🛡️</div>
-                <h3>Transmogrifications</h3>
-                <p class="product-desc">Modifiez l'apparence de vos armes et armures avec des ensembles d'équipements exclusifs.</p>
-                <div class="product-footer">
-                    <button onclick="openCategory('transmo')">Ouvrir la catégorie</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="product-img">🛠️</div>
-                <h3>Gérer les Métiers</h3>
-                <p class="product-desc">Montez vos métiers (Forge, Alchimie, etc.) instantanément au niveau maximum 450.</p>
-                <div class="product-footer">
-                    <button onclick="openCategory('metiers')">Ouvrir la catégorie</button>
-                </div>
-            </div>
         </div>
+    </div>
 
-        <!-- SECTION FONCTIONNALITÉS ET INFOS -->
-        <h2 class="section-title" id="features">🌐 Informations du Royaume</h2>
-        <div class="grid">
+    <!-- Pied de page -->
+    <footer>
+        <p>&copy; 2026 VotreServeur WoW. Ce site n'est pas affilié à Blizzard Entertainment.</p>
+    </footer>
 
-            <div class="card">
-                <h3>📊 Statistiques</h3>
-                <p>Joueurs en ligne : <span id="online" style="color:var(--gold); font-weight:bold;">0</span></p>
-                <p>Uptime : 99.99%</p>
-            </div>
-
-            <div class="card">
-                <h3>🌐 Realmlist</h3>
-                <input id="realm" value="set realmlist nexaroth.com" readonly style="background: rgba(0,0,0,0.5); color: #fff; border: 1px solid #334455; text-align: center;">
-                <button onclick="copyRealm()">Copier le Realmlist</button>
-            </div>
-
-            <div class="card download" id="downloads">
-                <h3>📥 Téléchargements</h3>
-                <p>Téléchargez le client World of Warcraft 3.3.5a dans votre langue.</p>
-                <a href="https://drive.google.com/file/d/1X2L9rqWviivzeDEEltLyjR8l77ujKtxJ/view?usp=drive_link" class="btn gold" target="_blank">🇫🇷 Télécharger FR</a>
+    <!-- Logique JavaScript basique -->
+    <script>
+        function buyItem(itemName) {
+            // Une fois votre CMS connecté (via SOAP ou API), cette fonction enverra une requête au serveur.
+            alert("Achat initié pour : " + itemName + "\n(Connectez votre script API ou SOAP pour automatiser l'envoi en jeu !)");
+        }
+    </script>
+</body>
+</html>
