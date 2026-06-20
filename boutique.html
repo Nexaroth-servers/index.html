@@ -8,20 +8,38 @@ $categories = [
 ];
 
 $items = [
-    // Montures
-    ['id' => 101, 'nom' => 'Proto-dragon perdu dans le temps', 'categorie' => 'montures_volantes', 'prix_vote' => 50, 'prix_don' => 5],
-    ['id' => 102, 'nom' => 'Tigre de Zul'Gurub', 'categorie' => 'montures_terrestres', 'prix_vote' => 40, 'prix_don' => 4],
-    // Transmos et Sacs
-    ['id' => 103, 'nom' => 'Spallières de l'avatar', 'categorie' => 'transmos', 'prix_vote' => 20, 'prix_don' => 2],
-    ['id' => 104, 'nom' => 'Sac en tisse-givre sans fond', 'categorie' => 'sacs', 'prix_vote' => 15, 'prix_don' => 1],
-    // Composants
-    ['id' => 105, 'nom' => 'Barre de Titanacier x20', 'categorie' => 'compos_metiers', 'prix_vote' => 10, 'prix_don' => 1],
-    ['id' => 106, 'nom' => 'Étoffe de lune enchantée x20', 'categorie' => 'compos_metiers', 'prix_vote' => 10, 'prix_don' => 1],
-    // Services
-    ['id' => 201, 'nom' => 'Titre : Le Tueur de Rois', 'categorie' => 'services', 'prix_vote' => 100, 'prix_don' => 10, 'type' => 'titre'],
-    ['id' => 202, 'nom' => 'Changement de nom de Guilde', 'categorie' => 'services', 'prix_vote' => 150, 'prix_don' => 15, 'type' => 'guilde']
+
+['id'=>101,'nom'=>'Invincible','categorie'=>'montures_volantes','prix_vote'=>500,'prix_don'=>50],
+['id'=>102,'nom'=>"Proto-dragon perdu dans le temps",'categorie'=>'montures_volantes','prix_vote'=>250,'prix_don'=>25],
+['id'=>103,'nom'=>'Drake du Crépuscule','categorie'=>'montures_volantes','prix_vote'=>150,'prix_don'=>15],
+
+['id'=>201,'nom'=>"Tigre de Zul'Gurub",'categorie'=>'montures_terrestres','prix_vote'=>150,'prix_don'=>15],
+['id'=>202,'nom'=>'Raptor Razzashi','categorie'=>'montures_terrestres','prix_vote'=>150,'prix_don'=>15],
+['id'=>203,'nom'=>'Ours de guerre Amani','categorie'=>'montures_terrestres','prix_vote'=>120,'prix_don'=>12],
+
+['id'=>301,'nom'=>"Spallières de l'Avatar",'categorie'=>'transmos','prix_vote'=>50,'prix_don'=>5],
+['id'=>302,'nom'=>'Set T3 Paladin','categorie'=>'transmos','prix_vote'=>80,'prix_don'=>8],
+['id'=>303,'nom'=>"Warglaives d'Azzinoth",'categorie'=>'transmos','prix_vote'=>120,'prix_don'=>12],
+
+['id'=>401,'nom'=>'Sac sans fond 32 places','categorie'=>'sacs','prix_vote'=>25,'prix_don'=>3],
+['id'=>402,'nom'=>'Sac de banque 36 places','categorie'=>'sacs','prix_vote'=>40,'prix_don'=>4],
+
+['id'=>501,'nom'=>'Titanacier x100','categorie'=>'compos_metiers','prix_vote'=>20,'prix_don'=>2],
+['id'=>502,'nom'=>'Étoffe de givre x200','categorie'=>'compos_metiers','prix_vote'=>20,'prix_don'=>2],
+['id'=>503,'nom'=>'Lot Enchantement','categorie'=>'compos_metiers','prix_vote'=>30,'prix_don'=>3],
+['id'=>504,'nom'=>'Lot Joaillerie','categorie'=>'compos_metiers','prix_vote'=>30,'prix_don'=>3],
+['id'=>505,'nom'=>'Lot Calligraphie','categorie'=>'compos_metiers','prix_vote'=>30,'prix_don'=>3],
+
+['id'=>601,'nom'=>'Titre : Le Tueur de Rois','categorie'=>'services','prix_vote'=>250,'prix_don'=>25,'type'=>'titre'],
+['id'=>602,'nom'=>'Titre : Immortel','categorie'=>'services','prix_vote'=>250,'prix_don'=>25,'type'=>'titre'],
+
+['id'=>701,'nom'=>'Changement de nom','categorie'=>'services','prix_vote'=>100,'prix_don'=>10,'type'=>'rename'],
+['id'=>702,'nom'=>'Changement de race','categorie'=>'services','prix_vote'=>150,'prix_don'=>15,'type'=>'race'],
+['id'=>703,'nom'=>'Changement de faction','categorie'=>'services','prix_vote'=>200,'prix_don'=>20,'type'=>'faction'],
+['id'=>704,'nom'=>'Changement de nom de Guilde','categorie'=>'services','prix_vote'=>250,'prix_don'=>25,'type'=>'guilde']
+
 ];
-?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -76,9 +94,9 @@ $items = [
                         <button class="btn btn-don" onclick="acheter(<?= $item['id'] ?>, 'donation')">Acheter (Points Don)</button>
                     </div>
                 <?php endif; ?>
-            <?php endforeach; ?>
+           <?php endforeach; ?>
         </div>
-    <?php endforeach; ?>
+  <?php endforeach; ?>
 </div>
 
 <script>
@@ -105,4 +123,32 @@ function acheter(itemId, methodePaiement) {
 </script>
 
 </body>
+    $personnages = [
+
+[
+'id' => 1,
+'nom' => 'Arthas',
+'classe' => 'Paladin'
+],
+
+[
+'id' => 2,
+'nom' => 'Thrall',
+'classe' => 'Chaman'
+],
+
+[
+'id' => 3,
+'nom' => 'Jaina',
+'classe' => 'Mage'
+],
+
+[
+'id' => 4,
+'nom' => 'Sylvanas',
+'classe' => 'Chasseur'
+]
+
+];
+
 </html>
