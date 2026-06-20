@@ -1,528 +1,260 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nexaroth - Wrath of the Lich King 3.3.5a</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexaroth - WoW Private Server</title>
+    <style>
+        /* Styles Généraux */
+        body {
+            background-color: #050b14;
+            color: #e0e6ed;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            /* Image de fond officielle du Roi Liche (WotLK) */
+            background-image: linear-gradient(to bottom, rgba(5, 11, 20, 0.4), rgba(5, 11, 20, 0.95)), url('https://blzmd.com');
+            background-size: cover;
+            background-position: top center;
+            background-attachment: fixed;
+        }
+        a { text-decoration: none; color: inherit; }
+        
+        /* Barre de Navigation */
+        header {
+            background: rgba(0, 0, 0, 0.85);
+            border-bottom: 1px solid #1a324a;
+            display: flex;
+            justify-content: space-around;
+            padding: 15px;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header nav a {
+            margin: 0 15px;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+        header nav a:hover { color: #4cb5ff; }
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+        /* Section Principale (Hero) */
+        .hero {
+            text-align: center;
+            padding: 120px 20px 80px;
+        }
+        .hero h1 {
+            font-size: 72px;
+            color: #a3d8f4;
+            text-shadow: 0 0 30px rgba(163, 216, 244, 0.8);
+            margin: 0;
+            letter-spacing: 6px;
+            font-family: 'Georgia', serif;
+        }
+        .hero p { font-size: 20px; color: #7ab0d5; margin-top: 15px; font-weight: bold; text-shadow: 1px 1px 3px black; }
+        
+        /* Boutons d'action */
+        .btn-group { margin-top: 30px; }
+        .btn {
+            background: linear-gradient(180deg, #1b3a57, #0d2033);
+            border: 1px solid #386b99;
+            color: #fff;
+            padding: 12px 25px;
+            margin: 5px;
+            display: inline-block;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            border-color: #4cb5ff;
+            box-shadow: 0 0 15px rgba(76, 181, 255, 0.6);
+            transform: translateY(-2px);
+        }
 
-<style>
+        /* Statistiques */
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            background: rgba(4, 12, 22, 0.9);
+            border-top: 1px solid #1a324a;
+            border-bottom: 1px solid #1a324a;
+            padding: 25px 0;
+            backdrop-filter: blur(5px);
+        }
+        .stat-box { text-align: center; margin: 0 40px; }
+        .stat-number { font-size: 28px; color: #4cb5ff; font-weight: bold; text-shadow: 0 0 10px rgba(76,181,255,0.4); }
+        .stat-label { font-size: 11px; color: #8fa3b5; text-transform: uppercase; margin-top: 5px; }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+        /* Titres de Section */
+        .section-title {
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 60px 0 30px;
+            color: #a3d8f4;
+            font-size: 24px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
 
-body{
-font-family:Montserrat,sans-serif;
-background:#020910;
-color:#fff;
-background-image:url('background.jpg');
-background-size:cover;
-background-position:top center;
-background-attachment:fixed;
-}
+        /* Formulaire d'inscription */
+        .register-container {
+            max-width: 450px;
+            margin: 40px auto;
+            background: rgba(10, 25, 47, 0.85);
+            border: 1px solid #1c3d5a;
+            padding: 30px;
+            border-radius: 4px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 8px; font-size: 13px; color: #7ab0d5; text-transform: uppercase; }
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            background: #050b14;
+            border: 1px solid #1c3d5a;
+            color: #fff;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus { border-color: #4cb5ff; outline: none; }
+        .btn-submit { width: 100%; margin: 10px 0 0 0; padding: 14px; background: linear-gradient(180deg, #23527c, #0f2b47); }
 
-.container{
-width:95%;
-max-width:1400px;
-margin:auto;
-}
+        /* Double Colonne pour les Téléchargements */
+        .download-layout {
+            display: flex;
+            max-width: 1100px;
+            margin: 0 auto 40px;
+            gap: 20px;
+            padding: 0 20px;
+        }
+        .download-column { flex: 1; }
 
-header{
-height:80px;
-background:rgba(0,0,0,.7);
-border-bottom:1px solid rgba(0,180,255,.2);
-backdrop-filter:blur(6px);
-}
+        /* Conteneur de Grille Standard */
+        .grid {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            max-width: 1100px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
 
-.nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-height:80px;
-}
+        /* Cartes de contenu */
+        .card {
+            background: rgba(10, 25, 47, 0.75);
+            border: 1px solid #1c3d5a;
+            padding: 25px;
+            text-align: center;
+            flex: 1;
+            backdrop-filter: blur(3px);
+            transition: all 0.3s;
+        }
+        .card:hover { border-color: #4cb5ff; transform: translateY(-3px); }
+        .card h3 { margin: 0 0 10px 0; font-size: 18px; color: #fff; }
+        .card p { margin: 0 0 15px 0; font-size: 13px; color: #8fa3b5; }
 
-.logo{
-font-family:Cinzel,serif;
-font-size:48px;
-font-weight:700;
-color:#7fd5ff;
-text-shadow:0 0 15px #00bfff;
-}
-
-.logo small{
-display:block;
-font-size:14px;
-letter-spacing:2px;
-}
-
-.menu{
-display:flex;
-gap:30px;
-}
-
-.menu a{
-text-decoration:none;
-color:#fff;
-font-size:14px;
-text-transform:uppercase;
-transition:.3s;
-}
-
-.menu a:hover{
-color:#00bfff;
-}
-
-.hero{
-display:grid;
-grid-template-columns:1fr 350px;
-gap:50px;
-padding:80px 0;
-align-items:center;
-}
-
-.title{
-font-family:Cinzel,serif;
-font-size:120px;
-line-height:1;
-text-shadow:0 0 20px rgba(0,191,255,.5);
-}
-
-.subtitle{
-font-size:24px;
-margin-top:15px;
-color:#8ed6ff;
-}
-
-.version{
-font-size:42px;
-margin-bottom:40px;
-}
-
-.buttons{
-display:flex;
-flex-wrap:wrap;
-gap:20px;
-}
-
-.btn{
-padding:18px 40px;
-border:1px solid #00bfff;
-background:rgba(0,60,120,.4);
-color:white;
-text-decoration:none;
-font-weight:600;
-transition:.3s;
-}
-
-.btn:hover{
-box-shadow:0 0 20px #00bfff;
-}
-
-.panel{
-background:rgba(0,0,0,.55);
-border:1px solid rgba(255,255,255,.2);
-padding:40px;
-}
-
-.panel h3{
-font-family:Cinzel;
-margin-bottom:30px;
-text-align:center;
-}
-
-.panel ul{
-list-style:none;
-}
-
-.panel li{
-margin-bottom:15px;
-}
-
-.panel li::before{
-content:"✓ ";
-color:#00bfff;
-}
-
-.stats{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:20px;
-margin-bottom:70px;
-}
-
-.stat{
-background:rgba(0,0,0,.55);
-padding:30px;
-text-align:center;
-border:1px solid rgba(0,191,255,.15);
-}
-
-.stat h2{
-font-size:48px;
-color:#79d7ff;
-}
-
-.section-title{
-font-family:Cinzel;
-font-size:42px;
-text-align:center;
-margin:70px 0 40px;
-}
-
-.downloads{
-display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:20px;
-}
-
-.card{
-background:rgba(0,0,0,.5);
-border:1px solid rgba(255,255,255,.15);
-padding:30px;
-text-align:center;
-}
-
-.card img{
-width:70px;
-margin-bottom:20px;
-}
-
-.card h4{
-margin-bottom:15px;
-}
-
-.download-btn{
-display:inline-block;
-padding:10px 20px;
-border:1px solid #00bfff;
-color:#fff;
-text-decoration:none;
-}
-
-.quick{
-display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:20px;
-}
-
-.quick-card{
-background:rgba(0,0,0,.55);
-padding:40px 20px;
-text-align:center;
-border:1px solid rgba(255,255,255,.15);
-}
-
-.quick-card h3{
-margin-top:20px;
-font-family:Cinzel;
-}
-
-.bottom{
-display:grid;
-grid-template-columns:2fr 1fr;
-gap:30px;
-margin-top:60px;
-}
-
-.news-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-}
-
-.news{
-background:rgba(0,0,0,.5);
-border:1px solid rgba(255,255,255,.1);
-}
-
-.news img{
-width:100%;
-height:220px;
-object-fit:cover;
-}
-
-.news-content{
-padding:20px;
-}
-
-.ladder{
-background:rgba(0,0,0,.55);
-padding:20px;
-border:1px solid rgba(255,255,255,.15);
-}
-
-.ladder table{
-width:100%;
-border-collapse:collapse;
-}
-
-.ladder td{
-padding:12px;
-border-bottom:1px solid rgba(255,255,255,.1);
-}
-
-footer{
-margin-top:80px;
-background:rgba(0,0,0,.75);
-padding:50px 0;
-border-top:1px solid rgba(255,255,255,.1);
-}
-
-.footer-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:30px;
-}
-
-.footer-title{
-font-family:Cinzel;
-margin-bottom:20px;
-}
-
-@media(max-width:1000px){
-
-.hero{
-grid-template-columns:1fr;
-}
-
-.downloads,
-.quick,
-.news-grid,
-.stats,
-.footer-grid{
-grid-template-columns:1fr 1fr;
-}
-
-.bottom{
-grid-template-columns:1fr;
-}
-
-.title{
-font-size:70px;
-}
-}
-
-@media(max-width:700px){
-
-.downloads,
-.quick,
-.news-grid,
-.stats,
-.footer-grid{
-grid-template-columns:1fr;
-}
-
-.menu{
-display:none;
-}
-
-.title{
-font-size:50px;
-}
-}
-
-</style>
+        /* Pied de page */
+        footer {
+            background: #03070d;
+            padding: 50px 20px;
+            text-align: center;
+            border-top: 1px solid #1a324a;
+            font-size: 12px;
+            color: #566f85;
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-<div class="container nav">
+    <!-- Barre de Navigation -->
+    <header>
+        <div class="logo" style="font-weight: bold; color: #a3d8f4; letter-spacing: 2px; font-size: 18px;">NEXAROTH</div>
+        <nav>
+            <a href="#">Accueil</a>
+            <a href="#inscription">Inscription</a>
+            <a href="#telechargement">Téléchargement</a>
+            <a href="#boutique">Boutique</a>
+            <a href="#vote">Vote</a>
+            <a href="#addons">Addons</a>
+            <a href="https://forumactif.com" target="_blank">Forum</a>
+            <a href="https://discord.gg" target="_blank">Discord</a>
+        </nav>
+    </header>
 
-<div class="logo">
-NEXAROTH
-<small>WRATH OF THE LICH KING</small>
-</div>
+    <!-- Section Principale -->
+    <section class="hero">
+        <h1>NEXAROTH</h1>
+        <p>WORLD OF WARCRAFT — WRATH OF THE LICH KING 3.3.5a</p>
+        <div class="btn-group">
+            <a href="#inscription" class="btn">Créer un compte</a>
+            <a href="#telechargement" class="btn">Télécharger le jeu</a>
+            <a href="#vote" class="btn">Voter et Gagner</a>
+            <a href="#boutique" class="btn">Boutique</a>
+            <a href="https://forumactif.com" target="_blank" class="btn">Forum</a>
+            <a href="https://discord.gg" target="_blank" class="btn">Discord</a>
+        </div>
+    </section>
 
-<nav class="menu">
-<a href="#">Accueil</a>
-<a href="#">Inscription</a>
-<a href="#">Téléchargement</a>
-<a href="#">Boutique</a>
-<a href="#">Vote</a>
-<a href="#">Forum</a>
-<a href="#">Discord</a>
-</nav>
+    <!-- Barre des Statistiques -->
+    <section class="stats-container">
+        <div class="stat-box">
+            <div class="stat-number">152</div>
+            <div class="stat-label">Joueurs en ligne</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">28,547</div>
+            <div class="stat-label">Comptes créés</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">1,247</div>
+            <div class="stat-label">Guildes</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">99.9%</div>
+            <div class="stat-label">Uptime</div>
+        </div>
+    </section>
 
-</div>
-</header>
+    <!-- Section Inscription Formulaire -->
+    <section id="inscription">
+        <h2 class="section-title">Créer un compte de jeu</h2>
+        <div class="register-container">
+            <!-- Remplacez register.php par votre fichier de traitement réel -->
+            <form action="register.php" method="POST">
+                <div class="form-group">
+                    <label for="username">Nom de compte (Login)</label>
+                    <input type="text" id="username" name="username" required placeholder="Ex: Arthas45">
+                </div>
+                <div class="form-group">
+                    <label for="email">Adresse Email</label>
+                    <input type="email" id="email" name="email" required placeholder="Ex: nom@domaine.com">
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" required placeholder="••••••••">
+                </div>
+                <div class="form-group">
+                    <label for="password_confirm">Confirmer le mot de passe</label>
+                    <input type="password" id="password_confirm" name="password_confirm" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn btn-submit">S'inscrire sur Nexaroth</button>
+            </form>
+        </div>
+    </section>
 
-<div class="container">
-
-<section class="hero">
-
-<div>
-
-<h1 class="title">NEXAROTH</h1>
-
-<div class="subtitle">
-WORLD OF WARCRAFT
-</div>
-
-<div class="version">
-WRATH OF THE LICH KING 3.3.5a
-</div>
-
-<div class="buttons">
-<a href="#" class="btn">CRÉER UN COMPTE</a>
-<a href="#" class="btn">TÉLÉCHARGER</a>
-<a href="#" class="btn">DISCORD</a>
-<a href="#" class="btn">FORUM</a>
-</div>
-
-</div>
-
-<div class="panel">
-
-<h3>REJOIGNEZ L'AVENTURE</h3>
-
-<ul>
-<li>PvE & PvP équilibrés</li>
-<li>Serveur stable 24/7</li>
-<li>Communauté active</li>
-<li>Événements réguliers</li>
-</ul>
-
-</div>
-
-</section>
-
-<div class="stats">
-
-<div class="stat">
-<h2>152</h2>
-Joueurs en ligne
-</div>
-
-<div class="stat">
-<h2>28,547</h2>
-Comptes créés
-</div>
-
-<div class="stat">
-<h2>1,247</h2>
-Guildes
-</div>
-
-<div class="stat">
-<h2>99.9%</h2>
-Uptime
-</div>
-
-</div>
-
-<h2 class="section-title">TÉLÉCHARGEMENT DU CLIENT</h2>
-
-<div class="downloads">
-
-<div class="card"><h4>FRANÇAIS</h4><a class="download-btn">Télécharger</a></div>
-<div class="card"><h4>ENGLISH</h4><a class="download-btn">Download</a></div>
-<div class="card"><h4>ESPAÑOL</h4><a class="download-btn">Descargar</a></div>
-<div class="card"><h4>DEUTSCH</h4><a class="download-btn">Download</a></div>
-<div class="card"><h4>РУССКИЙ</h4><a class="download-btn">Скачать</a></div>
-
-</div>
-
-<h2 class="section-title">ACCÈS RAPIDE</h2>
-
-<div class="quick">
-
-<div class="quick-card"><h3>Inscription</h3></div>
-<div class="quick-card"><h3>Vote</h3></div>
-<div class="quick-card"><h3>Boutique</h3></div>
-<div class="quick-card"><h3>Forum</h3></div>
-<div class="quick-card"><h3>Radmin VPN</h3></div>
-
-</div>
-
-<div class="bottom">
-
-<div>
-
-<h2 class="section-title">ACTUALITÉS</h2>
-
-<div class="news-grid">
-
-<div class="news">
-<div class="news-content">
-<h3>Ouverture du Royaume</h3>
-</div>
-</div>
-
-<div class="news">
-<div class="news-content">
-<h3>Saison PvP 8</h3>
-</div>
-</div>
-
-<div class="news">
-<div class="news-content">
-<h3>Icecrown Citadel</h3>
-</div>
-</div>
-
-</div>
-
-</div>
-
-<div>
-
-<h2 class="section-title">CLASSEMENTS</h2>
-
-<div class="ladder">
-
-<table>
-<tr><td>1</td><td>Zerathor</td><td>2450</td></tr>
-<tr><td>2</td><td>Valdoran</td><td>2410</td></tr>
-<tr><td>3</td><td>Shadowcry</td><td>2375</td></tr>
-<tr><td>4</td><td>Aelys</td><td>2340</td></tr>
-<tr><td>5</td><td>Darkanor</td><td>2305</td></tr>
-</table>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<footer>
-
-<div class="container footer-grid">
-
-<div>
-<div class="logo">NEXAROTH</div>
-</div>
-
-<div>
-<div class="footer-title">REJOIGNEZ-NOUS</div>
-Discord<br>
-Facebook<br>
-YouTube
-</div>
-
-<div>
-<div class="footer-title">INFORMATIONS</div>
-Règlement<br>
-Conditions<br>
-Confidentialité
-</div>
-
-<div>
-<div class="footer-title">SUPPORT</div>
-FAQ<br>
-Support<br>
-Contact
-</div>
-
-</div>
-
-</footer>
-
-</body>
-</html>
+    <!-- Section Téléchargement et Addons combinée -->
+    <section id="telechargement">
+        <div class="download-layout">
+            
+            <!-- Colonne Client de Jeu -->
+            <div class="download-column">
+                <h2 class="section-title" style="margin-top: 20px;">Téléchargement du client</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div class="card"><h3>Français (3.3.5a)</h3><a href="#" class="btn">Télécharger</a></div>
