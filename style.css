@@ -1,18 +1,5 @@
 /* section statut du serveur */
-.server-status {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 20px;
-    background: rgba(13, 27, 42, 0.4);
-    border: 1px solid rgba(76, 181, 255, 0.1);
-    border-radius: 6px;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 20px;
-    text-align: center;
-    
-    .discord-banner{
+.discord-banner{
 text-align:center;
 padding:60px 40px;
 background:
@@ -73,6 +60,19 @@ transform:scale(1);
 }
 
 }
+.server-status {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(13, 27, 42, 0.4);
+    border: 1px solid rgba(76, 181, 255, 0.1);
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    text-align: center;
+    
 }
 
 .status-item {
