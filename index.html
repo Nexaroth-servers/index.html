@@ -1,334 +1,234 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexaroth - Wrath of the Lich King 3.3.5a</title>
-    <link href="https://googleapis.com" rel="stylesheet">
+    <title>Nexaroth - Wrath of the Lich King</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Réinitialisation globale */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+        html {
+            scroll-behavior: smooth;
+        }
         body {
-            font-family: 'Montserrat', sans-serif;
-            background: #02070f url('https://noelshack.com') no-repeat top center;
-            background-size: contain;
-            color: #cdd6e2;
+            font-family: Arial, sans-serif;
+            background: #050b12;
+            color: white;
             overflow-x: hidden;
-            line-height: 1.5;
         }
-        a {
-            color: inherit;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        /* Conteneur principal */
-        .wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Barre de navigation supérieure */
-        .top-nav {
-            background: rgba(2, 7, 15, 0.85);
-            backdrop-filter: blur(5px);
-            border-bottom: 1px solid rgba(0, 187, 255, 0.15);
-            position: sticky;
+        /* Menu de navigation */
+        .navbar {
+            position: fixed;
             top: 0;
-            z-index: 100;
-        }
-        .top-nav-container {
+            left: 0;
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 60px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            padding: 20px 40px;
+            background: rgba(5, 11, 18, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
         }
-        .nav-logo {
+        .logo {
             font-family: 'Cinzel', serif;
-            font-size: 20px;
-            color: #79d2ff;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-        .nav-links {
-            display: flex;
-            gap: 20px;
-            font-size: 12px;
+            font-size: 32px;
+            color: #9deeff;
+            text-shadow: 0 0 20px #00bfff;
             text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 0.5px;
         }
-        .nav-links a:hover {
-            color: #00bfff;
-            text-shadow: 0 0 8px rgba(0, 191, 255, 0.6);
+        nav {
+            display: flex;
+            gap: 30px;
         }
-
-        /* Section Hero */
-        .hero {
-            padding: 100px 0 60px 0;
-            display: grid;
-            grid-template-columns: 1fr 320px;
-            gap: 40px;
-            align-items: center;
-        }
-        .hero-left {
-            text-align: left;
-        }
-        .main-title {
-            font-family: 'Cinzel', serif;
-            font-size: 72px;
-            color: #ffffff;
-            letter-spacing: 4px;
-            text-shadow: 0 0 20px rgba(0, 187, 255, 0.4);
-            line-height: 1;
-            margin-bottom: 5px;
-        }
-        .sub-title {
+        nav a {
+            color: #dffcff;
+            text-decoration: none;
             font-size: 16px;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #8fa4be;
-            margin-bottom: 40px;
-        }
-        .hero-buttons {
-            display: grid;
-            grid-template-columns: repeat(2, 200px);
-            gap: 15px;
-        }
-        .btn {
-            background: rgba(10, 25, 47, 0.6);
-            border: 1px solid rgba(0, 187, 255, 0.3);
-            padding: 14px 20px;
-            border-radius: 4px;
-            font-size: 13px;
-            text-transform: uppercase;
-            font-weight: 600;
-            text-align: center;
             letter-spacing: 1px;
-            box-shadow: inset 0 0 10px rgba(0, 187, 255, 0.05);
-            display: inline-block;
+            transition: .3s;
         }
-        .btn:hover {
-            border-color: #00bfff;
-            box-shadow: 0 0 15px rgba(0, 191, 255, 0.3), inset 0 0 15px rgba(0, 191, 255, 0.1);
-            transform: translateY(-2px);
-            color: #ffffff;
+        nav a:hover {
+            color: #6fdcff;
+            text-shadow: 0 0 10px #00bfff;
         }
-
-        /* Encadré d'inscription à droite */
-        .side-panel {
-            background: rgba(3, 13, 27, 0.8);
-            border: 1px solid rgba(0, 187, 255, 0.2);
-            border-radius: 6px;
-            padding: 30px 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .side-panel h3 {
-            font-family: 'Cinzel', serif;
-            font-size: 16px;
-            color: #ffffff;
-            margin-bottom: 25px;
-            letter-spacing: 1px;
-        }
-        .side-panel-logo {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 25px auto;
-            background: radial-gradient(circle, rgba(0, 191, 255, 0.2) 0%, transparent 70%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .features-list {
-            list-style: none;
-            text-align: left;
-            font-size: 12px;
-            color: #8fa4be;
-            padding: 0 10px;
-        }
-        .features-list li {
-            margin-bottom: 12px;
+        /* Section Hero avec conteneur d'animation fluide */
+        .hero-container {
             position: relative;
-            padding-left: 20px;
-        }
-        .features-list li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #00bfff;
-        }
-
-        /* Section Statistiques globales */
-        .stats-bar {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            background: rgba(3, 13, 27, 0.6);
-            border: 1px solid rgba(0, 187, 255, 0.15);
-            padding: 25px;
-            border-radius: 6px;
-            margin-bottom: 60px;
-        }
-        .stat-item {
-            text-align: center;
-        }
-        .stat-number {
-            font-size: 28px;
-            font-weight: 600;
-            color: #ffffff;
-            text-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
-        }
-        .stat-label {
-            font-size: 11px;
-            text-transform: uppercase;
-            color: #647b9c;
-            letter-spacing: 1px;
-            margin-top: 5px;
-        }
-
-        /* Titres de Section */
-        .section-title {
-            font-family: 'Cinzel', serif;
-            font-size: 18px;
-            text-align: center;
-            color: #ffffff;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 35px;
-            position: relative;
-        }
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #00bfff, transparent);
-            margin: 8px auto 0 auto;
-        }
-
-        /* Section Téléchargement Client */
-        .download-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 15px;
-            margin-bottom: 60px;
-        }
-        .lang-card {
-            background: rgba(3, 13, 27, 0.5);
-            border: 1px solid rgba(0, 187, 255, 0.1);
-            border-radius: 4px;
-            padding: 20px 10px;
-            text-align: center;
-        }
-        .lang-card:hover {
-            border-color: rgba(0, 191, 255, 0.4);
-            background: rgba(3, 13, 27, 0.8);
-        }
-        .lang-name {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #8fa4be;
-            margin-bottom: 15px;
-        }
-        .btn-sm {
-            display: block;
-            padding: 8px 0;
-            font-size: 10px;
-            border-radius: 3px;
-        }
-
-        /* Section Accès Rapide */
-        .quick-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 15px;
-            margin-bottom: 60px;
-        }
-        .quick-card {
-            background: rgba(3, 13, 27, 0.5);
-            border: 1px solid rgba(0, 187, 255, 0.1);
-            border-radius: 4px;
-            padding: 30px 15px;
-            text-align: center;
-            display: block;
-        }
-        .quick-card:hover {
-            border-color: #00bfff;
-            box-shadow: inset 0 0 15px rgba(0, 191, 255, 0.1);
-            transform: translateY(-3px);
-        }
-        .quick-icon {
-            font-size: 24px;
-            color: #00bfff;
-            margin-bottom: 15px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .quick-card h4 {
-            font-size: 12px;
-            text-transform: uppercase;
-            color: #ffffff;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-        }
-        .quick-card p {
-            font-size: 11px;
-            color: #647b9c;
-        }
-
-        /* Section Actualités & Classements */
-        .bottom-layout {
-            display: grid;
-            grid-template-columns: 1fr 320px;
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-        .news-column .section-title, .ladder-column .section-title {
-            text-align: left;
-        }
-        .news-column .section-title::after, .ladder-column .section-title::after {
-            margin: 8px 0 0 0;
-            background: linear-gradient(90deg, #00bfff, transparent);
-        }
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-        }
-        .news-card {
-            background: rgba(3, 13, 27, 0.5);
-            border: 1px solid rgba(0, 187, 255, 0.1);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        .news-img {
+            height: 100vh;
             width: 100%;
-            height: 110px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(5, 11, 18, 0.45), rgba(5, 11, 18, 0.9)), url("https://image.noelshack.com/fichiers/2026/25/5/1781897484-images.jpg");
             background-size: cover;
             background-position: center;
-            border-bottom: 1px solid rgba(0, 187, 255, 0.1);
+            z-index: 1;
+            animation: zoomhero 20s ease-in-out infinite alternate;
         }
-        .news-content {
-            padding: 15px;
+        @keyframes zoomhero {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
         }
-        .news-tag {
-            font-size: 9px;
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+        }
+        .hero-content h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 80px;
+            color: #dffcff;
+            text-shadow: 0 0 15px #00bfff, 0 0 40px #00bfff;
+            line-height: 1.1;
+        }
+        .hero-content p {
+            font-size: 22px;
+            margin: 25px 0;
+            color: #b4c2d3;
+        }
+        /* Boutons */
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            margin: 10px;
+            background: #0077cc;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
             text-transform: uppercase;
-            font-weight: 600;
             letter-spacing: 1px;
-            margin-bottom: 5px;
+            transition: .3s ease;
         }
-        .tag-new { color: #ff9900; }
-        .tag-event { color: #a335ee; }
+        .btn:hover {
+            transform: translateY(-3px);
+            background: #0099ff;
+            box-shadow: 0 0 20px #00bfff;
+        }
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #0077cc;
+        }
+        .btn-secondary:hover {
+            background: rgba(0, 119, 204, 0.2);
+        }
+        /* Sections de contenu */
+        section {
+            padding: 100px 20px;
+            position: relative;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+        .title {
+            font-family: 'Cinzel', serif;
+            font-size: 42px;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #dffcff;
+            text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 191, 255, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        .card:hover {
+            border-color: #00bfff;
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-5px);
+        }
+        .card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 22px;
+            color: #6fdcff;
+            margin-bottom: 15px;
+        }
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .navbar { padding: 20px; flex-direction: column; gap: 15px; }
+            .hero-content h1 { font-size: 45px; }
+            .hero-content p { font-size: 18px; }
+            .title { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre de navigation -->
+    <header class="navbar">
+        <div class="logo">Nexaroth</div>
+        <nav>
+            <a href="#accueil">Accueil</a>
+            <a href="#features">Fonctionnalités</a>
+            <a href="#rejoindre">Rejoindre</a>
+        </nav>
+    </header>
+
+    <!-- Section Principale (Hero) -->
+    <div class="hero-container" id="accueil">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>WRAth OF THE LICH KING</h1>
+            <p>Découvrez une expérience de jeu mythique sur le royaume de Nexaroth.</p>
+            <a href="#rejoindre" class="btn">Rejoindre l'aventure</a>
+            <a href="#features" class="btn btn-secondary">En savoir plus</a>
+        </div>
+    </div>
+
+    <!-- Section Fonctionnalités -->
+    <section id="features">
+        <div class="container">
+            <h2 class="title">Pourquoi choisir Nexaroth ?</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Royaume Blizzlike</h3>
+                    <p>Une fidélité absolue à l'extension originale avec un script de haute qualité pour les donjons et raids.</p>
+                </div>
+                <div class="card">
+                    <h3>Communauté Active</h3>
+                    <p>Rejoignez des centaines de joueurs passionnés, participez à des événements uniques et progressez ensemble.</p>
+                </div>
+                <div class="card">
+                    <h3>Économie Stable</h3>
+                    <p>Un hôtel des ventes surveillé et une économie équilibrée pour garantir un plaisir de jeu à long terme.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Appel à l'action -->
+    <section id="rejoindre" style="background: rgba(0, 0, 0, 0.3); text-align: center;">
+        <div class="container">
+            <h2 class="title">Prêt à affronter le Roi Liche ?</h2>
+            <p style="font-size: 18px; margin-bottom: 30px; color: #b4c2d3;">Créez votre compte dès aujourd'hui et téléchargez notre lanceur personnalisé.</p>
+            <a href="#" class="btn">Créer un compte</a>
+        </div>
+    </section>
+
+</body>
+</html>
