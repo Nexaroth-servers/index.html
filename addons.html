@@ -1,1 +1,78 @@
+html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addons Recommandés - Nexaroth</title>
+    <style>
+        body {
+            background-color: #020611;
+            color: #e0e6ed;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 80px 20px;
+            background-image: linear-gradient(to bottom, rgba(2, 6, 17, 0.5) 0%, rgba(2, 6, 17, 0.9) 70%, #020611 100%), url('https://blzmd.com');
+            background-size: cover;
+            background-position: center top;
+            background-attachment: fixed;
+        }
+        .container { max-width: 1000px; margin: 0 auto; }
+        h1 { color: #a3d8f4; text-transform: uppercase; letter-spacing: 3px; font-size: 38px; margin-bottom: 5px; font-family: 'Georgia', serif; }
+        .subtitle { color: #7ab0d5; font-size: 16px; margin-bottom: 50px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+        
+        .card {
+            background: rgba(7, 18, 33, 0.4);
+            border: 1px solid rgba(28, 61, 90, 0.4);
+            padding: 30px 20px;
+            border-radius: 4px;
+            backdrop-filter: blur(4px);
+            transition: all 0.3s;
+            text-align: left;
+        }
+        .card:hover { border-color: #4cb5ff; transform: translateY(-3px); background: rgba(9, 23, 41, 0.7); }
+        .card h3 { margin: 0 0 8px 0; color: #fff; font-size: 20px; }
+        .card p { margin: 0 0 20px 0; color: #8fa3b5; font-size: 13px; line-height: 1.4; }
+        
+        .btn-dl {
+            background: linear-gradient(180deg, #1b3a57, #0d2033);
+            border: 1px solid #386b99;
+            color: #fff;
+            padding: 10px 20px;
+            display: inline-block;
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .btn-dl:hover { border-color: #4cb5ff; box-shadow: 0 0 10px rgba(76,181,255,0.5); }
+    </style>
+</head>
+<body>
 
+    <div class="container">
+        <h1>Addons de Jeu (3.3.5a)</h1>
+        <div class="subtitle">Optimisez votre interface et vos outils de raid pour Nexaroth</div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>ElvUI WotLK</h3>
+                <p>Refonte intégrale et moderne de l'interface utilisateur de World of Warcraft.</p>
+                <a href="https://votre-lien-addon.com" target="_blank" class="btn-dl">Télécharger</a>
+            </div>
+            <div class="card">
+                <h3>Deadly Boss Mods (DBM)</h3>
+                <p>Alertes, minuteurs et outils indispensables pour vaincre les boss de raids.</p>
+                <a href="https://votre-lien-addon.com" target="_blank" class="btn-dl">Télécharger</a>
+            </div>
+            <div class="card">
+                <h3>Recount</h3>
+                <p>Analyseur de combat en temps réel pour mesurer votre DPS et vos soins.</p>
+                <a href="https://votre-lien-addon.com" target="_blank" class="btn-dl">Télécharger</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
