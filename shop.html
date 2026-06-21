@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Boutique — Nexaroth</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a href="index.html" target="_blank" rel="noopener noreferrer">← Retour</a>
+    <h1>Boutique — Nexaroth</h1>
+  </header>
+
+  <main>
+    <section id="balance">
+      <h2>Points</h2>
+      <div>Solde Points Vote : <strong id="vote-balance">0</strong></div>
+      <div>Solde Points Donation : <strong id="donation-balance">0</strong></div>
+      <p>
+        <button id="simulate-vote" class="btn">Simuler vote (+10 points vote)</button>
+        <button id="simulate-donate" class="btn">Simuler donation (+100 points donation)</button>
+      </p>
+      <p class="note">Remarque : simulation locale — pour production, connectez le backend (voir instructions).</p>
+    </section>
+
+    <section id="catalog">
+      <h2>Catalogue</h2>
+      <div class="shop-grid">
+        <div class="item" data-price-vote="50" data-price-donate="0">
+          <h3>Monture Épique</h3>
+          <p>Prix : 50 points vote</p>
+          <button class="buy-vote btn">Acheter (vote)</button>
+        </div>
+
+        <div class="item" data-price-vote="0" data-price-donate="500">
+          <h3>Pack Donateur</h3>
+          <p>Prix : 500 points donation</p>
+          <button class="buy-donate btn">Acheter (donation)</button>
+        </div>
+
+        <!-- Ajouter d'autres articles ici -->
+      </div>
+    </section>
+
+    <section id="info">
+      <h2>Intégration Backend</h2>
+      <p>Endpoints recommandés :</p>
+      <ul>
+        <li>GET /api/balance?user_id=... → { vote: number, donation: number }</li>
+        <li>POST /api/purchase → { user_id, item_id, method:'vote'|'donation' } → effectue la livraison</li>
+        <li>POST /api/vote-callback → (webhook) créditer points vote à l'utilisateur après vote externe</li>
+        <li>POST /api/donate-callback → (webhook/payment) créditer points donation après paiement</li>
+      </ul>
+      <p>La boutique fournie est statique : il faut un backend sicurisé pour stocker soldes, livrer objets et processeur de paiements.</p>
+    </section>
+  </main>
+
+  <script>
+    // Simulation client-side pour démonstration
+    let voteBalance = 0;
+    let donationBalance = 0;
+    const voteEl = document.getElementById('vote-balance');
+    const donateEl = document.getElementById('donation-balance');
+
+    function renderBalances() {
+      voteEl.textContent = voteBalance;
+      donateEl.textContent = donationBalance;
+    }
+
+    document.getElementById('simulate-vote').addEventListener('click', () => {
+      voteBalance += 10; renderBalances();
+    });
+    document.getElementById('simulate-donate').addEventListener('click', () => {
+      donationBalance += 100; renderBalances();
+    });
+
+    document.querySelectorAll('.buy-vote').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const item = e.target.closest('.item');
+        const price = parseInt(item.dataset.priceVote || item.getAttribute('data-price-vote'));
+        if (voteBalance >= price) {
+          voteBalance -= price; renderBalances();
+          alert('Achat effectué (simulation). Intégrer POST /api/purchase pour production.');
+        } else alert('Solde vote insuffisant.');
+      });
+    });
+
+    document.querySelectorAll('.buy-donate').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const item = e.target.closest('.item');
+        const price = parseInt(item.dataset.priceDonate || item.getAttribute('data-price-donate'));
+        if (donationBalance >= price) {
+          donationBalance -= price; renderBalances();
+          alert('Achat effectué (simulation). Intégrer POST /api/purchase pour production.');
+        } else alert('Solde donation insuffisant.');
+      });
+    });
+
+    renderBalances();
+  </script>
+</body>
+</html>

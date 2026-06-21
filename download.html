@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Téléchargements — Nexaroth</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" target="_blank" rel="noopener noreferrer">← Retour</a>
+    <h1>Téléchargements - Nexaroth</h1>
+    <div class="lang-select">
+      <label for="lang">Langue :</label>
+      <select id="lang">
+        <option value="fr">FR</option>
+        <option value="en">EN</option>
+        <option value="ru">RU</option>
+        <option value="de">DE</option>
+        <option value="es">ES</option>
+      </select>
+    </div>
+  </header>
+
+  <main>
+    <section id="clients">
+      <h2>Clients World of Warcraft</h2>
+      <p>Sélectionnez votre langue dans le menu pour afficher les liens correspondants.</p>
+
+      <div class="downloads per-lang" data-lang="fr">
+        <h3>Français</h3>
+        <a class="btn-download" href="#" target="_blank" rel="noopener noreferrer">Télécharger client (Windows) — FR</a>
+        <a class="btn-download" href="#" target="_blank" rel="noopener noreferrer">Télécharger client (macOS) — FR</a>
+      </div>
+
+      <div class="downloads per-lang" data-lang="en" style="display:none">
+        <h3>English</h3>
+        <a class="btn-download" href="#" target="_blank" rel="noopener noreferrer">Download client (Windows) — EN</a>
+        <a class="btn-download" href="#" target="_blank" rel="noopener noreferrer">Download client (macOS) — EN</a>
+      </div>
+
+      <div class="downloads per-lang" data-lang="ru" style="display:none">
+        <h3>Русский</h3>
+        <a class="btn-download" href="#" target="_blank" rel="noopener noreferrer">Скачать клиент (Windows) — RU</a>
+        <a class="btn-download" href="#" target="_blank" rel="noopener noreferrer">Скачать клиент (macOS) — RU</a>
+      </div>
+
+      <div class="downloads per-lang" data-lang="de" style="display:none">
+        <h3>Deutsch</h3>
+        <a class="btn-download" href="#" target="_blank" rel="noopener noreferrer">Client herunterladen (Windows) — DE</a>
+        <a class="btn-download" href="#" target="_blank" rel="noopener noreferrer">Client herunterladen (macOS) — DE</a>
+      </div>
+
+      <div class="downloads per-lang" data-lang="es" style="display:none">
+        <h3>Español</h3>
+        <a class="btn-download" href="#" target="_blank" rel="noopener noreferrer">Descargar cliente (Windows) — ES</a>
+        <a class="btn-download" href="#" target="_blank" rel="noopener noreferrer">Descargar cliente (macOS) — ES</a>
+      </div>
+
+      <p>Addons recommandés : <a href="https://legacy-wow.com/mop-addons/" target="_blank" rel="noopener noreferrer">Legacy WoW — MOP Addons</a></p>
+      <p>Guides et instructions d'installation disponibles dans la section Guide d'installation.</p>
+    </section>
+
+    <section id="signup">
+      <h2>Créer un compte</h2>
+      <p><a href="#" target="_blank" rel="noopener noreferrer">Page d'inscription</a> (placeholder — à intégrer au backend).</p>
+    </section>
+
+    <section id="guide">
+      <h2>Guide d'installation</h2>
+      <ol>
+        <li>Télécharger le client pour votre OS et langue.</li>
+        <li>Extraire/installer puis appliquer le patch (si nécessaire).</li>
+        <li>Placer les addons dans le dossier Interface/AddOns.</li>
+        <li>Créer un compte sur le site (inscription).</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <p>Liens utiles : <a href="https://www.wowhead.com/mop-classic" target="_blank" rel="noopener noreferrer">Wowhead MOP</a> • <a href="https://discord.gg/zcH3JXHeuQ" target="_blank" rel="noopener noreferrer">Discord</a></p>
+  </footer>
+
+  <script>
+    // Commutateur de langue basique — adapte l'affichage des blocs per-lang
+    document.getElementById('lang').addEventListener('change', function() {
+      const lang = this.value;
+      document.querySelectorAll('.per-lang').forEach(el => {
+        el.style.display = el.dataset.lang === lang ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
