@@ -1,30 +1,27 @@
 /* ==========================================================================
-   VARIABLES GLOBALES (Thème Sombre par défaut)
+   VARIABLES GLOBALES (Style Sombre Unique)
    ========================================================================== */
 :root {
-    /* Couleurs principales */
+    /* Couleurs */
     --bg-primary: #0d1b2a;
-    --bg-secondary: #1a324a;
+    --bg-secondary: rgba(13, 27, 42, 0.5);
     --accent-color: #4cb5ff;
     --text-muted: #718096;
     --text-light: #ffffff;
     --status-online: #48bb78;
 
-    /* Opacités & Bordures */
+    /* Bordures & Effets */
     --border-light: rgba(76, 181, 255, 0.1);
     --border-medium: rgba(76, 181, 255, 0.2);
     --radius-standard: 6px;
     
-    /* Gradients */
-    --gradient-download: linear-gradient(135deg, rgba(26, 50, 74, 0.3) 0%, rgba(13, 27, 42, 0.5) 100%);
-    
-    /* Transitions et Animations */
+    /* Animation & Transitions */
     --transition-fast: all 0.3s ease;
     --animation-fade-in: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* ==========================================================================
-   ANIMATIONS KINETIQUES (Définition de l'effet d'entrée)
+   ANIMATION D'ENTRÉE
    ========================================================================== */
 @keyframes fadeInUp {
     from {
@@ -34,25 +31,6 @@
     to {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-/* ==========================================================================
-   THÈME CLAIR (S'active automatiquement selon le système)
-   ========================================================================== */
-@media (prefers-color-scheme: light) {
-    :root {
-        --bg-primary: #f7fafc;
-        --bg-secondary: #edf2f7;
-        --accent-color: #0076cb;
-        --text-muted: #4a5568;
-        --text-light: #1a202c;
-        --status-online: #38a169;
-        
-        --border-light: rgba(0, 118, 203, 0.15);
-        --border-medium: rgba(0, 118, 203, 0.25);
-        
-        --gradient-download: linear-gradient(135deg, rgba(237, 242, 247, 0.8) 0%, rgba(247, 250, 252, 0.9) 100%);
     }
 }
 
@@ -68,14 +46,12 @@
     margin: 40px auto;
     padding: 20px;
     text-align: center;
-    background: var(--bg-secondary);
-    opacity: 0; /* Commencer invisible pour l'animation */
+    background: rgba(13, 27, 42, 0.4);
     border: 1px solid var(--border-light);
     border-radius: var(--radius-standard);
-    
-    /* Application de l'animation */
+    opacity: 0;
     animation: var(--animation-fade-in);
-    animation-delay: 0.1s; /* Apparaît en premier */
+    animation-delay: 0.1s;
 }
 
 .status-item {
@@ -110,8 +86,6 @@
     margin: 60px auto;
     padding: 0 20px;
     opacity: 0;
-    
-    /* Application de l'animation avec un léger retard */
     animation: var(--animation-fade-in);
     animation-delay: 0.2s;
 }
@@ -134,16 +108,16 @@
 
 .news-card {
     overflow: hidden;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-light);
+    background: rgba(13, 27, 42, 0.6);
+    border: 1px solid rgba(26, 50, 74, 0.6);
     border-radius: var(--radius-standard);
     transition: var(--transition-fast);
 }
 
 .news-card:hover {
     transform: translateY(-5px);
-    border-color: var(--accent-color);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-color: rgba(76, 181, 255, 0.4);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .news-content {
@@ -170,21 +144,19 @@
     margin: 60px auto;
     padding: 40px 20px;
     text-align: center;
-    background: var(--gradient-download);
+    background: linear-gradient(135deg, rgba(26, 50, 74, 0.3) 0%, rgba(13, 27, 42, 0.5) 100%);
     border: 1px solid var(--border-medium);
     border-radius: var(--radius-standard);
     transition: var(--transition-fast);
     opacity: 0;
-    
-    /* Application de l'animation avec un retard plus long */
     animation: var(--animation-fade-in);
-    animation-delay: 0.3s; /* Apparaît en dernier */
+    animation-delay: 0.3s;
 }
 
 .download-section:hover {
     transform: scale(1.01);
     border-color: var(--accent-color);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
 
 .download-steps {
