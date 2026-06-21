@@ -1,165 +1,259 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Boutique — Nexaroth</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Shop Azeroth Style</title>
+
+<style>
+body{
+  background:#08111d;
+  color:white;
+  font-family:Arial;
+  margin:0;
+}
+
+header{
+  background:#10243d;
+  padding:20px;
+  text-align:center;
+  font-size:24px;
+  letter-spacing:2px;
+}
+
+.hero{
+  padding:60px;
+  text-align:center;
+  background:linear-gradient(135deg,#0b1a2f,#10243d);
+}
+
+.hero h1{
+  font-size:40px;
+  margin-bottom:10px;
+}
+
+.hero p{
+  opacity:0.8;
+}
+
+main{
+  display:grid;
+  grid-template-columns:1fr 320px;
+  gap:20px;
+  padding:20px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.card{
+  border:1px solid #2ea3ff33;
+  padding:15px;
+  border-radius:12px;
+  background:#0d1a2b;
+  transition:0.3s;
+  box-shadow:0 0 10px rgba(0,0,0,0.3);
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  border-color:#2ea3ff;
+}
+
+.card h3{
+  margin:0 0 10px 0;
+}
+
+.price{
+  color:#2ea3ff;
+  font-weight:bold;
+}
+
+button{
+  cursor:pointer;
+  background:#2ea3ff;
+  border:none;
+  padding:10px;
+  width:100%;
+  border-radius:8px;
+  color:white;
+  font-weight:bold;
+  margin-top:10px;
+  transition:0.3s;
+}
+
+button:hover{
+  background:#1b7fcc;
+}
+
+.cart{
+  border:1px solid #2ea3ff33;
+  padding:15px;
+  border-radius:12px;
+  background:#0d1a2b;
+  height:fit-content;
+  position:sticky;
+  top:20px;
+}
+
+.cart h2{
+  margin-top:0;
+}
+
+.item{
+  display:flex;
+  justify-content:space-between;
+  margin:8px 0;
+  font-size:14px;
+}
+
+.total{
+  border-top:1px solid #2ea3ff33;
+  margin-top:10px;
+  padding-top:10px;
+}
+
+.badge{
+  display:inline-block;
+  padding:5px 10px;
+  background:#2ea3ff22;
+  border:1px solid #2ea3ff;
+  border-radius:20px;
+  font-size:12px;
+  margin-bottom:10px;
+}
+
+.points{
+  color:#ffd700;
+}
+</style>
 </head>
 
 <body>
+
 <header>
-  <a href="index.html">← Retour</a>
-  <h1>Boutique — Nexaroth</h1>
+⚔ Azeroth Shop Premium ⚔
 </header>
+
+<div class="hero">
+<h1>Boutique MMORPG 2026</h1>
+<p>Objets, boosts, montures et points premium</p>
+</div>
 
 <main>
 
-<section id="auth">
-  <h2>Connexion</h2>
-  <input id="username" placeholder="Nom d'utilisateur">
-  <button id="loginBtn" class="btn">Se connecter</button>
-  <p>Utilisateur : <strong id="userLabel">Aucun</strong></p>
-</section>
+<!-- PRODUITS -->
+<div>
 
-<section id="balance">
-  <h2>Solde</h2>
-  <p>Vote : <strong id="vote">0</strong></p>
-  <p>Donation : <strong id="donation">0</strong></p>
-</section>
+<div class="badge">🔥 Offres du jour</div>
 
-<section id="shop">
-  <h2>Catalogue</h2>
-  <div id="grid" class="shop-grid"></div>
-</section>
+<div class="grid">
+
+<div class="card">
+<h3>Épée légendaire</h3>
+<p>Arme rare +20% crit</p>
+<div class="price">500 points</div>
+<button onclick="addItem('Épée légendaire',500)">Acheter</button>
+</div>
+
+<div class="card">
+<h3>Monture draconique</h3>
+<p>Vitesse +100%</p>
+<div class="price">1200 points</div>
+<button onclick="addItem('Monture draconique',1200)">Acheter</button>
+</div>
+
+<div class="card">
+<h3>Boost XP x2</h3>
+<p>24 heures</p>
+<div class="price">300 points</div>
+<button onclick="addItem('Boost XP x2',300)">Acheter</button>
+</div>
+
+<div class="card">
+<h3>Armure divine</h3>
+<p>Set complet épique</p>
+<div class="price">900 points</div>
+<button onclick="addItem('Armure divine',900)">Acheter</button>
+</div>
+
+<div class="card">
+<h3>Pack Gold</h3>
+<p>10 000 gold in-game</p>
+<div class="price">200 points</div>
+<button onclick="addItem('Pack Gold',200)">Acheter</button>
+</div>
+
+<div class="card">
+<h3>Title VIP</h3>
+<p>Accès premium + badge</p>
+<div class="price">1500 points</div>
+<button onclick="addItem('Title VIP',1500)">Acheter</button>
+</div>
+
+</div>
+</div>
+
+<!-- PANIER -->
+<aside class="cart">
+<h2>🛒 Panier</h2>
+
+<div id="cartItems"></div>
+
+<div class="total">
+Total : <span class="points" id="total">0</span> points
+</div>
+
+<button onclick="clearCart()">Vider le panier</button>
+<button onclick="checkout()">Payer</button>
+</aside>
 
 </main>
 
 <script>
-const API = "";
-let state = {
-  token: localStorage.getItem("nx_token"),
-  user: localStorage.getItem("nx_user"),
-  vote: 0,
-  donation: 0
-};
 
-const el = (id) => document.getElementById(id);
+let cart = [];
+let total = 0;
 
-function saveAuth(token, user) {
-  state.token = token;
-  state.user = user;
-  localStorage.setItem("nx_token", token);
-  localStorage.setItem("nx_user", user);
-  el("userLabel").textContent = user;
-  loadBalance();
+function addItem(name, price){
+  cart.push({name, price});
+  total += price;
+  renderCart();
 }
 
-async function api(path, options = {}) {
-  try {
-    const res = await fetch(API + path, {
-      ...options,
-      headers: {
-        "Content-Type": "application/json",
-        ...(state.token ? { Authorization: "Bearer " + state.token } : {}),
-        ...(options.headers || {})
-      }
-    });
-    return await res.json();
-  } catch (e) {
-    return null;
-  }
-}
+function renderCart(){
+  let container = document.getElementById("cartItems");
+  container.innerHTML = "";
 
-/* ---------------- AUTH ---------------- */
-
-el("loginBtn").onclick = async () => {
-  const username = el("username").value.trim();
-  if (!username) return alert("Nom requis");
-
-  const res = await api("/api/login", {
-    method: "POST",
-    body: JSON.stringify({ username })
-  });
-
-  if (res?.token) {
-    saveAuth(res.token, res.user_id);
-  } else {
-    // fallback demo
-    saveAuth("demo-" + Date.now(), username);
-  }
-};
-
-/* ---------------- BALANCE ---------------- */
-
-async function loadBalance() {
-  if (!state.token) return;
-
-  const res = await api("/api/balance");
-
-  if (res) {
-    state.vote = res.vote || 0;
-    state.donation = res.donation || 0;
-  }
-
-  el("vote").textContent = state.vote;
-  el("donation").textContent = state.donation;
-}
-
-/* ---------------- SHOP ---------------- */
-
-const ITEMS = [
-  { id:"mount_fly", name:"Griffon Arcanique", cat:"mount", vote:120, donation:1200 },
-  { id:"mount_ground", name:"Destrier Runique", cat:"mount", vote:80, donation:800 },
-  { id:"transmog_knight", name:"Armure du Chevalier", cat:"transmog", vote:60, donation:600 },
-  { id:"gold_100k", name:"Pack 100k Gold", cat:"gold", vote:40, donation:400 },
-];
-
-function render() {
-  const grid = el("grid");
-  grid.innerHTML = "";
-
-  ITEMS.forEach(i => {
-    const div = document.createElement("div");
-    div.className = "shop-item";
-
-    div.innerHTML = `
-      <h3>${i.name}</h3>
-      <p>${i.cat}</p>
-      <p>Vote: ${i.vote} | Donation: ${i.donation}</p>
-      <button class="btn vote">Acheter vote</button>
-      <button class="btn don">Acheter don</button>
+  cart.forEach((item, index)=>{
+    container.innerHTML += `
+      <div class="item">
+        <span>${item.name}</span>
+        <span>${item.price}</span>
+      </div>
     `;
-
-    div.querySelector(".vote").onclick = () => buy(i.id, "vote");
-    div.querySelector(".don").onclick = () => buy(i.id, "donation");
-
-    grid.appendChild(div);
   });
+
+  document.getElementById("total").innerText = total;
 }
 
-async function buy(id, method) {
-  if (!state.token) return alert("Connecte-toi");
+function clearCart(){
+  cart = [];
+  total = 0;
+  renderCart();
+}
 
-  const res = await api("/api/purchase", {
-    method: "POST",
-    body: JSON.stringify({ item_id: id, method })
-  });
-
-  if (res?.ok) {
-    alert("Achat effectué");
-    loadBalance();
-  } else {
-    alert("Erreur achat");
+function checkout(){
+  if(cart.length === 0){
+    alert("Panier vide !");
+    return;
   }
+
+  alert("Achat validé ! Total: " + total + " points");
+  clearCart();
 }
-
-/* ---------------- INIT ---------------- */
-
-if (state.user) el("userLabel").textContent = state.user;
-
-render();
-loadBalance();
 
 </script>
 
