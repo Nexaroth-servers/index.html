@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mist of Pandaria - Serveur Privé</title>
+    <title>Nexaroth - Mist of Pandaria</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,14 +12,15 @@
         <div class="nav-container">
             <div class="logo">
                 <span class="logo-icon">☯️</span>
-                <span class="logo-text">Pandaria Server</span>
+                <span class="logo-text">Nexaroth</span>
             </div>
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">ACCUEIL</a></li>
-                <li><a href="#realm" class="nav-link">REALM</a></li>
-                <li><a href="#classes" class="nav-link">CLASSES</a></li>
-                <li><a href="#raids" class="nav-link">RAIDS</a></li>
-                <li><a href="#download" class="nav-link">TÉLÉCHARGER</a></li>
+                <li><a href="index.html#home" class="nav-link" target="_blank" rel="noopener noreferrer">ACCUEIL</a></li>
+                <li><a href="index.html#realm" class="nav-link" target="_blank" rel="noopener noreferrer">REALM</a></li>
+                <li><a href="index.html#classes" class="nav-link" target="_blank" rel="noopener noreferrer">CLASSES</a></li>
+                <li><a href="index.html#raids" class="nav-link" target="_blank" rel="noopener noreferrer">RAIDS</a></li>
+                <li><a href="download.html" class="nav-link" target="_blank" rel="noopener noreferrer">TÉLÉCHARGER</a></li>
+                <li><a href="shop.html" class="nav-link" target="_blank" rel="noopener noreferrer">BOUTIQUE</a></li>
             </ul>
             <div class="nav-auth">
                 <button class="btn-login">Connexion</button>
@@ -55,8 +56,8 @@
             </div>
 
             <div class="hero-buttons">
-                <button class="btn-primary" onclick="scrollToSection('#download')">CRÉER UN COMPTE</button>
-                <button class="btn-secondary" onclick="scrollToSection('#realm')">EN SAVOIR PLUS</button>
+                <button class="btn-primary" onclick="window.open('download.html','#_blank')">CRÉER UN COMPTE</button>
+                <button class="btn-secondary" onclick="window.open('index.html#realm','_blank')">EN SAVOIR PLUS</button>
             </div>
         </div>
 
@@ -340,22 +341,21 @@
             <div class="download-card">
                 <h3>Créer un Compte</h3>
                 <p>Inscrivez-vous gratuitement et commencez votre aventure</p>
-                <button class="btn-primary large">S'INSCRIRE</button>
+                <button class="btn-primary large" onclick="window.open('download.html#signup','_blank')">S'INSCRIRE</button>
             </div>
 
             <div class="download-card">
                 <h3>Télécharger le Client</h3>
-                <p>Téléchargez le client officiel de World of Warcraft</p>
+                <p>Téléchargez le client officiel de World of Warcraft (voir page de téléchargement pour les versions et langues).</p>
                 <div class="download-buttons">
-                    <button class="btn-download">Windows</button>
-                    <button class="btn-download">macOS</button>
+                    <button class="btn-download" onclick="window.open('download.html','_blank')">Télécharger</button>
                 </div>
             </div>
 
             <div class="download-card">
                 <h3>Configuration</h3>
                 <p>Guide d'installation rapide et support technique</p>
-                <button class="btn-secondary large">GUIDE D'INSTALLATION</button>
+                <button class="btn-secondary large" onclick="window.open('download.html#guide','_blank')">GUIDE D'INSTALLATION</button>
             </div>
         </div>
 
@@ -377,26 +377,26 @@
                 <h4>À PROPOS</h4>
                 <p>Serveur privé Mist of Pandaria offrant une expérience authentique et améliorée du contenu classique.</p>
                 <div class="social-links">
-                    <a href="#" class="social-icon">Discord</a>
-                    <a href="#" class="social-icon">Forum</a>
-                    <a href="#" class="social-icon">Wiki</a>
+                    <a href="https://www.wowhead.com/mop-classic" class="social-icon" target="_blank" rel="noopener noreferrer">Wowhead MOP</a>
+                    <a href="https://discord.gg/zcH3JXHeuQ" class="social-icon" target="_blank" rel="noopener noreferrer">Discord</a>
+                    <a href="https://legacy-wow.com/mop-addons/" class="social-icon" target="_blank" rel="noopener noreferrer">Addons</a>
                 </div>
             </div>
 
             <div class="footer-section">
                 <h4>LIENS RAPIDES</h4>
                 <ul>
-                    <li><a href="#">Créer un compte</a></li>
-                    <li><a href="#">Guide du débutant</a></li>
-                    <li><a href="#">Règlement du serveur</a></li>
-                    <li><a href="#">Contacter le support</a></li>
+                    <li><a href="download.html" target="_blank" rel="noopener noreferrer">Créer un compte</a></li>
+                    <li><a href="index.html#guide" target="_blank" rel="noopener noreferrer">Guide du débutant</a></li>
+                    <li><a href="index.html#rules" target="_blank" rel="noopener noreferrer">Règlement du serveur</a></li>
+                    <li><a href="index.html#support" target="_blank" rel="noopener noreferrer">Contacter le support</a></li>
                 </ul>
             </div>
 
             <div class="footer-section">
                 <h4>INFORMATIONS</h4>
-                <p>Email: support@pandaria-server.fr</p>
-                <p>Discord: discord.gg/pandaria</p>
+                <p>Email: support@nexaroth.fr</p>
+                <p>Discord: <a href="https://discord.gg/zcH3JXHeuQ" target="_blank" rel="noopener noreferrer">discord.gg/zcH3JXHeuQ</a></p>
                 <p>Statut du serveur: <span class="status-online">● EN LIGNE</span></p>
             </div>
 
@@ -411,7 +411,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 Mist of Pandaria Server. Tous droits réservés.</p>
+            <p>&copy; 2026 Nexaroth. Tous droits réservés.</p>
             <p>Ce serveur n'est pas affilié à Blizzard Entertainment.</p>
         </div>
     </footer>
