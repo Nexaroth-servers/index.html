@@ -155,35 +155,56 @@ body {
     z-index: 1;
 }
 
-.hero-content {
+/* New layout for hero with side video/banner */
+.hero-inner {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
     position: relative;
     z-index: 10;
-    text-align: center;
+}
+
+.hero-content {
+    flex: 1 1 60%;
+    z-index: 10;
+    text-align: left;
     animation: fadeInUp 1s ease-out;
 }
 
-.mist-animation {
-    position: absolute;
-    top: -50px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 400px;
-    height: 300px;
-    background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
-    border-radius: 50%;
-    filter: blur(40px);
-    animation: float 6s ease-in-out infinite;
+.hero-side-video {
+    flex: 0 0 380px;
+    max-width: 36%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+    position: relative;
+    background: #000;
 }
 
-@keyframes float {
-    0%, 100% {
-        transform: translateX(-50%) translateY(0);
-        opacity: 0.3;
-    }
-    50% {
-        transform: translateX(-50%) translateY(-30px);
-        opacity: 0.6;
-    }
+.hero-side-video iframe,
+.hero-side-video video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    aspect-ratio: 16/9;
+}
+
+/* banner overlay inside the side video */
+.video-banner {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(0,0,0,0.75), rgba(0,0,0,0.35));
+    color: #fff;
+    padding: 10px 14px;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 0.95rem;
 }
 
 .hero-title {
@@ -248,7 +269,7 @@ body {
 .hero-buttons {
     display: flex;
     gap: 2rem;
-    justify-content: center;
+    justify-content: flex-start;
     animation: fadeInUp 1s ease-out 0.6s both;
     flex-wrap: wrap;
 }
@@ -828,6 +849,12 @@ section {
 }
 
 /* ==================== RESPONSIVE ==================== */
+@media (max-width: 900px) {
+    .hero-inner { flex-direction: column; align-items: center; }
+    .hero-content { text-align: center; }
+    .hero-side-video { max-width: 480px; width: 100%; }
+}
+
 @media (max-width: 768px) {
     .nav-menu {
         gap: 1rem;
