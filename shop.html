@@ -2,86 +2,64 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Shop Azeroth Style</title>
+<title>Azeroth Shop</title>
 
 <style>
 body{
-  background:#08111d;
-  color:white;
-  font-family:Arial;
   margin:0;
+  font-family:Arial;
+  background:#070f1a;
+  color:white;
 }
 
 header{
-  background:#10243d;
   padding:20px;
+  background:#0e1b2e;
   text-align:center;
-  font-size:24px;
-  letter-spacing:2px;
+  font-size:22px;
+  font-weight:bold;
 }
 
-.hero{
-  padding:60px;
-  text-align:center;
-  background:linear-gradient(135deg,#0b1a2f,#10243d);
-}
-
-.hero h1{
-  font-size:40px;
-  margin-bottom:10px;
-}
-
-.hero p{
-  opacity:0.8;
-}
-
-main{
+.container{
   display:grid;
-  grid-template-columns:1fr 320px;
+  grid-template-columns:1fr 300px;
   gap:20px;
   padding:20px;
 }
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
 }
 
 .card{
-  border:1px solid #2ea3ff33;
+  background:#0e1b2e;
   padding:15px;
-  border-radius:12px;
-  background:#0d1a2b;
+  border-radius:10px;
+  border:1px solid #2ea3ff33;
   transition:0.3s;
-  box-shadow:0 0 10px rgba(0,0,0,0.3);
 }
 
 .card:hover{
-  transform:translateY(-5px);
+  transform:scale(1.03);
   border-color:#2ea3ff;
-}
-
-.card h3{
-  margin:0 0 10px 0;
 }
 
 .price{
   color:#2ea3ff;
   font-weight:bold;
+  margin:10px 0;
 }
 
 button{
-  cursor:pointer;
-  background:#2ea3ff;
-  border:none;
-  padding:10px;
   width:100%;
-  border-radius:8px;
+  padding:10px;
+  border:none;
+  background:#2ea3ff;
   color:white;
-  font-weight:bold;
-  margin-top:10px;
-  transition:0.3s;
+  border-radius:6px;
+  cursor:pointer;
 }
 
 button:hover{
@@ -89,160 +67,147 @@ button:hover{
 }
 
 .cart{
-  border:1px solid #2ea3ff33;
+  background:#0e1b2e;
   padding:15px;
-  border-radius:12px;
-  background:#0d1a2b;
-  height:fit-content;
+  border-radius:10px;
   position:sticky;
   top:20px;
-}
-
-.cart h2{
-  margin-top:0;
+  height:fit-content;
 }
 
 .item{
   display:flex;
   justify-content:space-between;
-  margin:8px 0;
+  margin:5px 0;
   font-size:14px;
 }
 
 .total{
-  border-top:1px solid #2ea3ff33;
   margin-top:10px;
+  border-top:1px solid #2ea3ff33;
   padding-top:10px;
-}
-
-.badge{
-  display:inline-block;
-  padding:5px 10px;
-  background:#2ea3ff22;
-  border:1px solid #2ea3ff;
-  border-radius:20px;
-  font-size:12px;
-  margin-bottom:10px;
-}
-
-.points{
-  color:#ffd700;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-⚔ Azeroth Shop Premium ⚔
-</header>
+<header>⚔ Azeroth Shop Premium ⚔</header>
 
-<div class="hero">
-<h1>Boutique MMORPG 2026</h1>
-<p>Objets, boosts, montures et points premium</p>
-</div>
+<div class="container">
 
-<main>
-
-<!-- PRODUITS -->
-<div>
-
-<div class="badge">🔥 Offres du jour</div>
-
+<!-- SHOP -->
 <div class="grid">
 
+<!-- MONTURES -->
 <div class="card">
-<h3>Épée légendaire</h3>
-<p>Arme rare +20% crit</p>
-<div class="price">500 points</div>
-<button onclick="addItem('Épée légendaire',500)">Acheter</button>
+<h3>🐉 Invincible</h3>
+<p>Monture légendaire Lich King</p>
+<div class="price">5000 pts</div>
+<button onclick="add('Invincible',5000)">Acheter</button>
 </div>
 
 <div class="card">
-<h3>Monture draconique</h3>
-<p>Vitesse +100%</p>
-<div class="price">1200 points</div>
-<button onclick="addItem('Monture draconique',1200)">Acheter</button>
+<h3>🐉 Drake du néant</h3>
+<p>Monture volante rare</p>
+<div class="price">2500 pts</div>
+<button onclick="add('Drake du néant',2500)">Acheter</button>
 </div>
 
 <div class="card">
-<h3>Boost XP x2</h3>
-<p>24 heures</p>
-<div class="price">300 points</div>
-<button onclick="addItem('Boost XP x2',300)">Acheter</button>
+<h3>🐎 Destrier spectral</h3>
+<p>Monture rare cheval fantôme</p>
+<div class="price">1800 pts</div>
+<button onclick="add('Destrier spectral',1800)">Acheter</button>
+</div>
+
+<!-- TRANSMO -->
+<div class="card">
+<h3>👕 Set Transmo Mage</h3>
+<p>Skin complet arcanique</p>
+<div class="price">900 pts</div>
+<button onclick="add('Transmo Mage',900)">Acheter</button>
 </div>
 
 <div class="card">
-<h3>Armure divine</h3>
-<p>Set complet épique</p>
-<div class="price">900 points</div>
-<button onclick="addItem('Armure divine',900)">Acheter</button>
+<h3>👕 Set Guerrier Gladiateur</h3>
+<p>Armure PvP légendaire</p>
+<div class="price">1000 pts</div>
+<button onclick="add('Transmo Guerrier',1000)">Acheter</button>
+</div>
+
+<!-- GOLD -->
+<div class="card">
+<h3>💰 100 000 Gold</h3>
+<p>Argent in-game</p>
+<div class="price">1200 pts</div>
+<button onclick="add('Gold 100k',1200)">Acheter</button>
 </div>
 
 <div class="card">
-<h3>Pack Gold</h3>
-<p>10 000 gold in-game</p>
-<div class="price">200 points</div>
-<button onclick="addItem('Pack Gold',200)">Acheter</button>
+<h3>💰 50 000 Gold</h3>
+<p>Argent in-game</p>
+<div class="price">700 pts</div>
+<button onclick="add('Gold 50k',700)">Acheter</button>
 </div>
 
+<!-- COMPOS -->
 <div class="card">
-<h3>Title VIP</h3>
-<p>Accès premium + badge</p>
-<div class="price">1500 points</div>
-<button onclick="addItem('Title VIP',1500)">Acheter</button>
+<h3>⚒️ Compos métiers pack</h3>
+<p>Herboristerie + minage + alchi</p>
+<div class="price">500 pts</div>
+<button onclick="add('Compos métiers',500)">Acheter</button>
 </div>
 
+<!-- BOOST -->
+<div class="card">
+<h3>⚡ Sésame lvl 80</h3>
+<p>Personnage instant 80</p>
+<div class="price">3000 pts</div>
+<button onclick="add('Sésame 80',3000)">Acheter</button>
 </div>
+
 </div>
 
 <!-- PANIER -->
 <aside class="cart">
 <h2>🛒 Panier</h2>
-
-<div id="cartItems"></div>
+<div id="cart"></div>
 
 <div class="total">
-Total : <span class="points" id="total">0</span> points
+Total : <span id="total">0</span> pts
 </div>
 
-<button onclick="clearCart()">Vider le panier</button>
-<button onclick="checkout()">Payer</button>
+<button onclick="checkout()">Valider achat</button>
 </aside>
 
-</main>
+</div>
 
 <script>
 
 let cart = [];
 let total = 0;
 
-function addItem(name, price){
-  cart.push({name, price});
+function add(name,price){
+  cart.push({name,price});
   total += price;
-  renderCart();
+  render();
 }
 
-function renderCart(){
-  let container = document.getElementById("cartItems");
-  container.innerHTML = "";
+function render(){
+  let c = document.getElementById("cart");
+  c.innerHTML = "";
 
-  cart.forEach((item, index)=>{
-    container.innerHTML += `
+  cart.forEach(i=>{
+    c.innerHTML += `
       <div class="item">
-        <span>${item.name}</span>
-        <span>${item.price}</span>
+        <span>${i.name}</span>
+        <span>${i.price}</span>
       </div>
     `;
   });
 
   document.getElementById("total").innerText = total;
-}
-
-function clearCart(){
-  cart = [];
-  total = 0;
-  renderCart();
 }
 
 function checkout(){
@@ -252,7 +217,10 @@ function checkout(){
   }
 
   alert("Achat validé ! Total: " + total + " points");
-  clearCart();
+
+  cart = [];
+  total = 0;
+  render();
 }
 
 </script>
