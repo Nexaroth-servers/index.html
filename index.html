@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexaroth - Wrath of the Lich King 3.3.5A</title>
+    <title>Nexaroth - Wrath of the Lich King 3.3.5</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -30,11 +30,14 @@
 
     <!-- Hero Banner avec animation -->
     <header id="home" class="hero-banner">
-        <video autoplay muted loop class="video-bg">
-            <!-- Placeholder video data URI (remplacez par votre mp4 du Roi Liche en production) -->
-            <source src="data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc2MmZm9yL2ZmZW1wIGVnLWJhc2UNCml2Ziw=" type="video/mp4">
+        <!-- Background video (MP4) with poster. Replace the URLs below with your real files -->
+        <video id="heroVideo" class="video-bg" autoplay muted loop playsinline poster="https://...">
+            <source src="https://..." type="video/mp4">
+            Votre navigateur ne supporte pas la balise vidéo.
         </video>
         <div class="hero-overlay"></div>
+        <!-- Unmute button for native video -->
+        <button class="video-unmute" id="unmute-button" aria-label="Activer le son">Activer le son</button>
         
         <div class="hero-inner">
           <div class="hero-content">
@@ -62,11 +65,6 @@
                   <button class="btn-secondary" onclick="window.open('index.html#realm','_blank')">EN SAVOIR PLUS</button>
               </div>
           </div>
-
-          <div class="hero-side-video" aria-hidden="false">
-            <iframe src="https://www.youtube.com/embed/ZUPjV6yiMB4?autoplay=1&mute=1&loop=1&playlist=ZUPjV6yiMB4&controls=0&rel=0" 
-                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
         </div>
 
         <div class="floating-elements">
@@ -87,7 +85,7 @@
             <div class="realm-card">
                 <div class="card-icon">🌍</div>
                 <h3>Northrend Authentique</h3>
-                <p>Nexaroth Wrath of the Lich King 3.3.5A complet — donjons, raids et mécanique d'époque fidèlement reproduits.</p>
+                <p>Serveur Wrath of the Lich King 3.3.5 complet — donjons, raids et mécanique d'époque fidèlement reproduits.</p>
             </div>
 
             <div class="realm-card">
@@ -275,7 +273,7 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h4>À PROPOS</h4>
-                <p>Nexaroth Wrath of the Lich King 3.3.5 offrant une expérience authentique et améliorée du contenu classique.</p>
+                <p>Serveur privé Wrath of the Lich King 3.3.5 offrant une expérience authentique et améliorée du contenu classique.</p>
                 <div class="social-links">
                     <a href="https://www.wowhead.com/wotlk-classic" class="social-icon" target="_blank" rel="noopener noreferrer">Wowhead WotLK</a>
                     <a href="https://discord.gg/zcH3JXHeuQ" class="social-icon" target="_blank" rel="noopener noreferrer">Discord</a>
@@ -295,7 +293,7 @@
 
             <div class="footer-section">
                 <h4>INFORMATIONS</h4>
-                <p>Email:nexarothservers@atomicmail.io</p>
+                <p>Email: support@nexaroth.fr</p>
                 <p>Discord: <a href="https://discord.gg/zcH3JXHeuQ" target="_blank" rel="noopener noreferrer">discord.gg/zcH3JXHeuQ</a></p>
                 <p>Statut du serveur: <span class="status-online">● EN LIGNE</span></p>
             </div>
@@ -312,7 +310,7 @@
 
         <div class="footer-bottom">
             <p>&copy; 2026 Nexaroth. Tous droits réservés.</p>
-            <p>.</p>
+            <p>Ce serveur n'est pas affilié à Blizzard Entertainment.</p>
         </div>
     </footer>
 
