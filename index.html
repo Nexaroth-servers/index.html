@@ -30,13 +30,10 @@
 
     <!-- Hero Banner avec animation -->
     <header id="home" class="hero-banner">
-        <!-- Background video (MP4) with poster. Replace the URLs below with your real files -->
-        <video id="heroVideo" class="video-bg" autoplay muted loop playsinline poster="https://...">
-            <source src="https://..." type="video/mp4">
-            Votre navigateur ne supporte pas la balise vidéo.
-        </video>
+        <!-- YouTube embed as hero background/video (Lich King video) -->
+        <iframe id="ytplayer" class="video-bg" src="https://www.youtube.com/embed/ZUPjV6yiMB4?autoplay=1&mute=1&loop=1&playlist=ZUPjV6yiMB4&controls=0&rel=0&enablejsapi=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         <div class="hero-overlay"></div>
-        <!-- Unmute button for native video -->
+        <!-- Unmute button for YouTube iframe -->
         <button class="video-unmute" id="unmute-button" aria-label="Activer le son">Activer le son</button>
         
         <div class="hero-inner">
