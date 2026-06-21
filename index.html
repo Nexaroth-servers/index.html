@@ -95,14 +95,29 @@ document.addEventListener("click", function(){
 
 </script>
 <body>
- 
-<video class="bg" autoplay muted loop playsinline>
-    <source src="background.mp4" type="video/mp4">
-</video>
+
+<div class="bg-image"></div>
 
 <audio id="bgMusic" loop>
     <source src="music.mp3" type="audio/mpeg">
 </audio>
+
+<div class="overlay"></div>
+
+<header class="navbar">
+
+    <div class="logo">NEXAROTH</div>
+
+    <nav>
+        <a href="#accueil">Accueil</a>
+        <a href="https://nexaroth.com/register">⚔ Inscription</a>
+        <a href="#downloads">📥 Téléchargement</a>
+        <a href="https://nexaroth.com/shop">🛒 Boutique</a>
+        <a href="https://nexaroth.com/vote">🏆 Vote</a>
+        <a href="https://discord.gg/zcH3JXHeuQ">🎮 Discord</a>
+    </nav>
+
+</header>
 
 <div class="overlay"></div>
 
@@ -121,20 +136,12 @@ document.addEventListener("click", function(){
 
 </header>
 
-<div class="bg-image"></div>
-
-<audio id="bgMusic" loop>
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
-
 <div class="overlay"></div>
 
 <header class="navbar">
     ...
 </header>
-<video class="bg" autoplay muted loop playsinline>
-<source src="background.mp4" type="video/mp4">
-</video>
+
 <div class="overlay"></div>
 
 <header class="navbar">
@@ -200,11 +207,6 @@ XP x5 • Réputation x5 • Drop x5 • Métiers x5
 href="https://discord.gg/zcH3JXHeuQ"
 target="_blank">
 🎮 Discord
-</a>
-
-<a class="btn blue"
-onclick="toggleMusic()">
-🎵 Musique ON/OFF
 </a>
 
 </div>
