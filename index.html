@@ -1,322 +1,162 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXAROTH | Mist of Pandaria 5.4.8</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* ==========================================================================
-           VARIABLES GLOBALES & CONFIGURATION
-           ========================================================================== */
-        :root {
-            --gold: #d9b86c;
-            --gold-gradient: linear-gradient(#e6cb86, #8e6326);
-            --jade: #6fd3a0;
-            --jade-dark: #295946;
-            --jade-gradient: linear-gradient(#72d5a5, #275846);
-            --panel: rgba(10, 18, 15, 0.82);
-            --border-light: rgba(111, 211, 160, 0.15);
-            --radius-standard: 10px;
-            
-            /* Animations */
-            --transition-fast: all 0.3s ease;
-            --animation-fade-in: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXAROTH | Mist of Pandaria 5.4.7</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&display=swap" rel="stylesheet">
 
-        html {
-            scroll-behavior: smooth;
-        }
+<link rel="stylesheet" href="css/style.css">
+</head>
 
-        body {
-            font-family: 'Cinzel', serif;
-            background: #000;
-            color: white;
-            overflow-x: hidden;
-        }
+<body>
 
-        /* ==========================================================================
-           EFFETS DE FOND (ANIMATIONS ATMOSPHÉRIQUES)
-           ========================================================================== */
-        .bg {
-            position: fixed;
-            inset: 0;
-            background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.80)), url("pandaria.jpg");
-            background-size: cover;
-            background-position: center;
-            z-index: -5;
-            animation: bgZoom 40s ease-in-out infinite alternate;
-        }
+<div class="background"></div>
+<div class="fog"></div>
 
-        .fog {
-            position: fixed;
-            inset: 0;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.08), transparent 70%);
-            z-index: -4;
-            animation: fogMove 18s ease-in-out infinite alternate;
-        }
+<header class="navbar">
+    <div class="logo">NEXAROTH</div>
 
-        @keyframes bgZoom {
-            from { transform: scale(1); }
-            to { transform: scale(1.08); }
-        }
+    <nav>
+        <a href="#royaume">Royaume</a>
+        <a href="#downloads">Téléchargements</a>
+        <a href="#features">Fonctionnalités</a>
+        <a href="#discord">Discord</a>
+    </nav>
+</header>
 
-        @keyframes fogMove {
-            from { transform: translateX(-60px); }
-            to { transform: translateX(60px); }
-        }
+<section class="hero">
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(25px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    <div class="hero-content">
 
-        /* ==========================================================================
-           NAVBAR
-           ========================================================================== */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 18px 40px;
-            background: rgba(0, 0, 0, 0.55);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            z-index: 9999;
-        }
+        <h1>NEXAROTH</h1>
 
-        .logo {
-            font-size: 38px;
-            font-weight: 700;
-            color: var(--gold);
-            text-shadow: 0 0 10px var(--gold), 0 0 20px rgba(217, 184, 108, 0.5);
-        }
+        <h2>Mist of Pandaria 5.4.7</h2>
 
-        .nav-links {
-            display: flex;
-            gap: 24px;
-        }
+        <p>
+            XP x5 • Réputation x5 • Honneur x5 • Drop x5
+        </p>
 
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: var(--transition-fast);
-        }
+        <div class="hero-buttons">
 
-        .nav-links a:hover {
-            color: var(--jade);
-            text-shadow: 0 0 12px var(--jade);
-        }
+            <a href="#downloads" class="btn gold">
+                Télécharger
+            </a>
 
-        /* ==========================================================================
-           HERO SECTION
-           ========================================================================== */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 20px;
-        }
+            <a href="https://discord.gg/zcH3JXHeuQ" class="btn jade">
+                Discord
+            </a>
 
-        .hero-content {
-            max-width: 1000px;
-            opacity: 0;
-            animation: var(--animation-fade-in);
-            animation-delay: 0.1s;
-        }
+        </div>
 
-        .hero h1 {
-            font-size: 140px;
-            color: var(--gold);
-            text-shadow: 0 0 15px var(--gold), 0 0 35px rgba(217, 184, 108, 0.6);
-        }
+    </div>
 
-        .hero h2 {
-            font-size: 42px;
-            color: var(--jade);
-            margin-bottom: 20px;
-        }
+</section>
 
-        .hero p {
-            font-size: 22px;
-            margin-bottom: 30px;
-        }
+<section id="royaume" class="section">
 
-        /* BOUTONS GENERIQUES */
-        .btn {
-            display: inline-block;
-            padding: 16px 34px;
-            margin: 10px;
-            border-radius: var(--radius-standard);
-            text-decoration: none;
-            transition: var(--transition-fast);
-        }
+    <h2>Le Royaume</h2>
 
-        .btn-gold { background: var(--gold-gradient); color: white; }
-        .btn-jade { background: var(--jade-gradient); color: white; }
+    <div class="cards">
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-        }
+        <div class="card">
+            <h3>XP</h3>
+            <span>x5</span>
+        </div>
 
-        /* ==========================================================================
-           LAYOUTS COMMUNS DES SECTIONS
-           ========================================================================== */
-        .realm-section, .download-section, .discord-premium {
-            max-width: 1200px;
-            margin: 60px auto;
-            padding: 40px 20px;
-            opacity: 0;
-            animation: var(--animation-fade-in);
-        }
+        <div class="card">
+            <h3>Réputation</h3>
+            <span>x5</span>
+        </div>
 
-        .section-title {
-            font-size: 28px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--gold);
-            margin-bottom: 30px;
-            border-left: 4px solid var(--jade);
-            padding-left: 15px;
-        }
+        <div class="card">
+            <h3>Honneur</h3>
+            <span>x5</span>
+        </div>
 
-        .cards-grid, .download-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-        }
+        <div class="card">
+            <h3>Drop</h3>
+            <span>x5</span>
+        </div>
 
-        /* ==========================================================================
-           SECTION ROYAUME (RATES & REALMLIST)
-           ========================================================================== */
-        .realm-section { animation-delay: 0.2s; }
+    </div>
 
-        .realm-card {
-            background: var(--panel);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-standard);
-            padding: 25px;
-            text-align: center;
-            transition: var(--transition-fast);
-        }
+</section>
 
-        .realm-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--jade);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-        }
+<section id="downloads" class="section">
 
-        .realm-card h3 {
-            color: var(--gold);
-            margin-bottom: 15px;
-            font-size: 20px;
-        }
+    <h2>Téléchargements</h2>
 
-        .realm-card p {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #e2e8f0;
-        }
+    <div class="cards">
 
-        .realm-card span {
-            color: var(--jade);
-            font-weight: bold;
-            text-shadow: 0 0 8px rgba(111, 211, 160, 0.4);
-        }
+        <a class="download-card" href="#">
+            Client complet 5.4.7
+        </a>
 
-        #realmlist {
-            width: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--jade);
-            padding: 10px;
-            text-align: center;
-            border-radius: 6px;
-            font-family: monospace;
-            margin-bottom: 15px;
-        }
+        <a class="download-card" href="#">
+            Launcher
+        </a>
 
-        .realm-card button {
-            background: var(--jade-gradient);
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-family: 'Cinzel', serif;
-            transition: var(--transition-fast);
-        }
+        <a class="download-card" href="#">
+            Patch HD
+        </a>
 
-        .realm-card button:hover {
-            transform: scale(1.05);
-        }
+        <a class="download-card" href="#">
+            Addons
+        </a>
 
-        /* ==========================================================================
-           SECTION TELECHARGEMENTS
-           ========================================================================== */
-        .download-section { animation-delay: 0.3s; }
+    </div>
 
-        .download-card {
-            background: var(--panel);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-standard);
-            padding: 30px 20px;
-            text-align: center;
-            text-decoration: none;
-            color: white;
-            transition: var(--transition-fast);
-        }
+</section>
 
-        .download-card:hover {
-            transform: scale(1.03);
-            border-color: var(--gold);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
-        }
+<section id="features" class="section">
 
-        .download-card .flag {
-            font-size: 40px;
-            margin-bottom: 15px;
-            display: inline-block;
-        }
+    <h2>Fonctionnalités</h2>
 
-        .download-card h3 {
-            color: var(--gold);
-            font-size: 18px;
-            margin-bottom: 8px;
-        }
+    <div class="cards">
 
-        .download-card p {
-            color: var(--text-muted);
-            font-size: 14px;
-        }
+        <div class="card">
+            PvE Progressif
+        </div>
 
-        /* ==========================================================================
-           SECTION DISCORD
-           ========================================================================== */
-        .discord-premium { animation-delay: 0.4s; }
+        <div class="card">
+            PvP Équilibré
+        </div>
 
-        .discord-box {
-            background: linear-gradient(135deg, rgba(41, 89, 70, 0.2) 0%, rgba(10, 18, 15, 0.9) 100%);
-            border: 1px solid var(--jade);
-            border-radius: var(--radius-standard);
-            padding: 50px 30px;
-            text-align: center;
+        <div class="card">
+            Événements Automatiques
+        </div>
+
+        <div class="card">
+            Support Actif
+        </div>
+
+    </div>
+
+</section>
+
+<section id="discord" class="discord">
+
+    <h2>Communauté Discord</h2>
+
+    <p>
+        Rejoignez la communauté NEXAROTH et participez aux événements.
+    </p>
+
+    <a href="https://discord.gg/zcH3JXHeuQ" class="btn jade">
+        Rejoindre Discord
+    </a>
+
+</section>
+
+<footer>
+    © 2026 NEXAROTH - Mist of Pandaria 5.4.7
+</footer>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>
