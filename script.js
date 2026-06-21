@@ -1,156 +1,203 @@
-// Script pour le site Nexaroth Servers
-
-// Gestion du formulaire d'inscription
-document.querySelector('.formulaire-inscription').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const username = document.getElementById('username').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const passwordConfirm = document.getElementById('password-confirm').value;
-    
-    // Validation basique
-    if (password !== passwordConfirm) {
-        alert('Les mots de passe ne correspondent pas !');
-        return;
+// Scroll fluide vers les sections
+function scrollToSection(selectorId) {
+    const element = document.querySelector(selectorId);
+    if (element) {
+        element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
     }
-    
-    if (password.length < 6) {
-        alert('Le mot de passe doit contenir au moins 6 caractères !');
-        return;
-    }
-    
-    // Simulation d'enregistrement
-    alert(`Bienvenue ${username} ! Votre compte a été créé avec succès.\nUn email de confirmation a été envoyé à : ${email}`);
-    this.reset();
-});
-
-// Animation des statistiques du serveur
-function animateStats() {
-    const stats = [
-        { id: 'joueurs-online', target: 234, current: 0 },
-        { id: 'uptime', target: 99.8, current: 0, suffix: '%' },
-        { id: 'ping', target: 45, current: 0, suffix: 'ms' }
-    ];
-    
-    stats.forEach(stat => {
-        const element = document.getElementById(stat.id);
-        const increment = stat.target / 50;
-        
-        let current = 0;
-        const interval = setInterval(() => {
-            current += increment;
-            if (current >= stat.target) {
-                current = stat.target;
-                clearInterval(interval);
-            }
-            if (stat.suffix) {
-                element.textContent = current.toFixed(1) + stat.suffix;
-            } else {
-                element.textContent = Math.floor(current);
-            }
-        }, 30);
-    });
 }
-
-// Lancer l'animation des stats au chargement
-window.addEventListener('load', () => {
-    animateStats();
-});
-
-// Gestion des boutons d'achat
-document.querySelectorAll('.btn-acheter').forEach(button => {
-    button.addEventListener('click', function() {
-        const item = this.closest('.item-card').querySelector('h3').textContent;
-        alert(`Merci pour votre intérêt !\n\n${item}\n\nVous allez être redirigé vers le système de paiement.`);
-    });
-});
-
-// Gestion des boutons de téléchargement
-document.querySelectorAll('.btn-download').forEach(button => {
-    button.addEventListener('click', function() {
-        const downloadType = this.closest('.download-card').querySelector('h3').textContent;
-        console.log(`Téléchargement de : ${downloadType}`);
-        // Remplacer par votre lien de téléchargement réel
-        // window.location.href = 'https://votre-lien-de-telechargement.com';
-    });
-});
 
 // Smooth scroll pour les liens de navigation
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+    anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href !== '#') {
+            e.preventDefault();
+            scrollToSection(href);
         }
     });
 });
 
-// Gestion de la musique de fond (optionnel)
-function initializeAudio() {
-    const audio = document.querySelector('.musique-fond');
-    if (audio) {
-        audio.volume = 0.3; // Volume à 30%
-        // La musique se joue automatiquement avec autoplay
-    }
-}
+// Animation des éléments lors du scroll
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
 
-// Appeler les fonctions au chargement
-window.addEventListener('DOMContentLoaded', () => {
-    initializeAudio();
+const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+// Observer toutes les cartes
+document.querySelectorAll('.realm-card, .class-card, .reward-item, .download-card').forEach(card => {
+    card.style.opacity = '0';
+    observer.observe(card);
 });
 
-// Mise à jour en temps réel des statistiques du serveur
-function updateServerStats() {
-    // Simulation de mise à jour des stats
-    const jueursOnline = Math.floor(Math.random() * (350 - 150 + 1) + 150);
-    const uptime = (99.5 + Math.random() * 0.3).toFixed(1);
-    const ping = Math.floor(Math.random() * (80 - 20 + 1) + 20);
-    
-    document.getElementById('joueurs-online').textContent = jueursOnline;
-    document.getElementById('uptime').textContent = uptime + '%';
-    document.getElementById('ping').textContent = ping + 'ms';
+// Active nav link on scroll
+function updateActiveNav() {
+    const sections = document.querySelectorAll('section[id]');
+    const scrollY = window.pageYOffset;
+
+    sections.forEach(current => {
+        const sectionHeight = current.offsetHeight;
+        const sectionTop = current.offsetTop - 200;
+        const sectionId = current.getAttribute('id');
+        const navLink = document.querySelector(`a[href="#${sectionId}"]`);
+
+        if (navLink) {
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                navLink.style.color = '#d4af37';
+            } else {
+                navLink.style.color = '#e8e8e8';
+            }
+        }
+    });
 }
 
-// Mettre à jour les stats toutes les 30 secondes
-setInterval(updateServerStats, 30000);
+window.addEventListener('scroll', updateActiveNav);
 
-// Effet de parallaxe
+// Effet parallax sur la bannière hero
+const heroContent = document.querySelector('.hero-content');
+const heroOverlay = document.querySelector('.hero-overlay');
+
 window.addEventListener('scroll', () => {
-    const bannerHero = document.querySelector('.banniere-hero');
-    if (bannerHero) {
-        const scrolled = window.pageYOffset;
-        bannerHero.style.backgroundPosition = `center ${scrolled * 0.5}px`;
+    const scrollY = window.scrollY;
+    if (heroContent) {
+        heroContent.style.transform = `translateY(${scrollY * 0.5}px)`;
     }
 });
 
-// Détection du support des animations
-function supportsAnimation() {
-    return window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+// Boutons interactifs
+document.querySelectorAll('button').forEach(button => {
+    button.addEventListener('click', function(e) {
+        // Effet ripple
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.classList.add('ripple');
+
+        this.appendChild(ripple);
+
+        setTimeout(() => ripple.remove(), 600);
+    });
+});
+
+// Compteurs animés pour les statistiques
+function animateCounter(element, target, duration = 2000) {
+    const start = 0;
+    const increment = target / (duration / 16);
+    let current = start;
+
+    const counter = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            element.textContent = target.toLocaleString();
+            clearInterval(counter);
+        } else {
+            element.textContent = Math.floor(current).toLocaleString();
+        }
+    }, 16);
 }
 
-// Gestion des erreurs de chargement des ressources
-window.addEventListener('error', (event) => {
-    if (event.filename && event.filename.includes('.mp3')) {
-        console.warn('Impossible de charger la musique de fond');
-    }
-}, true);
+// Observer pour les statistiques
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const stats = entry.target.querySelectorAll('.stat-number');
+            stats.forEach(stat => {
+                if (!stat.dataset.animated) {
+                    const target = parseInt(stat.textContent.replace(/\D/g, ''));
+                    animateCounter(stat, target);
+                    stat.dataset.animated = 'true';
+                }
+            });
+            statsObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
 
-// Fonction pour activer/désactiver le son
-function toggleAudio() {
-    const audio = document.querySelector('.musique-fond');
-    if (audio.paused) {
-        audio.play();
-    } else {
-        audio.pause();
-    }
+const heroStats = document.querySelector('.hero-stats');
+if (heroStats) {
+    statsObserver.observe(heroStats);
 }
 
-// Log pour déboguer
-console.log('✅ Nexaroth Servers - Script chargé avec succès');
-console.log('🎵 Musique de fond prête');
-console.log('🎮 Prêt pour l\'aventure !');
+// Dark mode toggle (optionnel)
+let isDarkMode = true;
+
+function toggleDarkMode() {
+    isDarkMode = !isDarkMode;
+    document.body.style.filter = isDarkMode ? 'none' : 'invert(1)';
+    localStorage.setItem('darkMode', isDarkMode);
+}
+
+// Charger la préférence de dark mode
+if (localStorage.getItem('darkMode') === 'false') {
+    isDarkMode = false;
+    document.body.style.filter = 'invert(1)';
+}
+
+// Gestion des clics sur les boutons principaux
+const btnSignup = document.querySelector('.btn-primary');
+if (btnSignup) {
+    btnSignup.addEventListener('click', function() {
+        console.log('Redirection vers la page d\'inscription');
+        // window.location.href = '/signup';
+    });
+}
+
+// Tooltip sur hover
+document.querySelectorAll('[data-tooltip]').forEach(element => {
+    element.addEventListener('mouseenter', function() {
+        const tooltip = document.createElement('div');
+        tooltip.className = 'tooltip';
+        tooltip.textContent = this.getAttribute('data-tooltip');
+        document.body.appendChild(tooltip);
+
+        const rect = this.getBoundingClientRect();
+        tooltip.style.top = (rect.top - tooltip.offsetHeight - 10) + 'px';
+        tooltip.style.left = (rect.left + rect.width / 2 - tooltip.offsetWidth / 2) + 'px';
+
+        setTimeout(() => tooltip.remove(), 2000);
+    });
+});
+
+// Service Worker pour PWA (optionnel)
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').catch(err => {
+        console.log('Service Worker registration failed:', err);
+    });
+}
+
+// Logger les événements de page
+window.addEventListener('load', () => {
+    console.log('✨ Bienvenue sur Mist of Pandaria Server! ✨');
+    console.log('Profitez de votre expérience de jeu épique!');
+});
+
+// Gestion des erreurs globales
+window.addEventListener('error', (e) => {
+    console.error('Erreur:', e.error);
+});
+
+// Performance monitoring
+if (window.performance && window.performance.timing) {
+    window.addEventListener('load', () => {
+        const perfData = window.performance.timing;
+        const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
+        console.log('Temps de chargement: ' + pageLoadTime + 'ms');
+    });
+}
