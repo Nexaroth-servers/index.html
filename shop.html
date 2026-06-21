@@ -13,6 +13,14 @@
   </header>
 
   <main>
+    <section id="auth">
+      <h2>Connexion (démo)</h2>
+      <p>Entrez un nom d'utilisateur pour obtenir un token (compte créé automatiquement si inconnu).</p>
+      <input id="username" placeholder="Nom d'utilisateur (ex: demo)">
+      <button id="btn-login" class="btn">Se connecter</button>
+      <p>Utilisateur connecté : <strong id="user-id">Aucun</strong></p>
+    </section>
+
     <section id="balance">
       <h2>Points</h2>
       <div>Solde Points Vote : <strong id="vote-balance">0</strong></div>
@@ -21,83 +29,105 @@
         <button id="simulate-vote" class="btn">Simuler vote (+10 points vote)</button>
         <button id="simulate-donate" class="btn">Simuler donation (+100 points donation)</button>
       </p>
-      <p class="note">Remarque : simulation locale — pour production, connectez le backend (voir instructions).</p>
+      <p class="note">Remarque : simulation locale → en production utilisez /webhook/vote et /webhook/donate depuis votre fournisseur (sites de vote/paiement).</p>
     </section>
 
     <section id="catalog">
       <h2>Catalogue</h2>
-      <div class="shop-grid">
-        <div class="item" data-price-vote="50" data-price-donate="0">
-          <h3>Monture Épique</h3>
-          <p>Prix : 50 points vote</p>
-          <button class="buy-vote btn">Acheter (vote)</button>
-        </div>
-
-        <div class="item" data-price-vote="0" data-price-donate="500">
-          <h3>Pack Donateur</h3>
-          <p>Prix : 500 points donation</p>
-          <button class="buy-donate btn">Acheter (donation)</button>
-        </div>
-
-        <!-- Ajouter d'autres articles ici -->
-      </div>
+      <div id="shop-grid" class="shop-grid"></div>
     </section>
 
     <section id="info">
       <h2>Intégration Backend</h2>
-      <p>Endpoints recommandés :</p>
-      <ul>
-        <li>GET /api/balance?user_id=... → { vote: number, donation: number }</li>
-        <li>POST /api/purchase → { user_id, item_id, method:'vote'|'donation' } → effectue la livraison</li>
-        <li>POST /api/vote-callback → (webhook) créditer points vote à l'utilisateur après vote externe</li>
-        <li>POST /api/donate-callback → (webhook/payment) créditer points donation après paiement</li>
-      </ul>
-      <p>La boutique fournie est statique : il faut un backend sicurisé pour stocker soldes, livrer objets et processeur de paiements.</p>
+      <p>Le backend est inclus sous /server. Lancer le serveur et modifier <code>.env</code> pour définir les secrets.</p>
     </section>
   </main>
 
   <script>
-    // Simulation client-side pour démonstration
-    let voteBalance = 0;
-    let donationBalance = 0;
+    const API_BASE = '/'; // si vous hébergez backend sur le même domaine/sous-dossier, adapter
+    let token = localStorage.getItem('nexaroth_token') || null;
+    let userId = localStorage.getItem('nexaroth_user') || null;
+
     const voteEl = document.getElementById('vote-balance');
     const donateEl = document.getElementById('donation-balance');
+    const userIdEl = document.getElementById('user-id');
 
-    function renderBalances() {
-      voteEl.textContent = voteBalance;
-      donateEl.textContent = donationBalance;
+    function setAuth(t, u) {
+      token = t; userId = u;
+      if (t) localStorage.setItem('nexaroth_token', t); else localStorage.removeItem('nexaroth_token');
+      if (u) localStorage.setItem('nexaroth_user', u); else localStorage.removeItem('nexaroth_user');
+      userIdEl.textContent = u || 'Aucun';
+      if (t) fetchBalance();
+      fetchItems();
     }
 
-    document.getElementById('simulate-vote').addEventListener('click', () => {
-      voteBalance += 10; renderBalances();
-    });
-    document.getElementById('simulate-donate').addEventListener('click', () => {
-      donationBalance += 100; renderBalances();
-    });
-
-    document.querySelectorAll('.buy-vote').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const item = e.target.closest('.item');
-        const price = parseInt(item.dataset.priceVote || item.getAttribute('data-price-vote'));
-        if (voteBalance >= price) {
-          voteBalance -= price; renderBalances();
-          alert('Achat effectué (simulation). Intégrer POST /api/purchase pour production.');
-        } else alert('Solde vote insuffisant.');
+    document.getElementById('btn-login').addEventListener('click', async () => {
+      const username = document.getElementById('username').value.trim();
+      if (!username) return alert('Entrez un nom d\'utilisateur');
+      const res = await fetch(API_BASE + 'api/login', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ username })
       });
+      const data = await res.json();
+      if (data.token) setAuth(data.token, data.user_id);
+      else alert('Erreur connexion');
     });
 
-    document.querySelectorAll('.buy-donate').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const item = e.target.closest('.item');
-        const price = parseInt(item.dataset.priceDonate || item.getAttribute('data-price-donate'));
-        if (donationBalance >= price) {
-          donationBalance -= price; renderBalances();
-          alert('Achat effectué (simulation). Intégrer POST /api/purchase pour production.');
-        } else alert('Solde donation insuffisant.');
+    async function fetchBalance() {
+      if (!token) return;
+      const res = await fetch(API_BASE + 'api/balance', { headers: { Authorization: 'Bearer ' + token }});
+      if (res.ok) {
+        const d = await res.json(); voteEl.textContent = d.vote; donateEl.textContent = d.donation;
+      } else {
+        voteEl.textContent = '0'; donateEl.textContent = '0';
+      }
+    }
+
+    async function fetchItems() {
+      const res = await fetch(API_BASE + 'api/items');
+      const items = await res.json();
+      const grid = document.getElementById('shop-grid'); grid.innerHTML = '';
+      items.forEach(it => {
+        const div = document.createElement('div'); div.className = 'item';
+        div.innerHTML = `<h3>${it.name}</h3><p>${it.description}</p><p>Prix vote: ${it.price_vote} | donation: ${it.price_donate}</p>`;
+        const btnVote = document.createElement('button'); btnVote.textContent = 'Acheter (vote)'; btnVote.className='btn';
+        btnVote.addEventListener('click', () => purchase(it.id, 'vote'));
+        const btnDonate = document.createElement('button'); btnDonate.textContent = 'Acheter (donation)'; btnDonate.className='btn';
+        btnDonate.addEventListener('click', () => purchase(it.id, 'donation'));
+        div.appendChild(btnVote); div.appendChild(btnDonate);
+        grid.appendChild(div);
       });
+    }
+
+    async function purchase(itemId, method) {
+      if (!token) return alert('Veuillez d\'abord vous connecter');
+      const res = await fetch(API_BASE + 'api/purchase', {
+        method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token }, body: JSON.stringify({ item_id: itemId, method })
+      });
+      const data = await res.json();
+      if (res.ok) { alert('Achat effectué'); fetchBalance(); }
+      else alert('Erreur: ' + (data.error||''));
+    }
+
+    // Simulations locales qui appellent les webhooks du backend pour créditer via token de webhook (pour demo uniquement)
+    document.getElementById('simulate-vote').addEventListener('click', async () => {
+      const tokenWebhook = prompt('Entrez le token webhook (pour demo: voir server/.env.example)');
+      if (!tokenWebhook) return;
+      if (!userId) return alert('Connectez-vous et récupérez votre user_id');
+      const res = await fetch(API_BASE + 'webhook/vote', { method:'POST', headers: {'Content-Type':'application/json','x-webhook-token': tokenWebhook}, body: JSON.stringify({ user_id: userId, amount: 10 })});
+      if (res.ok) { alert('Points vote crédités'); fetchBalance(); } else alert('Erreur crédit');
     });
 
-    renderBalances();
+    document.getElementById('simulate-donate').addEventListener('click', async () => {
+      const tokenWebhook = prompt('Entrez le token webhook (pour demo: voir server/.env.example)');
+      if (!tokenWebhook) return;
+      if (!userId) return alert('Connectez-vous et récupérez votre user_id');
+      const res = await fetch(API_BASE + 'webhook/donate', { method:'POST', headers: {'Content-Type':'application/json','x-webhook-token': tokenWebhook}, body: JSON.stringify({ user_id: userId, amount: 100 })});
+      if (res.ok) { alert('Points donation crédités'); fetchBalance(); } else alert('Erreur crédit');
+    });
+
+    // Init
+    if (token && userId) setAuth(token, userId);
+    fetchItems();
   </script>
 </body>
 </html>
