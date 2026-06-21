@@ -1,456 +1,322 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>NEXAROTH | Mist of Pandaria 5.4.8</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-:root{
-    --gold:#d9b86c;
-    --jade:#6fd3a0;
-    --jade-dark:#295946;
-    --dark:#05080d;
-    --panel:rgba(10,18,15,.82);
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:'Cinzel',serif;
-    background:#000;
-    color:white;
-    overflow-x:hidden;
-}
-
-/* ==========================
-   FOND PANDARIA
-========================== */
-
-.bg{
-    position:fixed;
-    inset:0;
-    background:
-    linear-gradient(
-    rgba(0,0,0,.25),
-    rgba(0,0,0,.80)),
-    url("pandaria.jpg");
-
-    background-size:cover;
-    background-position:center;
-    z-index:-5;
-
-    animation:bgZoom 40s ease-in-out infinite alternate;
-}
-
-@keyframes bgZoom{
-    from{
-        transform:scale(1);
-    }
-    to{
-        transform:scale(1.08);
-    }
-}
-
-/* ==========================
-   BRUME
-========================== */
-
-.fog{
-    position:fixed;
-    inset:0;
-
-    background:
-    radial-gradient(
-    circle,
-    rgba(255,255,255,.08),
-    transparent 70%);
-
-    z-index:-4;
-
-    animation:fogMove 18s ease-in-out infinite alternate;
-}
-
-@keyframes fogMove{
-    from{
-        transform:translateX(-60px);
-    }
-    to{
-        transform:translateX(60px);
-    }
-}
-
-/* ==========================
-   NAVBAR
-========================== */
-
-.navbar{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:18px 40px;
-
-    background:rgba(0,0,0,.55);
-    backdrop-filter:blur(10px);
-
-    border-bottom:1px solid rgba(255,255,255,.08);
-
-    z-index:9999;
-}
-
-.logo{
-    font-size:38px;
-    font-weight:700;
-
-    color:var(--gold);
-
-    text-shadow:
-    0 0 10px var(--gold),
-    0 0 20px rgba(217,184,108,.5);
-}
-
-.nav-links{
-    display:flex;
-    gap:24px;
-}
-
-.nav-links a{
-    color:white;
-    text-decoration:none;
-    transition:.3s;
-}
-
-.nav-links a:hover{
-    color:var(--jade);
-
-    text-shadow:
-    0 0 12px var(--jade);
-}
-
-/* ==========================
-   HERO
-========================== */
-
-.hero{
-    height:100vh;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-    padding:20px;
-}
-
-.hero-content{
-    max-width:1000px;
-}
-
-.hero h1{
-    font-size:140px;
-    color:var(--gold);
-
-    text-shadow:
-    0 0 15px var(--gold),
-    0 0 35px rgba(217,184,108,.6);
-}
-
-.hero h2{
-    font-size:42px;
-    color:var(--jade);
-
-    margin-bottom:20px;
-}
-
-.hero p{
-    font-size:22px;
-    margin-bottom:30px;
-}
-
-/* ==========================
-   BOUTONS
-========================== */
-
-.btn{
-    display:inline-block;
-
-    padding:16px 34px;
-    margin:10px;
-
-    border-radius:10px;
-    text-decoration:none;
-
-    transition:.3s;
-}
-
-.btn-gold{
-    background:
-    linear-gradient(
-    #e6cb86,
-    #8e6326);
-
-    color:white;
-}
-
-.btn-jade{
-    background:
-    linear-gradient(
-    #72d5a5,
-    #275846);
-
-    color:white;
-}
-
-.btn:hover{
-    transform:translateY(-3px);
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="bg"></div>
-<div class="fog"></div>
-
-<header class="navbar">
-
-<div class="logo">
-NEXAROTH
-</div>
-
-<nav class="nav-links">
-
-<a href="#downloads">Téléchargements</a>
-
-<a href="#armurerie">Armurerie</a>
-
-<a href="#pvp">Classements</a>
-
-<a href="#boutique">Boutique</a>
-
-<a href="#discord">Discord</a>
-
-</nav>
-
-</header>
-
-<section class="hero">
-
-<div class="hero-content">
-
-<h1>NEXAROTH</h1>
-
-<h2>Mist of Pandaria 5.4.7</h2>
-
-<p>
-XP x5 • Réputation x5 • Drop x5 • Métiers x5
-</p>
-
-<a href="#downloads" class="btn btn-gold">
-📥 Télécharger
-</a>
-
-<a href="https://discord.gg/zcH3JXHeuQ"
-class="btn btn-jade"
-target="_blank">
-🎮 Rejoindre Discord
-</a>
-
-</div>
-
-</section>
-
- <!-- ==========================
-     SECTION ROYAUME
-========================== -->
-
-<section class="realm-section" id="royaume">
-
-<h2 class="section-title">
-🌿 Royaume NEXAROTH
-</h2>
-
-<div class="cards-grid">
-
-<div class="realm-card">
-
-<h3>⚔ Version</h3>
-
-<p>World of Warcraft</p>
-<p>Mist of Pandaria 5.4.8</p>
-
-</div>
-
-<div class="realm-card">
-
-<h3>📈 Rates</h3>
-
-<p>XP x5</p>
-<p>Réputation x5</p>
-<p>Drop x5</p>
-<p>Métiers x5</p>
-
-</div>
-
-<div class="realm-card">
-
-<h3>🌐 Royaume</h3>
-
-<p>Ouvert 24/7</p>
-<p>Uptime 99.99%</p>
-
-<p>
-Joueurs en ligne :
-<span id="onlinePlayers">352</span>
-</p>
-
-</div>
-
-<div class="realm-card">
-
-<h3>📡 Realmlist</h3>
-
-<input
-id="realmlist"
-value="set realmlist logon.nexaroth.com"
-readonly>
-
-<button onclick="copyRealm()">
-Copier le Realmlist
-</button>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ==========================
-     TELECHARGEMENTS
-========================== -->
-
-<section
-class="download-section"
-id="downloads">
-
-<h2 class="section-title">
-
-📥 Téléchargements
-
-</h2>
-
-<div class="download-grid">
-
-<a href="#"
-class="download-card">
-
-<div class="flag">
-🇫🇷
-</div>
-
-<h3>Client Français</h3>
-
-<p>Version complète</p>
-
-</a>
-
-<a href="#"
-class="download-card">
-
-<div class="flag">
-🇬🇧
-</div>
-
-<h3>Client English</h3>
-
-<p>Full Client</p>
-
-</a>
-
-<a href="#"
-class="download-card">
-
-<div class="flag">
-🇪🇸
-</div>
-
-<h3>Cliente Español</h3>
-
-<p>Versión completa</p>
-
-</a>
-
-<a href="#"
-class="download-card">
-
-<div class="flag">
-🇷🇺
-</div>
-
-<h3>Русский Клиент</h3>
-
-<p>Полный клиент</p>
-
-</a>
-
-</div>
-
-</section>
-
-<!-- ==========================
-     DISCORD PREMIUM
-========================== -->
-
-<section
-class="discord-premium"
-id="discord">
-
-<div class="discord-box">
-
-<h2>
-🎮 REJOIGNEZ LA COMMUNAUTÉ
-</h2>
-
-<p>
-
-Des centaines de joueurs vous attendent.
-
-Trouvez votre guilde,
-participez aux événements,
-recevez les dernières annonces
-et échangez directement avec le staff.
-
-</p>
-
-<a
-href="https://discord.gg/zcH3JXHeuQ"
-target="_blank"
-class="discord-btn">
-
-REJOINDRE DISCORD
-
-</a>
-
-</div>
-
-</section>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXAROTH | Mist of Pandaria 5.4.8</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ==========================================================================
+           VARIABLES GLOBALES & CONFIGURATION
+           ========================================================================== */
+        :root {
+            --gold: #d9b86c;
+            --gold-gradient: linear-gradient(#e6cb86, #8e6326);
+            --jade: #6fd3a0;
+            --jade-dark: #295946;
+            --jade-gradient: linear-gradient(#72d5a5, #275846);
+            --panel: rgba(10, 18, 15, 0.82);
+            --border-light: rgba(111, 211, 160, 0.15);
+            --radius-standard: 10px;
+            
+            /* Animations */
+            --transition-fast: all 0.3s ease;
+            --animation-fade-in: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cinzel', serif;
+            background: #000;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* ==========================================================================
+           EFFETS DE FOND (ANIMATIONS ATMOSPHÉRIQUES)
+           ========================================================================== */
+        .bg {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.80)), url("pandaria.jpg");
+            background-size: cover;
+            background-position: center;
+            z-index: -5;
+            animation: bgZoom 40s ease-in-out infinite alternate;
+        }
+
+        .fog {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.08), transparent 70%);
+            z-index: -4;
+            animation: fogMove 18s ease-in-out infinite alternate;
+        }
+
+        @keyframes bgZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.08); }
+        }
+
+        @keyframes fogMove {
+            from { transform: translateX(-60px); }
+            to { transform: translateX(60px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ==========================================================================
+           NAVBAR
+           ========================================================================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 40px;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            z-index: 9999;
+        }
+
+        .logo {
+            font-size: 38px;
+            font-weight: 700;
+            color: var(--gold);
+            text-shadow: 0 0 10px var(--gold), 0 0 20px rgba(217, 184, 108, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        .nav-links a:hover {
+            color: var(--jade);
+            text-shadow: 0 0 12px var(--jade);
+        }
+
+        /* ==========================================================================
+           HERO SECTION
+           ========================================================================== */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            opacity: 0;
+            animation: var(--animation-fade-in);
+            animation-delay: 0.1s;
+        }
+
+        .hero h1 {
+            font-size: 140px;
+            color: var(--gold);
+            text-shadow: 0 0 15px var(--gold), 0 0 35px rgba(217, 184, 108, 0.6);
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            color: var(--jade);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 22px;
+            margin-bottom: 30px;
+        }
+
+        /* BOUTONS GENERIQUES */
+        .btn {
+            display: inline-block;
+            padding: 16px 34px;
+            margin: 10px;
+            border-radius: var(--radius-standard);
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        .btn-gold { background: var(--gold-gradient); color: white; }
+        .btn-jade { background: var(--jade-gradient); color: white; }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        /* ==========================================================================
+           LAYOUTS COMMUNS DES SECTIONS
+           ========================================================================== */
+        .realm-section, .download-section, .discord-premium {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 40px 20px;
+            opacity: 0;
+            animation: var(--animation-fade-in);
+        }
+
+        .section-title {
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 30px;
+            border-left: 4px solid var(--jade);
+            padding-left: 15px;
+        }
+
+        .cards-grid, .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        /* ==========================================================================
+           SECTION ROYAUME (RATES & REALMLIST)
+           ========================================================================== */
+        .realm-section { animation-delay: 0.2s; }
+
+        .realm-card {
+            background: var(--panel);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-standard);
+            padding: 25px;
+            text-align: center;
+            transition: var(--transition-fast);
+        }
+
+        .realm-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--jade);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .realm-card h3 {
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .realm-card p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #e2e8f0;
+        }
+
+        .realm-card span {
+            color: var(--jade);
+            font-weight: bold;
+            text-shadow: 0 0 8px rgba(111, 211, 160, 0.4);
+        }
+
+        #realmlist {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--jade);
+            padding: 10px;
+            text-align: center;
+            border-radius: 6px;
+            font-family: monospace;
+            margin-bottom: 15px;
+        }
+
+        .realm-card button {
+            background: var(--jade-gradient);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'Cinzel', serif;
+            transition: var(--transition-fast);
+        }
+
+        .realm-card button:hover {
+            transform: scale(1.05);
+        }
+
+        /* ==========================================================================
+           SECTION TELECHARGEMENTS
+           ========================================================================== */
+        .download-section { animation-delay: 0.3s; }
+
+        .download-card {
+            background: var(--panel);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-standard);
+            padding: 30px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            transition: var(--transition-fast);
+        }
+
+        .download-card:hover {
+            transform: scale(1.03);
+            border-color: var(--gold);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        .download-card .flag {
+            font-size: 40px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .download-card h3 {
+            color: var(--gold);
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .download-card p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* ==========================================================================
+           SECTION DISCORD
+           ========================================================================== */
+        .discord-premium { animation-delay: 0.4s; }
+
+        .discord-box {
+            background: linear-gradient(135deg, rgba(41, 89, 70, 0.2) 0%, rgba(10, 18, 15, 0.9) 100%);
+            border: 1px solid var(--jade);
+            border-radius: var(--radius-standard);
+            padding: 50px 30px;
+            text-align: center;
