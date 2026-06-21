@@ -1,17 +1,81 @@
-/* section statut du serveur */
+/* ==========================================================================
+   VARIABLES GLOBALES (Thème Sombre par défaut)
+   ========================================================================== */
+:root {
+    /* Couleurs principales */
+    --bg-primary: #0d1b2a;
+    --bg-secondary: #1a324a;
+    --accent-color: #4cb5ff;
+    --text-muted: #718096;
+    --text-light: #ffffff;
+    --status-online: #48bb78;
+
+    /* Opacités & Bordures */
+    --border-light: rgba(76, 181, 255, 0.1);
+    --border-medium: rgba(76, 181, 255, 0.2);
+    --radius-standard: 6px;
+    
+    /* Gradients */
+    --gradient-download: linear-gradient(135deg, rgba(26, 50, 74, 0.3) 0%, rgba(13, 27, 42, 0.5) 100%);
+    
+    /* Transitions et Animations */
+    --transition-fast: all 0.3s ease;
+    --animation-fade-in: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ==========================================================================
+   ANIMATIONS KINETIQUES (Définition de l'effet d'entrée)
+   ========================================================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   THÈME CLAIR (S'active automatiquement selon le système)
+   ========================================================================== */
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg-primary: #f7fafc;
+        --bg-secondary: #edf2f7;
+        --accent-color: #0076cb;
+        --text-muted: #4a5568;
+        --text-light: #1a202c;
+        --status-online: #38a169;
+        
+        --border-light: rgba(0, 118, 203, 0.15);
+        --border-medium: rgba(0, 118, 203, 0.25);
+        
+        --gradient-download: linear-gradient(135deg, rgba(237, 242, 247, 0.8) 0%, rgba(247, 250, 252, 0.9) 100%);
+    }
+}
+
+/* ==========================================================================
+   SECTION : STATUT DU SERVEUR
+   ========================================================================== */
 .server-status {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 20px;
-    background: rgba(13, 27, 42, 0.4);
-    border: 1px solid rgba(76, 181, 255, 0.1);
-    border-radius: 6px;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     gap: 20px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
     text-align: center;
+    background: var(--bg-secondary);
+    opacity: 0; /* Commencer invisible pour l'animation */
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-standard);
     
+    /* Application de l'animation */
+    animation: var(--animation-fade-in);
+    animation-delay: 0.1s; /* Apparaît en premier */
 }
 
 .status-item {
@@ -20,39 +84,46 @@
 }
 
 .status-label {
+    margin-bottom: 5px;
     font-size: 13px;
     text-transform: uppercase;
-    color: #718096;
     letter-spacing: 1px;
-    margin-bottom: 5px;
+    color: var(--text-muted);
 }
 
 .status-value {
     font-size: 24px;
     font-weight: bold;
-    color: #fff;
+    color: var(--text-light);
 }
 
 .status-online {
-    color: #48bb78;
+    color: var(--status-online);
     text-shadow: 0 0 10px rgba(72, 187, 120, 0.4);
 }
 
-/* section actualités */
+/* ==========================================================================
+   SECTION : ACTUALITÉS
+   ========================================================================== */
 .news-section {
     max-width: 1200px;
     margin: 60px auto;
     padding: 0 20px;
+    opacity: 0;
+    
+    /* Application de l'animation avec un léger retard */
+    animation: var(--animation-fade-in);
+    animation-delay: 0.2s;
 }
 
 .section-title {
+    margin-bottom: 30px;
+    padding-left: 15px;
     font-size: 24px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #fff;
-    margin-bottom: 30px;
-    border-left: 4px solid #4cb5ff;
-    padding-left: 15px;
+    color: var(--text-light);
+    border-left: 4px solid var(--accent-color);
 }
 
 .news-grid {
@@ -62,16 +133,17 @@
 }
 
 .news-card {
-    background: rgba(13, 27, 42, 0.6);
-    border: 1px solid rgba(26, 50, 74, 0.6);
-    border-radius: 6px;
     overflow: hidden;
-    transition: transform 0.3s ease;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-standard);
+    transition: var(--transition-fast);
 }
 
 .news-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(76, 181, 255, 0.4);
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .news-content {
@@ -79,26 +151,40 @@
 }
 
 .news-date {
-    font-size: 12px;
-    color: #4cb5ff;
     margin-bottom: 8px;
+    font-size: 12px;
+    color: var(--accent-color);
 }
 
 .news-title {
-    font-size: 18px;
-    color: #fff;
     margin: 0 0 10px 0;
+    font-size: 18px;
+    color: var(--text-light);
 }
 
-/* section téléchargements */
+/* ==========================================================================
+   SECTION : TÉLÉCHARGEMENTS
+   ========================================================================== */
 .download-section {
     max-width: 800px;
     margin: 60px auto;
     padding: 40px 20px;
-    background: linear-gradient(135deg, rgba(26, 50, 74, 0.3) 0%, rgba(13, 27, 42, 0.5) 100%);
-    border: 1px solid rgba(76, 181, 255, 0.2);
-    border-radius: 6px;
     text-align: center;
+    background: var(--gradient-download);
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-standard);
+    transition: var(--transition-fast);
+    opacity: 0;
+    
+    /* Application de l'animation avec un retard plus long */
+    animation: var(--animation-fade-in);
+    animation-delay: 0.3s; /* Apparaît en dernier */
+}
+
+.download-section:hover {
+    transform: scale(1.01);
+    border-color: var(--accent-color);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
 }
 
 .download-steps {
@@ -107,124 +193,4 @@
     gap: 15px;
     margin-top: 25px;
     text-align: left;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
 }
-
-.step {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    background: rgba(2, 6, 17, 0.5);
-    padding: 15px;
-    border-radius: 4px;
-    border-left: 3px solid #f6ad55;
-}
-
-.step-number {
-    font-size: 20px;
-    font-weight: bold;
-    color: #f6ad55;
-}
-.discord-banner{
-text-align:center;
-padding:60px 40px;
-background:linear-gradient(
-135deg,
-rgba(12,32,58,.95),
-rgba(0,0,0,.85)
-);
-border:1px solid rgba(76,181,255,.4);
-box-shadow:
-0 0 30px rgba(76,181,255,.2),
-inset 0 0 50px rgba(76,181,255,.05);
-}
-
-.discord-icon{
-font-size:70px;
-margin-bottom:20px;
-animation:pulseDiscord 2s infinite;
-}
-
-.discord-banner h2{
-font-size:38px;
-color:#4cb5ff;
-margin-bottom:20px;
-text-shadow:
-0 0 10px #4cb5ff,
-0 0 20px #4cb5ff;
-}
-
-.discord-buttons{
-margin-top:30px;
-display:flex;
-justify-content:center;
-gap:15px;
-flex-wrap:wrap;
-}
-
-@keyframes pulseDiscord{
-0%{transform:scale(1);}
-50%{transform:scale(1.1);}
-100%{transform:scale(1);}
-}
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEXAROTH</title>
-
-<style>
-
-/* Tes styles existants */
-body{
-    margin:0;
-    padding:0;
-}
-
-/* Autres styles... */
-.bg-image{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:
-        linear-gradient(rgba(0,0,0,.25),rgba(2,6,17,.85)),
-        url('pandaria.jpg');
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-    z-index:-2;
-    animation:zoomBg 30s ease-in-out infinite alternate;
-}
-
-@keyframes zoomBg{
-    from{
-        transform:scale(1);
-    }
-    to{
-        transform:scale(1.05);
-    }
-}
-
-/* ===== États du Royaume ===== */
-
-.realm-status{
-    max-width:600px;
-    margin:20px auto;
-    padding:20px;
-    background:rgba(0,0,0,0.6);
-    border:1px solid #00ccff;
-    border-radius:10px;
-    text-align:center;
-    color:white;
-}
-
-.realm-status p{
-    margin:10px 0;
-    font-size:18px;
-}
-
-</style>
-</head>
