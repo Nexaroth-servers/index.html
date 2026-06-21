@@ -64,48 +64,108 @@
     document.getElementById('btn-login').addEventListener('click', async () => {
       const username = document.getElementById('username').value.trim();
       if (!username) return alert('Entrez un nom d\'utilisateur');
-      const res = await fetch(API_BASE + 'api/login', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ username })
-      });
-      const data = await res.json();
-      if (data.token) setAuth(data.token, data.user_id);
-      else alert('Erreur connexion');
+      try {
+        const res = await fetch(API_BASE + 'api/login', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ username })
+        });
+        if (!res.ok) throw new Error('API login failed');
+        const data = await res.json();
+        if (data.token) setAuth(data.token, data.user_id);
+        else alert('Erreur connexion');
+      } catch (err) {
+        // Fallback demo: create a local token
+        const demoToken = 'demo-' + Math.random().toString(36).slice(2,10);
+        setAuth(demoToken, username);
+        alert('Mode démo activé (backend indisponible).');
+      }
     });
 
     async function fetchBalance() {
       if (!token) return;
-      const res = await fetch(API_BASE + 'api/balance', { headers: { Authorization: 'Bearer ' + token }});
-      if (res.ok) {
-        const d = await res.json(); voteEl.textContent = d.vote; donateEl.textContent = d.donation;
-      } else {
-        voteEl.textContent = '0'; donateEl.textContent = '0';
+      try {
+        const res = await fetch(API_BASE + 'api/balance', { headers: { Authorization: 'Bearer ' + token }});
+        if (res.ok) {
+          const d = await res.json(); voteEl.textContent = d.vote; donateEl.textContent = d.donation;
+        } else {
+          voteEl.textContent = '0'; donateEl.textContent = '0';
+        }
+      } catch (e) {
+        // backend down -> demo balances
+        voteEl.textContent = localStorage.getItem('demo_vote') || '100';
+        donateEl.textContent = localStorage.getItem('demo_donate') || '500';
       }
     }
 
+    // Default catalog items (used when backend/api unavailable)
+    const defaultItems = [
+      { id: 'mount_flying_1', name: 'Monture Volante - Griffon Arcanique', description: 'Monture volante rare pour parcourir les cieux de Northrend.', price_vote: 120, price_donate: 1200, category: 'monture', subtype: 'volante' },
+      { id: 'mount_ground_1', name: 'Monture Terrestre - Destrier Runique', description: 'Monture terrestre rapide et robuste.', price_vote: 80, price_donate: 800, category: 'monture', subtype: 'terrestre' },
+      { id: 'transmog_1', name: 'Transmogrification - Armure du Chevalier', description: 'Apparence rare (transmog) pour votre armure.', price_vote: 60, price_donate: 600, category: 'transmog' },
+      { id: 'gold_pack_1', name: 'Pack Gold - 100k pièces', description: 'Ajoute 100,000 pièces d\'or à votre compte.', price_vote: 40, price_donate: 400, category: 'gold' },
+      { id: 'prof_craft_1', name: 'Service Métier - Reforge/Enchant', description: 'Service de forge/enchant pour vos équipements (gestion métier).', price_vote: 30, price_donate: 300, category: 'service' },
+      { id: 'material_bundle_1', name: 'Pack Matières - Bois/Peaux/Essences', description: 'Ressources utiles pour vos métiers.', price_vote: 25, price_donate: 250, category: 'material' }
+    ];
+
     async function fetchItems() {
-      const res = await fetch(API_BASE + 'api/items');
-      const items = await res.json();
+      // Attempt to fetch from API; on failure use defaultItems
+      try {
+        const res = await fetch(API_BASE + 'api/items');
+        if (!res.ok) throw new Error('API error');
+        const items = await res.json();
+        if (!items || !items.length) throw new Error('Empty');
+        renderItems(items);
+      } catch (e) {
+        // Use default catalog
+        renderItems(defaultItems);
+      }
+    }
+
+    function renderItems(items) {
       const grid = document.getElementById('shop-grid'); grid.innerHTML = '';
       items.forEach(it => {
-        const div = document.createElement('div'); div.className = 'item';
-        div.innerHTML = `<h3>${it.name}</h3><p>${it.description}</p><p>Prix vote: ${it.price_vote} | donation: ${it.price_donate}</p>`;
+        const div = document.createElement('div'); div.className = 'shop-item';
+        div.innerHTML = `
+          <div class="shop-item-inner">
+            <h3>${it.name}</h3>
+            <p class="muted">${it.category.toUpperCase()} ${it.subtype?('- '+it.subtype):''}</p>
+            <p class="desc">${it.description}</p>
+            <div class="prices">Prix vote: <strong>${it.price_vote}</strong> &nbsp;|&nbsp; donation: <strong>${it.price_donate}</strong></div>
+            <div class="shop-actions"></div>
+          </div>
+        `;
+        const actions = div.querySelector('.shop-actions');
         const btnVote = document.createElement('button'); btnVote.textContent = 'Acheter (vote)'; btnVote.className='btn';
         btnVote.addEventListener('click', () => purchase(it.id, 'vote'));
         const btnDonate = document.createElement('button'); btnDonate.textContent = 'Acheter (donation)'; btnDonate.className='btn';
         btnDonate.addEventListener('click', () => purchase(it.id, 'donation'));
-        div.appendChild(btnVote); div.appendChild(btnDonate);
+        actions.appendChild(btnVote); actions.appendChild(btnDonate);
         grid.appendChild(div);
       });
     }
 
     async function purchase(itemId, method) {
       if (!token) return alert('Veuillez d\'abord vous connecter');
-      const res = await fetch(API_BASE + 'api/purchase', {
-        method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token }, body: JSON.stringify({ item_id: itemId, method })
-      });
-      const data = await res.json();
-      if (res.ok) { alert('Achat effectué'); fetchBalance(); }
-      else alert('Erreur: ' + (data.error||''));
+      try {
+        const res = await fetch(API_BASE + 'api/purchase', {
+          method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token }, body: JSON.stringify({ item_id: itemId, method })
+        });
+        const data = await res.json();
+        if (res.ok) { alert('Achat effectué'); fetchBalance(); }
+        else alert('Erreur: ' + (data.error||''));
+      } catch (e) {
+        // Demo fallback: adjust demo balances
+        if (method === 'vote') {
+          const cur = parseInt(localStorage.getItem('demo_vote') || '100');
+          localStorage.setItem('demo_vote', Math.max(0, cur - 10));
+          alert('Achat simulé (mode demo).');
+          fetchBalance();
+        } else {
+          const cur = parseInt(localStorage.getItem('demo_donate') || '500');
+          localStorage.setItem('demo_donate', Math.max(0, cur - 50));
+          alert('Achat simulé (mode demo).');
+          fetchBalance();
+        }
+      }
     }
 
     // Simulations locales qui appellent les webhooks du backend pour créditer via token de webhook (pour demo uniquement)
@@ -113,16 +173,20 @@
       const tokenWebhook = prompt('Entrez le token webhook (pour demo: voir server/.env.example)');
       if (!tokenWebhook) return;
       if (!userId) return alert('Connectez-vous et récupérez votre user_id');
-      const res = await fetch(API_BASE + 'webhook/vote', { method:'POST', headers: {'Content-Type':'application/json','x-webhook-token': tokenWebhook}, body: JSON.stringify({ user_id: userId, amount: 10 })});
-      if (res.ok) { alert('Points vote crédités'); fetchBalance(); } else alert('Erreur crédit');
+      try {
+        const res = await fetch(API_BASE + 'webhook/vote', { method:'POST', headers: {'Content-Type':'application/json','x-webhook-token': tokenWebhook}, body: JSON.stringify({ user_id: userId, amount: 10 })});
+        if (res.ok) { alert('Points vote crédités'); fetchBalance(); } else alert('Erreur crédit');
+      } catch (e) { alert('Erreur: impossible de contacter le backend, en mode demo on crédite localement.'); const cur = parseInt(localStorage.getItem('demo_vote')||'100'); localStorage.setItem('demo_vote', cur+10); fetchBalance(); }
     });
 
     document.getElementById('simulate-donate').addEventListener('click', async () => {
       const tokenWebhook = prompt('Entrez le token webhook (pour demo: voir server/.env.example)');
       if (!tokenWebhook) return;
       if (!userId) return alert('Connectez-vous et récupérez votre user_id');
-      const res = await fetch(API_BASE + 'webhook/donate', { method:'POST', headers: {'Content-Type':'application/json','x-webhook-token': tokenWebhook}, body: JSON.stringify({ user_id: userId, amount: 100 })});
-      if (res.ok) { alert('Points donation crédités'); fetchBalance(); } else alert('Erreur crédit');
+      try {
+        const res = await fetch(API_BASE + 'webhook/donate', { method:'POST', headers: {'Content-Type':'application/json','x-webhook-token': tokenWebhook}, body: JSON.stringify({ user_id: userId, amount: 100 })});
+        if (res.ok) { alert('Points donation crédités'); fetchBalance(); } else alert('Erreur crédit');
+      } catch (e) { alert('Erreur: impossible de contacter le backend, en mode demo on crédite localement.'); const cur = parseInt(localStorage.getItem('demo_donate')||'500'); localStorage.setItem('demo_donate', cur+100); fetchBalance(); }
     });
 
     // Init
